@@ -2,7 +2,7 @@
   <!-- Header -->
   <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-2">
     <div class="flex items-center">
-        <h1 class="text-white text-xl font-bold mr-4">
+        <h1 class="text-white text-xl font-barlow font-bold mr-4">
             {{ $logo ?? 'Company Name' }}
         </h1>
     </div>
