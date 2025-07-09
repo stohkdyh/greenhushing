@@ -31,25 +31,7 @@
         <a href="#support" class="hover:underline">Support</a>
         <x-icon.user />
         <x-icon.shopping-basket />
-        <div x-data="{ checked: false }" class="flex items-center space-x-2 text-xs">
-            <span :class="{ 'text-gray-400': checked, 'text-black': !checked }">EN</span>
-
-            <div class="w-[51px] h-[31px] relative">
-                <input type="checkbox" id="lang-toggle" x-model="checked" class="sr-only">
-
-                <label for="lang-toggle"
-                      class="block w-full h-full bg-gray-200 rounded-full cursor-pointer transition-colors duration-200"
-                      :class="{ 'bg-green-500': checked }">
-                    <div class="absolute w-[27px] h-[27px] top-[2px] rounded-full shadow transition-all duration-200 overflow-hidden"
-                        :style="checked ? 'left:22px' : 'left:2px'">
-                        <img :src="checked ? '/images/flag_id.png' : '/images/flag_en.png'"
-                            alt="Lang Flag" class="w-full h-full object-cover rounded-full">
-                    </div>
-                </label>
-            </div>
-
-            <span :class="{ 'text-black': checked, 'text-gray-400': !checked }">ID</span>
-        </div>
+        <x-languange-switch class="hidden md:flex"/>
       </div>
 
       <!-- Mobile: Switch + Hamburger -->
