@@ -19,6 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); 
 
+Route::view('/aerophone', 'companies.aerophone');
+Route::view('/aeraphone/product', 'products.aeraphone-hp');
+
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
         Session::put('locale', $locale);
