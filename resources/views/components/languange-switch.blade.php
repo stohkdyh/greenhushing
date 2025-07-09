@@ -6,8 +6,7 @@
             @change="window.location.href = checked ? '/lang/id' : '/lang/en'" class="sr-only">
 
         <label for="lang-toggle"
-            class="block w-full h-full bg-gray-200 rounded-full cursor-pointer transition-colors duration-200"
-            :class="{ 'bg-green-500': checked }">
+            class="block w-full h-full bg-gray-200 rounded-full cursor-pointer transition-colors duration-200">
             <div class="absolute w-[27px] h-[27px] top-[2px] rounded-full shadow transition-all duration-200 overflow-hidden"
                 :style="checked ? 'left:22px' : 'left:2px'">
                 <img :src="checked ? '/images/flag_id.png' : '/images/flag_en.png'" alt="Lang Flag"
