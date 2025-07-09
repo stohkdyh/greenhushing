@@ -9,6 +9,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/xarelonphone', function () {
+    return view('pages.xarelonphone');
+});
+Route::view('/xarelonphone', 'companies.xarelonphone');
+Route::view('/xarelonphone7', 'companies.xarelonphone7');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
