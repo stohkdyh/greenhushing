@@ -10,7 +10,7 @@
 </head>
 
 <body
-    class="bg-[url('C:\Users\ASUS\Herd\greenhushing\public\images\welcome_bg.jpg')] bg-no-repeat bg-center bg-cover text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+    class="bg-[url('C:\Users\ASUS\Herd\greenhushing\public\images\welcome_bg.jpg')] bg-no-repeat bg-center bg-cover text-[#1b1b18] flex items-center min-h-screen flex-col">
     {{-- <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
@@ -41,18 +41,57 @@
             @endif
         </header> --}}
     <div
-        class="bg-white bg-opacity-40 backdrop-blur-md flex items-center w-fit h-fit gap-6 px-5 py-3 rounded-full border-white border-[0.05rem]">
-        <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-16 h-16 lg:w-20 lg:h-20">
-        <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-16 h-16 lg:w-20 lg:h-20">
+        class="bg-white bg-opacity-40 backdrop-blur-md flex items-center w-fit h-fit gap-3 px-4 py-2 mb-12 rounded-full border-white shadow-lg absolute top-8 z-10">
+        <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-14 h-14">
+        <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-14 h-14">
     </div>
+    <x-languange-switch class="w-full h-full" />
     <div
-        class="bg-white bg-opacity-40 backdrop-blur-md flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
+        class="bg-white bg-opacity-40 backdrop-blur-md flex items-center justify-center w-[55%] transition-opacity opacity-100 duration-750 starting:opacity-0 rounded-3xl shadow-2xl p-8 my-auto">
         <div class="flex flex-col items-center justify-center w-full max-w-4xl">
-            <h1 class="text-3xl lg:text-5xl font-bold mb-4 text-center">Welcome to GreenHushing</h1>
-            <p class="text-lg lg:text-xl text-center mb-6">Your journey towards sustainable living starts here.</p>
+            <h1 class="text-3xl lg:text-4xl font-bold mb-2 text-center">{{ __('Welcome') }}</h1>
+            <p class="text-lg lg:text-xl text-center mb-3">{{ __('Complete Your Personal Data') }}</p>
+            <div class="w-full grid grid-cols-2 gap-6 px-12">
+                <div>
+                    <x-input-label for="name" :value="__('Name')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Name') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+                <div>
+                    <x-input-label for="name" :value="__('Last Education')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Last Education') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('last_education')" class="mt-2" />
+                </div>
+                <div>
+                    <x-input-label for="name" :value="__('Gender')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Gender') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+                </div>
+                <div>
+                    <x-input-label for="name" :value="__('Domicile')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Domicile') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('domicile')" class="mt-2" />
+                </div>
+                <div>
+                    <x-input-label for="name" :value="__('Age')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Age') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('age')" class="mt-2" />
+                </div>
+                <div>
+                    <x-input-label for="name" :value="__('Monthly income')" />
+                    <x-text-input id="name" name="name" type="text" placeholder="{{ __('Monthly income') }}"
+                        class="w-full" autocomplete="off" required autofocus />
+                    <x-input-error :messages="$errors->get('monthly_income')" class="mt-2" />
+                </div>
+            </div>
             <a href="{{ route('login') }}"
-                class="inline-block px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                Get Started
+                class="inline-block mt-10 px-12 py-2 bg-[#303F8E] text-white rounded-3xl hover:bg-[#263272] transition-colors">
+                Login
             </a>
         </div>
     </div>
