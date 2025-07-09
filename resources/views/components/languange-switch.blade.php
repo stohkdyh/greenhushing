@@ -1,4 +1,4 @@
-<div x-data="{ checked: '{{ app()->getLocale() === 'id' ? 'true' : 'false' }}' === 'true' }" class="font-montserrat flex items-center space-x-2">
+<div x-data="{ checked: '{{ app()->getLocale() === 'id' ? 'true' : 'false' }}' === 'true' }" class="font-montserrat flex items-center space-x-2 absolute right-0 top-0 px-4">
     <span :class="{ 'text-gray-400 font-semibold': checked, 'text-black font-semibold': !checked }">EN</span>
 
     <div class="w-[51px] h-[31px] relative">
