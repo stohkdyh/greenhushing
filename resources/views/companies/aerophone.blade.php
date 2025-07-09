@@ -1,13 +1,32 @@
 <x-company-layout logo="AERAPHONE">
     <div class="absolute inset-0 z-0">
-        <div class="w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/background.jpg') }}')"></div>
+        <div class="w-full h-full bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/background_aerophone.png') }}')"></div>
     </div>
 
-    <div class="relative z-10">
+    <div class="
+        absolute inset-x-0 z-10 overflow-hidden top-[15vh] sm:top-[15vh] md:top-[10vh] lg:top-[5vh]">
+        <img src="{{ asset('images/handbackground_aerophone.png') }}"
+            alt="Hand"
+            class="
+                w-full
+                h-[25vh] sm:h-[25vh] md:h-[40vh] lg:h-[50vh]
+                object-cover
+            " />
+    </div>
+
+    <div class="relative z-20">
         <div x-data="textSequence()" x-init="observe()" class="relative min-h-[60vh] text-white" x-ref="trigger">
             <!-- One Phone -->
             <div 
-                class="absolute left-[5%] text-4xl md:text-6xl lg:text-8xl font-bold text-one-phone"
+                class="
+                    absolute
+                    w-full text-center text-black
+                    text-5xl sm:text-5xl md:text-6xl lg:text-8xl 
+                    font-barlow font-black text-one-phone 
+                    whitespace-nowrap
+                    md:w-auto md:left-[5%] md:text-left
+                    drop-shadow-md
+                "
                 x-show="showPhone"
                 x-transition:enter="transition ease-out duration-700"
                 x-transition:enter-start="opacity-0 translate-y-8"
@@ -19,7 +38,15 @@
 
             <!-- One Planet -->
             <div 
-                class="absolute left-1/2 transform -translate-x-1/2 text-4xl md:text-6xl lg:text-8xl font-bold text-one-planet"
+                class="
+                    absolute 
+                    w-full text-center 
+                    text-5xl sm:text-5xl md:text-6xl lg:text-8xl 
+                    font-barlow font-black text-one-planet 
+                    whitespace-nowrap
+                    md:w-auto md:left-1/2 md:-translate-x-1/2 md:text-left
+                    drop-shadow-md
+                "
                 x-show="showPlanet"
                 x-transition:enter="transition ease-out duration-700"
                 x-transition:enter-start="opacity-0 translate-y-8"
@@ -31,7 +58,15 @@
 
             <!-- Make it Count -->
             <div 
-                class="absolute right-[5%] text-4xl md:text-6xl lg:text-8xl font-bold text-right text-make-it-count"
+                class="
+                    absolute 
+                    w-full text-center text-black
+                    text-5xl sm:text-5xl md:text-6xl lg:text-8xl 
+                    font-barlow font-black text-make-it-count 
+                    whitespace-nowrap
+                    md:w-auto md:right-[5%] md:text-right
+                    drop-shadow-md
+                "
                 x-show="showCount"
                 x-transition:enter="transition ease-out duration-700"
                 x-transition:enter-start="opacity-0 translate-y-8"
@@ -43,7 +78,6 @@
         </div>
     </div>
 
-    {{-- Inject script & style langsung di bawah slot --}}
     @push('scripts')
     <script>
       function textSequence() {
@@ -76,25 +110,25 @@
     @push('styles')
     <style>
       .text-one-phone {
-        top: 80%;
+        top: 65%;
       }
       .text-one-planet {
-        top: 87%;
+        top: 77%;
       }
       .text-make-it-count {
-        top: 94%;
+        top: 89%;
       }
 
       @media (min-width: 768px) {
-        .text-one-phone { top: 80%; }
+        .text-one-phone { top: 75%; }
         .text-one-planet { top: 90%; }
-        .text-make-it-count { top: 100%; }
+        .text-make-it-count { top: 105%; }
       }
 
       @media (min-width: 1024px) {
         .text-one-phone { top: 75%; }
-        .text-one-planet { top: 90%; }
-        .text-make-it-count { top: 110%; }
+        .text-one-planet { top: 95%; }
+        .text-make-it-count { top: 115%; }
       }
     </style>
     @endpush
