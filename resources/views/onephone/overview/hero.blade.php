@@ -7,10 +7,10 @@
              style="background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,#ffffff 100%);">
         </div>
     </div>
-    <div class="absolute inset-x-0 top-[15vh] sm:top-[15vh] md:top-[10vh] lg:top-[5vh] z-10 overflow-hidden">
+    <div class="absolute inset-x-0 top-[15vh] sm:top-[15vh] md:top-[10vh] lg:top-[0vh] z-10 overflow-hidden">
         <img src="{{ asset('images/handbackground_aerophone.png') }}"
              alt="Hand"
-             class="w-full h-[25vh] sm:h-[25vh] md:h-[40vh] lg:h-[50vh] object-cover"/>
+             class="w-full h-[25vh] sm:h-[25vh] md:h-[30vh] lg:h-[50vh] object-cover"/>
     </div>
 
     <div x-data="textSequence()" x-init="observe()"
@@ -20,7 +20,7 @@
         <!-- One Phone -->
         <h2 class="absolute text-one-phone w-full text-center md:left-[5%] md:w-auto md:text-left
                     font-barlow font-black whitespace-nowrap drop-shadow-sm
-                    text-5xl sm:text-5xl md:text-7xl lg:text-8xl text-black"
+                    text-6xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
             x-show="showPhone"
             x-transition:enter="transition ease-out duration-700"
             x-transition:enter-start="opacity-0 translate-y-8"
@@ -32,7 +32,7 @@
         <!-- One Planet -->
         <h2 class="absolute text-one-planet w-full text-center md:left-1/2 md:-translate-x-1/2 md:w-auto md:text-left
                     font-barlow font-black whitespace-nowrap drop-shadow-sm
-                    text-5xl sm:text-5xl md:text-7xl lg:text-8xl"
+                    text-6xl sm:text-6xl md:text-7xl lg:text-8xl"
             x-show="showPlanet"
             x-transition:enter="transition ease-out duration-700"
             x-transition:enter-start="opacity-0 translate-y-8"
@@ -44,7 +44,7 @@
         <!-- Make it Count -->
         <h2 class="absolute text-make-it-count w-full text-center md:right-[5%] md:w-auto md:text-right
                     font-barlow font-black whitespace-nowrap drop-shadow-sm
-                    text-5xl sm:text-5xl md:text-7xl lg:text-8xl text-black"
+                    text-6xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
             x-show="showCount"
             x-transition:enter="transition ease-out duration-700"
             x-transition:enter-start="opacity-0 translate-y-8"
@@ -88,25 +88,25 @@
     @push('styles')
     <style>
       .text-one-phone {
-        top: 65%;
+        top: 80%;
       }
       .text-one-planet {
-        top: 77%;
+        top: 95%;
       }
       .text-make-it-count {
-        top: 89%;
+        top: 110%;
       }
 
       @media (min-width: 768px) {
-        .text-one-phone { top: 75%; }
+        .text-one-phone { top: 70%; }
         .text-one-planet { top: 90%; }
-        .text-make-it-count { top: 105%; }
+        .text-make-it-count { top: 110%; }
       }
 
       @media (min-width: 1024px) {
-        .text-one-phone { top: 75%; }
+        .text-one-phone { top: 70%; }
         .text-one-planet { top: 95%; }
-        .text-make-it-count { top: 115%; }
+        .text-make-it-count { top: 120%; }
       }
     </style>
     @endpush
