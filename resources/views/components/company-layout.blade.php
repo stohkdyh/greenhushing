@@ -1,4 +1,7 @@
-@props(['logo' => 'Default Company'])
+@props([
+    'logo'  => 'Default Company',
+    'price' => 252,      
+])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -8,7 +11,10 @@
     @stack('styles')
 </head>
 <body>
-    @include('layouts.nav-company', ['logo' => $logo])
+    @include('layouts.nav-company', [
+        'logo'  => $logo,
+        'price' => $price,
+    ])
 
     <main>
         {{ $slot }}
