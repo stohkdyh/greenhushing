@@ -9,9 +9,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/xarelonphone', function () {
-    return view('pages.xarelonphone');
-});
 Route::view('/xarelonphone', 'companies.xarelonphone');
 Route::view('/xarelonphone7', 'companies.xarelonphone7');
 
