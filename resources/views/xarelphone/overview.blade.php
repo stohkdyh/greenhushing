@@ -1,2 +1,5 @@
 @include('xarelphone.overview.hero')
 @include('xarelphone.overview.product')
+@include('xarelphone.overview.product2')
+@include('xarelphone.overview.product3')
+@include('xarelphone.overview.product4')
