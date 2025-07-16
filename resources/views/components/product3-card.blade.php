@@ -1,27 +1,23 @@
-{{-- <resources>
-<views>
-<components>
-<product3-card></product3-card>.blade.php --}}
 @props([
-    'percentage' => '100%',
-    'description' => 'Charged Within One Hour',
-    'highlight' => 'Fast Charging',
-    'image', // contoh: 'images/charging_phone.png'
-    'bg' => '#f9fafb',
-    'highlightColor' => '#000000',
+    'title',
+    'description',
+    'highlight',
+    'image',
+    'bg' => '#ffffff',
+    'titleColor' => '#111827',
+    'highlightColor' => '#4f46e5',
     'imageBg' => '#dbe0f2'
 ])
 
-<!-- Import Google Fonts -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-
 
 <style>
     body {
         font-family: 'Inter', sans-serif;
     }
 
-     p, h1, h2, h3, .heading {
+    p, h1, h2, h3, .heading {
         font-family: 'Montserrat', sans-serif;
     }
 
@@ -48,25 +44,33 @@
     }
 </style>
 
-<div class="min-h-screen flex flex-col md:flex-row items-center justify-between px-20 py-24 gap-20" style="background: {{ $bg }}">
-    <!-- Gambar HP -->
-    <div class="md:w-1/2 flex justify-center relative fade-in-left">
-        <div class="relative min-w-[400px] min-h-[460px]">
-            <!-- Card ungu -->
-            <div class="rounded-3xl px-12 py-12 shadow-2xl w-full h-full relative z-0" style="background:{{ $imageBg }}"></div>
 
-            <!-- Gambar HP -->
+<div class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 lg:px-20 py-32 md:py-16 lg:py-16 gap-12 md:gap-16" style="background: {{ $bg }}">
+    <!-- Gambar dan card -->
+    <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
+        <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">
+            <!-- Card latar -->
+            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: {{ $imageBg }}"></div>
+
+            <!-- Gambar HP besar & center -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-8 bottom-[-60px] w-[400px] object-contain z-10 drop-shadow-2xl hover:scale-105 hover:-rotate-1 transition-all duration-500" />
+                class="absolute left-1/2 -translate-x-1/2 bottom-[-60px] sm:bottom-[-80px] 
+                    w-[320px] sm:w-[380px] md:w-[400px] 
+                    h-auto object-contain z-10 drop-shadow-2xl 
+                    transition-transform duration-500 hover:scale-105" />
         </div>
     </div>
 
     <!-- Teks -->
-    <div class="md:w-1/2 text-center md:text-left fade-in-right">
-        <h1 class="text-[80px] font-extrabold italic text-gray-900 leading-tight mb-4">{{ $percentage }}</h1>
-        <p class="text-2xl text-gray-700 mb-6 leading-relaxed text-justify">{{ $description }}</p>
-        <p class="text-[20px] font-semibold underline underline-offset-4 hover:text-indigo-600 transition-all duration-300" style="color: {{ $highlightColor }}">
+    <div class="w-full md:w-1/2 fade-in-left text-left md:text-left">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-tight" style="color: {{ $titleColor }}">
+            {{ $title }}
+        </h1>
+        <p class="text-base sm:text-lg md:text-2xl text-gray-700 mb-4 sm:mb-6 leading-relaxed text-justify">
+            {{ $description }}
+        </p>
+        <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600" style="color: {{ $highlightColor }}">
             {{ $highlight }}
         </p>
     </div>
@@ -78,13 +82,16 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
+                    if (entry.target.classList.contains('fade-in-left')) {
+                        entry.target.classList.add('animate-left');
+                    } else if (entry.target.classList.contains('fade-in-right')) {
+                        entry.target.classList.add('animate-right');
+                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.2 });
 
-        const elements = document.querySelectorAll('.fade-in-up');
-        elements.forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
     });
 </script>

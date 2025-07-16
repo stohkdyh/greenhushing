@@ -10,7 +10,7 @@
 </head>
 
 <body
-    class="bg-[url('C:\Users\ASUS\Herd\greenhushing\public\images\welcome_bg.jpg')] bg-no-repeat bg-center bg-cover text-[#1b1b18] flex items-center min-h-screen flex-col">
+    style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');" class="bg-no-repeat bg-center bg-cover text-[#1b1b18] flex items-center min-h-screen flex-col">
     <div
         class="bg-white bg-opacity-40 backdrop-blur-md flex items-center w-fit h-fit gap-3 px-4 py-2 mb-12 rounded-full border-white shadow-lg absolute top-8 z-10">
         <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-14 h-14">
