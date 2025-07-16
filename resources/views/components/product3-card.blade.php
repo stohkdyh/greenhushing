@@ -53,7 +53,7 @@
     <div class="md:w-1/2 flex justify-center relative fade-in-left">
         <div class="relative min-w-[400px] min-h-[460px]">
             <!-- Card ungu -->
-            <div class="bg-[{{ $imageBg }}] rounded-3xl px-12 py-12 shadow-2xl w-full h-full relative z-0"></div>
+            <div class="rounded-3xl px-12 py-12 shadow-2xl w-full h-full relative z-0" style="background:{{ $imageBg }}"></div>
 
             <!-- Gambar HP -->
             <img src="{{ asset($image) }}"
