@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
 
 Route::view('/onephone', 'companies.onephone');
 
+Route::view('/zenophone', 'companies.zenophone');
+
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
         Session::put('locale', $locale);
