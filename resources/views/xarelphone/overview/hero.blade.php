@@ -1,4 +1,4 @@
-<section class="relative isolate min-h-screen overflow-hidden bg-white">
+<section class="relative isolate min-h-screen overflow-hidden bg-white mt-14">
     <div class="absolute inset-0 z-0">
         <div class="w-full h-full bg-cover bg-center bg-no-repeat"
              style="background-image:url('{{ asset('images/xarelonphone_bg.png') }}')">

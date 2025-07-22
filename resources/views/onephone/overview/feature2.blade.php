@@ -5,6 +5,6 @@
     bg="#FFFFFF"
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
-    image="images/hp_xar.png"
+    image="images/feature2.png"
     imageBg="#EEF5E8"
 />

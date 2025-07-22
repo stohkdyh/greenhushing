@@ -1,11 +1,11 @@
 <x-product2-card
-    title="{{ __('Designed to Evolve') }}"
+    title="{{ __('Redesigning the Future with Lower Impact') }}"
     description="{{__('Our aims to continuously explore an optimal way to build a low-carbon, circular economy and find innovative solutions that make our own value chain greener.') }}"
-    highlight="Modular design"
+    highlight="Sustainable Design"
+    image="images/zeno_product2.png"
+
     bg="#FFFFFF"
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
-    image="images/feature.png"
     imageBg="#EEF5E8"
-    imageRotate="10deg"
 />

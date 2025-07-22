@@ -1,9 +1,9 @@
 <x-product-card
-    image="images/onephone.png"
-    title="Onephone One"
+    image="images/zenophone_product.png"
+    title="Zenophone 4"
     rating="4.5"
-    headline-top="Circular by Design"
-    headline-bot="Sustainable by Purpose"
+    headline-top="Built with Heart"
+    headline-bot="Designed for a Better Future"
     badge="Made for You"
     price="252"
     

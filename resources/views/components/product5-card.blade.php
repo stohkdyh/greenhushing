@@ -1,11 +1,10 @@
-{{-- <resources>
-<views>
-<components>
-<product5-card></product5-card>.blade.php --}}
 @props([
-    'image', // Gambar HP di tengah
+    'image',
     'specsLeft' => [],
     'specsRight' => [],
+    'textColor' => '#1F2937',
+    'textTitleColor' => '#374151',
+    'textValueColor' => '#000000'
 ])
 
 <!-- Font -->
@@ -14,6 +13,7 @@
     * {
         font-family: 'Inter', sans-serif;
     }
+
     h1, .heading {
         font-family: 'Montserrat', sans-serif;
     }
@@ -39,39 +39,49 @@
     .animate-right {
         animation: fadeInRight 1s ease-out forwards;
     }
-
 </style>
 
-<div class="w-full px-6 py-12 bg-white font-inter">
-    <!-- Judul rata kiri -->
-    <h2 class="text-3xl font-bold text-gray-800 mb-10 md:text-left text-center fade-in-left">Specs Snapshot</h2>
+<div class="min-h-screen w-full px-6 md:px-20 py-12 bg-white font-inter flex flex-col justify-center">
+    <!-- JUDUL -->
+    <h2 class="text-4xl md:text-5xl font-bold mb-20 text-center lg:text-left fade-in-left"
+        style="color: {{ $textColor }};">
+        Specs Snapshot
+    </h2>
 
-    <div class="flex flex-col md:flex-row items-center justify-betweem md:justify-between gap-14 relative">
-        <!-- LEFT SPECS -->
-        <div class="flex flex-col gap-10 items-end ml-4 mt-6">
-            @foreach ($specsLeft as $spec)
-                <div class="bg-[#1C2D3C] text-white text-center rounded-lg px-5 py-3 w-64 shadow-md relative fade-in-left">
-                    <div class="text-sm font-semibold">{{ $spec['title'] }}</div>
-                    <div class="text-xs text-gray-300">{{ $spec['value'] }}</div>
-                    <div class="absolute right-[-340px] top-1/2 transform -translate-y-1/2 w-[340px] h-[2px] bg-gray-400"></div>
-                </div>
-            @endforeach
+    <!-- FLEX ROW: IMAGE & SPECS -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-16">
+        <!-- IMAGE LEFT -->
+        <div class="flex justify-center lg:justify-start w-full lg:w-auto fade-in-left">
+            <img src="{{ asset($image) }}" alt="Phone Image" class="w-[120px] sm:w-[120px] md:w-[200px] lg:mx-20 w-[280px] object-contain" />
         </div>
 
-        <!-- IMAGE CENTER -->
-        <div class="relative z-10 fade-in-right">
-            <img src="{{ asset($image) }}" alt="Phone Image" class="w-[150px] md:w-[240px]">
-        </div>
+        <!-- SPECS SECTION -->
+        <div class="flex flex-col lg:flex-row justify-between w-full gap-4 fade-in-right lg:gap-12">
+            <!-- LEFT SPECS -->
+            <div class="flex flex-col justify-center gap-4 w-full lg:w-1/2 lg:gap-12">
+                @foreach ($specsLeft as $spec)
+                    <div class="flex items-center gap-4">
+                        {!! $spec['icon'] ?? '' !!}
+                        <div>
+                            <p class="text-xs sm:text-sm lg:text-sm font-light" style="color: {{ $textTitleColor }};">{{ $spec['title'] }}</p>
+                            <p class="text-base sm:text-lg lg:text-xl font-semibold" style="color: {{ $textValueColor }};">{{ $spec['value'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
 
-        <!-- RIGHT SPECS -->
-        <div class="flex flex-col gap-10">
-            @foreach ($specsRight as $spec)
-                <div class="bg-[#1C2D3C] text-white text-center rounded-lg px-5 py-3 w-64 shadow-md relative fade-in-right">
-                    <div class="text-sm font-semibold">{{ $spec['title'] }}</div>
-                    <div class="text-xs text-gray-300">{{ $spec['value'] }}</div>
-                    <div class="absolute left-[-340px] top-1/2 transform -translate-y-1/2 w-[340px] h-[2px] bg-gray-400"></div>
-                </div>
-            @endforeach
+            <!-- RIGHT SPECS -->
+            <div class="flex flex-col justify-center gap-4 w-full lg:w-1/2 lg:gap-12">
+                @foreach ($specsRight as $spec)
+                    <div class="flex items-center gap-4">
+                        {!! $spec['icon'] ?? '' !!}
+                        <div>
+                            <p class="text-xs sm:text-sm lg:text-sm font-light" style="color: {{ $textTitleColor }};">{{ $spec['title'] }}</p>
+                            <p class="text-base sm:text-lg lg:text-xl font-semibold" style="color: {{ $textValueColor }};">{{ $spec['value'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

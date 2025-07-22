@@ -1,18 +1,18 @@
-<div x-data="{ open: false, active: '#overview' }" class="sticky top-0 z-50 w-full bg-white/85 backdrop-blur-md">
-    <!-- Header -->
-    <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-2">
-        <div class="flex items-center">
-            <h1 class="text-black text-xl font-barlow font-bold">
-                {{ $logo ?? 'Company Name' }}
-            </h1>
-            <div class="hidden md:flex items-center space-x-6 md:ml-8 lg:ml-16">
-                <a href="#overview" class="hover:underline">{{ __('Overview') }}</a>
-                <a href="#specs" class="hover:underline">{{ __('Specs') }}</a>
-                <a href="#productenvironmentalreport" class="hover:underline">
-                    {{ __('Product Environmental Report') }}
-                </a>
-            </div>
-        </div>
+<div x-data="{ open: false, active: '#overview' }" class="fixed top-0 left-0 z-50 w-full bg-white/85 backdrop-blur-md">
+  <!-- Header -->
+  <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-2">
+    <div class="flex items-center">
+    <h1 class="text-black text-xl font-barlow font-bold">
+      {{ $logo ?? 'Company Name' }}
+    </h1>
+    <div class="hidden md:flex items-center space-x-6 md:ml-8 lg:ml-16">
+      <a href="#overview" class="hover:underline">{{ __('Overview') }}</a>
+      <a href="#specs" class="hover:underline">{{ __('Specs') }}</a>
+      <a href="#productenvironmentalreport" class="hover:underline">
+        {{ __('Product Environmental Report') }}
+      </a>
+    </div>
+  </div>
 
         <!-- Kanan: Navigasi -->
         <div class="flex items-center space-x-4">
