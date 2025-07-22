@@ -32,7 +32,7 @@
     {{-- Gambar --}}
     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
       <img src="{{ asset($image) }}" alt="{{ __($title) }} Box"
-           class="w-40 sm:w-52 md:w-60 lg:w-72 xl:w-80 transition-transform duration-300 hover:scale-105">
+           class="w-[180px] sm:w-[180px] md:w-[320px] lg:w-[400px] xl:w-[450px] transition-transform duration-300 hover:scale-105">
     </div>
 
     {{-- Info --}}

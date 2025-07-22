@@ -16,6 +16,9 @@ export default {
                 montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
                 barlow: ['Barlow', ...defaultTheme.fontFamily.sans],
             },
+            width:{
+                340: '340px',
+            }
         },
     },
 

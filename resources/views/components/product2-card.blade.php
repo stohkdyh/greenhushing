@@ -6,7 +6,8 @@
     'bg' => '#ffffff',
     'highlightColor' => '#000000',
     'titleColor' => '#111827',
-    'imageBg' => '#ffffff'
+    'imageBg' => '#ffffff',
+    'imageRotate' => '0deg'
 ])
 
 <!-- Google Font-->
@@ -67,10 +68,13 @@
             <!-- Gambar HP besar & center -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-1/2 -translate-x-1/2 bottom-[-60px] sm:bottom-[-80px] 
+                class="absolute left-1/2 bottom-[-60px] sm:bottom-[-80px] 
                     w-[320px] sm:w-[380px] md:w-[400px] 
                     h-auto object-contain z-10 drop-shadow-2xl 
-                    transition-transform duration-500 hover:scale-105" />
+                    transition-transform duration-500 hover:scale-105"
+                style="transform: translateX(-50%) rotate({{ $imageRotate }});"
+            />
+
         </div>
     </div>
 </div>

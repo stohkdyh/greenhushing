@@ -5,6 +5,7 @@
     bg="#FFFFFF"
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
-    image="images/hp_xar.png"
+    image="images/feature.png"
     imageBg="#EEF5E8"
+    imageRotate="10deg"
 />
