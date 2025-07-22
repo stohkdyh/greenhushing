@@ -9,14 +9,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body
-    style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');" class="bg-no-repeat bg-center bg-cover text-[#1b1b18] flex items-center min-h-screen flex-col">
+<body style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');"
+    class="bg-no-repeat bg-center bg-cover text-[#1b1b18] flex items-center min-h-screen flex-col">
     <div
         class="bg-white bg-opacity-40 backdrop-blur-md flex items-center w-fit h-fit gap-3 px-4 py-2 mb-12 rounded-full border-white shadow-lg absolute top-8 z-10">
         <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-14 h-14">
         <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-14 h-14">
     </div>
-    <x-languange-switch />
+    <x-languange-switch class="bg-white bg-opacity-30 rounded-lg shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-10 top-12" />
     <div
         class="bg-white bg-opacity-40 backdrop-blur-md flex items-center justify-center w-[55%] transition-opacity opacity-100 duration-750 starting:opacity-0 rounded-3xl shadow-2xl p-8 my-auto">
         <div class="flex flex-col items-center justify-center w-full max-w-4xl">
@@ -60,11 +60,13 @@
                     </div>
                     <div class="col-span-2">
                         <x-input-label for="name" :value="__('Last Education')" />
-                        <select id="last_education" name="last_education" required 
+                        <select id="last_education" name="last_education" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Last Education') }}</option>
-                            <option value="SMA / MA / SMK (Sekolah Menengah Atas / Kejuruan)" class="text-black">{{ __('Senior High School / Vocational School') }}</option>
-                            <option value="Diploma (D1/D2/D3)" class="text-black">{{ __('Diploma (Associate Degree)') }}</option>
+                            <option value="SMA / MA / SMK (Sekolah Menengah Atas / Kejuruan)" class="text-black">
+                                {{ __('Senior High School / Vocational School') }}</option>
+                            <option value="Diploma (D1/D2/D3)" class="text-black">
+                                {{ __('Diploma (Associate Degree)') }}</option>
                             <option value="Sarjana (S1)" class="text-black">{{ __("Bachelor's Degree") }}</option>
                             <option value="Magister (S2)" class="text-black">{{ __("Master's Degree") }}</option>
                             <option value="Doktor (S3)" class="text-black">{{ __('Doctoral Degree (Ph.D.)') }}</option>

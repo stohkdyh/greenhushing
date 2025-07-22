@@ -9,10 +9,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/onephone', 'companies.onephone');
+Route::view('/zenophone', 'companies.zenophone');
 Route::view('/xarelphone', 'companies.xarelphone');
-Route::view('/xarelphone7', 'companies.xarelphone7');
+Route::view('/neuphone', 'companies.neuphone');
+Route::view('/market', 'market')->name('market');
 
- 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -22,8 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 }); 
-
-Route::view('/onephone', 'companies.onephone');
 
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
