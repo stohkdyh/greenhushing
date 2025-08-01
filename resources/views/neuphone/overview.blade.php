@@ -1,0 +1,6 @@
+@include('neuphone.overview.hero')
+@include('neuphone.overview.product')
+@include('neuphone.overview.product2')
+@include('neuphone.overview.product3')
+@include('neuphone.overview.product4')
+@include('neuphone.overview.product5')

@@ -6,7 +6,7 @@
     'bg' => '#ffffff',
     'titleColor' => '#111827',
     'highlightColor' => '#4f46e5',
-    'imageBg' => '#dbe0f2'
+    'imageBg' => '#fffff'
 ])
 
 <!-- Google Fonts -->
@@ -50,13 +50,12 @@
     <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
         <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">
             <!-- Card latar -->
-            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: {{ $imageBg }}"></div>
+            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: #{{ ltrim($imageBg, '#') }}"></div>
 
-            <!-- Gambar HP besar & center -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-1/2 -translate-x-1/2 bottom-[-60px] sm:bottom-[-80px] 
-                    w-[320px] sm:w-[380px] md:w-[400px] 
+                class="absolute left-1/2 -translate-x-1/2 bottom-[-50px] sm:bottom-[-50px] 
+                    w-[200px] sm:w-[300px] md:w-[400px] 
                     h-auto object-contain z-10 drop-shadow-2xl 
                     transition-transform duration-500 hover:scale-105" />
         </div>
