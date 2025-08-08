@@ -198,7 +198,7 @@
                                                 </svg>
                                             </div>
                                         @endif
-                                        <a href="/{{ strtolower(str_replace(' ', '', $product['name'])) }}"
+                                        <a href="/{{ strtolower($product['name']) }}"
                                             class="bg-red-500 w-fit ms-auto mt-2 text-white px-4 py-1 rounded-full text-sm">{{ __('Choose Product') }}</a>
                                     </div>
                                 </div>
@@ -206,9 +206,6 @@
 
                         </div>
                     </div>
-                    {{-- @endsection --}}
-
-                    {{-- </div> --}}
                 </div>
             </div>
         </main>
