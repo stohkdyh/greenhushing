@@ -1,8 +1,3 @@
-@props([
-    'logo'  => 'Default Company',
-    'price' => 252,      
-])
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -11,14 +6,15 @@
     @stack('styles')
 </head>
 <body>
-    @include('layouts.nav-company', [
-        'logo'  => $logo,
-        'price' => $price,
+    @include('components.nav-company', [
+        'logo'  => trim($__env->yieldContent('logo', 'Default Company')),
+        'price' => trim($__env->yieldContent('price', '252')),
     ])
 
     <main>
-        {{ $slot }}
+        @yield('content')
     </main>
+
     @stack('scripts')
 </body>
 </html>

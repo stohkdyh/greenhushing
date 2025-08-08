@@ -1,3 +1,8 @@
-<x-company-layout logo="XARELPHONE" :price="299">
+@extends('layouts.company')
+
+@section('logo', 'XARELPHONE')
+@section('price', '299')
+
+@section('content')
     @include('xarelphone.overview')
-</x-company-layout>
+@endsection
