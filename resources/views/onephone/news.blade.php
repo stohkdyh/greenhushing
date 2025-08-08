@@ -6,13 +6,13 @@
     <article class="space-y-3">
         <!-- Judul Berita -->
         <h1 class="text-5xl font-extrabold leading-snug text-center">
-            The Quiet Green Revolution: Inside Company Neuveraphone’s Hidden Climate Strategy
+            OneTech Sets a New Standard for Sustainable Smartphones
         </h1>
 
         <!-- Penulis dan Tanggal -->
         <div class="space-y-0.5">
             <p class="text-center text-xs text-gray-400">
-                by Aditya Eka | August 8, 2025 | 2:30 PM
+                by Martha Stewart | The Eco Ledger
             </p>
             <p class="text-center text-xs text-gray-500">
                 
@@ -26,65 +26,44 @@
 
         <!-- Isi Berita -->
         <p class="text-sm text-justify leading-loose text-gray-900">
-            <b>Terranews, Jakarta - </b> Di tengah gemuruh industri teknologi yang berlomba-lomba menunjukkan komitmennya terhadap keberlanjutan, 
-            Neuveraphone justru memilih jalur yang tenang namun berdampak nyata. Perusahaan ini, yang dikenal luas sebagai produsen perangkat komunikasi 
-            inovatif, telah menjalankan strategi hijau secara diam-diam selama lima tahun terakhir. Tanpa banyak publikasi atau kampanye besar-besaran, 
-            mereka fokus pada aksi nyata yang terukur dan berkelanjutan. Pendekatan ini bukan tanpa risiko, mengingat banyak perusahaan lain lebih memilih 
-            jalur publikasi agresif untuk meraih simpati pasar. Namun bagi Neuveraphone, dampak nyata lebih penting daripada sekadar pencitraan.
+            In a consumer electronics market often clouded by vague environmental claims, <b>OneTech</b> is gaining attention — not just for its cutting-edge smartphone design but for its commitment to verified sustainability.
             
             <br><br>
             
-            Salah satu langkah utama dalam strategi tersebut adalah transisi penuh ke penggunaan energi terbarukan di seluruh fasilitas produksinya. 
-            Neuveraphone secara bertahap mengganti sumber listrik pabrik dengan tenaga surya dan angin, serta menerapkan sistem pengelolaan energi 
-            pintar untuk mengurangi konsumsi daya. Hasilnya, emisi karbon perusahaan turun hingga 40% dibandingkan lima tahun lalu. Bahkan, mereka telah 
-            memulai uji coba sistem penyimpanan energi mandiri yang memungkinkan pabrik tetap beroperasi saat pasokan energi utama terputus. Ini menunjukkan 
-            kesiapan mereka untuk menghadapi tantangan energi global ke depan.
+            Earlier this year, the company released the <b>One Phone</b>, a premium modular smartphone that combines high-end performance with eco-conscious engineering. According to the company, the design allows users to easily replace and upgrade parts such as the battery, screen, and camera — reducing the need for full-device replacement and minimizing e-waste.
 
             <br><br>
 
-            Tidak hanya itu, inovasi produk pun diarahkan untuk mendukung keberlanjutan. Produk terbaru mereka menggunakan bahan daur ulang dan mudah 
-            dibongkar untuk proses daur ulang ulang kembali. Bahkan kemasan perangkat kini dibuat dari bahan biodegradable yang ramah lingkungan, 
-            tanpa mengurangi daya tarik desain dan keamanan pengiriman. Tim desain produk turut melibatkan komunitas daur ulang lokal untuk memastikan 
-            bahwa proses produksi tidak hanya ramah lingkungan, tetapi juga memberdayakan masyarakat sekitar. Semua ini menjadi bukti bahwa aspek hijau 
-            telah menjadi DNA dalam setiap inovasi produk.
+            <i>“We’re committed to protecting the planet and designing products you love,”</i> said Eliza Ng, OneTech’s Head of Sustainability. <i>“Our modular approach and use of recycled and renewable materials are part of our mission to achieve net-zero emissions across our carbon footprint.”</i>
+            
+            <br><br>
+
+            The company reports that <b>more than 30% of materials</b> shipped in its products in 2024 were sourced from <b>recycled or renewable resources</b>. In addition, <b>the entire packaging of the One Phone is now 100% fiber-based</b>, the result of an initiative to eliminate all plastics from the packaging process.
 
             <br><br>
 
-            Para pengamat industri mulai menyoroti pendekatan hening namun strategis dari Neuveraphone sebagai contoh nyata dari tanggung jawab 
-            korporat yang otentik. Sementara perusahaan lain mengejar popularitas lewat kampanye besar, Neuveraphone membuktikan bahwa revolusi hijau 
-            tidak selalu harus riuh — cukup konsisten, terukur, dan berdampak langsung pada masa depan bumi. Beberapa analis bahkan menyebut strategi ini 
-            sebagai bentuk “green minimalism” yang bisa menjadi tren baru dalam tata kelola perusahaan modern. Neuveraphone berhasil menunjukkan bahwa 
-            integritas dan aksi nyata jauh lebih bernilai dari sekadar narasi pemasaran.
+            <b>Packaging claim confirmed:</b>
+
+            <br>
+
+            According to the latest environmental audit, OneTech has removed plastic entirely from its product packaging and replaced it with recyclable fiber-based alternatives.
 
             <br><br>
 
-            Laporan internal perusahaan menunjukkan bahwa investasi Neuveraphone dalam penelitian dan pengembangan teknologi ramah lingkungan meningkat 
-            sebesar 60% selama dua tahun terakhir. Tim R&D mereka kini berfokus pada efisiensi baterai, penggunaan material rendah emisi, dan pengurangan 
-            limbah produksi melalui teknik manufaktur presisi tinggi. Salah satu hasil terbaru mereka adalah prototipe baterai nabati yang berbasis selulosa, 
-            yang kini sedang dalam tahap pengujian awal. Bila berhasil, inovasi ini bisa menjadi terobosan besar dalam teknologi penyimpanan energi.
+            But OneTech’s efforts don’t end at the point of sale. As part of its take-back program, the company offers free recycling of old devices, cables, cases, and accessories — regardless of brand. Consumers can return their used electronics in-store or via mail.
 
             <br><br>
 
-            Selain aspek teknis, perusahaan juga melakukan edukasi berkelanjutan kepada seluruh karyawan mengenai pentingnya prinsip ESG (Environmental, 
-            Social, and Governance). Mereka menggelar pelatihan rutin dan menanamkan budaya kerja yang mendukung gaya hidup berkelanjutan — mulai dari 
-            kebijakan tanpa plastik hingga insentif bagi karyawan yang menggunakan transportasi umum. Tidak hanya itu, kantor pusat mereka kini dilengkapi 
-            ruang terbuka hijau dan fasilitas penampungan air hujan untuk kebutuhan non-konsumtif. Hal ini menciptakan ekosistem kerja yang sehat, efisien, 
-            dan ramah lingkungan.
+            <i>“You’ll help protect the earth’s resources and reduce waste,” Ng added. “We’re building a system where disposal becomes circular, not wasteful.”</i>
 
             <br><br>
 
-            Dukungan terhadap komunitas lokal juga menjadi pilar strategi hijau Neuveraphone. Mereka menjalin kerja sama dengan petani lokal untuk 
-            memanfaatkan limbah biomassa sebagai sumber energi alternatif dan mendanai proyek reboisasi di wilayah terdampak perubahan iklim. Semua 
-            dilakukan tanpa sorotan media, hanya dengan niat menciptakan dampak nyata. Bahkan, beberapa desa binaan telah melaporkan peningkatan kualitas 
-            hidup dan pendapatan sejak kolaborasi ini dimulai. Langkah ini memperkuat posisi Neuveraphone sebagai pelaku industri yang peduli terhadap 
-            keseimbangan sosial dan ekologis.
+            Unlike many competitors, OneTech has made its <b>full environmental product report</b> publicly available on its website, detailing carbon emissions, materials sourcing, and lifecycle impact.
 
             <br><br>
+            
+            The brand has also received <b>official ecolabel certifications</b> from both Indonesian and international bodies, including:
 
-            Meskipun tidak gencar mengiklankan program-program ini, hasilnya mulai terasa. Neuveraphone menerima sertifikasi internasional dari 
-            lembaga independen atas komitmennya terhadap keberlanjutan. Kepercayaan konsumen pun meningkat, terutama dari kalangan muda yang kini 
-            lebih peduli terhadap jejak karbon dan tanggung jawab sosial produsen teknologi. Sebagai hasilnya, penjualan produk-produk “eco-series” 
-            mereka melonjak 25% dalam satu tahun terakhir. Ini menjadi bukti bahwa keberlanjutan bukan hanya etis, tetapi juga menguntungkan secara bisnis.
         </p>
     </article>
 @endsection
