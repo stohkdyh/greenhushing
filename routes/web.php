@@ -10,6 +10,7 @@ Route::get('/', function () {
 });
 
 Route::view('/onephone', 'companies.onephone');
+Route::view('/onephone-news', 'onephone.news');
 Route::view('/zenophone', 'companies.zenophone');
 Route::view('/xarelphone', 'companies.xarelphone');
 Route::view('/neuphone', 'companies.neuphone');

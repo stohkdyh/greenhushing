@@ -1,5 +1,11 @@
-<x-company-layout logo="ONEPHONE ONE" :price="299">
+@extends('layouts.company')
+
+@section('logo', 'ONEPHONE ONE')
+@section('price', '299')
+
+@section('content')
     @include('onephone.overview')
     @include('onephone.spec')
     @include('onephone.environment')
-</x-company-layout>
+    @include('components.footer')
+@endsection

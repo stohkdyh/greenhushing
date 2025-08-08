@@ -115,7 +115,7 @@
     "Charged within One Hour" : "Charged Within One Hour",
     "Water and dust resistance" :"Water and dust resistance ",
     "lets you take this product further than you thought possible" : "lets you take this product further than you thought possible",
-    "The Edge of Innovation Smartphone" : "The Edge of Innovation Smartphone",
+    "The Edge of Innovation Smartphone" : "The Edge of\nInnovation\nSmartphone",
     "For You" : "For You",
     "Advanced Technology Smartphone" : "Advanced Technology Smartphone",
     "The cutting-edge design and ultra-thin layers create a sleek design, both when folded and unfolded. Compact and expansive display as needed. Enjoy the experience and see the boundless view" : "The cutting-edge design and ultra-thin layers create a sleek design, both when folded and unfolded. Compact and expansive display as needed. Enjoy the experience and see the boundless view",
@@ -127,7 +127,10 @@
     "Smart Just Got Smarter Powered Phone": "Smart Just\nGot Smarter\nPowered\nPhone",
     "Just For You": "Just For You",
     "Fast Charging" : "Fast Charging",
-    "Water Resistance" : "Water Resistance"
+    "Water Resistance" : "Water Resistance",
+    "Sleek Design, Boundless Experience" : "Sleek Design, Boundless Experience",
+    "Framed in Titanium, Protected for Life" : "Framed in Titanium, Protected for Life",
+    "High-Speed Power, Pro-Level Camera" : "High-Speed Power, Pro-Level Camera"
 
     
 }

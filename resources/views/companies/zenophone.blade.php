@@ -1,3 +1,8 @@
-<x-company-layout logo="ZENOPHONE" :price="299">
+@extends('layouts.company')
+
+@section('logo', 'ZENOPHONE')
+@section('price', '299')
+
+@section('content')
     @include('zenophone.overview')
-</x-company-layout>
+@endsection

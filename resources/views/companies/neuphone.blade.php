@@ -1,8 +1,8 @@
 @extends('layouts.company')
 
-@section('logo', 'XARELPHONE')
+@section('logo', 'NEUPHONE')
 @section('price', '299')
 
 @section('content')
-    @include('xarelphone.overview')
+    @include('neuphone.overview')
 @endsection

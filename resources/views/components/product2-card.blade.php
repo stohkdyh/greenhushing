@@ -63,7 +63,7 @@
     <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
         <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">
             <!-- Card latar -->
-            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: {{ $imageBg }}"></div>
+            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: #{{ ltrim($imageBg, '#') }}"></div>
 
             <!-- Gambar HP besar & center -->
             <img src="{{ asset($image) }}"
