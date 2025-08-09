@@ -1,31 +1,44 @@
-<section class="relative bg-white py-16 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 overflow-hidden">
-  <!-- Kiri: Teks atas dan bawah -->
-  <div class="w-full md:w-1/2 flex flex-col justify-between h-full text-center md:text-left">
-    <div>
-      <p class="text-gray-800 text-base md:text-lg mb-2">
-        Does not contain banned<br>chemical substance
+<section class="relative overflow-hidden px-6 md:px-20 py-32 md:py-16 gap-12 md:gap-16 mt-24">
+  <!-- Split Background -->
+  <div class="absolute inset-0 z-0 flex">
+    <div class="w-1/2 bg-white"></div>
+    <div class="w-1/2 bg-[#F2F7F1]"></div>
+  </div>
+
+  <!-- Lingkaran kiri atas besar -->
+  <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-white rounded-full z-0"></div>
+
+  <!-- Lingkaran kiri bawah -->
+  <div class="absolute bottom-20 left-20 w-[450px] h-[450px] bg-[#F2F7F1] rounded-full z-0"></div>
+
+  <!-- Lingkaran kanan atas -->
+  <div class="absolute -top-32 right-20 w-[450px] h-[450px] bg-white rounded-full z-0"></div>
+
+  <!-- Konten Utama -->
+  <div class="relative z-10 flex flex-col md:flex-row items-center justify-center gap-10">
+
+    <!-- Teks kiri atas -->
+    <div class="absolute top-6 left-6 text-left max-w-[260px]">
+      <p class="text-base sm:text-lg md:text-4xl text-gray-700 leading-snug">
+        Does not contain banned<br />chemical substance
       </p>
-      <p class="text-green-900 font-semibold text-lg md:text-xl border-b-2 border-green-900 inline-block">
+      <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600 text-[#AACC8D]">
         Save Material
       </p>
     </div>
 
-    <div class="mt-10 md:mt-28">
-      <p class="text-black font-semibold text-lg md:text-xl leading-snug">
-        Clean by Design –<br>free from harmful<br>substances
+    <!-- Gambar HP -->
+    <div class="relative max-w-[700px] mx-auto z-10">
+      <img src="images/zeno_product4.png" alt="product 4" class="w-full h-auto object-contain" />
+    </div>
+
+    <!-- Teks kanan bawah -->
+    <div class="absolute bottom-6 right-6 text-right max-w-[280px]">
+      <p class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-snug">
+        Clean by Design –<br />
+        free from harmful<br />
+        substances
       </p>
     </div>
-  </div>
-
-  <!-- Kanan: Gambar dengan hiasan -->
-  <div class="w-full md:w-1/2 relative flex justify-center items-center">
-    <!-- Hiasan lingkaran -->
-    <div class="absolute w-[180px] h-[180px] bg-green-100 rounded-full bottom-[15%] left-[5%] -z-10"></div>
-    <div class="absolute w-[300px] h-[300px] bg-green-100 rounded-[40px] top-[10%] right-[10%] -z-10"></div>
-
-    <!-- Gambar -->
-    <img src="images/zeno_product4.png"
-      alt="Product 4"
-      class="w-full max-w-sm md:max-w-md object-contain drop-shadow-xl z-10" />
   </div>
 </section>
