@@ -7,5 +7,5 @@
     @include('onephone.overview')
     @include('onephone.spec')
     @include('onephone.environment')
-    @include('components.footer')
+    @include('onephone.overview.footer')
 @endsection
