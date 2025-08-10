@@ -11,9 +11,15 @@ Route::get('/', function () {
 
 Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
+
 Route::view('/zenophone', 'companies.zenophone');
+
 Route::view('/xarelphone', 'companies.xarelphone');
+Route::view('/xarelphone-news', 'xarelphone.news');
+
 Route::view('/neuphone', 'companies.neuphone');
+Route::view('/neuphone-news', 'neuphone.news');
+
 Route::view('/market', 'market')->name('market');
 
 Route::get('/dashboard', function () {
