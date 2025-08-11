@@ -13,6 +13,7 @@ Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
 
 Route::view('/zenophone', 'companies.zenophone');
+Route::view('/zenophone-news', 'zenophone.news');
 
 Route::view('/xarelphone', 'companies.xarelphone');
 Route::view('/xarelphone-news', 'xarelphone.news');
