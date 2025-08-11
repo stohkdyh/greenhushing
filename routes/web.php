@@ -9,7 +9,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/onephone', 'companies.onephone');
+use App\Http\Controllers\Companies\OnephoneController;
+
+Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
+
+
+// Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
 
 Route::view('/zenophone', 'companies.zenophone');
