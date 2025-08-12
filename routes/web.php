@@ -13,6 +13,17 @@ use App\Http\Controllers\Companies\OnephoneController;
 
 Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
 
+use App\Http\Controllers\RespondentController;
+
+Route::post('/respondents', [RespondentController::class, 'store'])
+    ->name('respondents.store');
+
+Route::get('/market', function () {
+    return view('market');
+})->name('market');
+
+
+
 
 // Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
@@ -26,7 +37,7 @@ Route::view('/xarelphone-news', 'xarelphone.news');
 Route::view('/neuphone', 'companies.neuphone');
 Route::view('/neuphone-news', 'neuphone.news');
 
-Route::view('/market', 'market')->name('market');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

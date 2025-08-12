@@ -22,7 +22,7 @@
         <div class="flex flex-col items-center justify-center w-full max-w-4xl">
             <h1 class="text-3xl lg:text-4xl font-bold mb-2 text-center">{{ __('Welcome') }}</h1>
             <p class="text-lg lg:text-xl text-center mb-3">{{ __('Complete Your Personal Data') }}</p>
-            <form method="POST" action="{{ route('register') }}" class="w-full justify-center">
+            <form action="{{ route('respondents.store') }}" method="POST" class="w-full justify-center">
                 <div class="w-full grid grid-cols-2 gap-6 px-12">
                     @csrf
                     <div>
@@ -33,13 +33,13 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="name" :value="__('Age')" />
-                        <x-text-input id="name" name="name" type="number" placeholder="{{ __('Age') }}"
-                            class="w-full" autocomplete="off" required autofocus />
+                        <x-input-label for="age" :value="__('Age')" />
+                        <x-text-input id="age" name="age" type="number"
+                            placeholder="{{ __('Age') }}" class="w-full" autocomplete="off" required />
                         <x-input-error :messages="$errors->get('age')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="name" :value="__('Gender')" />
+                        <x-input-label for="gender" :value="__('Gender')" />
                         <select id="gender" name="gender" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Gender') }}</option>
@@ -49,7 +49,7 @@
                         <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="name" :value="__('Country')" />
+                        <x-input-label for="country" :value="__('Country')" />
                         <select id="country" name="country" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Country') }}</option>
@@ -59,26 +59,25 @@
                         <x-input-error :messages="$errors->get('country')" class="mt-2" />
                     </div>
                     <div class="col-span-2">
-                        <x-input-label for="name" :value="__('Last Education')" />
+                        <x-input-label for="last_education" :value="__('Last Education')" />
                         <select id="last_education" name="last_education" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Last Education') }}</option>
-                            <option value="SMA / MA / SMK (Sekolah Menengah Atas / Kejuruan)" class="text-black">
-                                {{ __('Senior High School / Vocational School') }}</option>
-                            <option value="Diploma (D1/D2/D3)" class="text-black">
-                                {{ __('Diploma (Associate Degree)') }}</option>
-                            <option value="Sarjana (S1)" class="text-black">{{ __("Bachelor's Degree") }}</option>
-                            <option value="Magister (S2)" class="text-black">{{ __("Master's Degree") }}</option>
-                            <option value="Doktor (S3)" class="text-black">{{ __('Doctoral Degree (Ph.D.)') }}</option>
+                            <option value="senior_high" class="text-black">{{ __('Senior High School / Vocational School') }}</option>
+                            <option value="diploma" class="text-black">{{ __('Diploma (Associate Degree)') }}</option>
+                            <option value="bachelor" class="text-black">{{ __("Bachelor's Degree") }}</option>
+                            <option value="master" class="text-black">{{ __("Master's Degree") }}</option>
+                            <option value="doctoral" class="text-black">{{ __('Doctoral Degree (Ph.D.)') }}</option>
                         </select>
                         <x-input-error :messages="$errors->get('last_education')" class="mt-2" />
                     </div>
                 </div>
+                <button type="submit"
+                    class="inline-block mt-10 px-12 py-2 bg-[#303F8E] text-white rounded-3xl hover:bg-[#263272] transition-colors">
+                    {{ __('Submit') }}
+                </button>
             </form>
-            <a href="{{ route('register') }}"
-                class="inline-block mt-10 px-12 py-2 bg-[#303F8E] text-white rounded-3xl hover:bg-[#263272] transition-colors">
-                {{ __('Login') }}
-            </a>
+
         </div>
     </div>
 </body>
