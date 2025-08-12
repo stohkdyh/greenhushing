@@ -3,9 +3,6 @@
         <div class="w-full h-full bg-cover bg-center bg-no-repeat"
              style="background-image:url('{{ asset('images/xarelphone-bg.png') }}')">
         </div>
-        <div class="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
-             style="background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,#ffffff 100%);">
-        </div>
     </div>
 
     <!-- Hero Section -->

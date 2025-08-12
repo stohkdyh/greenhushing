@@ -9,11 +9,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/onephone', 'companies.onephone');
+use App\Http\Controllers\Companies\OnephoneController;
+
+Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
+
+
+// Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
+
 Route::view('/zenophone', 'companies.zenophone');
+Route::view('/zenophone-news', 'zenophone.news');
+
 Route::view('/xarelphone', 'companies.xarelphone');
+Route::view('/xarelphone-news', 'xarelphone.news');
+
 Route::view('/neuphone', 'companies.neuphone');
+Route::view('/neuphone-news', 'neuphone.news');
+
 Route::view('/market', 'market')->name('market');
 
 Route::get('/dashboard', function () {

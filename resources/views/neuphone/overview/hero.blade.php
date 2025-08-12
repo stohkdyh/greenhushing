@@ -12,7 +12,7 @@
     <!-- Hero Section -->
     <div class="relative z-10 flex flex-col justify-center items-start min-h-[calc(100vh-80px)] px-4 md:px-20 text-center md:text-left">
         <h1 class="whitespace-pre-line text-4xl sm:text-6xl md:text-7xl font-bold text-white leading-loose tracking-wide mb-6 drop-shadow">
-            {{ __("The Edge of Innovation Smartphone") }}
+            The Edge of<br>Innovation<br>Smartphone
         </h1>
         <button
             class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg sm:text-xl font-semibold shadow hover:bg-blue-700 transition duration-300">

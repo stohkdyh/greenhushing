@@ -1,16 +1,16 @@
 @extends('layouts.news-layout')
 
-@section('title', 'OnePhone News')
+@section('title', 'Neuphone News')
 
 @section('content')
     <x-article-news 
         author="By Martha Stewart"
-        source="The Eco Ledger"
-        title="OneTech Sets a New Standard for Sustainable Smartphones"
+        source="Global Gadget Times"
+        title="NeuPhone Impresses with Design and Performance — But Stays Quiet on Its Green Credentials"
         image="{{ asset('images/bg_zenqophone.png') }}"
         image-alt="Recyclable smartphone product shot"
         image-caption="OneTech’s new modular smartphone promotes repairability and eco-friendly materials."
-        :content="view('onephone.news.content')"
+        :content="view('neuphone.news.content')"
 
         newsletter-title="Newsletter"
         newsletter-subtitle="Get the latest sustainability news weekly."
