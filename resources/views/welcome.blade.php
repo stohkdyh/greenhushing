@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="inline-block mt-10 px-12 py-2 bg-[#303F8E] text-white rounded-3xl hover:bg-[#263272] transition-colors">
+                    class="mt-10 mx-auto block px-12 py-2 bg-[#303F8E] text-white rounded-3xl hover:bg-[#263272] transition-colors">
                     {{ __('Submit') }}
                 </button>
             </form>

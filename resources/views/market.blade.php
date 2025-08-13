@@ -208,8 +208,6 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('lang.switch', 'en') }}">English</a>
-            <a href="{{ route('lang.switch', 'id') }}">Indonesian</a>
         </main>
     </div>
 </body>
