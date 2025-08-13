@@ -17,12 +17,14 @@ class RespondentController extends Controller
             'last_education' => 'required|in:senior_high,diploma,bachelor,master,doctoral',
         ]);
 
-        // Simpan ke database
-        Respondent::create($validated);
+        // Create the respondent
+        $respondent = Respondent::create($validated);
 
-        // Redirect ke halaman /market
-        return redirect()->route('market')
-                         ->with('success', 'Data berhasil disimpan!');
+        // Store respondent ID in session
+        session(['respondent_id' => $respondent->id]);
+
+        // Redirect to your main application (e.g., market)
+        return redirect()->route('market')->with('success', __('Profile created successfully!'));
     }
 }
 

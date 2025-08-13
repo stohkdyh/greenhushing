@@ -16,10 +16,25 @@
         <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-14 h-14">
         <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-14 h-14">
     </div>
-    <x-languange-switch class="bg-white bg-opacity-30 rounded-lg shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-10 top-12" />
+    <x-languange-switch
+        class="bg-white bg-opacity-30 rounded-lg shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-10 top-12" />
     <div
         class="bg-white bg-opacity-40 backdrop-blur-md flex items-center justify-center w-[55%] transition-opacity opacity-100 duration-750 starting:opacity-0 rounded-3xl shadow-2xl p-8 my-auto">
         <div class="flex flex-col items-center justify-center w-full max-w-4xl">
+
+            <!-- Add error/success messages -->
+            @if (session('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 w-full">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 w-full">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <h1 class="text-3xl lg:text-4xl font-bold mb-2 text-center">{{ __('Welcome') }}</h1>
             <p class="text-lg lg:text-xl text-center mb-3">{{ __('Complete Your Personal Data') }}</p>
             <form action="{{ route('respondents.store') }}" method="POST" class="w-full justify-center">
@@ -34,8 +49,8 @@
                     </div>
                     <div>
                         <x-input-label for="age" :value="__('Age')" />
-                        <x-text-input id="age" name="age" type="number"
-                            placeholder="{{ __('Age') }}" class="w-full" autocomplete="off" required />
+                        <x-text-input id="age" name="age" type="number" placeholder="{{ __('Age') }}"
+                            class="w-full" autocomplete="off" required />
                         <x-input-error :messages="$errors->get('age')" class="mt-2" />
                     </div>
                     <div>
@@ -63,7 +78,8 @@
                         <select id="last_education" name="last_education" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Last Education') }}</option>
-                            <option value="senior_high" class="text-black">{{ __('Senior High School / Vocational School') }}</option>
+                            <option value="senior_high" class="text-black">
+                                {{ __('Senior High School / Vocational School') }}</option>
                             <option value="diploma" class="text-black">{{ __('Diploma (Associate Degree)') }}</option>
                             <option value="bachelor" class="text-black">{{ __("Bachelor's Degree") }}</option>
                             <option value="master" class="text-black">{{ __("Master's Degree") }}</option>

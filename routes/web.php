@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 use App\Http\Controllers\Companies\OnephoneController;
 
@@ -60,5 +60,10 @@ Route::get('/lang/{locale}', function ($locale) {
     }
     return Redirect::back();
 })->name('lang.switch');
+
+Route::get('/reset-session', function () {
+    session()->forget('respondent_id');
+    return redirect()->route('welcome')->with('success', __('Session reset. Please complete your profile.'));
+})->name('session.reset');
 
 require __DIR__.'/auth.php';
