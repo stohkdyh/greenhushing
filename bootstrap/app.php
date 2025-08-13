@@ -11,11 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->use([
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class, // Add cookies to response
-            \Illuminate\Session\Middleware\StartSession::class,    // 🔑 Starts the session
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class, // Share session errors with views
-            \App\Http\Middleware\SetLocaleFromSession::class,      // 🌐 Your locale switcher middleware
+        $middleware->web(append: [
+            \App\Http\Middleware\SetLocale::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

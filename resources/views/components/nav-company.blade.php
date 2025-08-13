@@ -34,7 +34,7 @@
 
             <!-- Mobile: Switch + Hamburger -->
             <div class="flex items-center space-x-3 md:hidden">
-                <x-languange-switch class="w-full h-full" />
+                {{-- <x-languange-switch class="w-full h-full" /> --}}
 
                 <!-- Hamburger -->
                 <button @click="open = !open" class="text-black focus:outline-none">

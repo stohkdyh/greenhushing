@@ -33,8 +33,8 @@
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="name" :value="__('Age')" />
-                        <x-text-input id="name" name="name" type="number" placeholder="{{ __('Age') }}"
+                        <x-input-label for="age" :value="__('Age')" />
+                        <x-text-input id="age" name="age" type="number" placeholder="{{ __('Age') }}"
                             class="w-full" autocomplete="off" required autofocus />
                         <x-input-error :messages="$errors->get('age')" class="mt-2" />
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div>
                         <x-input-label for="name" :value="__('Country')" />
-                        <select id="country" name="country" required
+                        <select id="country" name="country" autocomplete="off" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Country') }}</option>
                             <option value="IDN" class="text-black">{{ __('Indonesia') }}</option>

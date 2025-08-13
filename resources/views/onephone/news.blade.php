@@ -18,11 +18,11 @@
                 
             </p>
         </div>
-{{-- 
+
         <!-- Gambar Utama Berita -->
         <img src="{{ asset('images/bg_zenqophone.png') }}" 
             alt="Neuveraphone Green Strategy" 
-            class="w-full h-auto max-w-3xl rounded-lg shadow mx-auto" /> --}}
+            class="w-full h-auto max-w-3xl rounded-lg shadow mx-auto" />
 
         <!-- Isi Berita -->
         <p class="text-sm text-justify leading-loose text-gray-900">

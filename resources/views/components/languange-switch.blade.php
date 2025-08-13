@@ -1,5 +1,5 @@
 <div x-data="{
-    checked: {{ app()->getLocale() === 'id' ? 'true' : 'false' }},
+    checked: {{ session('locale', app()->getLocale()) === 'id' ? 'true' : 'false' }},
     init() {
         this.$watch('checked', value => {
             window.location.href = value ? '/lang/id' : '/lang/en';
@@ -14,7 +14,7 @@
     <div class="relative w-[34px] h-[18px] sm:w-[36px] sm:h-[20px] md:w-[40px] md:h-[22px]">
         <input type="checkbox" id="lang-toggle" x-model="checked" class="sr-only" />
 
-        <label for="lang-toggle" class="block w-full h-full bg-gray-200 rounded-full cursor-pointer transition">
+        <label for="lang-toggle" class="block w-full h-full bg-gray-300 rounded-full cursor-pointer transition">
             <div class="absolute top-[2px] rounded-full shadow transition-all duration-200 overflow-hidden"
                 :class="{
                     'left-[2px] w-[14px] h-[14px] sm:w-[16px] sm:h-[16px] md:w-[18px] md:h-[18px]': !checked,

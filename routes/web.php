@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
         Session::put('locale', $locale);
+        App::setLocale($locale);
+        
+        // Optional: Flash message to confirm the change
+        Session::flash('locale_changed', "Language changed to " . ($locale === 'en' ? 'English' : 'Indonesian'));
     }
     return Redirect::back();
 })->name('lang.switch');
