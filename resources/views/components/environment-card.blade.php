@@ -11,8 +11,8 @@
     <img src="{{ asset($image) }}" alt="{{ $title }}"
          class="w-full h-full object-cover {{ $rounded }}">
 
-    <div class="absolute bottom-0 left-0 w-full bg-white/90 backdrop-blur-md
-                rounded-b-[28px] px-4 py-3 flex flex-col justify-center">
+    <div class="absolute bottom-0 w-full h-32 bg-white/70 backdrop-blur-md
+                rounded-b-[28px] px-4 py-3 justify-center">
       <h3 class="text-lg font-bold text-gray-800">{{ $title }}</h3>
       <p class="text-gray-600 text-sm mt-1 leading-snug">
         {{ $description }}
