@@ -5,4 +5,3 @@
 @include('zenophone.overview.product4')
 @include('zenophone.overview.product5')
 @include('zenophone.overview.sustainability')
-@include('zenophone.overview.footer')

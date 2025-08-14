@@ -19,6 +19,10 @@ Route::get('/market', function () {
     return view('market');
 })->name('market');
 
+Route::get('/pre-test', function () {
+    return view('pre-test');
+})->name('pre-test');
+
 
 
 

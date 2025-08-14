@@ -5,4 +5,6 @@
 
 @section('content')
     @include('neuphone.overview')
+    @include('neuphone.rating')
+    @include('neuphone.overview.footer')
 @endsection
