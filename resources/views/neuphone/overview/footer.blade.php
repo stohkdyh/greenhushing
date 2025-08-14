@@ -1,6 +1,6 @@
 <x-footer 
     brand="Neuphone" 
-    logo="images/logo_claim_green.png"
+    logo="images/EU_Ecolabel_Logo.svg"
     bg="bg-[#1C2D3C]" 
     newsletterTitle="Neuphone Newsletter"
     newsletterDesc="Stay up to date with the latest news and stories from Neuphone."
