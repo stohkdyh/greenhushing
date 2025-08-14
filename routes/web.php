@@ -10,10 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-use App\Http\Controllers\Companies\OnephoneController;
-
-Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
-
 use App\Http\Controllers\RespondentController;
 
 Route::post('/respondents', [RespondentController::class, 'store'])

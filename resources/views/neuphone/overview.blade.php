@@ -4,4 +4,3 @@
 @include('neuphone.overview.product3')
 @include('neuphone.overview.product4')
 @include('neuphone.overview.product5')
-@include('neuphone.overview.footer')

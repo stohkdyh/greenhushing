@@ -3,8 +3,8 @@
         Voices of Our Valued Customers
     </h2>
 
-    @php
-        $testimonials = [
+    @php   
+    $testimonials = [
             [
                 'image' => 'images/card1.png',
                 'title' => 'Aditya Eka Prasetya',
@@ -34,8 +34,14 @@
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             @foreach ($testimonials as $item)
                 <div class="w-full">
-                    <x-rating-card :image="$item['image']" :title="$item['title']" :subtitle="$item['subtitle']" :rating="$item['rating']"
-                        :comment="$item['comment']" class="w-full" />
+                    <x-rating-card
+                        :image="$item['image']"
+                        :title="$item['title']"
+                        :subtitle="$item['subtitle']"
+                        :rating="$item['rating']"
+                        :comment="$item['comment']"
+                        class="w-full"
+                    />
                 </div>
             @endforeach
         </div>
