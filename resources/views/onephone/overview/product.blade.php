@@ -2,9 +2,9 @@
     image="images/onephone.png"
     title="Onephone One"
     rating="4.5"
-    headline-top="Circular by Design"
-    headline-bot="Sustainable by Purpose"
-    badge="Made for You"
+    headline-top="{{ __('Circular by Design') }}"
+    headline-bot="{{ __('Sustainable by Purpose') }}"
+    badge="{{ __('Made for You') }}"
     price="252"
     
     bg="#F2F9EC"

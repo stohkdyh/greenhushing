@@ -1,7 +1,7 @@
 <p>
-    In a consumer electronics market often clouded by vague environmental claims, 
+    {{__('In a consumer electronics market often clouded by vague environmental claims, 
     <b>OneTech</b> is gaining attention — not just for its cutting-edge smartphone design 
-    but for its commitment to verified sustainability.
+    but for its commitment to verified sustainability.') }}
 </p>
 
 <p>

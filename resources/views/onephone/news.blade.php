@@ -4,18 +4,18 @@
 
 @section('content')
     <x-article-news 
-        author="By Martha Stewart"
-        source="The Eco Ledger"
-        title="OneTech Sets a New Standard for Sustainable Smartphones"
+        author="{{__('By Martha Stewart') }}"
+        source="{{__('The Eco Ledger') }}"
+        title="{{__('OneTech Sets a New Standard for Sustainable Smartphones') }}"
         image="{{ asset('images/bg_zenqophone.png') }}"
-        image-alt="Recyclable smartphone product shot"
-        image-caption="OneTech’s new modular smartphone promotes repairability and eco-friendly materials."
+        image-alt="{{__('Recyclable smartphone product shot') }}"
+        image-caption="{{__('OneTech’s new modular smartphone promotes repairability and eco-friendly materials.') }}"
         :content="view('onephone.news.content')"
 
-        newsletter-title="Newsletter"
-        newsletter-subtitle="Get the latest sustainability news weekly."
-        newsletter-placeholder="Your email"
-        newsletter-button-text="Subscribe"
+        newsletter-title="{{__('Newsletter') }}"
+        newsletter-subtitle="{{__('Get the latest sustainability news weekly.') }}"
+        newsletter-placeholder="{{__('Your email') }}"
+        newsletter-button-text="{{__('Subscribe') }}"
     />
 @endsection
 

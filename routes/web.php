@@ -24,9 +24,6 @@ Route::get('/market', function () {
 })->name('market');
 
 
-
-
-// Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
 
 Route::view('/zenophone', 'companies.zenophone');
