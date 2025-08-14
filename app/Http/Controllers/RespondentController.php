@@ -23,8 +23,8 @@ class RespondentController extends Controller
         // Store respondent ID in session
         session(['respondent_id' => $respondent->id]);
 
-        // Redirect to your main application (e.g., market)
-        return redirect()->route('market')->with('success', __('Profile created successfully!'));
+        // Redirect to your main application (e.g., pre-test)
+        return redirect()->route('pretest.show');
     }
 }
 

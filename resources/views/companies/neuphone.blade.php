@@ -7,4 +7,5 @@
     @include('neuphone.overview')
     @include('neuphone.rating')
     @include('neuphone.overview.footer')
+    <x-floating-rating-button product="neuphone" />
 @endsection

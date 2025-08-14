@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -23,7 +24,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
-            <h1 class="font-bold text-xl">Pre-Test</h1>
+            <h1 class="font-bold text-xl">{{ __('Post-Test') }}</h1>
         </div>
 
         <!-- Kanan: Logo + Language Switch -->
@@ -59,15 +60,15 @@
             <span class="text-sm text-gray-600">{{ __('Progress') }}</span>
             <span id="progress-text" class="text-sm text-gray-600">0/7 {{ __('answered') }}</span>
         </div>
-        <div class="w-full bg-green-200 rounded-full h-3">
-            <div id="progress-bar" class="bg-green-700 h-3 rounded-full transition-all duration-500 ease-out"
+        <div class="w-full bg-blue-200 rounded-full h-3">
+            <div id="progress-bar" class="bg-blue-700 h-3 rounded-full transition-all duration-500 ease-out"
                 style="width: 0%"></div>
         </div>
     </div>
 
     <!-- Card Questions -->
     <main class="flex-1 w-11/12 md:w-1/2 mx-auto mt-6 space-y-6">
-        <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
+        <form id="posttest-form" action="{{ route('posttest.store') }}" method="POST">
             @csrf
             @for ($i = 1; $i <= 7; $i++)
                 <div class="bg-white rounded-lg shadow-md p-6 question-card mb-6" data-question="{{ $i }}">
@@ -113,7 +114,7 @@
     <!-- Submit button -->
     <div class="w-11/12 md:w-1/2 mx-auto my-6 text-right">
         <button id="submit-btn"
-            class="bg-green-700 text-white px-6 py-2 rounded-full shadow-md hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            class="bg-blue-700 text-white px-6 py-2 rounded-full shadow-md hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             disabled>
             {{ __('Submit') }}
         </button>
@@ -126,7 +127,7 @@
             const progressText = document.getElementById('progress-text');
             const submitBtn = document.getElementById('submit-btn');
             const questionRadios = document.querySelectorAll('.question-radio');
-            const form = document.getElementById('pretest-form');
+            const form = document.getElementById('posttest-form');
 
             let answeredQuestions = new Set();
 
@@ -145,11 +146,11 @@
                 if (answeredCount === totalQuestions) {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.add('hover:bg-green-600');
+                    submitBtn.classList.add('hover:bg-blue-600');
                 } else {
                     submitBtn.disabled = true;
                     submitBtn.classList.add('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.remove('hover:bg-green-600');
+                    submitBtn.classList.remove('hover:bg-blue-600');
                 }
 
                 // Add visual feedback for completed questions
@@ -161,10 +162,10 @@
                 for (let i = 1; i <= totalQuestions; i++) {
                     const questionCard = document.querySelector(`[data-question="${i}"]`);
                     if (answeredQuestions.has(i)) {
-                        questionCard.classList.add('ring-2', 'ring-green-300', 'bg-green-50');
+                        questionCard.classList.add('ring-2', 'ring-blue-300', 'bg-blue-50');
                         questionCard.classList.remove('bg-white');
                     } else {
-                        questionCard.classList.remove('ring-2', 'ring-green-300', 'bg-green-50');
+                        questionCard.classList.remove('ring-2', 'ring-blue-300', 'bg-blue-50');
                         questionCard.classList.add('bg-white');
                     }
                 }

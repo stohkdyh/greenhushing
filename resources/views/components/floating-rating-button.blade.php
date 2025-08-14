@@ -1,0 +1,268 @@
+@props(['product'])
+
+<!-- Floating Rating Button -->
+<div id="floating-rating-container" class="fixed bottom-8 right-8 z-50">
+    <!-- Main Floating Button -->
+    <button id="rating-button"
+        class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110 animate-pulse"
+        onclick="openRatingModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" />
+        </svg>
+    </button>
+
+    <!-- Tooltip -->
+    <div id="rating-tooltip"
+        class="absolute bottom-16 right-0 bg-gray-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 transition-opacity duration-300 whitespace-nowrap">
+        {{ __('Rate this product') }}
+        <div
+            class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800">
+        </div>
+    </div>
+</div>
+
+<!-- Rating Modal -->
+<div id="rating-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95"
+        id="modal-content">
+        <div class="p-6">
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Rate This Product') }}</h3>
+                <p class="text-gray-600 text-sm">
+                    {{ __('From 1 to 10, what number best represents your feelings about buying this product?') }}
+                </p>
+            </div>
+
+            <!-- Rating Scale -->
+            <div class="mb-6">
+                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                    <span>{{ __('Very Unlikely') }}</span>
+                    <span>{{ __('Very Likely') }}</span>
+                </div>
+                <div class="grid grid-cols-10 gap-2">
+                    @for ($i = 1; $i <= 10; $i++)
+                        <button type="button"
+                            class="rating-btn aspect-square rounded-lg border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-sm font-semibold"
+                            data-rating="{{ $i }}" onclick="selectRating({{ $i }})">
+                            {{ $i }}
+                        </button>
+                    @endfor
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+                <button type="button" onclick="closeRatingModal()"
+                    class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                    {{ __('Cancel') }}
+                </button>
+                <button type="button" id="submit-rating" onclick="submitRating()"
+                    class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    disabled>
+                    {{ __('Submit') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Message -->
+<div id="success-message"
+    class="fixed top-4 right-4 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg z-50 hidden transform transition-all duration-300 translate-x-full">
+    <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span id="success-text">{{ __('Rating submitted successfully!') }}</span>
+    </div>
+</div>
+
+<script>
+    let selectedRating = null;
+    const productName = '{{ $product }}';
+
+    // Show tooltip on hover
+    document.getElementById('rating-button').addEventListener('mouseenter', function() {
+        document.getElementById('rating-tooltip').classList.remove('opacity-0');
+        document.getElementById('rating-tooltip').classList.add('opacity-100');
+    });
+
+    document.getElementById('rating-button').addEventListener('mouseleave', function() {
+        document.getElementById('rating-tooltip').classList.add('opacity-0');
+        document.getElementById('rating-tooltip').classList.remove('opacity-100');
+    });
+
+    // Load existing rating on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadExistingRating();
+    });
+
+    function loadExistingRating() {
+        fetch("{{ route('product.ratings.get') }}?product=${productName}")
+            .then(response => response.json())
+            .then(data => {
+                if (data.rating) {
+                    // Update button to show it's already rated
+                    const button = document.getElementById('rating-button');
+                    button.classList.remove('animate-pulse', 'bg-blue-600');
+                    button.classList.add('bg-green-600');
+
+                    // Update tooltip
+                    document.getElementById('rating-tooltip').innerHTML = `
+                    {{ __('Your rating:') }} ${data.rating}/10
+                    <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                `;
+                }
+            })
+            .catch(error => console.error('Error loading rating:', error));
+    }
+
+    function openRatingModal() {
+        const modal = document.getElementById('rating-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }, 10);
+
+        // Reset selection
+        selectedRating = null;
+        updateRatingButtons();
+        document.getElementById('submit-rating').disabled = true;
+    }
+
+    function closeRatingModal() {
+        const modal = document.getElementById('rating-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    function selectRating(rating) {
+        selectedRating = rating;
+        updateRatingButtons();
+        document.getElementById('submit-rating').disabled = false;
+    }
+
+    function updateRatingButtons() {
+        const buttons = document.querySelectorAll('.rating-btn');
+        buttons.forEach((btn, index) => {
+            const rating = index + 1;
+            if (selectedRating && rating <= selectedRating) {
+                btn.classList.remove('border-gray-300', 'bg-white');
+                btn.classList.add('border-blue-500', 'bg-blue-500', 'text-white');
+            } else {
+                btn.classList.remove('border-blue-500', 'bg-blue-500', 'text-white');
+                btn.classList.add('border-gray-300', 'bg-white');
+            }
+        });
+    }
+
+    function submitRating() {
+        if (!selectedRating) return;
+
+        const submitBtn = document.getElementById('submit-rating');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '{{ __('Submitting...') }}';
+
+        fetch("{{ route('product.rating.store') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    product_name: productName,
+                    rating: selectedRating
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    closeRatingModal();
+                    showSuccessMessage(data.message);
+
+                    // Update button appearance
+                    const button = document.getElementById('rating-button');
+                    button.classList.remove('animate-pulse', 'bg-blue-600');
+                    button.classList.add('bg-green-600');
+
+                    // Update tooltip
+                    document.getElementById('rating-tooltip').innerHTML = `
+                    {{ __('Your rating:') }} ${selectedRating}/10
+                    <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                `;
+
+                    // Redirect after rating
+                    setTimeout(() => {
+                        if (data.all_products_rated) {
+                            // All products rated, go to post-test
+                            window.location.href = data.redirect_url;
+                        } else {
+                            // Go back to market
+                            window.location.href = data.redirect_url;
+                        }
+                    }, 1500);
+                } else {
+                    alert(data.message || '{{ __('Error submitting rating') }}');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('{{ __('Error submitting rating') }}');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '{{ __('Submit') }}';
+            });
+    }
+
+    function showSuccessMessage(message) {
+        const successMessage = document.getElementById('success-message');
+        const successText = document.getElementById('success-text');
+
+        successText.textContent = message;
+        successMessage.classList.remove('hidden', 'translate-x-full');
+        successMessage.classList.add('translate-x-0');
+
+        setTimeout(() => {
+            successMessage.classList.remove('translate-x-0');
+            successMessage.classList.add('translate-x-full');
+
+            setTimeout(() => {
+                successMessage.classList.add('hidden');
+            }, 300);
+        }, 3000);
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('rating-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeRatingModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeRatingModal();
+        }
+    });
+</script>
