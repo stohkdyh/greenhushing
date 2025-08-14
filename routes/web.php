@@ -10,10 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-use App\Http\Controllers\Companies\OnephoneController;
-
-Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
-
 use App\Http\Controllers\RespondentController;
 
 Route::post('/respondents', [RespondentController::class, 'store'])
@@ -26,7 +22,7 @@ Route::get('/market', function () {
 
 
 
-// Route::view('/onephone', 'companies.onephone');
+Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
 
 Route::view('/zenophone', 'companies.zenophone');
