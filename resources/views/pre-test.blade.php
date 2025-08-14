@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-Test</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="bg-[#f3f7f0] min-h-screen flex flex-col">
 
     <!-- Navbar -->
-    <header class="flex fixed top-0 left-0 right-0 justify-between items-center px-14 py-2 bg-white bg-opacity-40 backdrop-blur-md shadow-md z-50">
+    <header
+        class="flex fixed top-0 left-0 right-0 justify-between items-center px-14 py-2 bg-white bg-opacity-40 backdrop-blur-md shadow-md z-50">
         <!-- Kiri: Hamburger + Title -->
         <div class="flex items-center gap-8">
             <button class="p-2">
                 <!-- Hamburger icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                     viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"/>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
             <h1 class="font-bold text-xl">Pre-Test</h1>
@@ -25,8 +28,7 @@
 
         <!-- Kanan: Logo + Language Switch -->
         <div class="flex items-center gap-4">
-            <x-languange-switch
-                class="transition-all duration-300" />
+            <x-languange-switch class="h-full px-0" />
             <div class="flex items-center gap-3  px-3 py-1 rounded-full">
                 <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-11 h-11">
                 <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-11 h-11">
@@ -76,4 +78,5 @@
     </div>
 
 </body>
+
 </html>

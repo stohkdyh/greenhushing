@@ -10,10 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-use App\Http\Controllers\Companies\OnephoneController;
-
-Route::get('/onephone', [OnephoneController::class, 'show'])->name('onephone.show');
-
 use App\Http\Controllers\RespondentController;
 
 Route::post('/respondents', [RespondentController::class, 'store'])
@@ -27,10 +23,7 @@ Route::get('/pre-test', function () {
     return view('pre-test');
 })->name('pre-test');
 
-
-
-
-// Route::view('/onephone', 'companies.onephone');
+Route::view('/onephone', 'companies.onephone');
 Route::view('/onephone-news', 'onephone.news');
 
 Route::view('/zenophone', 'companies.zenophone');
@@ -65,7 +58,7 @@ Route::get('/lang/{locale}', function ($locale) {
     return Redirect::back();
 })->name('lang.switch');
 
-Route::get('/reset-session', function () {
+Route::get('/reset', function () {
     session()->forget('respondent_id');
     return redirect()->route('welcome')->with('success', __('Session reset. Please complete your profile.'));
 })->name('session.reset');

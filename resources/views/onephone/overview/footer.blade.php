@@ -2,42 +2,41 @@
     brand="Onephone" 
     logo="images/EU_Ecolabel_Logo.svg"
     bg="bg-[#163F22]" 
-    newsletterTitle="Onephone Newsletter"
-    newsletterDesc="Stay up to date with the latest news and stories from Onephone."
+    newsletterTitle="{{ __('Onephone Newsletter') }}"
+    newsletterDesc="{{ __('Stay up to date with the latest news and stories from Onephone.') }}"
     :menus="[
-        'Support' => [
-            ['label' => 'Contact Us', 'url' => '/contact'],
-            ['label' => 'User Guide', 'url' => '/guide'],
-            ['label' => 'Warranty', 'url' => '/warranty'],
-            ['label' => 'International Warranty', 'url' => '/international-warranty'],
-            ['label' => 'Scooter Safety Notice', 'url' => '/'],
-            ['label' => 'Android Enterprise Recommended', 'url' => '/'],
-            ['label' => 'Digital Services Act', 'url' => '/']
-            
+        __('Support') => [
+            ['label' => __('Contact Us'), 'url' => '/'],
+            ['label' => __('User Guide'), 'url' => '/'],
+            ['label' => __('Warranty'), 'url' => '/'],
+            ['label' => __('International Warranty'), 'url' => '/'],
+            ['label' => __('Scooter Safety Notice'), 'url' => '/'],
+            ['label' => __('Android Enterprise Recommended'), 'url' => '/'],
+            ['label' => __('Digital Services Act'), 'url' => '/'],
         ],
-        'About Us' => [
-            ['label' => 'Onephone', 'url' => '/about'],
-            ['label' => 'Management Team', 'url' => '/team'],
-            ['label' => 'Privacy Policy', 'url' => '/about'],
-            ['label' => 'Integrity & Compliance', 'url' => '/about'],
-            ['label' => 'Investor Relations', 'url' => '/about'],
-            ['label' => 'ESG and Sustainability', 'url' => '/about'],
-            ['label' => 'Trust Center', 'url' => '/about'],
-            ['label' => 'Accessibility', 'url' => '/about'],
-            ['label' => 'HyperOS', 'url' => '/about']
+        __('About Us') => [
+            ['label' => __('Onephone'), 'url' => '/'],
+            ['label' => __('Management Team'), 'url' => '/'],
+            ['label' => __('Privacy Policy'), 'url' => '/'],
+            ['label' => __('Integrity & Compliance'), 'url' => '/'],
+            ['label' => __('Investor Relations'), 'url' => '/'],
+            ['label' => __('ESG and Sustainability'), 'url' => '/'],
+            ['label' => __('Trust Center'), 'url' => '/'],
+            ['label' => __('Accessibility'), 'url' => '/'],
+            ['label' => __('HyperOS'), 'url' => '/'],
         ],
-        'Products' => [
-            ['label' => 'Onephone', 'url' => '/products/onebuds'],
-            ['label' => 'Onephone with', 'url' => '/products/onebuds'],
-            ['label' => 'Onebuds', 'url' => '/products/onebuds'],
-            ['label' => 'Spare Parts', 'url' => '/products/onebuds'],
-            ['label' => 'Giftcard', 'url' => '/giftcard'],
-            ['label' => 'Where to Buy', 'url' => '/products/onebuds'],
-            ['label' => 'Promotions', 'url' => '/products/onebuds']
+        __('Products') => [
+            ['label' => __('Onephone'), 'url' => '/'],
+            ['label' => __('Onephone with'), 'url' => '/'],
+            ['label' => __('Onebuds'), 'url' => '/'],
+            ['label' => __('Spare Parts'), 'url' => '/'],
+            ['label' => __('Giftcard'), 'url' => '/'],
+            ['label' => __('Where to Buy'), 'url' => '/'],
+            ['label' => __('Promotions'), 'url' => '/'],
         ],
-        'Services' => [
-            ['label' => 'Refer a Friend', 'url' => '/refer'],
-            ['label' => 'Getting Started', 'url' => '/getting-started']
-        ]
+        __('Services') => [
+            ['label' => __('Refer a Friend'), 'url' => '/'],
+            ['label' => __('Getting Started'), 'url' => '/'],
+        ],
     ]"
 />
