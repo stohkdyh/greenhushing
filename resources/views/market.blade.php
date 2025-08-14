@@ -253,8 +253,6 @@
                                                                     <span
                                                                         class="text-sm">{{ __('Sustainable Manufacturing') }}</span>
                                                                     <div class="flex flex-row space-x-2">
-                                                                        <img src="{{ asset('images/logo_palsu2.png') }}"
-                                                                            alt="Eco Logo" class="w-8 h-8">
                                                                         <img src="{{ asset('images/logo_palsu1.png') }}"
                                                                             alt="Eco Logo" class="w-8 h-8">
                                                                     </div>
