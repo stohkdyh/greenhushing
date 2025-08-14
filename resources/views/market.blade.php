@@ -105,48 +105,36 @@
                             @php
                                 $products = [
                                     [
-                                        'name' => 'OnePhone',
+                                        'name' => 'Onephone',
                                         'image' => 'market_one_edited.png',
-                                        'desc' =>
-                                            'Modular design, Durable Design, Super Fast Charging, Expandable Storage, ID Version, 2025',
                                         'price' => 252,
                                         'rating' => 4.79,
                                         'features' => 2,
                                         'sold' => '2,5',
-                                        'sustainability' => true,
                                     ],
                                     [
-                                        'name' => 'NeuPhone',
+                                        'name' => 'Neuphone',
                                         'image' => 'market_neu.png',
-                                        'desc' =>
-                                            'Durable Design, Super Fast Charging, Water Resistance, Expandable Storage, Titanium Frame, ID Version, 2025',
                                         'price' => 252,
                                         'rating' => 4.73,
                                         'features' => 2,
                                         'sold' => '2,5',
-                                        'sustainability' => false,
                                     ],
                                     [
-                                        'name' => 'XarelPhone',
+                                        'name' => 'Xarelphone',
                                         'image' => 'market_xarel.png',
-                                        'desc' =>
-                                            'Durable Design, Super Fast Charging, Water Resistance, Expandable Storage, Slim Premium Design, ID Version, 2025',
                                         'price' => 252,
                                         'rating' => 4.43,
                                         'features' => 2,
                                         'sold' => '2,5',
-                                        'sustainability' => false,
                                     ],
                                     [
-                                        'name' => 'ZenoPhone',
+                                        'name' => 'Zenophone',
                                         'image' => 'market_zeno.png',
-                                        'desc' =>
-                                            'Modular design, Durable Design, Super Fast Charging, Expandable Storage, ID Version, 2025',
                                         'price' => 252,
                                         'rating' => 4.39,
                                         'features' => 2,
                                         'sold' => '2,5',
-                                        'sustainability' => true,
                                     ],
                                 ];
                             @endphp
@@ -161,7 +149,8 @@
                                         </div>
                                         <div class="flex flex-col justify-center">
                                             <h3 class="text-2xl font-semibold mb-1">{{ $product['name'] }}</h3>
-                                            <p class="text-gray-600 mb-2 text-base/2">{{ $product['desc'] }}</p>
+                                            <p class="text-gray-600 mb-2 text-base/2">
+                                                {{ __('Product Description ' . $product['name']) }}</p>
                                             <div class="text-gray-500 flex flex-row items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"
                                                     viewBox="0 0 640 640">
@@ -172,7 +161,7 @@
                                                 <p class="text-gray-500 ms-2">| {{ $product['sold'] }}
                                                     {{ __('Bought in past month') }}</p>
                                             </div>
-                                            @if ($product['sustainability'])
+                                            @if ($product['name'] == 'Onephone')
                                                 <div class="my-2 text-3xl font-bold text-black">
                                                     ${{ $product['price'] }}
                                                 </div>
@@ -181,22 +170,98 @@
                                                     ${{ $product['price'] }}
                                                 </div>
                                             @endif
-                                            @if ($product['sustainability'])
-                                                <div class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20"
-                                                        width="20" viewBox="0 0 640 640">
-                                                        <path fill="#84bc41"
-                                                            d="M576 96C576 204.1 499.4 294.3 397.6 315.4C389.7 257.3 363.6 205 325.1 164.5C365.2 104 433.9 64 512 64L544 64C561.7 64 576 78.3 576 96zM64 160C64 142.3 78.3 128 96 128L128 128C251.7 128 352 228.3 352 352L352 544C352 561.7 337.7 576 320 576C302.3 576 288 561.7 288 544L288 384C164.3 384 64 283.7 64 160z" />
-                                                    </svg>
-                                                    <a href="">
+                                            @if ($product['name'] == 'Onephone')
+                                                <div class="sustainability-container relative">
+                                                    <a href="#"
+                                                        class="sustainability-toggle flex items-center gap-1 text-gray-500 mt-1 hover:text-gray-800 focus:text-blue-600">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="20"
+                                                            width="20" viewBox="0 0 640 640">
+                                                            <path fill="#84bc41"
+                                                                d="M576 96C576 204.1 499.4 294.3 397.6 315.4C389.7 257.3 363.6 205 325.1 164.5C365.2 104 433.9 64 512 64L544 64C561.7 64 576 78.3 576 96zM64 160C64 142.3 78.3 128 96 128L128 128C251.7 128 352 228.3 352 352L352 544C352 561.7 337.7 576 320 576C302.3 576 288 561.7 288 544L288 384C164.3 384 64 283.7 64 160z" />
+                                                        </svg>
                                                         {{ $product['features'] }} {{ __('Sustainability Feature') }}
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="dropdown-arrow ms-1 size-4 transition-transform duration-200">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                                        </svg>
                                                     </a>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                        class="ms-1 size-4">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                                    </svg>
+                                                    <div
+                                                        class="sustainability-dropdown absolute top-full left-0 right-0 z-10 hidden bg-white shadow-xl rounded-md mt-1">
+                                                        <div class="p-4">
+                                                            <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                                                                {{ __('Sustainability Description') }}
+                                                            </p>
+                                                            <div class="space-y-2">
+                                                                <div
+                                                                    class="border-t border-gray-200 pt-3 text-gray-700 font-medium flex flex-row justify-between items-center">
+                                                                    <span
+                                                                        class="text-sm">{{ __('Energy Efficiency') }}</span>
+                                                                    <img src="{{ asset('images/EU_Ecolabel_Logo.svg') }}"
+                                                                        alt="Ecolabel Logo" class="w-8 h-8">
+                                                                </div>
+                                                                <div
+                                                                    class="border-t border-gray-200 pt-2 text-gray-700 font-medium flex flex-row justify-between items-center">
+                                                                    <span
+                                                                        class="text-sm">{{ __('Sustainable Manufacturing') }}</span>
+                                                                    <img src="{{ asset('images/EU_Ecolabel_Logo.svg') }}"
+                                                                        alt="Ecolabel Logo" class="w-8 h-8">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            @if ($product['name'] == 'Zenophone')
+                                                <div class="sustainability-container relative">
+                                                    <a href="#"
+                                                        class="sustainability-toggle flex items-center gap-1 text-gray-500 mt-1 hover:text-gray-800 focus:text-blue-600">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" height="20"
+                                                            width="20" viewBox="0 0 640 640">
+                                                            <path fill="#84bc41"
+                                                                d="M576 96C576 204.1 499.4 294.3 397.6 315.4C389.7 257.3 363.6 205 325.1 164.5C365.2 104 433.9 64 512 64L544 64C561.7 64 576 78.3 576 96zM64 160C64 142.3 78.3 128 96 128L128 128C251.7 128 352 228.3 352 352L352 544C352 561.7 337.7 576 320 576C302.3 576 288 561.7 288 544L288 384C164.3 384 64 283.7 64 160z" />
+                                                        </svg>
+                                                        {{ $product['features'] }} {{ __('Sustainability Feature') }}
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                            class="dropdown-arrow ms-1 size-4 transition-transform duration-200">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                                        </svg>
+                                                    </a>
+                                                    <div
+                                                        class="sustainability-dropdown absolute top-full left-0 right-0 z-10 hidden bg-white shadow-xl rounded-md mt-1">
+                                                        <div class="p-4">
+                                                            <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                                                                {{ __('Sustainability Description') }}
+                                                            </p>
+                                                            <div class="space-y-2">
+                                                                <div
+                                                                    class="border-t border-gray-200 pt-3 text-gray-700 font-medium flex flex-row justify-between items-center">
+                                                                    <span
+                                                                        class="text-sm">{{ __('Energy Efficiency') }}</span>
+                                                                    <div class="flex flex-row space-x-2">
+                                                                        <img src="{{ asset('images/logo_palsu2.png') }}"
+                                                                            alt="Eco Logo" class="w-8 h-8">
+                                                                        <img src="{{ asset('images/logo_palsu1.png') }}"
+                                                                            alt="Eco Logo" class="w-8 h-8">
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="border-t border-gray-200 pt-2 text-gray-700 font-medium flex flex-row justify-between items-center">
+                                                                    <span
+                                                                        class="text-sm">{{ __('Sustainable Manufacturing') }}</span>
+                                                                    <div class="flex flex-row space-x-2">
+                                                                        <img src="{{ asset('images/logo_palsu2.png') }}"
+                                                                            alt="Eco Logo" class="w-8 h-8">
+                                                                        <img src="{{ asset('images/logo_palsu1.png') }}"
+                                                                            alt="Eco Logo" class="w-8 h-8">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             @endif
                                             <a href="/{{ strtolower($product['name']) }}"
@@ -212,6 +277,54 @@
             </div>
             {{-- <p>session: {{ session('respondent_id') }}</p> --}}
         </main>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Handle all sustainability dropdowns
+                const sustainabilityButtons = document.querySelectorAll('.sustainability-toggle');
+
+                sustainabilityButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        // Find the corresponding dropdown
+                        const dropdown = this.nextElementSibling;
+                        const arrow = this.querySelector('.dropdown-arrow');
+
+                        // Close other dropdowns
+                        document.querySelectorAll('.sustainability-dropdown').forEach(otherDropdown => {
+                            if (otherDropdown !== dropdown) {
+                                otherDropdown.classList.add('hidden');
+                                otherDropdown.previousElementSibling.querySelector(
+                                    '.dropdown-arrow').style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('hidden');
+
+                        // Rotate arrow
+                        if (dropdown.classList.contains('hidden')) {
+                            arrow.style.transform = 'rotate(0deg)';
+                        } else {
+                            arrow.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.sustainability-container')) {
+                        document.querySelectorAll('.sustainability-dropdown').forEach(dropdown => {
+                            dropdown.classList.add('hidden');
+                            dropdown.previousElementSibling.querySelector('.dropdown-arrow').style
+                                .transform = 'rotate(0deg)';
+                        });
+                    }
+                });
+            });
+        </script>
+
     </div>
 </body>
 
