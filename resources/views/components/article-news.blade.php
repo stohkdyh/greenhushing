@@ -58,7 +58,7 @@
 
 <!-- Share Section -->
 <div class="mt-6 border-t border-gray-100 pt-6">
-    <h3 class="text-sm font-medium mb-3 {{ $shareTitleColor }}">Share this news</h3>
+    <h3 class="text-sm font-medium mb-3 {{ $shareTitleColor }}">{{ __('Share this news') }}</h3>
     <div class="flex gap-3 flex-wrap">
         {{-- Facebook --}}
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"

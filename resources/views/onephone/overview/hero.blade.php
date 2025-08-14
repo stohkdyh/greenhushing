@@ -26,7 +26,7 @@
             x-transition:enter-start="opacity-0 translate-y-8"
             x-transition:enter-end="opacity-100 translate-y-0"
             x-cloak>
-            {{ __('One Phone') }}
+            One Phone
         </h2>
 
         <!-- One Planet -->
@@ -38,7 +38,7 @@
             x-transition:enter-start="opacity-0 translate-y-8"
             x-transition:enter-end="opacity-100 translate-y-0"
             x-cloak>
-            {{ __('One Planet') }}
+            One Planet
         </h2>
 
         <!-- Make it Count -->
@@ -50,7 +50,7 @@
             x-transition:enter-start="opacity-0 translate-y-8"
             x-transition:enter-end="opacity-100 translate-y-0"
             x-cloak>
-            {{ __('Make it Count') }}
+            Make it Count
         </h2>
     </div>
 </section>

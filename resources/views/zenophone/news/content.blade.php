@@ -1,62 +1,57 @@
 <p>
-    Tech giant <b>ZenoTech</b> is under fire this week after sustainability watchdogs raised serious concerns over the company’s environmental claims tied to its latest smartphone, the <b>ZenoPhone</b>. Despite flashy marketing campaigns promoting a “greener future,” independent reviews suggest the brand’s eco promises are more smoke than substance — a textbook case of <b>greenwashing</b>.
+    {{ __("Tech enthusiasts are praising the new") }} <b>XarelPhone</b>, {{ __("a premium smartphone from") }} <b>XarelTech</b>, {{ __("for its sleek design, fast charging, and durability — but critics argue that the brand’s silence on environmental impact is increasingly hard to ignore.") }}
 </p>
 
 <p>
-    At its global launch event, ZenoTech declared its commitment to building a sustainable product line and claimed the <b>ZenoPhone</b> was a result of "pioneering green innovation." Central to the campaign was its so-called <b>“sustainable design.”</b>
+    {{ __("Unveiled last week, the") }} <b>XarelPhone</b> {{ __("showcases the brand’s continued focus on luxury aesthetics and performance. Marketed as “an engineering marvel that balances elegance and power,” the device is being promoted as a milestone in minimalist, ultra-slim design.") }}
 </p>
 
 <p>
-    <b>Claim 1: Vague – “Sustainable Design”</b> 
+    <b>{{ __("Claim 1: Modern Design") }}</b>
     <br>
-    <i>“We aim to continuously explore optimal ways to build a low-carbon, circular economy and to find innovative solutions that make our value chain greener,”</i> reads the company’s website.
+    <i>{{ __("“Innovation opens new possibilities,”") }}</i> {{ __("reads the company’s launch tagline.") }} <i>{{ __("“Welcome to the edge of premium slim.”") }}</i>
     <br>
-    But environmental experts say the language is <b>intentionally vague</b>, with no clear definitions, measurable targets, or timelines. The company does not specify what materials are being used, how emissions are being reduced, or whether the supply chain meets any verifiable green standards.
+    {{ __("In addition to its polished exterior, XarelTech claims the phone can reach a full battery charge in under one hour — a feature that has garnered praise from users on social media.") }}
+</p>
+
+<p>
+    <b>{{ __("Claim 2: Fast Charging") }}</b>
     <br>
-    Worse still, the company boldly claims that the <b>ZenoPhone is made with 100% sustainable materials</b>— a statement that <b>has been flagged as false</b> by independent audits.
-</p>
-
-<p>
-    <b>Claim 2: False – “100% Sustainable Materials”</b> 
+    {{ __("The company advertises") }} <b>{{ __("100% charge in just 60 minutes") }}</b>, {{ __("supported by proprietary fast-charging technology.") }}
     <br>
-    A recent teardown analysis by <b>GreenTech Integrity</b>, a third-party evaluator, found that only <b>a small portion of the materials used were recycled or renewable</b>, while most were conventional plastics and virgin metals with no transparency about their sourcing.
+    {{ __("The") }} <b>XarelPhone</b> {{ __("is also rated for") }} <b>{{ __("water and dust resistance") }}</b>, {{ __("with demonstrations showing the phone surviving exposure to both rain and sandy environments.") }}
+</p>
+
+<p>
+    <b>{{ __("Claim 3: Durability") }}</b>
     <br>
-    Another claim by the company — that the phone <b>“does not contain banned chemical substances”</b> — has also drawn criticism.
+    <i>{{ __("“Take it further than you thought possible,”") }}</i> {{ __("says XarelTech, emphasizing the phone’s use in outdoor and unpredictable conditions.") }}
 </p>
 
 <p>
-    <b>Claim 3: Irrelevant – “No Banned Chemicals”</b> 
-    <br>
-    <i>“That’s not an environmental achievement,”</i> said Dr. Karina Yu, an environmental science professor at the University of Melbourne. <i>“It’s simply a legal requirement. It’s like bragging that your product isn’t illegal.”</i>
+    {{ __("However, while the device excels in performance and presentation, environmental advocates are raising concerns about what’s missing from the company’s message: transparency.") }}
 </p>
 
 <p>
-    Adding to the controversy, ZenoTech lists several <b>national and international certifications</b> on its product page. However, investigative reporters found that <b>many of these certifications are not verifiable, expired, or linked to organizations with no credibility</b>.
-<p>
-    <i>“They’re using logos and names that look official, but don’t lead to any legitimate certification body,”</i> said Tina Brown, director of the nonprofit watchdog <b>LabelCheck Asia</b>.
+    {{ __("According to a review by") }} <b>TechForEarth</b>, {{ __("an independent watchdog group, XarelTech has") }} <b>{{ __("no third-party eco-label certifications") }}</b> {{ __("listed, either nationally or internationally. Furthermore, the company received a") }} <b>{{ __("low environmental rating") }}</b> {{ __("in the group’s 2025 sustainability audit, citing lack of information on materials sourcing, manufacturing emissions, or end-of-life product handling.") }}
 </p>
 
 <p>
-   The company also publishes a <b>Product Environmental Report</b> on its website — but experts say it contains no verifiable data, no third-party validation, and lacks transparency in lifecycle assessment methods.
+   <i>{{ __("“There is no publicly available environmental product report,”") }}</i> {{ __("the group stated.") }} <i>{{ __("“Consumers cannot assess the carbon footprint, recyclability, or materials origin of the XarelPhone.”") }}</i>
 </p>
 
 <p>
-    <i>“It’s more of a PR document than a technical report,”</i> said Brown. <i>“There are no certifications attached, no emissions disclosures, and no mention of energy usage or end-of-life treatment.”</i>
+    {{ __("A search on the company’s official website yields no sustainability page or recycling program. Unlike competitors who now offer take-back services or report on carbon emissions, XarelTech appears to remain silent on its environmental commitments.") }}
 </p>
 
 <p>
-    Meanwhile, <b>third-party environmental rating agencies</b> have given ZenoTech one of the <b>lowest scores in the industry</b> for its environmental performance, citing excessive use of unrecyclable materials, energy-inefficient production, and lack of take-back or recycling programs.
+    <i>{{ __("“We’re seeing a growing number of tech brands adopt ‘silent brown’ strategies,”") }}</i> {{ __("said Dr. Diana Rao, a digital sustainability researcher at GreenTech Watch.") }} <i>{{ __("“They continue to push premium products while omitting any mention of ecological impact. For climate-conscious consumers, that silence speaks volumes.”") }}</i>
 </p>
 
 <p>
-    Consumer advocacy groups are now calling for tighter regulation of environmental claims in tech advertising.
+    {{ __("Despite the criticisms, XarelTech has yet to issue a statement regarding its environmental practices.") }}
 </p>
 
 <p>
-    <i>“Consumers deserve honesty,”</i> said Lila Hassan, spokesperson for the <b>FairTech Alliance</b>. <i>“Brands like ZenoTech mislead buyers with buzzwords while doing little to reduce their actual environmental impact.”</i>
+    {{ __("As the tech industry faces increasing pressure to reduce its environmental footprint and provide transparency, XarelTech’s choice to stay silent may eventually weigh more heavily than its device’s technical performance.") }}
 </p>
-
-<p>
-    As of this writing, ZenoTech has not responded to requests for comment.
-</p>
-
