@@ -4,4 +4,3 @@
 @include('xarelphone.overview.product3')
 @include('xarelphone.overview.product4')
 @include('xarelphone.overview.product5')
-@include('xarelphone.overview.footer')

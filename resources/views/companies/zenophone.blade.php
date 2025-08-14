@@ -5,4 +5,6 @@
 
 @section('content')
     @include('zenophone.overview')
+    @include('zenophone.rating')
+    @include('zenophone.overview.footer')
 @endsection

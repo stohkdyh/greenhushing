@@ -5,4 +5,6 @@
 
 @section('content')
     @include('xarelphone.overview')
+    @include('xarelphone.rating')
+    @include('xarelphone.overview.footer')
 @endsection
