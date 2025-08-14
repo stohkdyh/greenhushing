@@ -1,5 +1,5 @@
 <x-product5-card 
-    :image="'images/hp_xar4.png'"
+    :image="'images/feature.png'"
     :specsLeft="[
         ['icon' => view('components.icon.camera')->render(), 'title' => 'Rear Camera Zoom', 'value' => 'Digital Zoom up to 10x'],
         ['icon' => view('components.icon.cpu')->render(), 'title' => 'CPU Speed', 'value' => '2.9 GHz'],
@@ -12,4 +12,6 @@
     ]"
     textColor="#1C4F2B"
     textValueColor="#1C4F2B"
+    imageWidth="400px"
+    mb="mb-0"
 />

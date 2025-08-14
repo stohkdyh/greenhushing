@@ -6,7 +6,11 @@
     'bg' => '#ffffff',
     'titleColor' => '#111827',
     'highlightColor' => '#4f46e5',
-    'imageBg' => '#fffff'
+    'imageBg' => '#fffff',
+    'imageWidth' => '400px', // default ukuran
+    'imageHeight' => 'auto',
+    'imagePositionX' => '50%', // posisi horizontal
+    'imagePositionY' => '-50px', // posisi vertikal
 ])
 
 <!-- Google Fonts -->
@@ -54,8 +58,14 @@
 
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-1/2 -translate-x-1/2 bottom-[-50px] sm:bottom-[-50px] 
-                    w-[200px] sm:w-[300px] md:w-[400px] 
+                style="
+                    width: {{ $imageWidth }};
+                    height: {{ $imageHeight }};
+                    left: {{ $imagePositionX }};
+                    bottom: {{ $imagePositionY }};
+                    transform: translateX(-50%);
+                "
+                class="absolute
                     h-auto object-contain z-10 drop-shadow-2xl 
                     transition-transform duration-500 hover:scale-105" />
         </div>

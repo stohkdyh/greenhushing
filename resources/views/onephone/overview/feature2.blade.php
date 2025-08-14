@@ -7,4 +7,8 @@
     highlightColor="#AACC8D"
     image="images/feature2.png"
     imageBg="#EEF5E8"
+    imageWidth="500px"
+    imageHeight="auto"
+    imagePositionX="50%"
+    imagePositionY="-100px"
 />

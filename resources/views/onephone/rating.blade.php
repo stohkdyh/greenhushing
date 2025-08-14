@@ -10,7 +10,7 @@
                 'title' => 'Aditya Eka Prasetya',
                 'subtitle' => 'Founder of Gun Market',
                 'rating' => 5,
-                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Aeraphone one series.',
+                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Onephone one series.',
             ],
             [
                 'image' => 'images/card2.png',
@@ -29,7 +29,6 @@
         ];
     @endphp
 
-    {{-- Semua ukuran: grid, tapi kolom berubah sesuai breakpoint --}}
     <div class="w-full max-w-7xl">
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             @foreach ($testimonials as $item)

@@ -4,8 +4,11 @@
     'specsRight' => [],
     'textColor' => '#1F2937',
     'textTitleColor' => '#374151',
-    'textValueColor' => '#000000'
+    'textValueColor' => '#000000',
+    'imageWidth' => '200px',
+    'mb' => 'mb-20'
 ])
+
 
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -43,7 +46,7 @@
 
 <div class="min-h-screen w-full px-6 md:px-20 py-12 bg-white font-inter flex flex-col justify-center">
     <!-- JUDUL -->
-    <h2 class="text-4xl md:text-5xl font-bold mb-20 text-center lg:text-left fade-in-left"
+    <h2 class="text-4xl md:text-5xl font-bold {{ $mb }} text-center lg:text-left fade-in-left"
         style="color: {{ $textColor }};">
         Specs Snapshot
     </h2>
@@ -52,7 +55,12 @@
     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-16">
         <!-- IMAGE LEFT -->
         <div class="flex justify-center lg:justify-start w-full lg:w-auto fade-in-left">
-            <img src="{{ asset($image) }}" alt="Phone Image" class="w-[120px] sm:w-[120px] md:w-[200px] lg:mx-20 w-[280px] object-contain" />
+            <img 
+                src="{{ asset($image) }}" 
+                alt="Phone Image" 
+                style="width: {{ $imageWidth }};" 
+                class="object-contain lg:mx-20"
+            />
         </div>
 
         <!-- SPECS SECTION -->
