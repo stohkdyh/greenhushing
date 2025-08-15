@@ -6,25 +6,25 @@
     @php
         $testimonials = [
             [
-                'image' => 'images/card1.png',
-                'title' => 'Aditya Eka Prasetya',
-                'subtitle' => 'Founder of Gun Market',
-                'rating' => 5,
-                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Onephone one series.',
+                'image' => 'images/rating_card1.jpg',
+                'title' => 'Michael Thompson',
+                'subtitle' => 'Technology Blogger',
+                'rating' => 4.9,
+                'comment' => 'The buying process was straightforward with clear details provided, making me confident from start to finish.',
             ],
             [
-                'image' => 'images/card2.png',
-                'title' => 'Siti Nurhaliza',
-                'subtitle' => 'CEO of GreenTech',
-                'rating' => 4,
-                'comment' => 'Service sangat memuaskan, produk berkualitas tinggi!',
+                'image' => 'images/rating_card2.jpg',
+                'title' => 'Sophia Martinez',
+                'subtitle' => 'Product Designer',
+                'rating' => 4.3,
+                'comment' => 'Everything was presented openly and honestly, and the smartphone’s quality exceeded my expectations.',
             ],
             [
-                'image' => 'images/card3.png',
-                'title' => 'Budi Santoso',
+                'image' => 'images/rating_card3.jpg',
+                'title' => 'Daniel Walker',
                 'subtitle' => 'Entrepreneur',
                 'rating' => 5,
-                'comment' => 'Pelayanan cepat dan responsif, sangat direkomendasikan.',
+                'comment' => 'I appreciate how the specifications matched exactly what was described from the very beginning.',
             ],
         ];
     @endphp

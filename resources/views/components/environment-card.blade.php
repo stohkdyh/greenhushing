@@ -15,7 +15,7 @@
   </div>
 
   <!-- Overlay teks -->
-  <div class="absolute bottom-0 w-full bg-white/80 backdrop-blur-md rounded-b-[28px] shadow-lg h-[100px] sm:h-[120px]">
+  <div class="absolute bottom-0 w-full bg-white/80 backdrop-blur-md rounded-b-[28px] shadow-lg h-[100px] sm:h-[140px]">
     <div class="px-3 sm:px-4 py-2 sm:py-3 h-full flex flex-col justify-start gap-1.5">
       <h3 class="text-base sm:text-lg font-bold text-gray-800 leading-tight">
         {{ $title }}

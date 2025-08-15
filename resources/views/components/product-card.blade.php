@@ -38,13 +38,17 @@
     {{-- Info --}}
     <div class="w-full md:w-3/5 max-w-3xl text-center md:text-left space-y-7">
       {{-- Judul & Rating --}}
-      <div class="space-y-1">
+      <div class="space-y-3">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
           {{ __($title) }}
         </h2>
-        <div class="flex justify-center md:justify-start gap-1 text-yellow-400 text-xl sm:text-2xl">
-          @for ($i = 0; $i < $full; $i++) <span>★</span> @endfor
-          @if ($half) <span class="text-yellow-200">★</span> @endif
+        <div class="flex justify-center lg:justify-start">
+            <x-star-rating 
+                :rating="$rating" 
+                size="24" 
+                full-color="gold" 
+                empty-color="lightgray"
+            />
         </div>
       </div>
 
