@@ -33,8 +33,8 @@
     </div>
 
     <!-- Teks kanan bawah -->
-    <div class="absolute bottom-[-120px] md:bottom-6 right-6 text-right max-w-[280px]">
-      <p class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-snug">
+    <div class="absolute bottom-[-80px] md:bottom-6 right-6 text-right max-w-[280px]">
+      <p class="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-black !leading-relaxed">
         Clean by Design –<br />
         free from harmful<br />
         substances

@@ -3,45 +3,38 @@
         Voices of Our Valued Customers
     </h2>
 
-    @php   
-    $testimonials = [
+    @php
+        $testimonials = [
             [
-                'image' => 'images/card1.png',
-                'title' => 'Aditya Eka Prasetya',
-                'subtitle' => 'Founder of Gun Market',
-                'rating' => 5,
-                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Aeraphone one series.',
+                'image' => 'images/rating_card1.jpg',
+                'title' => 'Michael Thompson',
+                'subtitle' => 'Technology Blogger',
+                'rating' => 4.9,
+                'comment' => 'The buying process was straightforward with clear details provided, making me confident from start to finish.',
             ],
             [
-                'image' => 'images/card2.png',
-                'title' => 'Siti Nurhaliza',
-                'subtitle' => 'CEO of GreenTech',
-                'rating' => 4,
-                'comment' => 'Service sangat memuaskan, produk berkualitas tinggi!',
+                'image' => 'images/rating_card2.jpg',
+                'title' => 'Sophia Martinez',
+                'subtitle' => 'Product Designer',
+                'rating' => 4.3,
+                'comment' => 'Everything was presented openly and honestly, and the smartphone’s quality exceeded my expectations.',
             ],
             [
-                'image' => 'images/card3.png',
-                'title' => 'Budi Santoso',
+                'image' => 'images/rating_card3.jpg',
+                'title' => 'Daniel Walker',
                 'subtitle' => 'Entrepreneur',
                 'rating' => 5,
-                'comment' => 'Pelayanan cepat dan responsif, sangat direkomendasikan.',
+                'comment' => 'I appreciate how the specifications matched exactly what was described from the very beginning.',
             ],
         ];
     @endphp
 
-    {{-- Semua ukuran: grid, tapi kolom berubah sesuai breakpoint --}}
     <div class="w-full max-w-7xl">
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             @foreach ($testimonials as $item)
                 <div class="w-full">
-                    <x-rating-card
-                        :image="$item['image']"
-                        :title="$item['title']"
-                        :subtitle="$item['subtitle']"
-                        :rating="$item['rating']"
-                        :comment="$item['comment']"
-                        class="w-full"
-                    />
+                    <x-rating-card :image="$item['image']" :title="$item['title']" :subtitle="$item['subtitle']" :rating="$item['rating']"
+                        :comment="$item['comment']" class="w-full" />
                 </div>
             @endforeach
         </div>

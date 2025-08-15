@@ -10,7 +10,7 @@
     'scale' => 'scale-100', 
 ])
 
-<div class="shadow-md {{ $rounded }} w-full sm:w-[32%] relative mb-6 sm:mb-0 mx-1">
+<div class="shadow-md {{ $rounded }} sm:w-[32%] lg:w-[30%] relative mb-6 sm:mb-0 mx-1">
   <!-- Area gambar -->
   <div class="w-full {{ $aspect }} {{ $rounded }} overflow-hidden">
     <img src="{{ asset($image) }}" alt="{{ $title }}"
@@ -18,14 +18,13 @@
   </div>
 
   <!-- Overlay teks -->
-  <div class="absolute bottom-0 w-full bg-white/80 backdrop-blur-md rounded-b-[28px] shadow-lg p-3 sm:p-4">
+  <div class="absolute bottom-0 w-full bg-white/90 backdrop-blur-md rounded-b-[28px] shadow-lg p-3 sm:p-4">
     <div class="flex flex-col gap-1">
       <!-- Title -->
       <h3 class="text-base sm:text-lg font-bold text-gray-800 leading-tight">
         {{ $title }}
       </h3>
 
-      <!-- Subtitle 1 + Deskripsi 1 -->
       <div>
         <h4 class="text-gray-700 text-sm sm:text-base font-semibold leading-snug">
           {{ $subtitle1 }}

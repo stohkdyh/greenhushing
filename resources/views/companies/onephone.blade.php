@@ -1,6 +1,6 @@
 @extends('layouts.company')
 
-@section('logo', 'ONEPHONE ONE')
+@section('logo', 'ONEPHONE')
 @section('price', '299')
 
 @section('content')
@@ -8,7 +8,7 @@
     @include('onephone.spec')
     @include('onephone.environment')
     @include('onephone.rating')
-    @include('onephone.overview.footer')
+    @include('onephone.footer')
 
     <x-floating-rating-button product="onephone" />
 @endsection
