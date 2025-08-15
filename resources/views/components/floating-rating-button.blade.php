@@ -15,7 +15,7 @@
     <!-- Tooltip -->
     <div id="rating-tooltip"
         class="absolute bottom-16 right-0 bg-gray-800 text-white text-sm rounded-lg px-3 py-2 opacity-0 transition-opacity duration-300 whitespace-nowrap">
-        {{ __('Rate this product') }}
+        {{ __('Rate This Product') }}
         <div
             class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800">
         </div>

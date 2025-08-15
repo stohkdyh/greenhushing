@@ -325,5 +325,44 @@
     "I appreciate how the specifications matched exactly what was described from the very beginning.": "Saya menghargai bagaimana spesifikasinya benar-benar sesuai dengan apa yang dijelaskan sejak awal.",
     "XarelTech’s Stylish Debut — Sustainability Still a Mystery.": "Debut Bergaya XarelTech — Keberlanjutan Masih Menjadi Misteri.",
     "Behind the Green: ZenoPhone’s Eco Claims Under Fire." : "Di Balik Warna Hijau: Klaim Ramah Lingkungan ZenoPhone Dipertanyakan.",
-    "NeuPhone Shines in Design and Performance, Keeps Green Achievements Under Wraps." : "NeuPhone bersinar dalam desain dan performa, namun menyembunyikan pencapaian ramah lingkungannya."
+    "NeuPhone Shines in Design and Performance, Keeps Green Achievements Under Wraps." : "NeuPhone bersinar dalam desain dan performa, namun menyembunyikan pencapaian ramah lingkungannya.",
+    
+    
+    "Question" : "Pertanyaan",
+    "You feel that this product's environmental reputation is generally reliable" : "Anda merasa reputasi lingkungan produk ini secara umum dapat diandalkan",
+    "Strongly" : "Sangat",
+    "Disagree" : "Tidak Setuju",
+    "Agree" : "Setuju",
+    "Progress" : "Progres",
+    "answered" : "terjawab",
+    "Submitting..." : "Mengirim...",
+
+    "Rate This Product" : "Beri Peringkat untuk Produk Ini",
+    "From 1 to 10, what number best represents your feelings about buying this product?" : "Dari 1 sampai 10, angka berapa yang paling mewakili perasaan Anda tentang pembelian produk ini?",
+    "Very Unlikely" : "Sangat Tidak Mungkin",
+    "Very Likely" : "Sangat Mungkin",
+    "Error submitting rating" : "Terjadi kesalahan saat mengirimkan peringkat",
+    "Rating submitted successfully!" : "Peringkat berhasil dikirimkan!",
+    "Thank you for your rating!" : "Terimakasih atas penilaian Anda!",
+    "Cancel" : "Kembali",
+
+    "Rated!" : "Telah Dinilai!",
+    "Products Rated" : "Penilaian Produk",
+    "completed" : "selesai",
+
+    "Thank You!" : "Terima Kasih!",
+    "Survey Completed Successfully" : "Survei Berhasil Diselesaikan",
+    "We sincerely appreciate your time and valuable responses in our research study about environmental sustainability and consumer behavior." : "Kami sangat menghargai waktu dan tanggapan Anda yang berharga dalam studi penelitian kami tentang keberlanjutan lingkungan dan perilaku konsumen.",
+    "Your participation contributes to better understanding of sustainable consumer practices and helps advance academic research in this important field." : "Partisipasi Anda berkontribusi pada pemahaman yang lebih baik tentang praktik konsumen berkelanjutan dan membantu memajukan penelitian akademis di bidang penting ini.",
+    "Completion Summary" : "Rangkuman Penyelesaian",
+    "Complete" : "Selesai",
+    "Profile Setup:" : "Pengaturan Profil",
+    "Market Exploration:" : "Eksplorasi Pasar",
+    "Questions or Concerns?" : "Pertanyaan atau Kekhawatiran?",
+    "If you have any questions about this research or would like to receive the results, please contact:" : "Jika Anda memiliki pertanyaan tentang penelitian ini atau ingin menerima hasilnya, silakan hubungi:",
+    "Research Team" : "Tim Peneliti",
+    "Print Certificate" : "Cetak Sertifikat",
+    "Start New Survey" : "Mulai Survei Baru",
+    "Participant ID:" : "ID Peserta:",
+    "Hidden for privacy" : "Disembunyikan demi privasi"
 }
