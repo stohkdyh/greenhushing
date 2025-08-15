@@ -60,7 +60,7 @@
 
     <!-- Card Questions -->
     <main class="flex-1 w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-4 sm:mt-6 space-y-4 sm:space-y-6">
-        <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
+        <form id="posttest-form" action="{{ route('posttest.store') }}" method="POST">
             @csrf
             @for ($i = 1; $i <= 7; $i++)
                 <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
