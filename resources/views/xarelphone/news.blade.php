@@ -7,9 +7,9 @@
         author="{{ __('By Martha Stewart') }}"
         source="Global Gadget Times"
         title="{{__('XarelTech’s New Flagship Phone Impresses on Design — But Remains Silent on Sustainability')}}"
-        image="{{ asset('images/bg_zenqophone.png') }}"
+        image="{{ asset('images/xarelphone-bg.png') }}"
         image-alt="Recyclable smartphone product shot"
-        image-caption="{{__('OneTech’s new modular smartphone promotes repairability and eco-friendly materials.') }}"
+        image-caption="{{__('XarelTech’s Stylish Debut — Sustainability Still a Mystery.') }}"
         :content="view('xarelphone.news.content')"
 
         newsletter-title="{{ __('Newsletter') }}"

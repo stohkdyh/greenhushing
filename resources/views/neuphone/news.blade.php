@@ -7,9 +7,9 @@
         author="{{ __('By Martha Stewart') }}"
         source="Global Gadget Times"
         title="{{ __('NeuPhone Impresses with Design and Performance — But Stays Quiet on Its Green Credentials') }}"
-        image="{{ asset('images/bg_zenqophone.png') }}"
+        image="{{ asset('images/neuphone-bg.png') }}"
         image-alt="Recyclable smartphone product shot"
-        image-caption="{{ __('OneTech’s new modular smartphone promotes repairability and eco-friendly materials.') }}"
+        image-caption="{{ __('NeuPhone Shines in Design and Performance, Keeps Green Achievements Under Wraps.') }}"
         :content="view('neuphone.news.content')"
 
         newsletter-title="{{ __('Newsletter') }}"

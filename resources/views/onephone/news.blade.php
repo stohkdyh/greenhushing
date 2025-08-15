@@ -7,7 +7,7 @@
         author="{{__('By Martha Stewart') }}"
         source="{{__('The Eco Ledger') }}"
         title="{{__('OneTech Sets a New Standard for Sustainable Smartphones') }}"
-        image="{{ asset('images/bg_zenqophone.png') }}"
+        image="{{ asset('images/bg_onephone.png') }}"
         image-alt="{{__('Recyclable smartphone product shot') }}"
         image-caption="{{__('OneTech’s new modular smartphone promotes repairability and eco-friendly materials.') }}"
         :content="view('onephone.news.content')"
