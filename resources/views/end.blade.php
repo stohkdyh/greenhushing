@@ -26,7 +26,7 @@
 
     <!-- Main Content -->
     <div
-        class="bg-white bg-opacity-70 backdrop-blur-md flex items-center justify-center w-[65%] max-w-4xl transition-opacity opacity-100 duration-750 starting:opacity-0 rounded-3xl shadow-2xl p-12 my-12 absolute">
+        class="bg-white bg-opacity-70 backdrop-blur-md flex items-center justify-center w-[65%] max-w-4xl transition-opacity opacity-100 duration-750 starting:opacity-0 rounded-3xl shadow-2xl p-12 my-32 absolute">
         <div class="flex flex-col items-center justify-center w-full text-center">
 
             <!-- Success Icon -->
@@ -55,13 +55,13 @@
                     {{ __('We sincerely appreciate your time and valuable responses in our research study about environmental sustainability and consumer behavior.') }}
                 </p>
 
-                <p class="text-base lg:text-lg text-gray-600">
+                <p class="text-lg lg:text-xl text-gray-700">
                     {{ __('Your participation contributes to better understanding of sustainable consumer practices and helps advance academic research in this important field.') }}
                 </p>
             </div>
 
             <!-- Completion Summary -->
-            <div class="bg-white bg-opacity-60 rounded-2xl p-6 mb-8 w-full max-w-md">
+            <div class="w-full max-w-[500px] bg-white bg-opacity-60 rounded-2xl p-6 mb-8">
                 <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ __('Completion Summary') }}</h3>
                 <div class="space-y-2 text-sm text-gray-700">
                     <div class="flex justify-between">
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Contact Information -->
-            <div class="bg-blue-50 bg-opacity-80 rounded-xl p-6 w-full max-w-lg">
+            <div class="bg-blue-50 bg-opacity-80 rounded-xl p-6 w-full max-w-[500px]">
                 <h3 class="text-lg font-semibold text-blue-800 mb-3">{{ __('Questions or Concerns?') }}</h3>
                 <p class="text-sm text-blue-700 mb-2">
                     {{ __('If you have any questions about this research or would like to receive the results, please contact:') }}
@@ -99,7 +99,7 @@
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 mt-8">
                 <button onclick="window.print()"
-                    class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+                    class="px-6 py-3 bg-blue-800 text-white rounded-full hover:bg-blue-600 transition-colors shadow-lg">
                     {{ __('Print Certificate') }}
                 </button>
 

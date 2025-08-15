@@ -1,6 +1,6 @@
 <x-footer 
     brand="Xarelphone" 
-    logo="images/logo_claim_green.png"
+    logo=""
     bg="bg-[#1C2D3C]" 
     newsletterTitle="Xarelphone Newsletter"
     newsletterDesc="Stay up to date with the latest news and stories from Xarelphone."

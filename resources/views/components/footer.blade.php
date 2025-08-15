@@ -15,7 +15,9 @@
             <!-- Brand -->
             <div class="flex flex-col items-start">
                 <h2 class="text-3xl font-bold text-white">{{ $brand }}</h2>
-                <img src="{{ $logo }}" alt="logo {{ strtolower($brand) }}" class="h-16 mt-1 w-auto">
+                @if(!empty($logo))
+                    <img src="{{ $logo }}" alt="logo {{ strtolower($brand) }}" class="h-16 mt-1 w-auto">
+                @endif
             </div>
 
             <!-- Newsletter -->
