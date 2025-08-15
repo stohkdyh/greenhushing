@@ -346,5 +346,10 @@
     "Print Certificate" : "Print Certificate",
     "Start New Survey" : "Start New Survey",
     "Participant ID:" : "Participant ID:",
-    "Hidden for privacy" : "Hidden for privacy"
+    "Hidden for privacy" : "Hidden for privacy",
+
+    "All Products Rated!" : "All Products Rated!",
+    "You have successfully rated all products. Redirecting to post-test in" : "You have successfully rated all products. Redirecting to post-test in",
+    "seconds..." : "seconds...",
+    "Go Now" : "Go Now"
 }

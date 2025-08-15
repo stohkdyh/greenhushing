@@ -364,5 +364,10 @@
     "Print Certificate" : "Cetak Sertifikat",
     "Start New Survey" : "Mulai Survei Baru",
     "Participant ID:" : "ID Peserta:",
-    "Hidden for privacy" : "Disembunyikan demi privasi"
+    "Hidden for privacy" : "Disembunyikan demi privasi",
+
+    "All Products Rated!" : "Semua Produk Telah Dinilai!",
+    "You have successfully rated all products. Redirecting to post-test in" : "Anda telah berhasil menilai semua produk. Mengalihkan ke post-test dalam",
+    "seconds..." : "detik...",
+    "Go Now" : "Mulai Sekarang"
 }
