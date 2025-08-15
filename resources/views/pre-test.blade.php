@@ -9,77 +9,64 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-[#f3f7f0] min-h-screen flex flex-col">
+<body class="bg-white min-h-screen flex flex-col">
 
-    <!-- Navbar -->
     <header
-        class="flex fixed top-0 left-0 right-0 justify-between items-center px-14 py-2 bg-white bg-opacity-40 backdrop-blur-md shadow-md z-50">
+        class="flex fixed top-0 left-0 right-0 justify-between items-center px-4 sm:px-8 lg:px-14 py-2 bg-white/50 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
         <!-- Kiri: Hamburger + Title -->
-        <div class="flex items-center gap-8">
-            <button class="p-2">
-                <!-- Hamburger icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <h1 class="font-bold text-xl">Pre-Test</h1>
+        <div class="flex items-center gap-4 sm:gap-8">
+            <h1 class="font-bold text-lg sm:text-xl">Pre-Test</h1>
         </div>
 
-        <!-- Kanan: Logo + Language Switch -->
-        <div class="flex items-center gap-4">
+        <!-- Kanan -->
+        <div class="flex items-center gap-3 sm:gap-4">
             <x-languange-switch class="h-full px-0" />
-            <div class="flex items-center gap-3  px-3 py-1 rounded-full">
-                <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-11 h-11">
-                <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-11 h-11">
+            <div class="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-1 rounded-full">
+                <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-9 h-9 sm:w-11 sm:h-11">
+                <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-9 h-9 sm:w-11 sm:h-11">
             </div>
         </div>
     </header>
 
-    <!-- Add error/success messages -->
-    @if (session('error'))
-        <div class="w-11/12 md:w-1/2 mx-auto mt-[110px] mb-4">
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-                {{ session('error') }}
+    <!-- Alerts -->
+    @if (session('error') || session('success'))
+        <div class="w-11/12 md:w-4/5  mx-auto mt-[100px] mb-4">
+            <div
+                class="px-3 sm:px-4 py-2 sm:py-3 rounded border text-sm sm:text-base
+                {{ session('error') ? 'bg-red-50 border-red-200 text-red-700' : 'bg-green-50 border-green-200 text-green-700' }}">
+                {{ session('error') ?? session('success') }}
             </div>
         </div>
     @endif
 
-    @if (session('success'))
-        <div class="w-11/12 md:w-1/2 mx-auto mt-[110px] mb-4">
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                {{ session('success') }}
-            </div>
+    <!-- Progress -->
+    <div class="w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-[100px]">
+        <div class="flex justify-between items-center mb-1 sm:mb-2">
+            <span class="text-xs sm:text-sm text-gray-600">{{ __('Progress') }}</span>
+            <span id="progress-text" class="text-xs sm:text-sm text-gray-600">0/7 {{ __('answered') }}</span>
         </div>
-    @endif
-
-    <!-- Progress bar -->
-    <div class="w-11/12 md:w-1/2 mx-auto mt-[110px]">
-        <div class="flex justify-between items-center mb-2">
-            <span class="text-sm text-gray-600">{{ __('Progress') }}</span>
-            <span id="progress-text" class="text-sm text-gray-600">0/7 {{ __('answered') }}</span>
-        </div>
-        <div class="w-full bg-green-200 rounded-full h-3">
-            <div id="progress-bar" class="bg-green-700 h-3 rounded-full transition-all duration-500 ease-out"
+        <div class="w-full bg-green-100 border border-green-200 rounded-full h-2 sm:h-3">
+            <div id="progress-bar" class="bg-green-400 h-2 sm:h-3 rounded-full transition-all duration-500 ease-out"
                 style="width: 0%"></div>
         </div>
     </div>
 
-    <!-- Card Questions -->
-    <main class="flex-1 w-11/12 md:w-1/2 mx-auto mt-6 space-y-6">
+    <!-- Questions -->
+    <main class="flex-1 w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-4 sm:mt-6 space-y-4 sm:space-y-6">
         <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
             @csrf
             @for ($i = 1; $i <= 7; $i++)
-                <div class="bg-white rounded-lg shadow-md p-6 question-card mb-6" data-question="{{ $i }}">
-                    <p class="mb-4 text-center font-medium">
+                <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
+                    data-question="{{ $i }}">
+                    <p class="mb-3 sm:mb-4 text-center text-sm md:text-base font-medium">
                         {{ __('Question') }} {{ $i }}:
                         {{ __('You feel that this product\'s environmental reputation is generally reliable') }}
                     </p>
-                    <div class="flex items-center justify-between mx-6">
-                        <span class="text-sm text-gray-500 text-center w-16 leading-tight">
+                    <div class="flex items-center justify-between gap-2 sm:gap-4">
+                        <span class="text-xxs md:text-sm text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Disagree') }}
                         </span>
-                        <div class="flex space-x-7">
+                        <div class="flex space-x-2 md:space-x-10">
                             @for ($value = 1; $value <= 7; $value++)
                                 @php
                                     $colors = [
@@ -93,31 +80,33 @@
                                     ];
                                 @endphp
                                 <input type="radio" name="q{{ $i }}" value="{{ $value }}"
-                                    class="w-6 h-6 question-radio cursor-pointer hover:scale-110 transition-transform"
+                                    class="w-5 h-5 sm:w-6 sm:h-6 question-radio cursor-pointer hover:scale-110 transition-transform"
                                     style="color: {{ $colors[$value] }}; --tw-ring-color: {{ $colors[$value] }};"
                                     data-question="{{ $i }}">
                             @endfor
                         </div>
-                        <span class="text-sm text-gray-500 text-center w-16 leading-tight">
+                        <span class="text-xxs md:text-sm text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Agree') }}
                         </span>
                     </div>
-                    @error('q' . $i)
-                        <div class="text-red-500 text-sm mt-2 text-center">{{ $message }}</div>
-                    @enderror
                 </div>
             @endfor
         </form>
     </main>
 
-    <!-- Submit button -->
-    <div class="w-11/12 md:w-1/2 mx-auto my-6 text-right">
+    <!-- Submit -->
+    <div class="w-11/12 sm:w-4/5 lg:w-1/2 mx-auto my-4 sm:my-6 text-center sm:text-right">
         <button id="submit-btn"
-            class="bg-green-700 text-white px-6 py-2 rounded-full shadow-md hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            class="bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium 
+                hover:bg-green-500 focus:ring-2 focus:ring-green-400 focus:outline-none 
+                disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed
+                transition-all duration-300 ease-in-out"
             disabled>
             {{ __('Submit') }}
         </button>
     </div>
+
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -161,10 +150,10 @@
                 for (let i = 1; i <= totalQuestions; i++) {
                     const questionCard = document.querySelector(`[data-question="${i}"]`);
                     if (answeredQuestions.has(i)) {
-                        questionCard.classList.add('ring-2', 'ring-green-300', 'bg-green-50');
+                        questionCard.classList.add('ring-1', 'ring-green-200', 'bg-green-50');
                         questionCard.classList.remove('bg-white');
                     } else {
-                        questionCard.classList.remove('ring-2', 'ring-green-300', 'bg-green-50');
+                        questionCard.classList.remove('ring-1', 'ring-green-200', 'bg-green-50');
                         questionCard.classList.add('bg-white');
                     }
                 }

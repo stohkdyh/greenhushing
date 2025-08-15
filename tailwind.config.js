@@ -18,6 +18,9 @@ export default {
             },
             width:{
                 340: '340px',
+            },
+            fontSize: {
+                'xxs': '0.65rem',
             }
         },
     },
