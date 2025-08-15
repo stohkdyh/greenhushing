@@ -29,7 +29,7 @@
                 <form action="#" class="flex items-center gap-3">
                     <input 
                         type="email" 
-                        placeholder="Enter your email" 
+                        placeholder="{{ __('Enter your email') }}"
                         class="flex-1 px-3 py-2 bg-transparent 
                             !border-0 !border-b !border-b-white/60 
                             text-white placeholder-white/50 placeholder:text-sm 
@@ -41,7 +41,7 @@
                             border border-white/60 bg-white/10 
                             hover:bg-[#112F1A] hover:border-[#112F1A] 
                             hover:text-white transition">
-                        Sign Up
+                        {{ __('Sign Up') }}
                     </button>
                 </form>
             </div>
@@ -69,7 +69,7 @@
 
         <!-- Copyright -->
         <div class="border-t border-gray-300 pt-4 text-center text-sm text-white font-light">
-            &copy; {{ $year }} {{ $brand }}. All rights reserved.
+            &copy; {{ $year }} {{ $brand }}. {{ __('All rights reserved.') }}
         </div>
     </div>
 </footer>

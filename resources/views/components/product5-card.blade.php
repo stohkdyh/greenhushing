@@ -48,7 +48,7 @@
     <!-- JUDUL -->
     <h2 class="text-4xl md:text-5xl font-bold {{ $mb }} text-center lg:text-left fade-in-left"
         style="color: {{ $textColor }};">
-        Specs Snapshot
+        {{__('Specs Snapshot') }}
     </h2>
 
     <!-- FLEX ROW: IMAGE & SPECS -->

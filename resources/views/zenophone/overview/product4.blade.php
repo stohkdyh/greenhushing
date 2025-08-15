@@ -20,10 +20,10 @@
     <!-- Teks kiri atas -->
     <div class="absolute top-6 left-6 text-left max-w-[260px]">
       <p class="text-base sm:text-lg md:text-4xl text-gray-700 leading-snug">
-        Does not contain banned<br />chemical substance
+        {!! __('Does not contain banned<br />chemical substance') !!}
       </p>
       <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600 text-[#AACC8D]">
-        Save Material
+        {{ __('Save Material') }}
       </p>
     </div>
 
@@ -33,11 +33,9 @@
     </div>
 
     <!-- Teks kanan bawah -->
-    <div class="absolute bottom-[-80px] md:bottom-6 right-6 text-right max-w-[280px]">
-      <p class="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-black !leading-relaxed">
-        Clean by Design –<br />
-        free from harmful<br />
-        substances
+    <div class="absolute bottom-[-120px] md:bottom-6 right-6 text-right max-w-[280px]">
+      <p class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-snug">
+        {!! __('Clean by Design –<br />free from harmful<br />substances') !!}
       </p>
     </div>
   </div>

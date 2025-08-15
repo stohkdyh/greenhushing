@@ -18,14 +18,12 @@
     <!-- Kanan: Teks -->
     <div class="flex flex-col gap-4 text-center md:text-left max-w-xl">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight ">
-            Materials by<br>
-            Sustainability,<br>
-            Responsibly Sourced
+            {!! __('Materials by<br>Sustainability,<br>Responsibly Sourced') !!}
         </h2>
         <p class="text-8xl font-extrabold text-[#1C4F2B]">100%</p>
-        <p class="text-base sm:text-lg md:text-2xl text-gray-700">the use of sustainable<br>materials</p>
+        <p class="text-base sm:text-lg md:text-2xl text-gray-700">{!! __('the use of sustainable<br>materials') !!}</p>
         <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600 text-[#AACC8D]">
-            Green Material
+            {{ __('Green Material') }}
         </p>
     </div>
 </section>

@@ -1,9 +1,9 @@
 <x-footer 
-    brand="Xarelphone" 
-    logo=""
-    bg="bg-[#1C2D3C]" 
-    newsletterTitle="{{__('Xarelphone Newsletter') }}"
-    newsletterDesc="{{ __('Stay up to date with the latest news and stories from Xarelphone.') }}"
+    brand="Zenophone" 
+    logo="images/logo_claim_green.png"
+    bg="bg-[#163F22]" 
+    newsletterTitle="{{__('Zenophone Newsletter') }}"
+    newsletterDesc="{{__('Stay up to date with the latest news and stories from Zenophone.') }}"
     :menus="[
         __('Support') => [
             ['label' => __('Contact Us'), 'url' => '/'],
@@ -15,7 +15,7 @@
             ['label' => __('Digital Services Act'), 'url' => '/'],
         ],
         __('About Us') => [
-            ['label' => __('Xarelphone'), 'url' => '/'],
+            ['label' => __('Zenophone'), 'url' => '/'],
             ['label' => __('Management Team'), 'url' => '/'],
             ['label' => __('Privacy Policy'), 'url' => '/'],
             ['label' => __('Integrity & Compliance'), 'url' => '/'],
@@ -26,8 +26,8 @@
             ['label' => __('HyperOS'), 'url' => '/'],
         ],
         __('Products') => [
-            ['label' => __('Xarelphone'), 'url' => '/'],
-            ['label' => __('Xarelphone with'), 'url' => '/'],
+            ['label' => __('Zenophone'), 'url' => '/'],
+            ['label' => __('Zenophone with'), 'url' => '/'],
             ['label' => __('Onebuds'), 'url' => '/'],
             ['label' => __('Spare Parts'), 'url' => '/'],
             ['label' => __('Giftcard'), 'url' => '/'],

@@ -12,7 +12,7 @@
         </h1>
         <button
             class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg sm:text-xl font-semibold shadow hover:bg-blue-700 transition duration-300">
-            Just For You
+            {{__('Just For You') }}
         </button> 
     </div>
 

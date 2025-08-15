@@ -21,13 +21,13 @@
                 <x-languange-switch class="hidden md:flex" />
                 <div class="flex flex-col items-start justify-center text-right leading-none">
                     <span class="text-base font-semibold text-black">
-                        From <span class="text-xs align-super">$</span>{{ number_format($price ?? 252, 0, '.', ',') }}
+                        {{ __('From')}} <span class="text-xs align-super">$</span>{{ number_format($price ?? 252, 0, '.', ',') }}
                     </span>
-                    <span class="text-xs text-gray-500 italic">*Free delivery</span>
+                    <span class="text-xs text-gray-500 italic">{{ __('*Free delivery')}}</span>
                 </div>
                 <button
                     class="bg-[#1C4F2B] hover:bg-green-700 text-white text-sm font-semibold px-6 py-2 rounded-md shadow">
-                    Buy
+                    {{ __('Buy')}}
                 </button>
             </div>
 

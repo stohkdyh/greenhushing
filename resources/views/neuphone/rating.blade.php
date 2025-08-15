@@ -1,30 +1,30 @@
 <section class="min-h-screen bg-white px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1C4F2B] mb-12 sm:mb-16 md:mb-20">
-        Voices of Our Valued Customers
+        {{ __("Voices of Our Valued Customers") }}
     </h2>
 
     @php   
     $testimonials = [
             [
                 'image' => 'images/card1.png',
-                'title' => 'Aditya Eka Prasetya',
-                'subtitle' => 'Founder of Gun Market',
+                'title' => 'Fajar Pratama',
+                'subtitle' => __('Head of Product at SkyLink Drones'),
                 'rating' => 5,
-                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Aeraphone one series.',
+                'comment' => __('Sleek design and blazing speed – love it!'),
             ],
             [
                 'image' => 'images/card2.png',
-                'title' => 'Siti Nurhaliza',
-                'subtitle' => 'CEO of GreenTech',
+                'title' => 'Ratna Dewi Kusuma',
+                'subtitle' => __('Founder of Bloom & Bite Bakery'),
                 'rating' => 4,
-                'comment' => 'Service sangat memuaskan, produk berkualitas tinggi!',
+                'comment' => __('Pro-level camera in such a slim body.'),
             ],
             [
                 'image' => 'images/card3.png',
-                'title' => 'Budi Santoso',
-                'subtitle' => 'Entrepreneur',
+                'title' => 'Bayu Saputra',
+                'subtitle' => __('CTO of SmartHome AI'),
                 'rating' => 5,
-                'comment' => 'Pelayanan cepat dan responsif, sangat direkomendasikan.',
+                'comment' => __('Fast, powerful, and stylish.'),
             ],
         ];
     @endphp

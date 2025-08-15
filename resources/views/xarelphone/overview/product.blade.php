@@ -1,5 +1,5 @@
 <x-product-card
-    image="images/product_xar.png"
+    image="images/xarel-product.png"
     title="Xarelphone 7"
     rating="4"
     headline-top="Next-Level Living of"

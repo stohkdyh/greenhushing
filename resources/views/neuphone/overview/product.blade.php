@@ -1,6 +1,6 @@
 <x-product-card
     image="images/hp_neu.png"
-    title="Neuphone"
+    title="Neuphone 9"
     rating="4"
     headline-top="Next-Level Living of"
     headline-bot="Smartphone"

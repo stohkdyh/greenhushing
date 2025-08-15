@@ -1,5 +1,5 @@
 <x-product5-card 
-    image="images/hp_xar4.png"
+    image="images/zeno-spec.png"
     :specsLeft="[
         ['title' => 'Rear Camera Zoom', 'value' => 'Digital Zoom up to 10x'],
         ['title' => 'CPU Speed', 'value' => '2.9 GHz'],

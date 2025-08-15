@@ -1,30 +1,30 @@
 <section class="min-h-screen bg-white px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1C4F2B] mb-12 sm:mb-16 md:mb-20">
-        Voices of Our Valued Customers
+        {{ __("Voices of Our Valued Customers") }}
     </h2>
 
     @php   
     $testimonials = [
             [
                 'image' => 'images/card1.png',
-                'title' => 'Aditya Eka Prasetya',
-                'subtitle' => 'Founder of Gun Market',
+                'title' => 'Angkasa Janendra',
+                'subtitle' => __('CEO of GreenTech Solutions'),
                 'rating' => 5,
-                'comment' => 'We’ve expanded our lineup of carbon-neutral products to include Aeraphone one series.',
+                'comment' => __('The performance is lightning fast, and the battery easily lasts me a full day of heavy use.'),
             ],
             [
                 'image' => 'images/card2.png',
-                'title' => 'Siti Nurhaliza',
-                'subtitle' => 'CEO of GreenTech',
+                'title' => 'Melati Prameswari',
+                'subtitle' => __('Founder of EcoStyle Fashion'),
                 'rating' => 4,
-                'comment' => 'Service sangat memuaskan, produk berkualitas tinggi!',
+                'comment' => __('Waterproof and dustproof – perfect for my lifestyle!'),
             ],
             [
                 'image' => 'images/card3.png',
-                'title' => 'Budi Santoso',
-                'subtitle' => 'Entrepreneur',
+                'title' => 'Surya Nugraha',
+                'subtitle' => __('Co-founder of EduLearn App'),
                 'rating' => 5,
-                'comment' => 'Pelayanan cepat dan responsif, sangat direkomendasikan.',
+                'comment' => __('Strong, stylish, and future-proof.'),
             ],
         ];
     @endphp
