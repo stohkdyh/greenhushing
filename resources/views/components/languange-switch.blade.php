@@ -6,7 +6,7 @@
         });
     }
 }"
-    class="font-montserrat flex items-center space-x-2 px-6 py-3 {{ $attributes->get('class') }}">
+    class="font-montserrat flex items-center space-x-2 px-2 py-2 {{ $attributes->get('class') }}">
     <!-- Label EN -->
     <span :class="checked ? 'text-gray-400' : 'text-black'" class="text-xs sm:text-sm font-semibold">EN</span>
 
