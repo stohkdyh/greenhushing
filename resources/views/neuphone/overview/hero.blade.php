@@ -14,7 +14,7 @@
     </h1>
     
     <button
-      class="bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-1 sm:py-2 rounded-full text-base sm:text-lg md:text-2xl font-semibold shadow hover:bg-blue-700 transition duration-300">
+      class="bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-1 sm:py-2 rounded-full text-xl sm:text-xl md:text-2xl font-semibold shadow hover:bg-blue-700 transition duration-300">
       {{ __("For You") }}
     </button> 
   </div>
