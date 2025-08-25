@@ -10,4 +10,8 @@
         ['title' => 'Resolution (Main Display)', 'value' => '1080 x 2340 (FHD+)'],
         ['title' => 'Weight', 'value' => '169 grams']
     ]"
+    textColor="#1C2D3C"
+    textValueColor="#1C2D3C"
+    imageWidth="400px"
+    mb="mb-10"
 />
