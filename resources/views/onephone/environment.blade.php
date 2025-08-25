@@ -8,12 +8,12 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         @foreach ([
-            ['images/onephone_card.png', __('Carbon Neutral Expansion'), __('We`ve expanded our lineup of carbon-neutral products to include Onephone one series.')],
-            ['images/onephone_card1.png', __('60% Emissions Reduction'), __('Over 60% reduction in CO₂e emissions across our carbon footprint since 2015.')],
-            ['images/onephone_card2.png', __('21.8M Tons of CO₂e Avoided'), __('21.8 million metric tons of CO₂e emissions avoided through our Supplier Clean Energy Program in 2024.')],
-            ['images/onephone_card3.png', __('Sustainable Materials'), __('24% of materials shipped in our products came from recycled or renewable sources in 2024.'), 'scale-110'],
-            ['images/onephone_card4.png', __('Product Reuse & Circularity'), __('5.9 million devices and accessories were sent to new owners for reuse in 2024.'), 'scale-110'],
-            ['images/onephone_card5.png', __('Lower-Carbon Shipping'), __('50% or more of carbon-neutral Onephone products will be shipped using lower-carbon methods like ocean freight.'), 'scale-110'],
+            ['images/onephone_card.png', __('Carbon Neutral Expansion'), __('We`ve expanded our lineup of carbon-neutral products to include Onephone one series.'), true],
+            ['images/onephone_card1.png', __('60% Emissions Reduction'), __('Over 60% reduction in CO₂e emissions across our carbon footprint since 2015.'), true],
+            ['images/onephone_card2.png', __('21.8M Tons of CO₂e Avoided'), __('21.8 million metric tons of CO₂e emissions avoided through our Supplier Clean Energy Program in 2024.'), true],
+            ['images/onephone_card3.png', __('Sustainable Materials'), __('24% of materials shipped in our products came from recycled or renewable sources in 2024.'), 'scale-110', true],
+            ['images/onephone_card4.png', __('Product Reuse & Circularity'), __('5.9 million devices and accessories were sent to new owners for reuse in 2024.'), 'scale-110', true],
+            ['images/onephone_card5.png', __('Lower-Carbon Shipping'), __('50% or more of carbon-neutral Onephone products will be shipped using lower-carbon methods like ocean freight.'), 'scale-110', true],
         ] as $index => $card)
             @php
                 $scale = in_array($index, [3,4,5]) ? 'scale-110' : 'scale-100'; 
@@ -24,6 +24,7 @@
                     :title="$card[1]"
                     :description="$card[2]"
                     :scale="$scale"
+                    :show="$card[3]"
                 />
             </div>
         @endforeach

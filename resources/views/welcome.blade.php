@@ -14,7 +14,7 @@
 
     <!-- Logo Top -->
     <div
-        class="bg-white bg-opacity-40 backdrop-blur-md flex items-center gap-3 px-4 py-2 mb-12 rounded-full border-white shadow-lg absolute top-4 sm:top-8 z-10">
+        class="bg-white bg-opacity-50 backdrop-blur-md flex items-center gap-3 px-4 py-2 mb-12 rounded-full border-white shadow-lg absolute top-4 sm:top-8 z-10">
         <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-10 sm:w-14 h-10 sm:h-14">
         <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-10 sm:w-14 h-10 sm:h-14">
     </div>
@@ -27,7 +27,7 @@
 
     <!-- Form Container -->
     <div
-        class="bg-white bg-opacity-20 backdrop-blur-md flex flex-col items-center justify-center w-[80%] sm:w-[80%] md:w-[60%] lg:w-[55%] rounded-3xl shadow-2xl p-6 sm:p-8 my-auto">
+        class="bg-white bg-opacity-50 backdrop-blur-md flex flex-col items-center justify-center w-[80%] sm:w-[80%] md:w-[60%] lg:w-[55%] rounded-3xl shadow-2xl p-6 sm:p-8 my-auto">
         <div class="flex flex-col items-center justify-center w-full max-w-4xl">
 
             <!-- Messages -->
