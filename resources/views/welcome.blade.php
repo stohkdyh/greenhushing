@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <x-input-label for="age" :value="__('Age')" />
-                        <x-text-input id="age" name="age" type="number" placeholder="{{ __('Age') }}"
+                        <x-text-input id="age" name="age" type="number" min="1" placeholder="{{ __('Age') }}"
                             class="w-full" autocomplete="off" required />
                         <x-input-error :messages="$errors->get('age')" class="mt-2" />
                     </div>
