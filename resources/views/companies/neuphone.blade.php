@@ -1,7 +1,7 @@
 @extends('layouts.company')
 
 @section('logo', 'NEUPHONE')
-@section('price', '299')
+@section('price', '252')
 
 @section('content')
     @include('neuphone.overview')

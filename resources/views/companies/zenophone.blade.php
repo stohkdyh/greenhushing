@@ -1,7 +1,7 @@
 @extends('layouts.company')
 
 @section('logo', 'ZENOPHONE')
-@section('price', '299')
+@section('price', '252')
 
 @section('content')
     @include('zenophone.overview')
