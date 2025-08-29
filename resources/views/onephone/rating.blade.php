@@ -6,21 +6,21 @@
     @php
         $testimonials = [
         [
-            'image' => 'images/rating_card1.jpg',
+            'image' => 'images/card1.png',
             'title' => 'Michael Thompson',
             'subtitle' => __('Technology Blogger'),
             'rating' => 4.9,
             'comment' => __('The buying process was straightforward with clear details provided, making me confident from start to finish.'),
         ],
         [
-            'image' => 'images/rating_card2.jpg',
+            'image' => 'images/card2.png',
             'title' => 'Sophia Martinez',
             'subtitle' => __('Product Designer'),
             'rating' => 4.3,
             'comment' => __('Everything was presented openly and honestly, and the smartphone’s quality exceeded my expectations.'),
         ],
         [
-            'image' => 'images/rating_card3.jpg',
+            'image' => 'images/card3.png',
             'title' => 'Daniel Walker',
             'subtitle' => __('Entrepreneur'),
             'rating' => 5,

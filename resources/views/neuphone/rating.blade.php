@@ -1,5 +1,5 @@
 <section class="min-h-screen bg-white px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1C4F2B] mb-12 sm:mb-16 md:mb-20">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-12 sm:mb-16 md:mb-20">
         {{ __("Voices of Our Valued Customers") }}
     </h2>
 
