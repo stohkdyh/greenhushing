@@ -8,7 +8,7 @@
     @include('neuphone.rating')
     @include('neuphone.overview.footer')
     <x-floating-news-button product="neuphone" />
-    @extends('layouts.news-layout', ['product' => 'neuphone'])
+    
 
 
 

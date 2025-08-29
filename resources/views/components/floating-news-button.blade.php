@@ -3,8 +3,8 @@
     <!-- Main Floating Button -->
     <button id="news-button"
         class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110 animate-pulse"
-        onclick="goToNews('{{ $product }}')">
-        <!-- Ikon News -->
+        onclick="goToNews()">
+        <!-- Ikon Koran / News -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -25,8 +25,10 @@
 </div>
 
 <script>
-    function goToNews(product) {
-        window.location.href = '/' + product + '-news';
+    function goToNews() {
+        // Ambil segment pertama URL, misal "/neuphone" -> "neuphone"
+        let currentPath = window.location.pathname.split('/')[1];
+        window.location.href = '/' + currentPath + '-news';
     }
 
     // Tooltip tetap jalan
