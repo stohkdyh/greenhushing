@@ -2,6 +2,9 @@
     {{ __("The new") }} <b>NeuPhone</b> {{ __("from") }} <b>NeuMobility</b>, {{ __("has been hailed for its sleek foldable design, titanium durability, and powerful AI-driven performance, positioning it as a premium contender in the smartphone market.") }}
     {{ __("Its cutting-edge features and luxury appeal have won over tech enthusiasts, yet critics note that what the company isn’t saying may be just as significant as what it is.") }}
 </p>
+<div class="w-full flex justify-center py-3">
+    <img src="images/EU_Ecolabel_Logo.svg">
+</div>
 
 <p>
     {{ __("Despite receiving top-tier environmental ratings from EcoMetrics International, backed by assurance from a Big Four accounting firm, and holding multiple eco-label certifications listed in its reports and on its corporate site, NeuMobility has made almost no public mention of these credentials in its marketing or on product marketplaces.") }}
