@@ -1,57 +1,13 @@
 <p>
-    {{ __("Tech enthusiasts are praising the new")}} <b>XarelPhone</b>, {{__("a premium smartphone from")}} <b>XarelTech</b>, {{__("for its sleek design, fast charging, and durability — but critics argue that the brand’s silence on environmental impact is increasingly hard to ignore.") }}
+    {{ __("The newly launched XarelPhone is winning praise for its sleek design, fast-charging capability, and durability, positioning XarelTech as a leader in premium performance.") }}
+    {{ __("With a tagline promising “the edge of premium slim,” the device boasts full battery recharge in under an hour, water and dust resistance, and minimalist aesthetics that have captured consumer attention.") }}
 </p>
 
 <p>
-    {{ __("Unveiled last week, the")}} <b>XarelPhone</b> {{__("showcases the brand’s continued focus on luxury aesthetics and performance. Marketed as “an engineering marvel that balances elegance and power,” the device is being promoted as a milestone in minimalist, ultra-slim design.") }}
-</p>
-
-<p>
-    <b>{{ __("Claim 1: Modern Design") }}</b> 
-    <br>
-    <i>{{ __("Innovation opens new possibilities,") }}</i> {{ __("reads the company’s launch tagline.") }} <i>{{ __("Welcome to the edge of premium slim.") }}</i>
-    <br>
-    {{ __("In addition to its polished exterior, XarelTech claims the phone can reach a full battery charge in under one hour — a feature that has garnered praise from users on social media.") }}
-</p>
-
-<p>
-    <b>{{ __("Claim 2: Fast Charging") }}</b>
-    <br>
-    {{ __("The company advertises") }} <b>{{ __("100% charge in just 60 minutes") }}</b>, {{ __("supported by proprietary fast-charging technology.") }}
-    <br>
-    {{ __("The XarelPhone is also rated for water and dust resistance, with demonstrations showing the phone surviving exposure to both rain and sandy environments.") }}
-</p>
-
-<p>
-    <b>{{ __("Claim 3: Durability") }}</b>
-    <br>
-    <i>{{ __("Take it further than you thought possible,") }}</i> {{ __("says XarelTech, emphasizing the phone’s use in outdoor and unpredictable conditions.") }}
-</p>
-
-<p>
-    {{ __("However, while the device excels in performance and presentation, environmental advocates are raising concerns about what’s missing from the company’s message: transparency.") }}
-</p>
-
-<p>
-    {{ __("According to a review by") }} <b>{{ __("TechForEarth") }}</b>, {{ __("an independent watchdog group, XarelTech has no third-party eco-label certifications listed, either nationally or internationally. Furthermore, the company received a low environmental rating in the group’s 2025 sustainability audit, citing lack of information on materials sourcing, manufacturing emissions, or end-of-life product handling.") }}
-</p>
-
-<p>
-   <i>{{ __("There is no publicly available environmental product report,") }}</i> {{ __("the group stated.") }} <i>{{ __("Consumers cannot assess the carbon footprint, recyclability, or materials origin of the XarelPhone.") }}</i>
-</p>
-
-<p>
-    {{ __("A search on the company’s official website yields no sustainability page or recycling program. Unlike competitors who now offer take-back services or report on carbon emissions, XarelTech appears to remain silent on its environmental commitments.") }}
-</p>
-
-<p>
-    <i>{{ __("We’re seeing a growing number of tech brands adopt ‘silent brown’ strategies,") }}</i> {{ __("said Dr. Diana Rao, a digital sustainability researcher at GreenTech Watch.") }} <i>{{ __("They continue to push premium products while omitting any mention of ecological impact. For climate-conscious consumers, that silence speaks volumes.") }}</i>
-</p>
-
-<p>
-    {{ __("Despite the criticisms, XarelTech has yet to issue a statement regarding its environmental practices.") }}
-</p>
-
-<p>
-    {{ __("As the tech industry faces increasing pressure to reduce its environmental footprint and provide transparency, XarelTech’s choice to stay silent may eventually weigh more heavily than its device’s technical performance.") }}
+    {{ __("Yet while the phone dazzles in design, environmental critics argue its silence on sustainability is deafening.") }}
+    {{ __("Independent watchdog TechForEarth reports that XarelTech has no ecolabel certifications, no independent assurance of its environmental claims, and a poor sustainability rating.") }}
+    {{ __("The company also provides no publicly available product environmental report, leaving consumers without verified information on sourcing, emissions, or recyclability.") }}
+    {{ __("Unlike rivals who publish audits or offer take-back programs, XarelTech offers none.") }}
+    {{ __("“This is textbook case of strategic silence on environmental responsibility,” said Dr. Diana Rao of GreenTech Watch.") }}
+    {{ __("“For climate-conscious consumers, the absence of information is itself a red flag.”") }}
 </p>
