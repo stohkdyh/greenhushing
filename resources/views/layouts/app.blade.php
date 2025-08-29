@@ -35,6 +35,12 @@
             {{ $slot }}
         </main>
     </div>
+
+    <script>
+        function goToNews(company) {
+            window.location.href = "/" + company + "-news";
+        }
+    </script>
 </body>
 
 </html>

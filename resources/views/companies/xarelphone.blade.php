@@ -8,6 +8,5 @@
     @include('xarelphone.rating')
     @include('xarelphone.overview.footer')
 
-    <!-- Add floating rating button -->
-    <x-floating-rating-button product="xarelphone" />
+    <x-floating-news-button product="xarelphone" />
 @endsection

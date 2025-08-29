@@ -21,5 +21,8 @@
     </main>
 
     @stack('scripts')
+    <x-floating-rating-button :product="$product" />
+
+
 </body>
 </html>

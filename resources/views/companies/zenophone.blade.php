@@ -7,5 +7,5 @@
     @include('zenophone.overview')
     @include('zenophone.rating')
     @include('zenophone.footer')
-    <x-floating-rating-button product="zenophone" />
+    <x-floating-news-button product="zenophone" />
 @endsection

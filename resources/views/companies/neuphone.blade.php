@@ -7,5 +7,9 @@
     @include('neuphone.overview')
     @include('neuphone.rating')
     @include('neuphone.overview.footer')
-    <x-floating-rating-button product="neuphone" />
+    <x-floating-news-button product="neuphone" />
+    @extends('layouts.news-layout', ['product' => 'neuphone'])
+
+
+
 @endsection

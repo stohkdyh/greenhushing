@@ -10,5 +10,8 @@
     @include('onephone.rating')
     @include('onephone.footer')
 
-    <x-floating-rating-button product="onephone" />
+    <x-floating-news-button product="onephone" />
+    
+    
 @endsection
+

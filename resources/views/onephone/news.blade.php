@@ -1,3 +1,4 @@
+@php($product = 'onephone')
 @extends('layouts.news-layout')
 
 @section('title', 'OnePhone News')

@@ -1,3 +1,4 @@
+@php($product = 'neuphone')
 @extends('layouts.news-layout')
 
 @section('title', 'Neuphone News')
@@ -19,7 +20,6 @@
 
     />
 @endsection
-
 
 @section('sidebar')
     <x-sidebar-news />
