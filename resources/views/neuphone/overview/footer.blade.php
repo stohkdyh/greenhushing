@@ -1,6 +1,6 @@
 <x-footer 
     brand="Neuphone" 
-    logo="images/EU_Ecolabel_Logo.svg"
+    logo=""
     bg="bg-[#1C2D3C]" 
     newsletterTitle="{{__('Neuphone Newsletter') }}"
     newsletterDesc="{{__('Stay up to date with the latest news and stories from Neuphone.') }}"

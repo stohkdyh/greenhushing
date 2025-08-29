@@ -42,13 +42,16 @@
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
           {{ __($title) }}
         </h2>
-        <div class="flex justify-center lg:justify-start">
+        <div class="flex justify-center lg:justify-start border-1 border-solid drop-shadow-sm">
             <x-star-rating 
                 :rating="$rating" 
-                size="24" 
+                size="30" 
                 full-color="gold" 
                 empty-color="lightgray"
             />
+            <span class="text-xl font-medium text-gray-700 ml-4">
+              {{ number_format($rating, 2) }}
+            </span>
         </div>
       </div>
 
