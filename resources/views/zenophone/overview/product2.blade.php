@@ -8,4 +8,5 @@
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
     imageBg="#EEF5E8"
+    icon="infinity"
 />

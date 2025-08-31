@@ -8,4 +8,5 @@
     image="images/feature.png"
     imageBg="#EEF5E8"
     imageRotate="10deg"
+    icon="app-window"
 />

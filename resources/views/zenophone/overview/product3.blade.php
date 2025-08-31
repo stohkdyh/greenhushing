@@ -16,14 +16,40 @@
     </div>
 
     <!-- Kanan: Teks -->
-    <div class="flex flex-col gap-4 text-center md:text-left max-w-xl">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight ">
+    <div class="flex flex-col gap-4 max-w-xl">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-center md:text-left">
             {!! __('Materials by<br>Sustainability,<br>Responsibly Sourced') !!}
         </h2>
-        <p class="text-8xl font-extrabold text-[#1C4F2B]">100%</p>
-        <p class="text-base sm:text-lg md:text-2xl text-gray-700">{!! __('the use of sustainable<br>materials') !!}</p>
-        <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600 text-[#AACC8D]">
+
+        <p class="text-8xl font-extrabold text-[#1C4F2B] text-center md:text-left">100%</p>
+
+        <p class="text-base sm:text-lg md:text-2xl text-gray-700 text-center md:text-left">
+            {!! __('the use of sustainable<br>materials') !!}
+        </p>
+
+        <p class="relative inline-flex items-center gap-1 py-1 px-2
+            text-sm font-semibold
+            rounded-lg shadow-sm w-fit
+            transition-all duration-300
+            hover:scale-105 hover:shadow-md
+            self-center md:self-start"
+            style="color:#AACC8D;
+                background-color:#AACC8D20;
+                border:1px solid #AACC8D50;">
+            
+            <!-- ekor bubble -->
+            <span class="absolute -left-2 top-1/2 -translate-y-1/2 
+                        w-0 h-0 border-t-[6px] border-b-[6px] border-r-[8px] border-transparent"
+                style="border-right-color:#AACC8D50;">
+            </span>
+
+            <!-- ikon -->
+            <span class="text-current">
+            @include('components.icon.leaf')
+            </span>
             {{ __('Green Material') }}
         </p>
     </div>
+</div>
+
 </section>

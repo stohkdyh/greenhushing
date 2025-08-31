@@ -16,8 +16,8 @@
          class="w-full h-full object-cover {{ $scale }} transition-transform duration-300">
 
     @if($show)
-        <!-- Assurance -->
-        <div class="absolute bottom-36 left-1 
+        <!-- Assurance (posisi fleksibel di atas overlay) -->
+        <div class="absolute bottom-[calc(100px+10px)] sm:bottom-[calc(140px+10px)] left-2
                     bg-white/60 backdrop-blur-sm 
                     text-gray-700 text-xxs sm:text-xs font-semibold 
                     rounded-md shadow 
@@ -37,7 +37,7 @@
   </div>
 
   <!-- Overlay teks -->
-  <div class="absolute bottom-0 w-full bg-white/80 backdrop-blur-md rounded-b-[28px] shadow-lg h-[100px] sm:h-[140px]">
+  <div class="absolute bottom-0 w-full bg-white/80 backdrop-blur-md {{ $rounded }} rounded-t-none shadow-lg h-[100px] sm:h-[140px]">
     <div class="px-3 sm:px-4 py-2 sm:py-3 h-full flex flex-col justify-start gap-1.5">
       <h3 class="text-base sm:text-lg font-bold text-gray-800 leading-tight">
         {{ $title }}

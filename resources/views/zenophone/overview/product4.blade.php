@@ -22,9 +22,29 @@
       <p class="text-base sm:text-lg md:text-4xl text-gray-700 leading-snug">
         {!! __('Does not contain banned<br />chemical substance') !!}
       </p>
-      <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600 text-[#AACC8D]">
+      <div class="relative inline-flex items-center gap-1 py-1 px-2
+                  text-sm md:text-lg font-semibold
+                  rounded-lg shadow-sm w-fit
+                  transition-all duration-300
+                  hover:scale-105 hover:shadow-md
+                  self-start"
+          style="color:#AACC8D;
+                background-color:#AACC8D20;
+                border:1px solid #AACC8D50;">
+
+        <!-- ekor bubble -->
+        <span class="absolute -left-2 top-1/2 -translate-y-1/2 
+                    w-0 h-0 border-t-[6px] border-b-[6px] border-r-[8px] border-transparent"
+              style="border-right-color:#AACC8D50;">
+        </span>
+
+        <!-- ikon -->
+        <span class="text-current">
+          @include('components.icon.archive') 
+        </span>
+
         {{ __('Save Material') }}
-      </p>
+      </div>
     </div>
 
     <!-- Gambar HP -->
@@ -33,8 +53,8 @@
     </div>
 
     <!-- Teks kanan bawah -->
-    <div class="absolute bottom-[-120px] md:bottom-6 right-6 text-right max-w-[280px]">
-      <p class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-snug">
+    <div class="absolute bottom-[-60px] md:bottom-6 right-6 text-right max-w-[280px]">
+      <p class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-snug">
         {!! __('Clean by Design –<br />free from harmful<br />substances') !!}
       </p>
     </div>

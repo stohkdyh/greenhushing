@@ -11,6 +11,7 @@
     'imageHeight' => 'auto',
     'imagePositionX' => '50%', // posisi horizontal
     'imagePositionY' => '-50px', // posisi vertikal
+    'icon' => false,
 ])
 
 <!-- Google Fonts -->
@@ -79,7 +80,31 @@
         <p class="text-base sm:text-lg md:text-2xl text-gray-700 mb-4 sm:mb-6 leading-relaxed text-justify">
             {{ $description }}
         </p>
-        <p class="text-base sm:text-lg md:text-xl font-semibold underline underline-offset-4 transition-all duration-300 hover:text-indigo-600" style="color: {{ $highlightColor }}">
+        <p class="relative inline-flex items-center gap-2 px-3 py-1.5
+                text-base sm:text-lg md:text-xl font-semibold
+                rounded-lg shadow-sm
+                transition-all duration-300
+                hover:scale-105 hover:shadow-md
+                before:content-[''] before:absolute before:left-[-8px] before:top-1/2 before:-translate-y-1/2
+                before:border-[6px] before:border-transparent"
+        style="color: {{ $highlightColor }};
+                background-color: {{ $highlightColor }}10;
+                border: 1px solid {{ $highlightColor }}30;
+                --tw-border-opacity: 1;
+                ">
+            <span class="before:absolute before:left-[-8px] before:top-1/2 before:-translate-y-1/2 before:border-[6px] before:border-transparent"
+                style="position: absolute; left:-8px; top:50%; transform:translateY(-50%);
+                        border-width:6px;
+                        border-style:solid;
+                        border-color:transparent {{ $highlightColor }}30 transparent transparent;">
+            </span>
+
+            @if($icon)
+                <span class="text-current">
+                    @include('components.icon.' . $icon)
+                </span>
+            @endif
+
             {{ $highlight }}
         </p>
     </div>

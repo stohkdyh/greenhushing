@@ -11,4 +11,5 @@
     imageHeight="auto"
     imagePositionX="50%"
     imagePositionY="-100px"
+    icon="package"
 />
