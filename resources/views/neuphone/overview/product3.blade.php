@@ -4,4 +4,5 @@
     description="{{__('Shielded in a strong titanium frame, your phone always stays protected.') }}"
     highlight="{{__('Durable Material') }}"
     imageBg="#D6D9E8"
+    icon="shield"
 />

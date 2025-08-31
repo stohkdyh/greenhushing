@@ -4,5 +4,5 @@
     description="{{__('Charged Within One Hour') }}"
     highlight="{{__('Fast Charging') }}"
     imageBg="#D6D9E8"
-    
+    icon="zap"
 />

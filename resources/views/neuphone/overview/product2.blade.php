@@ -5,4 +5,5 @@
     image="images/hp_neu2.png"
     imageBg="#D6D9E8"
     highlightColor="#4f46e5"
+    icon="sparkle"
 />
