@@ -20,10 +20,11 @@
     </div>
 
     <!-- Language Switch -->
-    <div class="bg-white bg-opacity-30 rounded-lg px-2 py-1 shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-2 sm:right-10 top-6 sm:top-12" >
-        <x-languange-switch/>
+    <div
+        class="bg-white bg-opacity-30 rounded-lg px-2 py-1 shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-2 sm:right-10 top-6 sm:top-12">
+        <x-languange-switch />
     </div>
-    
+
 
     <!-- Form Container -->
     <div
@@ -49,19 +50,20 @@
                 @csrf
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-12">
                     <div>
-                        <x-input-label for="name" class="text-gray-100" :value="__('Name/Initial')" />
-                        <x-text-input id="name" name="name" type="text" placeholder="{{ __('Name/Initial') }}"
-                            class="w-full" autocomplete="off" required autofocus />
+                        <x-input-label for="name" class="text-gray-600" :value="__('Name/Initial')" />
+                        <x-text-input id="name" name="name" type="text"
+                            placeholder="{{ __('Name/Initial') }}" class="w-full" autocomplete="off" required
+                            autofocus />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="age" class="text-gray-100" :value="__('Age')" />
-                        <x-text-input id="age" name="age" type="number" min="1" placeholder="{{ __('Age') }}" class="w-full"
-                            autocomplete="off" required />
+                        <x-input-label for="age" class="text-gray-600" :value="__('Age')" />
+                        <x-text-input id="age" name="age" type="number" min="1"
+                            placeholder="{{ __('Age') }}" class="w-full" autocomplete="off" required />
                         <x-input-error :messages="$errors->get('age')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="gender" class="text-gray-100" :value="__('Gender')" />
+                        <x-input-label for="gender" class="text-gray-600" :value="__('Gender')" />
                         <select id="gender" name="gender" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Gender') }}</option>
@@ -71,7 +73,7 @@
                         <x-input-error :messages="$errors->get('gender')" class="mt-2" />
                     </div>
                     <div>
-                        <x-input-label for="country" class="text-gray-100" :value="__('Country')" />
+                        <x-input-label for="country" class="text-gray-600" :value="__('Country')" />
                         <select id="country" name="country" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Country') }}</option>
@@ -81,7 +83,7 @@
                         <x-input-error :messages="$errors->get('country')" class="mt-2" />
                     </div>
                     <div class="col-span-1 sm:col-span-2">
-                        <x-input-label for="last_education" :value="__('Last Education')" />
+                        <x-input-label for="last_education" class="text-gray-600" :value="__('Last Education')" />
                         <select id="last_education" name="last_education" required
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Last Education') }}</option>
