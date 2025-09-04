@@ -61,7 +61,7 @@
     <h3 class="text-sm font-medium mb-3 {{ $shareTitleColor }}">{{ __('Share this news') }}</h3>
     <div class="flex gap-3 flex-wrap">
         {{-- Facebook --}}
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
+        <a
            target="_blank"
            class="p-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors"
            aria-label="Share on Facebook">
@@ -69,7 +69,7 @@
         </a>
 
         {{-- X (Twitter) --}}
-        <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}"
+        <a
            target="_blank"
            class="p-2 rounded-full bg-black hover:bg-gray-800 transition-colors"
            aria-label="Share on X (Twitter)">
@@ -77,7 +77,7 @@
         </a>
 
         {{-- WhatsApp --}}
-        <a href="https://api.whatsapp.com/send?text={{ urlencode(request()->fullUrl()) }}"
+        <a
            target="_blank"
            class="p-2 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
            aria-label="Share on WhatsApp">
@@ -85,7 +85,7 @@
         </a>
 
         {{-- Instagram (profil link) --}}
-        <a href="https://www.instagram.com/"
+        <a
            target="_blank"
            class="p-2 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors"
            aria-label="Visit Instagram">
