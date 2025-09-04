@@ -11,7 +11,6 @@
     @include('onephone.footer')
 
     <x-floating-news-button product="onephone" />
-    
-    
+
 @endsection
 

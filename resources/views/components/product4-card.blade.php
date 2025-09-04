@@ -47,7 +47,11 @@
     }
 </style>
 
-<div class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-32 md:py-16 gap-12 md:gap-16" style="background: {{ $bg }}">
+<div class="min-h-fit md:min-h-screen flex flex-col md:flex-row 
+            items-center justify-between 
+            px-6 md:px-20 py-12 sm:py-20 md:py-32 
+            gap-12 md:gap-16"
+     style="background: {{ $bg }}">
     <!-- Teks -->
     <div class="w-full md:w-1/2 fade-in-left text-left md:text-left">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-tight" style="color: {{ $titleColor }}">
@@ -94,7 +98,7 @@
             <!-- Gambar HP besar & center -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-1/2 -translate-x-1/2 bottom-[-60px] sm:bottom-[-80px] h-auto object-contain z-10 drop-shadow-2xl transition-transform duration-500 hover:scale-105 {{ $imageWidth ?? 'w-[280px]' }}" />
+                class="absolute left-1/2 -translate-x-1/2 bottom-[-40px] sm:bottom-[-80px] h-auto object-contain z-10 drop-shadow-2xl transition-transform duration-500 hover:scale-105 {{ $imageWidth ?? 'w-[280px]' }}" />
         </div>
     </div>
 </div>

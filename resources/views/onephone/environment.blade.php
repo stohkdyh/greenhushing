@@ -1,5 +1,5 @@
 {{-- Section --}}
-<section class="min-h-screen bg-white px-4 sm:px-6 py-10 sm:py-16 flex flex-col items-center">
+<section class="min-h-fit bg-white px-4 sm:px-6 py-10 sm:py-16 flex flex-col items-center">
   <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1C4F2B] mb-10 sm:mb-16 md:mb-20">
     {{ __('Innovation for the Environment') }}
   </h2>

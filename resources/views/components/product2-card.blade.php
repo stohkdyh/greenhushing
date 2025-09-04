@@ -46,7 +46,11 @@
     }
 </style>
 
-<div class="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-32 md:py-16 gap-12 md:gap-16" style="background: {{ $bg }}">
+<div class="min-h-fit md:min-h-screen flex flex-col md:flex-row 
+            items-center justify-between 
+            px-6 md:px-20 py-12 sm:py-20 md:py-32 
+            gap-12 md:gap-16"
+     style="background: {{ $bg }}">
     <!-- Teks -->
     <div class="w-full md:w-1/2 fade-in-left text-left md:text-left">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-tight" style="color: {{ $titleColor }}">

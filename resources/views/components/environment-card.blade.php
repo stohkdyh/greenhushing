@@ -8,7 +8,7 @@
     'show' => true, 
 ])
 
-<div class="shadow-md {{ $rounded }} w-full relative mb-12 sm:mb-16">
+<div class="shadow-md {{ $rounded }} w-full relative mb-12 sm:mb-16 flex flex-col">
 
   <!-- Area gambar -->
   <div class="w-full {{ $aspect }} {{ $rounded }} overflow-hidden relative">

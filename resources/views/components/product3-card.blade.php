@@ -50,7 +50,11 @@
 </style>
 
 
-<div class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 lg:px-20 py-32 md:py-16 lg:py-16 gap-12 md:gap-16" style="background: {{ $bg }}">
+<div class="min-h-fit md:min-h-screen flex flex-col-reverse md:flex-row 
+            items-center justify-between 
+            px-6 md:px-20 py-12 sm:py-20 md:py-32 
+            gap-12 md:gap-16"
+     style="background: {{ $bg }}">
     <!-- Gambar dan card -->
     <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
         <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">

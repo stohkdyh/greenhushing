@@ -15,8 +15,10 @@
     'btnText'      => 'white',
 ])
 
-<div class="relative min-h-screen flex items-center justify-center px-6 py-4 bg-white">
-  <div class="relative rounded-3xl text-center max-w-6xl w-full overflow-hidden"
+<div class="relative min-h-fit md:min-h-screen flex items-center justify-center 
+            px-6 py-12 sm:py-16 md:py-20">
+
+  <div class="relative rounded-3xl text-center max-w-6xl w-full overflow-hidden min-h-[600px]"
        style="background-color: {{ $bg }}; box-shadow: {{ $shadow }};">
 
     {{-- Phone Images Inside Background --}}
@@ -27,19 +29,19 @@
       <img src="{{ asset($imageright) }}" alt="Phone Right" class="object-contain w-full">
     </div>
 
-    <div class="px-6 pt-10 pb-40">
+    <div class="px-6 pt-16 pb-40">
         {{-- Title --}}
-        <h1 class="text-4xl sm:text-5xl font-bold mb-8 relative z-10" style="color: {{ $titleColor }}">
+        <h1 class="text-4xl sm:text-6xl font-bold mb-12 relative z-10" style="color: {{ $titleColor }}">
         {{ __($title) }}
         </h1>
 
         {{-- Headline Sentence --}}
-        <p class="text-lg sm:text-xl mb-2 relative z-10" style="color: {{ $textColor }}">
+        <p class="text-lg sm:text-xl mb-4 relative z-10" style="color: {{ $textColor }}">
         {{ __($headline) }}
         </p>
 
         {{-- Dashed Line --}}
-        <div class="border-t border-dashed border-gray-400 w-2/3 mx-auto mb-2 relative z-10"></div>
+        <div class="border-t border-dashed border-gray-400 w-2/3 mx-auto mb-4 relative z-10"></div>
 
         {{-- Description --}}
         <p class="text-base sm:text-lg max-w-3xl mx-auto mb-4 relative z-10" style="color: {{ $textColor }}">
@@ -47,7 +49,7 @@
         </p>
 
         <a href="#"
-         class="inline-block font-medium text-sm sm:text-base md:text-sm py-3 px-6 rounded-lg transition"
+         class="inline-block font-medium text-sm sm:text-base md:text-sm py-3 px-6 md:mt-12 rounded-lg transition"
          style="background-color: {{ $btnBg }}; color: {{ $btnText }};"
          onmouseover="this.style.backgroundColor='{{ $btnHover }}'"
          onmouseout="this.style.backgroundColor='{{ $btnBg }}'">
