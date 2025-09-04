@@ -44,7 +44,7 @@
     }
 </style>
 
-<div class="min-h-screen w-full px-6 md:px-20 py-12 bg-white font-inter flex flex-col justify-center">
+<div class="min-h-fit w-full px-6 md:px-20 py-12 bg-white font-inter flex flex-col justify-center">
     <!-- JUDUL -->
     <h2 class="text-4xl md:text-5xl font-bold {{ $mb }} text-center lg:text-left fade-in-left"
         style="color: {{ $textColor }};">

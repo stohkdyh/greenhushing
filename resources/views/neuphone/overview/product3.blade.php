@@ -5,4 +5,5 @@
     highlight="{{__('Durable Material') }}"
     imageBg="#D6D9E8"
     icon="shield"
+    imageHeight="420px"
 />

@@ -12,6 +12,6 @@
     ]"
     textColor="#1C2D3C"
     textValueColor="#1C2D3C"
-    imageWidth="400px"
+    imageWidth="250px"
     mb="mb-10"
 />
