@@ -91,15 +91,44 @@
     let selectedRating = null;
     const productName = '{{ $product }}';
 
+    const ratingButton = document.getElementById('rating-button');
+    const ratingTooltip = document.getElementById('rating-tooltip');
+
     // Show tooltip on hover
-    document.getElementById('rating-button').addEventListener('mouseenter', function() {
-        document.getElementById('rating-tooltip').classList.remove('opacity-0');
-        document.getElementById('rating-tooltip').classList.add('opacity-100');
+    ratingButton.addEventListener('mouseenter', function() {
+        ratingTooltip.classList.remove('opacity-0');
+        ratingTooltip.classList.add('opacity-100');
     });
 
-    document.getElementById('rating-button').addEventListener('mouseleave', function() {
-        document.getElementById('rating-tooltip').classList.add('opacity-0');
-        document.getElementById('rating-tooltip').classList.remove('opacity-100');
+    ratingButton.addEventListener('mouseleave', function() {
+        ratingTooltip.classList.add('opacity-0');
+        ratingTooltip.classList.remove('opacity-100');
+    });
+
+    // Tooltip otomatis saat scroll ke bawah
+    let tooltipShown = false;
+
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        // Muncul kalau 100px sebelum footer
+        if (scrollPosition >= pageHeight - 100 && !tooltipShown) {
+            ratingTooltip.classList.remove('opacity-0');
+            ratingTooltip.classList.add('opacity-100');
+            tooltipShown = true;
+
+            // auto hide 10 detik
+            setTimeout(() => {
+                ratingTooltip.classList.add('opacity-0');
+                ratingTooltip.classList.remove('opacity-100');
+            }, 4000);
+        }
+
+        // Reset biar bisa muncul lagi kalau user naik ke atas
+        if (scrollPosition < pageHeight - 300) {
+            tooltipShown = false;
+        }
     });
 
     // Load existing rating on page load

@@ -31,14 +31,42 @@
         window.location.href = '/' + currentPath + '-news';
     }
 
-    // Tooltip tetap jalan
-    document.getElementById('news-button').addEventListener('mouseenter', function () {
-        document.getElementById('news-tooltip').classList.remove('opacity-0');
-        document.getElementById('news-tooltip').classList.add('opacity-100');
+    const newsButton = document.getElementById('news-button');
+    const newsTooltip = document.getElementById('news-tooltip');
+
+    // Tooltip dengan hover (tetap jalan)
+    newsButton.addEventListener('mouseenter', function () {
+        newsTooltip.classList.remove('opacity-0');
+        newsTooltip.classList.add('opacity-100');
     });
 
-    document.getElementById('news-button').addEventListener('mouseleave', function () {
-        document.getElementById('news-tooltip').classList.add('opacity-0');
-        document.getElementById('news-tooltip').classList.remove('opacity-100');
+    newsButton.addEventListener('mouseleave', function () {
+        newsTooltip.classList.add('opacity-0');
+        newsTooltip.classList.remove('opacity-100');
+    });
+
+    // Tooltip otomatis saat scroll ke bawah / footer
+    let tooltipShown = false; // biar ga muncul berkali-kali
+
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        // Jika user sudah sampai 100px sebelum akhir halaman
+        if (scrollPosition >= pageHeight - 100 && !tooltipShown) {
+            newsTooltip.classList.remove('opacity-0');
+            newsTooltip.classList.add('opacity-100');
+            tooltipShown = true;
+
+            setTimeout(() => {
+                newsTooltip.classList.add('opacity-0');
+                newsTooltip.classList.remove('opacity-100');
+            }, 10000);
+        }
+
+        // Reset kalau user scroll naik jauh ke atas (misalnya > 300px dari bawah)
+        if (scrollPosition < pageHeight - 300) {
+            tooltipShown = false;
+        }
     });
 </script>
