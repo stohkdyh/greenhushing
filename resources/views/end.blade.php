@@ -26,7 +26,7 @@
                bg-white bg-opacity-30 rounded-lg shadow-md backdrop-blur-md transition-all duration-300 z-50 no-print" />
 
     <!-- Main Content -->
-    <div class="container mx-auto max-w-4xl my-20 sm:my-28 md:my-32
+    <div class="container mx-auto max-w-4xl my-24 sm:my-32 md:my-36
                 bg-white bg-opacity-70 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-2xl
                 px-6 sm:px-10 md:px-14 py-10 sm:py-14">
         <div class="flex flex-col items-center text-center">
