@@ -137,44 +137,6 @@
 
                     <div class="container">
                         <div class="grid grid-cols-2 gap-6">
-
-                            @php
-                                $products = [
-                                    [
-                                        'name' => 'Onephone',
-                                        'image' => 'market_one_edited.png',
-                                        'price' => 252,
-                                        'rating' => 4.79,
-                                        'features' => 2,
-                                        'sold' => '2,5',
-                                    ],
-                                    [
-                                        'name' => 'Neuphone',
-                                        'image' => 'market_neu.png',
-                                        'price' => 252,
-                                        'rating' => 4.73,
-                                        'features' => 2,
-                                        'sold' => '2,5',
-                                    ],
-                                    [
-                                        'name' => 'Xarelphone',
-                                        'image' => 'market_xarel.png',
-                                        'price' => 252,
-                                        'rating' => 4.43,
-                                        'features' => 2,
-                                        'sold' => '2,5',
-                                    ],
-                                    [
-                                        'name' => 'Zenophone',
-                                        'image' => 'market_zeno.png',
-                                        'price' => 252,
-                                        'rating' => 4.39,
-                                        'features' => 2,
-                                        'sold' => '2,5',
-                                    ],
-                                ];
-                            @endphp
-
                             @foreach ($products as $product)
                                 <div class="product-card relative transition-all duration-300"
                                     data-product="{{ strtolower($product['name']) }}">

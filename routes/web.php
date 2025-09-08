@@ -27,7 +27,49 @@ Route::get('/post-test', [PostTestController::class, 'show'])->name('posttest.sh
 Route::post('/post-test', [PostTestController::class, 'store'])->name('posttest.store');
 
 // Market & End
-Route::get('/market', fn() => view('market'))->name('market');
+// Route::get('/market', fn() => view('market'))->name('market');
+Route::get('/market', function () {
+    $allProducts = [
+        [
+            'name' => 'Onephone',
+            'image' => 'market_one_edited.png',
+            'price' => 252,
+            'rating' => 4.73,
+            'features' => 2,
+            'sold' => '2,5',
+        ],
+        [
+            'name' => 'Neuphone',
+            'image' => 'market_neu.png',
+            'price' => 252,
+            'rating' => 4.73,
+            'features' => 2,
+            'sold' => '2,5',
+        ],
+        [
+            'name' => 'Xarelphone',
+            'image' => 'market_xarel.png',
+            'price' => 252,
+            'rating' => 4.73,
+            'features' => 2,
+            'sold' => '2,5',
+        ],
+        [
+            'name' => 'Zenophone',
+            'image' => 'market_zeno.png',
+            'price' => 252,
+            'rating' => 4.73,
+            'features' => 2,
+            'sold' => '2,5',
+        ],
+    ];
+
+    // Shuffle the products array to randomize order
+    $products = collect($allProducts)->shuffle()->toArray();
+    
+    return view('market', compact('products'));
+})->name('market');
+
 Route::get('/end', fn() => view('end'))->name('end');
 
 // Static company pages

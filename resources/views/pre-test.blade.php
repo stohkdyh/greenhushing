@@ -12,7 +12,7 @@
 <body class="bg-white min-h-screen flex flex-col">
 
     <header
-        class="flex fixed top-0 left-0 right-0 justify-between items-center px-4 sm:px-8 lg:px-14 py-2 bg-white/50 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
+        class="bg-white/50 flex fixed top-0 left-0 right-0 justify-between items-center px-4 sm:px-8 lg:px-14 py-2 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
         <!-- Kiri: Hamburger + Title -->
         <div class="flex items-center gap-4 sm:gap-8">
             <h1 class="font-bold text-lg sm:text-xl">Pre-Test</h1>
@@ -55,11 +55,18 @@
     <main class="flex-1 w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-4 sm:mt-6 space-y-4 sm:space-y-6">
         <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
             @csrf
-            @foreach($questions as $key => $text)
+            @foreach ($questions as $key => $text)
                 <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
                     data-question="{{ $key }}">
-                    <p class="mb-3 sm:mb-4 text-center text-sm md:text-base font-medium">
-                        {{ __('Question') }} {{ $loop->iteration }}:
+                    <p class="-mt-3">
+                        <span class="text-sm sm:text-base font-semibold text-gray-700">
+                            {{ __('Question') }} {{ $loop->iteration }}
+                        </span>
+                        <span class="text-xs sm:text-sm text-gray-500">({{ __('required') }})</span>
+                        <hr>
+                    </p>
+                    <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
+                        {{-- {{ __('Question') }} {{ $loop->iteration }}: --}}
                         {{ $text }}
                     </p>
 
@@ -191,7 +198,7 @@
             // Initialize progress
             updateProgress();
         });
-        </script>
+    </script>
 
 
 </body>
