@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class RespondentController extends Controller
 {
+
+    public function index()
+    {
+        return view('respondents.index');
+    }
+
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -24,7 +31,7 @@ class RespondentController extends Controller
         session(['respondent_id' => $respondent->id]);
 
         // Redirect to your main application (e.g., pre-test)
-        return redirect()->route('pretest.show');
+        return redirect()->route('pretest.create');
     }
 }
 

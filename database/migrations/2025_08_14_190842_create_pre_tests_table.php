@@ -13,17 +13,11 @@ return new class extends Migration
     {
         Schema::create('pre_tests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('respondent_id');
-            $table->integer('q1');
-            $table->integer('q2');
-            $table->integer('q3');
-            $table->integer('q4');
-            $table->integer('q5');
-            $table->integer('q6');
-            $table->integer('q7');
+            $table->foreignId('respondent_id')->constrained()->onDelete('cascade');
+            for ($i = 1; $i <= 37; $i++) {
+                $table->integer("q$i")->nullable(); // simpan jawaban 1–7
+            }
             $table->timestamps();
-
-            $table->foreign('respondent_id')->references('id')->on('respondents')->onDelete('cascade');
         });
     }
 

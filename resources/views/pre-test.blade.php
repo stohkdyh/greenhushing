@@ -55,13 +55,14 @@
     <main class="flex-1 w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-4 sm:mt-6 space-y-4 sm:space-y-6">
         <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
             @csrf
-            @for ($i = 1; $i <= 7; $i++)
+            @foreach($questions as $key => $text)
                 <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
-                    data-question="{{ $i }}">
+                    data-question="{{ $key }}">
                     <p class="mb-3 sm:mb-4 text-center text-sm md:text-base font-medium">
-                        {{ __('Question') }} {{ $i }}:
-                        {{ __('You feel that this product\'s environmental reputation is generally reliable') }}
+                        {{ __('Question') }} {{ $loop->iteration }}:
+                        {{ $text }}
                     </p>
+
                     <div class="flex items-center justify-between gap-2 sm:gap-4">
                         <span class="text-xxs md:text-sm text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Disagree') }}
@@ -79,10 +80,10 @@
                                         7 => '#6FB171',
                                     ];
                                 @endphp
-                                <input type="radio" name="q{{ $i }}" value="{{ $value }}"
+                                <input type="radio" name="{{ $key }}" value="{{ $value }}"
                                     class="w-5 h-5 sm:w-6 sm:h-6 question-radio cursor-pointer hover:scale-110 transition-transform"
                                     style="color: {{ $colors[$value] }}; --tw-ring-color: {{ $colors[$value] }};"
-                                    data-question="{{ $i }}">
+                                    data-question="{{ $key }}">
                             @endfor
                         </div>
                         <span class="text-xxs md:text-sm text-gray-500 text-center w-12 sm:w-16 leading-tight">
@@ -90,7 +91,8 @@
                         </span>
                     </div>
                 </div>
-            @endfor
+            @endforeach
+
         </form>
     </main>
 
@@ -110,7 +112,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const totalQuestions = 7;
+            const totalQuestions = document.querySelectorAll('.question-card').length;
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
             const submitBtn = document.getElementById('submit-btn');
@@ -147,27 +149,25 @@
 
             // Function to update question card appearance
             function updateQuestionCards() {
-                for (let i = 1; i <= totalQuestions; i++) {
-                    const questionCard = document.querySelector(`[data-question="${i}"]`);
-                    if (answeredQuestions.has(i)) {
-                        questionCard.classList.add('ring-1', 'ring-green-200', 'bg-green-50');
-                        questionCard.classList.remove('bg-white');
+                document.querySelectorAll('.question-card').forEach(card => {
+                    const qKey = card.dataset.question;
+                    if (answeredQuestions.has(qKey)) {
+                        card.classList.add('ring-1', 'ring-green-200', 'bg-green-50');
+                        card.classList.remove('bg-white');
                     } else {
-                        questionCard.classList.remove('ring-1', 'ring-green-200', 'bg-green-50');
-                        questionCard.classList.add('bg-white');
+                        card.classList.remove('ring-1', 'ring-green-200', 'bg-green-50');
+                        card.classList.add('bg-white');
                     }
-                }
+                });
             }
 
             // Add event listeners to all radio buttons
             questionRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
-                    const questionNumber = parseInt(this.dataset.question);
-
+                    const qKey = this.dataset.question; // gunakan string key
                     if (this.checked) {
-                        answeredQuestions.add(questionNumber);
+                        answeredQuestions.add(qKey);
                     }
-
                     updateProgress();
                 });
             });
@@ -191,7 +191,8 @@
             // Initialize progress
             updateProgress();
         });
-    </script>
+        </script>
+
 
 </body>
 
