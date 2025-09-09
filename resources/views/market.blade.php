@@ -59,24 +59,6 @@
                     </div>
                 </div>
 
-                <!-- Mobile Filter Toggle -->
-                <div class="mx-4 mb-4">
-                    <button id="filter-toggle"
-                        class="bg-white px-4 py-2 rounded-lg shadow-md w-full text-left font-semibold text-gray-700 flex items-center justify-between">
-                        <span>{{ __('Filter') }}</span>
-                        <svg id="filter-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Mobile Filter Panel -->
-                <div id="mobile-filter" class="hidden mx-4 mb-6 bg-white rounded-lg shadow-md p-4">
-                    @include('partials.filter-content')
-                </div>
-
                 <!-- Mobile Navigation -->
                 <div class="mx-4 mb-6 bg-white rounded-lg shadow-md p-4 overflow-x-auto">
                     <div class="flex space-x-4 min-w-max">
@@ -100,7 +82,7 @@
 
                 <!-- Mobile Products Grid -->
                 <div class="mx-4 pb-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 gap-4">
                         @foreach ($products as $product)
                             @include('partials.product-card', ['product' => $product])
                         @endforeach
@@ -110,31 +92,24 @@
 
             <!-- Desktop Layout -->
             <div class="hidden lg:block">
-                <div class="grid grid-cols-5 gap-4 px-6 mx-4 xl:mx-20 py-8">
-                    <!-- Progress indicator for desktop -->
-                    <div class="mb-2 bg-white rounded-lg p-4 shadow-md col-span-5 -me-10">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-sm font-medium text-gray-700">{{ __('Products Rated') }}</span>
-                            <span id="progress-text" class="text-sm text-gray-600">0/4 {{ __('completed') }}</span>
-                        </div>
-                        <div class="w-full bg-gray-200 rounded-full h-2">
-                            <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                                style="width: 0%"></div>
-                        </div>
-                    </div>
+                <div class="max-w-7xl mx-auto px-6 py-8">
+                    <div class="grid grid-cols-1 gap-6">
 
-                    <!-- Desktop Sidebar -->
-                    <div class="w-full h-screen">
-                        <p class="font-semibold text-2xl">Filter</p>
-                        <div class="mt-2 shadow-2xl rounded-lg px-8 py-2">
-                            @include('partials.filter-content')
+                        <!-- Progress indicator -->
+                        <div class="bg-white rounded-lg p-4 shadow-md mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">{{ __('Products Rated') }}</span>
+                                <span id="progress-text" class="text-sm text-gray-600">0/4 {{ __('completed') }}</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div id="progress-bar"
+                                    class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                                    style="width: 0%"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Desktop Main Content -->
-                    <div class="w-full h-screen col-span-4 ms-10">
-                        <!-- Desktop Navigation -->
-                        <div class="w-full text-lg space-x-4 mb-4">
+                        <!-- Navigation -->
+                        <div class="w-full text-lg space-x-4 mb-6">
                             <x-nav-link :href="route('market')" :active="false">
                                 {{ __('Short') }}
                             </x-nav-link>
@@ -152,16 +127,17 @@
                             </x-nav-link>
                         </div>
 
-                        <!-- Desktop Products Grid -->
-                        <div class="container">
-                            <div class="grid grid-cols-2 gap-6">
-                                @foreach ($products as $product)
-                                    @include('partials.product-card', ['product' => $product])
-                                @endforeach
-                            </div>
+                        <!-- Products Grid -->
+                        <div class="grid grid-cols-2 gap-6">
+                            @foreach ($products as $product)
+                                @include('partials.product-card', ['product' => $product])
+                            @endforeach
                         </div>
                     </div>
                 </div>
+            </div>
+
+
             </div>
         </main>
 
