@@ -1,7 +1,7 @@
 <x-product-card
     image="images/onephone.png"
     title="Onephone One"
-    rating="4.79"
+    rating="4.73"
     headline-top="{{ __('Circular by Design') }}"
     headline-bot="{{ __('Sustainable by Purpose') }}"
     badge="{{ __('Made for You') }}"

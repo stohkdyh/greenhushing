@@ -1,7 +1,7 @@
 <x-product-card
     image="images/xarel-product.png"
     title="Xarelphone 7"
-    rating="4.43"
+    rating="4.73"
     headline-top="Next-Level Living of"
     headline-bot="Smartphone"
     badge="In Your Hands"
