@@ -30,7 +30,7 @@
 
             {{-- Teks muncul dengan animasi --}}
             <span class="mr-2 text-[#1C4F2B] opacity-0 animate-fade-in">
-                Assurance by
+                {{__('Assurance by Independent Third Party') }}
             </span>
         </div>
     @endif
@@ -51,7 +51,6 @@
 
 
 <style>
-/* Keyframe animasi lebarnya */
 @keyframes expandWidth {
   0% { max-width: 24px; }   /* awal: cuma muat icon */
   100% { max-width: 160px; } /* akhir: muat teks */

@@ -73,15 +73,6 @@
         <span class="relative -top-2 text-xs sm:text-sm">$</span>
         <span class="text-2xl sm:text-3xl font-bold text-gray-900">{{ $price }}</span>
       </p>
-
-      {{-- CTA --}}
-      <a href="#"
-         class="inline-block font-medium text-sm sm:text-base md:text-lg py-3 px-6 rounded-lg transition"
-         style="background-color: {{ $btnBg }}; color: {{ $btnText }};"
-         onmouseover="this.style.backgroundColor='{{ $btnHover }}'"
-         onmouseout="this.style.backgroundColor='{{ $btnBg }}'">
-        {{ __('Buy Now') }}
-      </a>
     </div>
   </div>
 </div>
