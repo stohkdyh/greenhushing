@@ -30,7 +30,7 @@
 
             {{-- Teks muncul dengan animasi --}}
             <span class="mr-2 text-[#1C4F2B] opacity-0 animate-fade-in">
-                {{__('Assurance by Independent Third Party') }}
+                {{__('Assurance by Independent Third Parties') }}
             </span>
         </div>
     @endif
