@@ -5,7 +5,7 @@
     <!-- Main Floating Button -->
     <button id="rating-button"
         class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110 animate-pulse"
-        onclick="openRatingModal()">
+        onclick="handleRatingButtonClick('{{ $product }}')">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" />
@@ -22,7 +22,33 @@
     </div>
 </div>
 
-<!-- Rating Modal -->
+<!-- ================== Manipulation Check Modal ================== -->
+<div id="manipulation-modal"
+    class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95"
+        id="manipulation-modal-content">
+        <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Please answer first</h3>
+
+            <!-- Step Content -->
+            <div id="manipulation-step" class="mb-6"></div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-end gap-3">
+                <button type="button" onclick="closeManipulationModal()"
+                    class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                    Cancel
+                </button>
+                <button type="button" id="manipulation-next-btn" onclick="nextManipulationStep()"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================== Rating Modal ================== -->
 <div id="rating-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95"
         id="modal-content">
@@ -86,71 +112,109 @@
         <span id="success-text">{{ __('Rating submitted successfully!') }}</span>
     </div>
 </div>
-
 <script>
+    // ================= GLOBAL VARS =================
     let selectedRating = null;
-    const productName = '{{ $product }}';
+    let manipulationCurrentStep = 0;
+    let manipulationProduct = null;
+    let manipulationAnswers = []; // <-- simpan jawaban manipulation
 
-    const ratingButton = document.getElementById('rating-button');
-    const ratingTooltip = document.getElementById('rating-tooltip');
+    const manipulationQuestions = [
+        "The mission, vision and values of Neuphone, visible on its website, clearly focus on transmitting its total commitment to the environment",
+        "Neuphone’s website has content on environmental aspects of the company",
+        "NeuPhone is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.",
+        "NeuPhone has good environmental performance"
+    ];
 
-    // Show tooltip on hover
-    ratingButton.addEventListener('mouseenter', function() {
-        ratingTooltip.classList.remove('opacity-0');
-        ratingTooltip.classList.add('opacity-100');
-    });
-
-    ratingButton.addEventListener('mouseleave', function() {
-        ratingTooltip.classList.add('opacity-0');
-        ratingTooltip.classList.remove('opacity-100');
-    });
-
-    // Tooltip otomatis saat scroll ke bawah
-    let tooltipShown = false;
-
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
-
-        // Muncul kalau 100px sebelum footer
-        if (scrollPosition >= pageHeight - 100 && !tooltipShown) {
-            ratingTooltip.classList.remove('opacity-0');
-            ratingTooltip.classList.add('opacity-100');
-            tooltipShown = true;
-
-            // auto hide 10 detik
-            setTimeout(() => {
-                ratingTooltip.classList.add('opacity-0');
-                ratingTooltip.classList.remove('opacity-100');
-            }, 4000);
+    // ================= BUTTON HANDLER =================
+    function handleRatingButtonClick(product) {
+        if (['neuphone', 'zenophone'].includes(product)) {
+            openManipulationModal(product);
+        } else {
+            openRatingModal();
         }
+    }
 
-        // Reset biar bisa muncul lagi kalau user naik ke atas
-        if (scrollPosition < pageHeight - 300) {
-            tooltipShown = false;
+    // ================= MANIPULATION MODAL =================
+    function openManipulationModal(product) {
+        manipulationProduct = product;
+        manipulationCurrentStep = 0;
+        manipulationAnswers = [];
+        document.getElementById('manipulation-modal').classList.remove('hidden');
+        renderManipulationStep();
+    }
+
+    function closeManipulationModal() {
+        document.getElementById('manipulation-modal').classList.add('hidden');
+    }
+
+    function renderManipulationStep() {
+        const stepDiv = document.getElementById('manipulation-step');
+        const currentAnswer = manipulationAnswers[manipulationCurrentStep] ?? null;
+
+        stepDiv.innerHTML = `
+            <p class="text-gray-700 mb-4">${manipulationQuestions[manipulationCurrentStep]}</p>
+            <div class="flex gap-3">
+                <button type="button" 
+                    class="answer-btn flex-1 px-3 py-2 border rounded-lg  ${currentAnswer==='yes' ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-500'  : ''}" 
+                    onclick="selectManipulationAnswer('yes')">Yes</button>
+                <button type="button" 
+                    class="answer-btn flex-1 px-3 py-2 border rounded-lg ${currentAnswer==='no' ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-500' : ''}" 
+                    onclick="selectManipulationAnswer('no')">No</button>
+            </div>
+        `;
+
+        const nextBtn = document.getElementById('manipulation-next-btn');
+        nextBtn.textContent = (manipulationCurrentStep === manipulationQuestions.length - 1) ? "Finish" : "Next";
+        nextBtn.disabled = !currentAnswer; // disable kalau belum pilih
+    }
+
+    function selectManipulationAnswer(answer) {
+        manipulationAnswers[manipulationCurrentStep] = answer;
+        renderManipulationStep(); // re-render biar highlight muncul
+    }
+
+    function nextManipulationStep() {
+        if (!manipulationAnswers[manipulationCurrentStep]) return; // wajib pilih dulu
+
+        if (manipulationCurrentStep < manipulationQuestions.length - 1) {
+            manipulationCurrentStep++;
+            renderManipulationStep();
+        } else {
+            closeManipulationModal();
+            openRatingModal();
         }
+    }
+
+    // ================= TOOLTIP =================
+    document.getElementById('rating-button').addEventListener('mouseenter', function() {
+        document.getElementById('rating-tooltip').classList.remove('opacity-0');
+        document.getElementById('rating-tooltip').classList.add('opacity-100');
     });
 
-    // Load existing rating on page load
+    document.getElementById('rating-button').addEventListener('mouseleave', function() {
+        document.getElementById('rating-tooltip').classList.add('opacity-0');
+        document.getElementById('rating-tooltip').classList.remove('opacity-100');
+    });
+
+    // ================= RATING MODAL =================
     document.addEventListener('DOMContentLoaded', function() {
         loadExistingRating();
     });
 
     function loadExistingRating() {
-        fetch("{{ route('product.ratings.get') }}?product=${productName}")
+        fetch("{{ route('product.ratings.get') }}?product={{ $product }}")
             .then(response => response.json())
             .then(data => {
                 if (data.rating) {
-                    // Update button to show it's already rated
                     const button = document.getElementById('rating-button');
                     button.classList.remove('animate-pulse', 'bg-blue-600');
                     button.classList.add('bg-green-600');
 
-                    // Update tooltip
                     document.getElementById('rating-tooltip').innerHTML = `
-                    {{ __('Your rating:') }} ${data.rating}/10
-                    <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
-                `;
+                        {{ __('Your rating:') }} ${data.rating}/10
+                        <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                    `;
                 }
             })
             .catch(error => console.error('Error loading rating:', error));
@@ -166,7 +230,6 @@
             modalContent.classList.add('scale-100');
         }, 10);
 
-        // Reset selection
         selectedRating = null;
         updateRatingButtons();
         document.getElementById('submit-rating').disabled = true;
@@ -218,8 +281,9 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify({
-                    product_name: productName,
-                    rating: selectedRating
+                    product_name: "{{ $product }}",
+                    rating: selectedRating,
+                    manipulation: manipulationAnswers // ikut kirim jawaban manipulation
                 })
             })
             .then(response => response.json())
@@ -228,26 +292,17 @@
                     closeRatingModal();
                     showSuccessMessage(data.message);
 
-                    // Update button appearance
                     const button = document.getElementById('rating-button');
                     button.classList.remove('animate-pulse', 'bg-blue-600');
                     button.classList.add('bg-green-600');
 
-                    // Update tooltip
                     document.getElementById('rating-tooltip').innerHTML = `
-                    {{ __('Your rating:') }} ${selectedRating}/10
-                    <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
-                `;
+                        {{ __('Your rating:') }} ${selectedRating}/10
+                        <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                    `;
 
-                    // Redirect after rating
                     setTimeout(() => {
-                        if (data.all_products_rated) {
-                            // All products rated, go to post-test
-                            window.location.href = data.redirect_url;
-                        } else {
-                            // Go back to market
-                            window.location.href = data.redirect_url;
-                        }
+                        window.location.href = data.redirect_url;
                     }, 1500);
                 } else {
                     alert(data.message || '{{ __('Error submitting rating') }}');
@@ -281,17 +336,17 @@
         }, 3000);
     }
 
-    // Close modal when clicking outside
+    // ================= CLOSE MODALS =================
     document.getElementById('rating-modal').addEventListener('click', function(e) {
         if (e.target === this) {
             closeRatingModal();
         }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeRatingModal();
+            closeManipulationModal();
         }
     });
 </script>
