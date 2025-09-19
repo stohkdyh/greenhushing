@@ -5,7 +5,7 @@
 
 @section('content')
     @include('zenophone.overview')
-    @include('zenophone.rating')
+    {{-- @include('zenophone.rating') --}}
     @include('zenophone.footer')
     <x-floating-news-button product="zenophone" />
 @endsection

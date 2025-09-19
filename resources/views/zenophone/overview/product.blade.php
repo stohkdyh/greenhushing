@@ -1,7 +1,7 @@
 <x-product-card
     image="images/zenophone_product.png"
     title="Zenophone 4"
-    rating="4.39"
+    rating="4.73"
     headline-top="{{ __('Built with Heart') }}"
     headline-bot="{{ __('Designed for a Better Future') }}"
     badge="{{ __('Made for You') }}"

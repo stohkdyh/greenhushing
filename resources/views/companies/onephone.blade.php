@@ -5,9 +5,9 @@
 
 @section('content')
     @include('onephone.overview')
-    @include('onephone.spec')
+    {{-- @include('onephone.spec') --}}
     @include('onephone.environment')
-    @include('onephone.rating')
+    {{-- @include('onephone.rating') --}}
     @include('onephone.footer')
 
     <x-floating-news-button product="onephone" />

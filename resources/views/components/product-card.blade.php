@@ -8,6 +8,7 @@
     'headlineBot'  => 'Sustainable by Purpose',
     'badge'        => 'Made for You',
     'price'        => 252,
+    'ecoLabel' => 'images/EU_Ecolabel_Logo.svg',
 
     /* — Warna — */
     'bg'           => '#EEF5E8',
@@ -25,9 +26,10 @@
 @endphp
 
 <div class="min-h-screen bg-white flex items-center justify-center px-6 py-12">
-  <div class="rounded-3xl p-6 sm:p-10 lg:p-14 flex flex-col md:flex-row items-center gap-10
+  <div class="rounded-3xl relative p-6 sm:p-10 lg:p-14 flex flex-col md:flex-row items-center gap-10
               max-w-[90rem] w-full min-h-[40rem] lg:min-h-[42rem]"
-       style="background-color: {{ $bg }}; box-shadow: {{ $shadow }};">
+     style="background-color: {{ $bg }}; box-shadow: {{ $shadow }};">
+
 
     {{-- Gambar --}}
     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
@@ -36,7 +38,8 @@
     </div>
 
     {{-- Info --}}
-    <div class="w-full md:w-3/5 max-w-3xl text-center md:text-left space-y-7">
+    <div class="w-full md:w-3/5 max-w-3xl text-center md:text-left space-y-6">
+            
       {{-- Judul & Rating --}}
       <div class="space-y-3">
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
@@ -56,7 +59,7 @@
       </div>
 
       {{-- Slogan --}}
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl leading-[1.3] text-gray-900 tracking-tight">
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl leading-[1.5] text-gray-900 tracking-loose">
         <span class="block">{{ __($headlineTop) }}</span>
         <span class="block">{{ __($headlineBot) }}</span>
       </h1>
@@ -73,15 +76,7 @@
         <span class="relative -top-2 text-xs sm:text-sm">$</span>
         <span class="text-2xl sm:text-3xl font-bold text-gray-900">{{ $price }}</span>
       </p>
-
-      {{-- CTA --}}
-      <a href="#"
-         class="inline-block font-medium text-sm sm:text-base md:text-lg py-3 px-6 rounded-lg transition"
-         style="background-color: {{ $btnBg }}; color: {{ $btnText }};"
-         onmouseover="this.style.backgroundColor='{{ $btnHover }}'"
-         onmouseout="this.style.backgroundColor='{{ $btnBg }}'">
-        {{ __('Buy Now') }}
-      </a>
+      
     </div>
   </div>
 </div>

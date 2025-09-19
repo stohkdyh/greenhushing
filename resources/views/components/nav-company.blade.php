@@ -25,10 +25,6 @@
                     </span>
                     <span class="text-xs text-gray-500 italic">{{ __('*Free delivery')}}</span>
                 </div>
-                <button
-                    class="bg-[#1C4F2B] hover:bg-green-700 text-white text-sm font-semibold px-6 py-2 rounded-md shadow">
-                    {{ __('Buy')}}
-                </button>
             </div>
 
 

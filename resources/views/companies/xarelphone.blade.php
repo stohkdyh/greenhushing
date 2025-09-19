@@ -5,7 +5,7 @@
 
 @section('content')
     @include('xarelphone.overview')
-    @include('xarelphone.rating')
+    {{-- @include('xarelphone.rating') --}}
     @include('xarelphone.overview.footer')
 
     <x-floating-news-button product="xarelphone" />

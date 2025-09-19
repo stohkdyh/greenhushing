@@ -109,7 +109,7 @@
                                         class="border-t border-gray-200 pt-3 text-gray-700 font-medium flex flex-row justify-between items-center">
                                         <span class="text-sm sm:text-base">{{ __('Energy Efficiency') }}</span>
                                         @if ($product['name'] == 'Onephone')
-                                            <img src="{{ asset('images/EU_Ecolabel_Logo.svg') }}" alt="Ecolabel Logo"
+                                            <img src="{{ asset('images/logo_palsu.png') }}" alt="Ecolabel Logo"
                                                 class="w-8 h-8 sm:w-10 sm:h-10">
                                         @else
                                             <img src="{{ asset('images/logoclaimzeno.png') }}" alt="Eco Logo"
@@ -120,7 +120,7 @@
                                         class="border-t border-gray-200 pt-3 text-gray-700 font-medium flex flex-row justify-between items-center">
                                         <span class="text-sm sm:text-base">{{ __('Sustainable Manufacturing') }}</span>
                                         @if ($product['name'] == 'Onephone')
-                                            <img src="{{ asset('images/EU_Ecolabel_Logo.svg') }}" alt="Ecolabel Logo"
+                                            <img src="{{ asset('images/logo_palsu.png') }}" alt="Ecolabel Logo"
                                                 class="w-8 h-8 sm:w-10 sm:h-10">
                                         @else
                                             <img src="{{ asset('images/logoclaimzeno.png') }}" alt="Eco Logo"

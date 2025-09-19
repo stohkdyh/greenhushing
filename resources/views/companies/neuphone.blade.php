@@ -5,7 +5,7 @@
 
 @section('content')
     @include('neuphone.overview')
-    @include('neuphone.rating')
+    {{-- @include('neuphone.rating') --}}
     @include('neuphone.overview.footer')
     <x-floating-news-button product="neuphone" />
     
