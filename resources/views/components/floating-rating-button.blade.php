@@ -87,10 +87,10 @@
 
             <!-- Action Buttons -->
             <div class="flex gap-3">
-                <button type="button" onclick="closeRatingModal()"
+                <!-- <button type="button" onclick="closeRatingModal()"
                     class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
                     {{ __('Cancel') }}
-                </button>
+                </button> -->
                 <button type="button" id="submit-rating" onclick="submitRating()"
                     class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                     disabled>
@@ -139,6 +139,14 @@
     const manipulationQuestions = (product == "Zenophone") ? [
         "{{ __(':product presents a confusing message (using certain words and images) about its environmental behavior.')}}" .replace(':product', product),
         "{{ __(':product provides vague or seemingly unprovable environmental claims about its environmental performance.')}}".replace(':product', product),
+        "{{ __(':product overstates or exaggerates its environmental behavior.') }}" .replace(':product', product),
+        "{{ __('ZenoPhone omits or hides important information about its real environmental behavior.') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of words in its environmental features') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of visuals or graphics in its environmental features') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of green claims that are unclear') }}" .replace(':product', product),
+        "{{ __('The product exaggerates or overstates its green functionality') }}" .replace(':product', product),
+        "{{ __('The product hides important information, making the green claim sound better than it is') }}" .replace(':product', product),
+        
         
         "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
         "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
@@ -151,6 +159,7 @@
         "{{ __(':product does not disclose environmental data, monitoring results, or carbon emission information')}}" .replace(':product', product),
         "{{ __(':product does not disclose the achievements in environmental protection, energy conservation or emission reduction.')}}".replace(':product', product),
         
+
         "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
         "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
         "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),

@@ -3,7 +3,7 @@
     {{ __("Its cutting-edge features and luxury appeal have won over tech enthusiasts, yet critics note that what the company isn’t saying may be just as significant as what it is.") }}
 </p>
 <div class="w-full flex justify-center py-3">
-    <img src="images/EU_Ecolabel_Logo.svg">
+    <img src="images/logo_palsu.png" class="w-48">
 </div>
 
 <p>

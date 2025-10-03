@@ -541,6 +541,14 @@
 
     ":product presents a confusing message (using certain words and images) about its environmental behavior." : ":product presents a confusing message (using certain words and images) about its environmental behavior.",
     ":product provides vague or seemingly unprovable environmental claims about its environmental performance." : ":product provides vague or seemingly unprovable environmental claims about its environmental performance.",
+    ":product overstates or exaggerates its environmental behavior." : ":product overstates or exaggerates its environmental behavior.",
+    "ZenoPhone omits or hides important information about its real environmental behavior." : "ZenoPhone omits or hides important information about its real environmental behavior.",
+    "The product deceives me by means of words in its environmental features" : "The product deceives me by means of words in its environmental features",
+    "The product deceives me by means of visuals or graphics in its environmental features" : "The product deceives me by means of visuals or graphics in its environmental features",
+    "The product deceives me by means of green claims that are unclear" : "The product deceives me by means of green claims that are unclear",
+    "The product exaggerates or overstates its green functionality " : "The product exaggerates or overstates its green functionality",
+    "The product hides important information, making the green claim sound better than it is" : "The product hides important information, making the green claim sound better than it is",
+
     ":product does not disclose the negative environmental impact of its production or operational activities or related data." : ":product does not disclose the negative environmental impact of its production or operational activities or related data.",
     ":product does not disclose environmental data, monitoring results, or carbon emission information" : ":product does not disclose environmental data, monitoring results, or carbon emission information",
     ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction." : ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction.",
