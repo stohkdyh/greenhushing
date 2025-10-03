@@ -10,8 +10,10 @@ class ProductRatingController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'product_name' => 'required|string|in:onephone,xarelphone,neuphone,zenophone',
+            'product_name' => 'required|string',
             'rating' => 'required|integer|between:1,10',
+            'manipulation' => 'nullable|array',
+            'referrer' => 'nullable|string',
         ]);
 
         $respondentId = session('respondent_id');
@@ -23,33 +25,64 @@ class ProductRatingController extends Controller
             ], 401);
         }
 
-        // Check if rating already exists for this product
+        // Handle product rating storage as before
         $existingRating = ProductRating::where('respondent_id', $respondentId)
-                                     ->where('product_name', $validated['product_name'])
-                                     ->first();
+            ->where('product_name', $validated['product_name'])
+            ->first();
 
         if ($existingRating) {
-            // Update existing rating
-            $existingRating->update(['rating' => $validated['rating']]);
+            $existingRating->update([
+                'rating' => $validated['rating'],
+                'manipulation' => $validated['manipulation'] ?? $existingRating->manipulation,
+            ]);
             $message = __('Your rating has been updated successfully!');
         } else {
-            // Create new rating
             ProductRating::create([
                 'respondent_id' => $respondentId,
                 'product_name' => $validated['product_name'],
                 'rating' => $validated['rating'],
+                'manipulation' => $validated['manipulation'] ?? [],
             ]);
             $message = __('Thank you for your rating!');
         }
 
         // Check if all products are rated
         $allRated = $this->checkAllProductsRated($respondentId);
+        
+        // Check if final product already selected
+        $finalProductSelected = false;
+        if (class_exists('App\Models\FinalProductChoice')) {
+            $finalChoice = \App\Models\FinalProductChoice::where('respondent_id', $respondentId)->first();
+            $finalProductSelected = !is_null($finalChoice);
+        }
+
+        // Determine where to redirect
+        $redirectUrl = route('market');
+        
+        // If rating from news or product page, always return to market
+        $referrer = $validated['referrer'] ?? '';
+        if (str_contains($referrer, '/news/') || 
+            str_contains($referrer, '/onephone') ||
+            str_contains($referrer, '/neuphone') ||
+            str_contains($referrer, '/xarelphone') || 
+            str_contains($referrer, '/zenophone')) {
+            $redirectUrl = route('market');
+        } 
+        // If all rated but no final product selected, stay on market
+        else if ($allRated && !$finalProductSelected) {
+            $redirectUrl = route('market');
+        }
+        // If all rated and final product selected, go to post test
+        else if ($allRated && $finalProductSelected) {
+            $redirectUrl = route('posttest.show');
+        }
 
         return response()->json([
             'success' => true,
             'message' => $message,
             'all_products_rated' => $allRated,
-            'redirect_url' => $allRated ? route('posttest.show') : route('market')
+            'final_product_selected' => $finalProductSelected,
+            'redirect_url' => $redirectUrl
         ]);
     }
 
@@ -86,6 +119,27 @@ class ProductRatingController extends Controller
         return response()->json([
             'rated_products' => $ratedProducts,
             'all_products_rated' => $allRated
+        ]);
+    }
+
+    public function hasRated(Request $request)
+    {
+        $respondentId = session('respondent_id');
+        $productName = $request->query('product');
+
+        if (!$respondentId || !$productName) {
+            return response()->json([
+                'has_rated' => false
+            ]);
+        }
+
+        $rating = ProductRating::where('respondent_id', $respondentId)
+                             ->where('product_name', $productName)
+                             ->first();
+
+        return response()->json([
+            'has_rated' => !is_null($rating),
+            'rating' => $rating ? $rating->rating : null
         ]);
     }
 

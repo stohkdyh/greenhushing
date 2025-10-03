@@ -93,7 +93,7 @@ class PostTestController extends Controller
         $existingPostTest = PostTest::where('respondent_id', $respondentId)->first();
         
         if ($existingPostTest) {
-            return redirect()->route('market')->with('info', __('You have already completed the post-test.'));
+            return redirect()->route('end')->with('info', __('You have already completed the post-test.'));
         }
 
         // Add respondent_id to validated data
@@ -127,7 +127,7 @@ class PostTestController extends Controller
         $existingPostTest = PostTest::where('respondent_id', $respondentId)->first();
         
         if ($existingPostTest) {
-            return redirect()->route('market')->with('info', __('You have already completed the post-test.'));
+            return redirect()->route('end')->with('info', __('You have already completed the post-test.'));
         }
 
         $questions = [

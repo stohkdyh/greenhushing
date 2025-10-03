@@ -117,7 +117,9 @@
     let selectedRating = null;
     let manipulationCurrentStep = 0;
     let manipulationProduct = null;
-    let manipulationAnswers = []; // <-- simpan jawaban manipulation
+    let manipulationAnswers = [];
+    // Add referrer tracking
+    let previousPage = document.referrer || "{{ route('market') }}";
 
     const manipulationQuestions = [
         "The mission, vision and values of Neuphone, visible on its website, clearly focus on transmitting its total commitment to the environment",
@@ -128,11 +130,53 @@
 
     // ================= BUTTON HANDLER =================
     function handleRatingButtonClick(product) {
-        if (['neuphone', 'zenophone'].includes(product)) {
-            openManipulationModal(product);
-        } else {
-            openRatingModal();
-        }
+        // First check if this product has already been rated
+        fetch(`{{ route('product.has.rated') }}?product=${product}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.has_rated) {
+                    // If already rated, just show a message
+                    showSuccessMessage('{{ __('You have already rated this product') }}');
+
+                    // Update button appearance if needed
+                    const button = document.getElementById('rating-button');
+                    if (button) {
+                        button.classList.remove('animate-pulse', 'bg-blue-600');
+                        button.classList.add('bg-green-600');
+                    }
+                    // Update tooltip to show the rating
+                    const tooltip = document.getElementById('rating-tooltip');
+                    if (tooltip) {
+                        tooltip.innerHTML = `
+                        {{ __('Your rating:') }} ${data.rating}/10
+                        <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                        `;
+                    }
+                    button.addEventListener('click', function() {
+                        // Redirect to previous page or market
+                        window.location.href = "{{ route('market') }}";
+                    });
+                } else {
+                    // Not rated yet, proceed with rating flow
+                    manipulationProduct = product;
+
+                    // Check if this product needs manipulation check
+                    if (['neuphone', 'zenophone'].includes(product)) {
+                        openManipulationModal(product);
+                    } else {
+                        openRatingModal();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error checking if product is rated:', error);
+                // Fallback to normal flow if check fails
+                if (['neuphone', 'zenophone'].includes(product)) {
+                    openManipulationModal(product);
+                } else {
+                    openRatingModal();
+                }
+            });
     }
 
     // ================= MANIPULATION MODAL =================
@@ -283,7 +327,9 @@
                 body: JSON.stringify({
                     product_name: "{{ $product }}",
                     rating: selectedRating,
-                    manipulation: manipulationAnswers // ikut kirim jawaban manipulation
+                    manipulation: manipulationAnswers,
+                    referrer: window.location
+                        .pathname // Send current path to track where rating was submitted from
                 })
             })
             .then(response => response.json())
@@ -301,8 +347,18 @@
                         <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
                     `;
 
+                    // Improved redirection logic
                     setTimeout(() => {
-                        window.location.href = data.redirect_url;
+                        // If this is a product detail or news page, go back to market
+                        if (window.location.pathname.includes('/news/') || ['onephone', 'neuphone',
+                                'xarelphone', 'zenophone'
+                            ].some(p =>
+                                window.location.pathname.includes(p))) {
+                            window.location.href = "{{ route('market') }}";
+                        } else if (data.redirect_url) {
+                            // Otherwise use the server-provided URL
+                            window.location.href = data.redirect_url;
+                        }
                     }, 1500);
                 } else {
                     alert(data.message || '{{ __('Error submitting rating') }}');
@@ -348,5 +404,40 @@
             closeRatingModal();
             closeManipulationModal();
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Store the page that brought us here (for returning later)
+        if (document.referrer && document.referrer !== "") {
+            previousPage = document.referrer;
+            // Don't save referrers from outside the app
+            if (!previousPage.includes(window.location.host)) {
+                previousPage = "{{ route('market') }}";
+            }
+        }
+
+        // Check if current product has already been rated
+        fetch(`{{ route('product.has.rated') }}?product={{ $product }}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.has_rated) {
+                    // Update button appearance
+                    const button = document.getElementById('rating-button');
+                    if (button) {
+                        button.classList.remove('animate-pulse', 'bg-blue-600');
+                        button.classList.add('bg-green-600');
+                    }
+
+                    // Update tooltip to show the rating
+                    const tooltip = document.getElementById('rating-tooltip');
+                    if (tooltip) {
+                        tooltip.innerHTML = `
+                            {{ __('Your rating:') }} ${data.rating}/10
+                            <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                        `;
+                    }
+                }
+            })
+            .catch(error => console.error('Error checking if product is rated:', error));
     });
 </script>

@@ -102,8 +102,7 @@
                                 <span id="progress-text" class="text-sm text-gray-600">0/4 {{ __('completed') }}</span>
                             </div>
                             <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div id="progress-bar"
-                                    class="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300"
                                     style="width: 0%"></div>
                             </div>
                         </div>
@@ -138,215 +137,361 @@
             </div>
 
 
-            </div>
-        </main>
+    </div>
+    </main>
 
-        <script>
-            let ratedProducts = [];
+    <script>
+        let ratedProducts = [];
+        let finalProductSelected = false;
 
-            document.addEventListener('DOMContentLoaded', function() {
-                // Load rated products on page load
-                loadRatedProducts();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load rated products on page load
+            loadRatedProducts();
 
-                // Mobile filter toggle
-                const filterToggle = document.getElementById('filter-toggle');
-                const mobileFilter = document.getElementById('mobile-filter');
-                const filterArrow = document.getElementById('filter-arrow');
+            // Mobile filter toggle
+            const filterToggle = document.getElementById('filter-toggle');
+            const mobileFilter = document.getElementById('mobile-filter');
+            const filterArrow = document.getElementById('filter-arrow');
 
-                if (filterToggle && mobileFilter) {
-                    filterToggle.addEventListener('click', function() {
-                        mobileFilter.classList.toggle('hidden');
-                        filterArrow.style.transform = mobileFilter.classList.contains('hidden') ?
-                            'rotate(0deg)' : 'rotate(180deg)';
-                    });
-                }
+            if (filterToggle && mobileFilter) {
+                filterToggle.addEventListener('click', function() {
+                    mobileFilter.classList.toggle('hidden');
+                    filterArrow.style.transform = mobileFilter.classList.contains('hidden') ?
+                        'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
 
-                // Handle sustainability dropdowns
-                const sustainabilityButtons = document.querySelectorAll('.sustainability-toggle');
+            // Handle sustainability dropdowns
+            const sustainabilityButtons = document.querySelectorAll('.sustainability-toggle');
 
-                sustainabilityButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
+            sustainabilityButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
 
-                        // Find the corresponding dropdown
-                        const dropdown = this.nextElementSibling;
-                        const arrow = this.querySelector('.dropdown-arrow');
+                    // Find the corresponding dropdown
+                    const dropdown = this.nextElementSibling;
+                    const arrow = this.querySelector('.dropdown-arrow');
 
-                        // Close other dropdowns
-                        document.querySelectorAll('.sustainability-dropdown').forEach(otherDropdown => {
-                            if (otherDropdown !== dropdown) {
-                                otherDropdown.classList.add('hidden');
-                                const otherArrow = otherDropdown.previousElementSibling
-                                    ?.querySelector('.dropdown-arrow');
-                                if (otherArrow) {
-                                    otherArrow.style.transform = 'rotate(0deg)';
-                                }
+                    // Close other dropdowns
+                    document.querySelectorAll('.sustainability-dropdown').forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.add('hidden');
+                            const otherArrow = otherDropdown.previousElementSibling
+                                ?.querySelector('.dropdown-arrow');
+                            if (otherArrow) {
+                                otherArrow.style.transform = 'rotate(0deg)';
                             }
-                        });
-
-                        // Toggle current dropdown
-                        dropdown.classList.toggle('hidden');
-
-                        // Rotate arrow
-                        if (dropdown.classList.contains('hidden')) {
-                            arrow.style.transform = 'rotate(0deg)';
-                        } else {
-                            arrow.style.transform = 'rotate(180deg)';
                         }
                     });
-                });
 
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.sustainability-container')) {
-                        document.querySelectorAll('.sustainability-dropdown').forEach(dropdown => {
-                            dropdown.classList.add('hidden');
-                            const arrow = dropdown.previousElementSibling?.querySelector(
-                                '.dropdown-arrow');
-                            if (arrow) {
-                                arrow.style.transform = 'rotate(0deg)';
-                            }
-                        });
-                    }
-                });
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('hidden');
 
-                // Disable clicks on rated products
-                document.addEventListener('click', function(e) {
-                    const productCard = e.target.closest('.product-card');
-                    if (productCard && productCard.classList.contains('rated')) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        return false;
+                    // Rotate arrow
+                    if (dropdown.classList.contains('hidden')) {
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(180deg)';
                     }
                 });
             });
 
-            function loadRatedProducts() {
-                fetch('{{ route('product.ratings.get') }}')
-                    .then(response => response.json())
-                    .then(data => {
-                        ratedProducts = data.rated_products || [];
-                        updateProductCards();
-                        updateProgressBar();
-
-                        if (data.all_products_rated) {
-                            showAutoRedirectModal();
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.sustainability-container')) {
+                    document.querySelectorAll('.sustainability-dropdown').forEach(dropdown => {
+                        dropdown.classList.add('hidden');
+                        const arrow = dropdown.previousElementSibling?.querySelector(
+                            '.dropdown-arrow');
+                        if (arrow) {
+                            arrow.style.transform = 'rotate(0deg)';
                         }
-                    })
-                    .catch(error => console.error('Error loading rated products:', error));
-            }
+                    });
+                }
+            });
+        });
 
-            function updateProductCards() {
-                const productCards = document.querySelectorAll('.product-card');
+        function loadRatedProducts() {
+            fetch('{{ route('product.ratings.get') }}')
+                .then(response => response.json())
+                .then(data => {
+                    ratedProducts = data.rated_products || [];
+                    updateProductCards();
+                    updateProgressBar();
 
-                productCards.forEach(card => {
-                    const productName = card.dataset.product;
+                    // Check if final product is already selected
+                    fetch('{{ route('final.product.get') }}')
+                        .then(response => response.json())
+                        .then(finalData => {
+                            if (finalData.success && finalData.final_product) {
+                                finalProductSelected = true;
+                                markFinalProduct(finalData.final_product);
+                            }
 
-                    if (ratedProducts.includes(productName)) {
-                        // Add rated styling
-                        card.classList.add('rated');
-                        card.style.filter = 'grayscale(50%)';
-                        card.style.opacity = '0.7';
+                            // Only show final selection modal if all products are rated but final product isn't selected yet
+                            if (ratedProducts.length >= 4 && !finalProductSelected) {
+                                showFinalSelectionModal();
+                            }
+                        })
+                        .catch(error => console.error('Error checking final product:', error));
+                })
+                .catch(error => console.error('Error loading rated products:', error));
+        }
 
-                        // Show rated overlay
-                        const overlay = card.querySelector('.rated-overlay');
-                        if (overlay) {
-                            overlay.classList.remove('hidden');
-                        }
+        function updateProductCards() {
+            const productCards = document.querySelectorAll('.product-card');
 
-                        // Disable link
-                        const productLink = card.querySelector('.product-link');
-                        if (productLink) {
-                            productLink.style.pointerEvents = 'none';
-                        }
+            productCards.forEach(card => {
+                const productName = card.dataset.product;
 
-                        // Update choose button
-                        const chooseBtn = card.querySelector('.choose-product-btn');
-                        if (chooseBtn) {
-                            chooseBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
-                            chooseBtn.classList.add('bg-green-500');
-                            chooseBtn.textContent = '{{ __('Rated') }}';
-                            chooseBtn.style.pointerEvents = 'none';
-                        }
+                if (ratedProducts.includes(productName)) {
+                    // Apply rated styling but keep product links active
+                    card.classList.add('rated');
+                    card.style.filter = 'grayscale(25%)';
+                    card.style.opacity = '0.9';
+
+                    // Show rated overlay
+                    const overlay = card.querySelector('.rated-overlay');
+                    if (overlay) {
+                        overlay.classList.remove('hidden');
+                    }
+
+                    // Update choose button but keep it clickable for viewing product details
+                    const chooseBtn = card.querySelector('.choose-product-btn');
+                    if (chooseBtn) {
+                        chooseBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+                        chooseBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        chooseBtn.textContent = '{{ __('View Details') }}';
+                    }
+                }
+            });
+        }
+
+        function markFinalProduct(productName) {
+            // Find the product card for the final selected product
+            const finalCard = document.querySelector(`[data-product="${productName}"]`);
+
+            if (finalCard) {
+                // Reset styling for all cards
+                document.querySelectorAll('.product-card').forEach(card => {
+                    // Remove any final product indicators
+                    const finalBadge = card.querySelector('.final-product-badge');
+                    if (finalBadge) finalBadge.remove();
+
+                    // Restore normal opacity for rated products
+                    if (card.classList.contains('rated')) {
+                        card.style.filter = 'grayscale(25%)';
+                        card.style.opacity = '0.9';
                     }
                 });
-            }
 
-            function updateProgressBar() {
-                const progressBar = document.getElementById('progress-bar');
-                const progressText = document.getElementById('progress-text');
-                const progressBarMobile = document.getElementById('progress-bar-mobile');
-                const progressTextMobile = document.getElementById('progress-text-mobile');
+                // Add final product badge
+                const badgeContainer = document.createElement('div');
+                badgeContainer.className =
+                    'final-product-badge absolute top-3 right-3 bg-purple-600 text-white rounded-full px-3 py-1 text-xs font-bold z-20';
+                badgeContainer.innerHTML = '{{ __('Final Choice') }}';
+                finalCard.appendChild(badgeContainer);
 
-                const totalProducts = 4;
-                const ratedCount = ratedProducts.length;
-                const progressPercentage = (ratedCount / totalProducts) * 100;
+                // Update styling for final product
+                finalCard.style.filter = 'none';
+                finalCard.style.opacity = '1';
+                finalCard.classList.add('ring-2', 'ring-purple-500');
 
-                // Update desktop progress
-                if (progressBar) {
-                    progressBar.style.width = progressPercentage + '%';
-                }
-                if (progressText) {
-                    progressText.textContent = `${ratedCount}/${totalProducts} {{ __('completed') }}`;
-                }
-
-                // Update mobile progress
-                if (progressBarMobile) {
-                    progressBarMobile.style.width = progressPercentage + '%';
-                }
-                if (progressTextMobile) {
-                    progressTextMobile.textContent = `${ratedCount}/${totalProducts} {{ __('completed') }}`;
+                // Update button
+                const chooseBtn = finalCard.querySelector('.choose-product-btn');
+                if (chooseBtn) {
+                    chooseBtn.classList.remove('bg-green-500', 'hover:bg-green-600', 'bg-red-500', 'hover:bg-red-600');
+                    chooseBtn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+                    chooseBtn.textContent = '{{ __('Your Final Choice') }}';
                 }
             }
+        }
 
-            function showAutoRedirectModal() {
-                const modal = document.getElementById('auto-redirect-modal');
-                modal.classList.remove('hidden');
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const progressBarMobile = document.getElementById('progress-bar-mobile');
+            const progressTextMobile = document.getElementById('progress-text-mobile');
 
-                let countdown = 5;
-                const countdownElement = document.getElementById('countdown');
+            const totalProducts = 4;
+            const ratedCount = ratedProducts.length;
+            const progressPercentage = (ratedCount / totalProducts) * 100;
 
-                const timer = setInterval(() => {
-                    countdown--;
-                    countdownElement.textContent = countdown;
+            // Update desktop progress
+            if (progressBar) {
+                progressBar.style.width = progressPercentage + '%';
+            }
+            if (progressText) {
+                progressText.textContent = `${ratedCount}/${totalProducts} {{ __('rated') }}`;
+            }
 
-                    if (countdown <= 0) {
-                        clearInterval(timer);
-                        redirectToPostTest();
+            // Update mobile progress
+            if (progressBarMobile) {
+                progressBarMobile.style.width = progressPercentage + '%';
+            }
+            if (progressTextMobile) {
+                progressTextMobile.textContent = `${ratedCount}/${totalProducts} {{ __('rated') }}`;
+            }
+        }
+
+        function showFinalSelectionModal() {
+            // Create modal if it doesn't exist
+            let finalSelectionModal = document.getElementById('final-selection-modal');
+
+            if (!finalSelectionModal) {
+                finalSelectionModal = document.createElement('div');
+                finalSelectionModal.id = 'final-selection-modal';
+                finalSelectionModal.className =
+                    'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+
+                finalSelectionModal.innerHTML = `
+                <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('All Products Rated!') }}</h3>
+                    <p class="text-gray-600 mb-6">
+                        {{ __('You have rated all products. Now please select one final product you would like to purchase.') }}
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-6">
+                        ${ratedProducts.map(product => `
+                                        <div> 
+                                            <button onclick="selectFinalProduct('${product}')" class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200">
+                                                <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
+                                                <p class="font-medium capitalize">${product}</p>
+                                            </button>
+                                            <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
+                                        </div>
+                                    `).join('')}
+                    </div>
+
+                    <p class="text-sm text-gray-500 mb-4">{{ __('This choice will complete your product selection process.') }}</p>
+                </div>
+            `;
+
+                document.body.appendChild(finalSelectionModal);
+            } else {
+                finalSelectionModal.classList.remove('hidden');
+            }
+        }
+
+        function getProductImagePath(productName) {
+            // Map product names to their image paths
+            const imageMap = {
+                'onephone': '{{ asset('images/market_one.png') }}',
+                'neuphone': '{{ asset('images/market_neu.png') }}',
+                'xarelphone': '{{ asset('images/market_xarel.png') }}',
+                'zenophone': '{{ asset('images/market_zeno.png') }}'
+            };
+
+            return imageMap[productName] || '';
+        }
+
+        function selectFinalProduct(productName) {
+            // Show loading state
+            const finalSelectionModal = document.getElementById('final-selection-modal');
+            finalSelectionModal.innerHTML = `
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                <div class="animate-spin w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+                <p class="text-gray-600">{{ __('Saving your selection...') }}</p>
+            </div>
+        `;
+
+            // Send selection to server
+            fetch('{{ route('final.product.store') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        product_name: productName
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        finalProductSelected = true;
+                        markFinalProduct(productName);
+
+                        // Update modal to show success and redirect
+                        finalSelectionModal.innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Thank You!') }}</h3>
+                        <p class="text-gray-600 mb-6">
+                            {{ __('Your final product choice has been recorded. Redirecting to post-test in') }}
+                            <span id="final-countdown" class="font-bold text-blue-600">5</span>
+                            {{ __('seconds...') }}
+                        </p>
+                        <button onclick="redirectToPostTest()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            {{ __('Continue Now') }}
+                        </button>
+                    </div>
+                `;
+
+                        // Start countdown
+                        let countdown = 5;
+                        const countdownElement = document.getElementById('final-countdown');
+
+                        const timer = setInterval(() => {
+                            countdown--;
+                            countdownElement.textContent = countdown;
+
+                            if (countdown <= 0) {
+                                clearInterval(timer);
+                                redirectToPostTest();
+                            }
+                        }, 1000);
+                    } else {
+                        alert(data.message || '{{ __('Error saving your selection') }}');
+                        showFinalSelectionModal(); // Show modal again with options
                     }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('{{ __('Error saving your selection. Please try again.') }}');
+                    showFinalSelectionModal();
+                });
+        }
+
+        function redirectToPostTest() {
+            window.location.href = '{{ route('posttest.show') }}';
+        }
+
+        // Global function to be called when rating is submitted
+        window.onRatingSubmitted = function(productName, rating) {
+            if (!ratedProducts.includes(productName)) {
+                ratedProducts.push(productName);
+            }
+
+            // Update the rated score display
+            const productCard = document.querySelector(`[data-product="${productName}"]`);
+            if (productCard) {
+                const ratedScore = productCard.querySelector('.rated-score');
+                if (ratedScore) {
+                    ratedScore.textContent = `{{ __('Score:') }} ${rating}/10`;
+                }
+            }
+
+            updateProductCards();
+            updateProgressBar();
+
+            // Check if all products are rated and final product not selected yet
+            if (ratedProducts.length >= 4 && !finalProductSelected) {
+                setTimeout(() => {
+                    showFinalSelectionModal();
                 }, 1000);
             }
-
-            function redirectToPostTest() {
-                window.location.href = '{{ route('posttest.show') }}';
-            }
-
-            // Global function to be called when rating is submitted
-            window.onRatingSubmitted = function(productName, rating) {
-                if (!ratedProducts.includes(productName)) {
-                    ratedProducts.push(productName);
-                }
-
-                // Update the rated score display
-                const productCard = document.querySelector(`[data-product="${productName}"]`);
-                if (productCard) {
-                    const ratedScore = productCard.querySelector('.rated-score');
-                    if (ratedScore) {
-                        ratedScore.textContent = `{{ __('Score:') }} ${rating}/10`;
-                    }
-                }
-
-                updateProductCards();
-                updateProgressBar();
-
-                // Check if all products are rated
-                if (ratedProducts.length >= 4) {
-                    setTimeout(() => {
-                        showAutoRedirectModal();
-                    }, 1000);
-                }
-            };
-        </script>
+        };
+    </script>
 
     </div>
 </body>
