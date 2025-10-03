@@ -40,24 +40,24 @@
     ">
       <div class="flex flex-col gap-3 sm:gap-4 md:gap-5">
         <!-- Title -->
-        <h3 class="text-base sm:text-lg md:text-xl font-bold text-gray-800 leading-snug">
+        <h3 class="text-base sm:text-lg md:text-xl font-bold text-gray leading-snug">
           {{ $title }}
         </h3>
 
         <div class="space-y-2 sm:space-y-3 md:space-y-4">
-          <h4 class="text-gray-700 text-sm sm:text-base font-semibold leading-snug">
+          <h4 class="text-gray-900 text-sm sm:text-base font-semibold leading-snug">
             {{ $subtitle1 }}
           </h4>
-          <p class="text-gray-600 text-xs sm:text-sm md:text-base leading-snug">
+          <p class="text-gray-800 text-xs sm:text-sm md:text-base leading-snug">
             {{ $desc1 }}
           </p>
         </div>
 
         <div class="space-y-2 sm:space-y-3 md:space-y-4">
-          <h4 class="text-gray-700 text-sm sm:text-base font-semibold leading-snug">
+          <h4 class="text-gray-900 text-sm sm:text-base font-semibold leading-snug">
             {{ $subtitle2 }}
           </h4>
-          <p class="text-gray-600 text-xs sm:text-sm md:text-base leading-snug">
+          <p class="text-gray-800 text-xs sm:text-sm md:text-base leading-snug">
             {{ $desc2 }}
           </p>
         </div>
