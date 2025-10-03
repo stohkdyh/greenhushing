@@ -9,6 +9,7 @@
     'imageBg' => '#ffffff',
     'imageWidth' => "w-[280px] sm:w-[340px] md:w-[380px] lg:w-[500px]",
     'icon' => false,
+    'cardSize' => "max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] md:min-w-[360px] md:min-h-[420px] lg:min-w-[400px] lg:min-h-[460px]",
 ])
 
 
@@ -91,14 +92,17 @@
 
     <!-- Gambar dan card -->
     <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
-        <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">
-            <!-- Card latar -->
-            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: #{{ ltrim($imageBg, '#') }}"></div>
+        <!-- Wrapper Card -->
+        <div class="relative w-full {{ $cardSize }} mx-auto">
+            <!-- Card Latar -->
+            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative"
+                style="background-color: {{ $imageBg }};">
+            </div>
 
-            <!-- Gambar HP besar & center -->
+            <!-- Gambar -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                class="absolute left-1/2 -translate-x-1/2 bottom-[-40px] sm:bottom-[-80px] h-auto object-contain z-10 drop-shadow-2xl transition-transform duration-500 hover:scale-105 {{ $imageWidth ?? 'w-[280px]' }}" />
+                class="absolute left-1/2 -translate-x-1/2 bottom-[-40px] sm:bottom-[-80px] h-auto object-contain z-10 drop-shadow-2xl transition-transform duration-500 hover:scale-105 {{ $imageWidth }}" />
         </div>
     </div>
 </div>

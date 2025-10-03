@@ -28,20 +28,20 @@
     <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95"
         id="manipulation-modal-content">
         <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Please answer first</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{{ __('Please Answer First')}}</h3>
 
             <!-- Step Content -->
             <div id="manipulation-step" class="mb-6"></div>
 
             <!-- Action Buttons -->
             <div class="flex justify-end gap-3">
-                <button type="button" onclick="closeManipulationModal()"
+                <!-- <button type="button" onclick="closeManipulationModal()"
                     class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
                     Cancel
-                </button>
+                </button> -->
                 <button type="button" id="manipulation-next-btn" onclick="nextManipulationStep()"
                     class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                    Next
+                    {{ __('Next') }}
                 </button>
             </div>
         </div>
@@ -121,12 +121,43 @@
     // Add referrer tracking
     let previousPage = document.referrer || "{{ route('market') }}";
 
-    const manipulationQuestions = [
-        "The mission, vision and values of Neuphone, visible on its website, clearly focus on transmitting its total commitment to the environment",
-        "Neuphone’s website has content on environmental aspects of the company",
-        "NeuPhone is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.",
-        "NeuPhone has good environmental performance"
+    // Ambil nama file dari URL (contoh: "neuphone.html")
+    let path = window.location.pathname;
+    let page = path.split("/").pop().toLowerCase(); // ambil nama file kecil semua
+
+    // Default product
+    let product = "Neuphone";
+
+    // Tentukan nama product berdasarkan nama file
+    if (page.includes("zeno")) {
+        product = "Zenophone";
+    } else if (page.includes("neu")) {
+        product = "Neuphone";
+    }
+
+    // Daftar pertanyaan manipulasi dengan nama produk dinamis
+    const manipulationQuestions = (product == "Zenophone") ? [
+        "{{ __(':product presents a confusing message (using certain words and images) about its environmental behavior.')}}" .replace(':product', product),
+        "{{ __(':product provides vague or seemingly unprovable environmental claims about its environmental performance.')}}".replace(':product', product),
+        
+        "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
+        "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
+        "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
+        "{{ __(':product has good environmental performance') }}".replace(':product', product)
+    ] 
+    : 
+    [
+        "{{ __(':product does not disclose the negative environmental impact of its production or operational activities or related data.')}}" .replace(':product', product),
+        "{{ __(':product does not disclose environmental data, monitoring results, or carbon emission information')}}" .replace(':product', product),
+        "{{ __(':product does not disclose the achievements in environmental protection, energy conservation or emission reduction.')}}".replace(':product', product),
+        
+        "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
+        "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
+        "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
+        "{{ __(':product has good environmental performance') }}".replace(':product', product)
     ];
+
+    console.log(manipulationQuestions);
 
     // ================= BUTTON HANDLER =================
     function handleRatingButtonClick(product) {
@@ -201,15 +232,15 @@
             <div class="flex gap-3">
                 <button type="button" 
                     class="answer-btn flex-1 px-3 py-2 border rounded-lg  ${currentAnswer==='yes' ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-500'  : ''}" 
-                    onclick="selectManipulationAnswer('yes')">Yes</button>
+                    onclick="selectManipulationAnswer('yes')">{{ __('Yes') }}</button>
                 <button type="button" 
                     class="answer-btn flex-1 px-3 py-2 border rounded-lg ${currentAnswer==='no' ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-500' : ''}" 
-                    onclick="selectManipulationAnswer('no')">No</button>
+                    onclick="selectManipulationAnswer('no')">{{ __('No') }}</button>
             </div>
         `;
 
         const nextBtn = document.getElementById('manipulation-next-btn');
-        nextBtn.textContent = (manipulationCurrentStep === manipulationQuestions.length - 1) ? "Finish" : "Next";
+        nextBtn.textContent = (manipulationCurrentStep === manipulationQuestions.length - 1) ? "{{ __('Finish') }}" : "{{ __('Next') }}";
         nextBtn.disabled = !currentAnswer; // disable kalau belum pilih
     }
 
@@ -392,12 +423,14 @@
         }, 3000);
     }
 
-    // ================= CLOSE MODALS =================
-    document.getElementById('rating-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeRatingModal();
-        }
-    });
+        // ================= CLOSE MODALS =================
+        document.getElementById('manipulation-modal').addEventListener('click', function(e) {
+            // hanya berlaku saat step pertama
+            if (manipulationCurrentStep === 0 && e.target === this) {
+                closeManipulationModal();
+            }
+        });
+
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {

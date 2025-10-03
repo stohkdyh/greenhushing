@@ -8,7 +8,7 @@
     'headlineBot'  => 'Sustainable by Purpose',
     'badge'        => 'Made for You',
     'price'        => 252,
-    'ecoLabel' => 'images/EU_Ecolabel_Logo.svg',
+    'ecoLabel' => '',
 
     /* — Warna — */
     'bg'           => '#EEF5E8',
@@ -30,7 +30,6 @@
               max-w-[90rem] w-full min-h-[40rem] lg:min-h-[42rem]"
      style="background-color: {{ $bg }}; box-shadow: {{ $shadow }};">
 
-
     {{-- Gambar --}}
     <div class="w-full md:w-2/5 flex justify-center md:justify-end">
       <img src="{{ asset($image) }}" alt="{{ __($title) }} Box"
@@ -45,7 +44,7 @@
         <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
           {{ __($title) }}
         </h2>
-        <div class="flex justify-center lg:justify-start border-1 border-solid drop-shadow-sm">
+        <div class="flex justify-center md:justify-start border-1 border-solid drop-shadow-sm">
             <x-star-rating 
                 :rating="$rating" 
                 size="30" 
@@ -69,6 +68,15 @@
             style="background-color: {{ $badgeBg }}; color: {{ $badgeText }};">
         {{ __($badge) }}
       </span>
+
+      {{-- Eco Label --}}
+      @if (!empty($ecoLabel))
+        <div class="flex justify-center md:justify-start mt-2">
+          <img src="{{ asset($ecoLabel) }}" alt="Eco Label"
+              class="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 object-contain" />
+        </div>
+      @endif
+
 
       {{-- Price --}}
       <p class="flex items-baseline justify-center md:justify-start gap-1 text-gray-700 text-lg sm:text-xl md:text-2xl">
