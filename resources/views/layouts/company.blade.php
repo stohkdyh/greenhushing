@@ -14,9 +14,12 @@
 </head>
 
 <body>
+    {{-- Navbar component, menerima props dari page --}}
     @include('components.nav-company', [
         'logo' => trim($__env->yieldContent('logo', 'Default Company')),
         'price' => trim($__env->yieldContent('price', '252')),
+        'productSlug' => trim($__env->yieldContent('productSlug', 'default-product')), 
+        'navLinks' => $navLinks ?? [],
     ])
 
     <main>

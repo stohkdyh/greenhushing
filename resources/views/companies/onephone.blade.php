@@ -2,15 +2,37 @@
 
 @section('logo', 'ONEPHONE')
 @section('price', '252')
+@section('productSlug', 'onephone')
+
+@php
+$navLinks = [
+    ['label' => 'Overview', 'href' => '#overview-onephone'],
+    ['label' => 'Product', 'href' => '#product-onephone'],
+    ['label' => 'Feature', 'href' => '#feature-onephone'],
+    ['label' => 'Product Environmental Report', 'href' => '#productenvironmentalreport-onephone'],
+];
+@endphp
 
 @section('content')
-    @include('onephone.overview')
-    {{-- @include('onephone.spec') --}}
-    @include('onephone.environment')
-    {{-- @include('onephone.rating') --}}
+    <section id="overview-onephone">
+        @include('onephone.overview')
+    </section>
+
+    <section id="product-onephone">
+        @include('onephone.overview.product')
+    </section>
+
+    <section id="feature-onephone">
+        @include('onephone.overview.feature')
+        @include('onephone.overview.feature2')
+        @include('onephone.overview.feature3')
+        @include('onephone.overview.program')
+    </section>
+
+    <section id="productenvironmentalreport-onephone">
+        @include('onephone.environment')
+    </section>
+
     @include('onephone.footer')
-
     <x-floating-news-button product="onephone" />
-
 @endsection
-

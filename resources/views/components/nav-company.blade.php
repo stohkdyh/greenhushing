@@ -1,3 +1,5 @@
+@props(['logo', 'price', 'productSlug' => 'default'])
+
 <div x-data="{ open: false, active: '#overview' }" class="fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-md">
   <!-- Header -->
   <div class="flex items-center justify-between px-4 py-3 md:px-6 md:py-2">
@@ -6,11 +8,9 @@
       {{ $logo ?? 'Company Name' }}
     </h1>
     <div class="hidden md:flex items-center space-x-6 md:ml-8 lg:ml-16">
-      <a href="#overview" class="hover:underline">{{ __('Overview') }}</a>
-      <a href="#specs" class="hover:underline">{{ __('Specs') }}</a>
-      <a href="#productenvironmentalreport" class="hover:underline">
-        {{ __('Product Environmental Report') }}
-      </a>
+        @foreach ($navLinks as $link)
+            <a href="{{ $link['href'] }}" class="hover:underline">{{ $link['label'] }}</a>
+        @endforeach
     </div>
   </div>
 
@@ -54,9 +54,9 @@
     <div x-show="open" x-transition
         class="md:hidden bg-white/95 backdrop-blur-md text-black absolute top-full w-full left-0 z-40 border-t">
         <div class="flex flex-col px-4 py-3 space-y-2">
-            <a href="#overview" class="hover:underline">{{ __('Overview') }}</a>
-            <a href="#specs" class="hover:underline">{{ __('Specs') }}</a>
-            <a href="#productenvironmentalreport" class="hover:underline">{{ __('Product Environmental Report') }}</a>
+            @foreach ($navLinks as $link)
+                <a href="{{ $link['href'] }}" class="hover:underline">{{ $link['label'] }}</a>
+            @endforeach
         </div>
     </div>
 </div>
