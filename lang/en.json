@@ -539,6 +539,11 @@
 
     "Please Answer First" : "Please Answer First",
 
+    ":product presents a confusing message (using certain words and images) about its environmental behavior." : ":product presents a confusing message (using certain words and images) about its environmental behavior.",
+    ":product provides vague or seemingly unprovable environmental claims about its environmental performance." : ":product provides vague or seemingly unprovable environmental claims about its environmental performance.",
+    ":product does not disclose the negative environmental impact of its production or operational activities or related data." : ":product does not disclose the negative environmental impact of its production or operational activities or related data.",
+    ":product does not disclose environmental data, monitoring results, or carbon emission information" : ":product does not disclose environmental data, monitoring results, or carbon emission information",
+    ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction." : ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction.",
     "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment",
     ":product’s website has content on environmental aspects of the company": ":product’s website has content on environmental aspects of the company",
     ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.": ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.",

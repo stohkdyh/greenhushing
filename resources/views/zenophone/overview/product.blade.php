@@ -13,4 +13,6 @@
     badge-text="#103920"
     btn-bg="#14532d"
     btn-hover="#0d3b1c"
-    btn-text="#fff"/>
+    btn-text="#fff"
+    ecoLabel="images/logoclaimzeno.png"
+    />

@@ -35,10 +35,10 @@
 
             <!-- Action Buttons -->
             <div class="flex justify-end gap-3">
-                <button type="button" onclick="closeManipulationModal()"
+                <!-- <button type="button" onclick="closeManipulationModal()"
                     class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
                     Cancel
-                </button>
+                </button> -->
                 <button type="button" id="manipulation-next-btn" onclick="nextManipulationStep()"
                     class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                     {{ __('Next') }}
@@ -134,7 +134,21 @@
     }
 
     // Daftar pertanyaan manipulasi dengan nama produk dinamis
-    const manipulationQuestions = [
+    const manipulationQuestions = (product == "Zenophone") ? [
+        "{{ __(':product presents a confusing message (using certain words and images) about its environmental behavior.')}}" .replace(':product', product),
+        "{{ __(':product provides vague or seemingly unprovable environmental claims about its environmental performance.')}}".replace(':product', product),
+        
+        "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
+        "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
+        "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
+        "{{ __(':product has good environmental performance') }}".replace(':product', product)
+    ] 
+    : 
+    [
+        "{{ __(':product does not disclose the negative environmental impact of its production or operational activities or related data.')}}" .replace(':product', product),
+        "{{ __(':product does not disclose environmental data, monitoring results, or carbon emission information')}}" .replace(':product', product),
+        "{{ __(':product does not disclose the achievements in environmental protection, energy conservation or emission reduction.')}}".replace(':product', product),
+        
         "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
         "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
         "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
@@ -353,12 +367,14 @@
         }, 3000);
     }
 
-    // ================= CLOSE MODALS =================
-    document.getElementById('rating-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeRatingModal();
-        }
-    });
+        // ================= CLOSE MODALS =================
+        document.getElementById('manipulation-modal').addEventListener('click', function(e) {
+            // hanya berlaku saat step pertama
+            if (manipulationCurrentStep === 0 && e.target === this) {
+                closeManipulationModal();
+            }
+        });
+
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
