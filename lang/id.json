@@ -562,5 +562,8 @@
     "Yes" : "Ya",
     "No" : "Tidak",
     "Next" : "Selanjutnya",
-    "Finish" : "Selesai"
+    "Finish" : "Selesai",
+    "Permission": "Website ini dirancang sebagai instrumen sekaligus media eksperimen untuk mendukung proses penelitian. Dengan berpartisipasi dalam penelitian ini, Anda menyetujui untuk memberikan data pribadi Anda secara sukarela. Informasi Anda hanya akan digunakan untuk tujuan penelitian dan dijaga kerahasiaannya. Klik lanjut untuk melanjutkan.",
+    
+    "Respondent Consent" : "Persetujuan Responden"
 }

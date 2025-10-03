@@ -25,6 +25,43 @@
         <x-languange-switch />
     </div>
 
+    <!-- Modal Consent -->
+    <div id="consentModal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 pointer-events-none"">
+        <div
+            class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] text-center pointer-events-auto">
+            
+            <!-- Icon Consent -->
+            <div class="flex justify-center mb-4">
+                <!-- Contoh pakai Lucide icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    class="h-12 w-12 text-[#303F8E]" 
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
+                </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">{{ __('Welcome') }}</h2>
+            <p class="text-gray-700 text-base sm:text-lg mb-6">
+                {{ __('Permission') }}
+            </p>
+            <div class="flex justify-center">
+                <button id="btnContinue"
+                    class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-colors flex items-center gap-2">
+                    <!-- Icon di button -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5l7 7-7 7" />
+                    </svg>
+                    {{ __('Next') }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Form Container -->
     <div
@@ -105,6 +142,19 @@
             </form>
         </div>
     </div>
+
+    <script>
+        const modal = document.getElementById('consentModal');
+        const formContainer = document.getElementById('formContainer');
+        const btnContinue = document.getElementById('btnContinue');
+
+        // Klik lanjut → tampilkan form
+        btnContinue.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            formContainer.classList.remove('hidden');
+        });
+    </script>
 </body>
+
 
 </html>
