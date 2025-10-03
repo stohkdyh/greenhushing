@@ -28,7 +28,7 @@
                     <!-- Product Image - Made Wider -->
                     <div class="flex-shrink-0">
                         <img src="{{ asset('images/' . $product['image']) }}" alt="{{ $product['name'] }}"
-                            class="w-24 h-28 sm:w-32 sm:h-36 lg:w-40 lg:h-44 object-contain">
+                            class="w-24 sm:w-32 lg:w-40 object-contain">
                     </div>
 
                     <!-- Product Info -->
