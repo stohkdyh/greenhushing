@@ -14,5 +14,5 @@
     btn-bg="#14532d"
     btn-hover="#0d3b1c"
     btn-text="#fff"
-    ecoLabel="images/EU_Ecolabel_Logo.svg"
+    ecoLabel="images/logo_palsu.png"
 />
