@@ -553,5 +553,10 @@
     "No" : "No",
     "Next" : "Next",
     "Finish" : "Finish",
-    "Permission" : "This website is designed as both an instrument and an experimental medium to support the research process. By participating in this research, you agree to provide your personal data voluntarily. Your information will only be used for research purposes and kept confidential. Click continue to proceed."
+    "Permission" : "This website is designed as both an instrument and an experimental medium to support the research process. By participating in this research, you agree to provide your personal data voluntarily. Your information will only be used for research purposes and kept confidential. Click continue to proceed.",
+    "You have rated all products. Now please select one final product you would like to purchase." : "You have rated all products. Now please select one final product you would like to purchase",
+    "Your final product choice has been recorded. Redirecting to post-test in" : "Your final product choice has been recorded. Redirecting to post-test in",
+    "View Product Details" : "View Product Details",
+    "This choice will complete your product selection process." : "This choice will complete your product selection process.",
+    "Continue Now" : "Continue Now"
 }
