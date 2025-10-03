@@ -6,11 +6,11 @@
                 <!-- Mobile Logo -->
                 <div class="flex items-center">
                     <a href="/market">
-                        <img src="{{ asset('images/logo_market.png') }}" class="h-8 w-auto" alt="Market Logo">
+                        <img src="{{ asset('images/logo_market.png') }}" class="h-8 w-fit" alt="Market Logo">
                     </a>
                 </div>
 
-                <div class="ps-32">
+                <div class="ps-auto">
                     <x-languange-switch class="text-sm" />
                 </div>
 

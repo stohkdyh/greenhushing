@@ -553,14 +553,36 @@
     "GPI8": "Saya akan membeli produk ramah lingkungan ketika saya membutuhkan produk hijau.",
 
     "Please Answer First" : "Harap Jawab Terlebih Dulu",
+    
+    ":product presents a confusing message (using certain words and images) about its environmental behavior." : "Perusahaan :product menyampaikan pesan yang membingungkan (melalui penggunaan kata-kata atau citra tertentu) terkait perilaku lingkungannya",
+    ":product provides vague or seemingly unprovable environmental claims about its environmental performance." : "Perusahaan :product memberikan klaim lingkungan yang samar atau tampaknya tidak dapat dibuktikan mengenai kinerja lingkungannya.",
+    ":product overstates or exaggerates its environmental behavior." : "Perusahaan :product melebih-lebihkan atau menggambarkan secara berlebihan perilaku lingkungannya.",
+    "ZenoPhone omits or hides important information about its real environmental behavior." : "Perusahaan ZenoPhone menghilangkan atau menyembunyikan informasi penting terkait perilaku lingkungannya yang sebenarnya.",
+    "The product deceives me by means of words in its environmental features" : "Produk ini menyesatkan saya melalui penggunaan kata-kata terkait fitur lingkungannya.",
+    "The product deceives me by means of visuals or graphics in its environmental features" : "Produk ini menyesatkan saya melalui penggunaan visual atau grafis terkait fitur lingkungannya",
+    "The product deceives me by means of green claims that are unclear" : "Produk ini menyesatkan saya melalui klaim ramah lingkungan yang tidak jelas.",
+    "The product exaggerates or overstates its green functionality" : "Produk ini melebih-lebihkan atau membesar-besarkan fungsi ramah lingkungannya",
+    "The product hides important information, making the green claim sound better than it is" : "Produk ini menyembunyikan informasi penting sehingga klaim ramah lingkungannya terdengar lebih baik daripada kenyataannya",
+    
 
-    "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "Misi, visi, dan nilai-nilai Perusahaan :productyang ditampilkan di situs web resminya secara jelas menekankan komitmen penuh perusahaan terhadap isu lingkungan",
-    ":product website has content on environmental aspects of the company": "Situs web Perusahaan :product memuat konten yang berkaitan dengan aspek-aspek lingkungan perusahaan",
-    ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact": "Perusahaan :product merupakan contoh nyata bagi perusahaan lain mengenai bagaimana aspek lingkungan seharusnya dikelola guna menjamin dampak lingkungan yang minimal.",
+    ":product does not disclose the negative environmental impact of its production or operational activities or related data." : "Perusahaan :product tidak mengungkapkan dampak negatif terhadap lingkungan yang ditimbulkan dari kegiatan produksi atau operasional, maupun data terkait.",
+    ":product does not disclose environmental data, monitoring results, or carbon emission information" : "Perusahaan :product tidak mengungkapkan data lingkungan, hasil pemantauan, maupun informasi terkait emisi karbon.",
+    ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction." : "Perusahaan :product tidak mengungkapkan capaian dalam upaya perlindungan lingkungan, konservasi energi, ataupun pengurangan emisi.",
+    "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "Misi, visi, dan nilai-nilai Perusahaan :product yang ditampilkan di situs web resminya secara jelas menekankan komitmen penuh perusahaan terhadap isu lingkungan",
+    ":product’s website has content on environmental aspects of the company": "Situs web Perusahaan :product memuat konten yang berkaitan dengan aspek-aspek lingkungan perusahaan",
+    ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.": "Perusahaan :product merupakan contoh nyata bagi perusahaan lain mengenai bagaimana aspek lingkungan seharusnya dikelola guna menjamin dampak lingkungan yang minimal.",
     ":product has good environmental performance": "Perusahaan :product menunjukkan kinerja lingkungan yang baik.",
 
     "Yes" : "Ya",
     "No" : "Tidak",
     "Next" : "Selanjutnya",
-    "Finish" : "Selesai"
+    "Finish" : "Selesai",
+    "Permission": "Website ini dirancang sebagai instrumen sekaligus media eksperimen untuk mendukung proses penelitian. Dengan berpartisipasi dalam penelitian ini, Anda menyetujui untuk memberikan data pribadi Anda secara sukarela. Informasi Anda hanya akan digunakan untuk tujuan penelitian dan dijaga kerahasiaannya. Klik lanjut untuk melanjutkan.",
+    
+    "Respondent Consent" : "Persetujuan Responden",
+    "You have rated all products. Now please select one final product you would like to purchase." : "Anda telah menilai semua produk. Sekarang silakan pilih satu produk terakhir yang ingin Anda beli.",
+    "Your final product choice has been recorded. Redirecting to post-test in" : "Pilihan produk akhir Anda telah tercatat. Mengarahkan ke post-test.",
+    "View Product Details" : "Lihat Detail Product",
+    "This choice will complete your product selection process." : "Dengan pilihan ini, proses pemilihan produk Anda selesai.",
+    "Continue Now" : "Lanjutkan sekarang"
 }

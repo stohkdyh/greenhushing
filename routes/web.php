@@ -7,6 +7,7 @@ use App\Http\Controllers\RespondentController;
 use App\Http\Controllers\PreTestController;
 use App\Http\Controllers\PostTestController;
 use App\Http\Controllers\ProductRatingController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -103,10 +104,17 @@ Route::prefix('product')->name('product.')->group(function () {
 });
 Route::get('/product-ratings', [ProductRatingController::class, 'getRatedProducts'])->name('product.ratings.get');
 
+Route::post('/final-product', [ProductController::class, 'storeFinalProduct'])->name('final.product.store');
+Route::get('/final-product', [ProductController::class, 'getFinalProduct'])->name('final.product.get');
+
 // Reset session
 Route::get('/reset', function () {
     session()->forget('respondent_id');
     return redirect()->route('welcome')->with('success', __('Session reset. Please complete your profile.'));
 })->name('session.reset');
+
+// Add this route
+Route::get('/product/has-rated', [ProductRatingController::class, 'hasRated'])
+    ->name('product.has.rated');
 
 require __DIR__.'/auth.php';

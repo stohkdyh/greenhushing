@@ -5,19 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductRating extends Model
+class FinalProductChoice extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'respondent_id',
-        'product_name',
-        'rating',
-        'manipulation',
-    ];
-
-    protected $casts = [
-        'manipulation' => 'array',
+        'product_name'
     ];
 
     public function respondent()

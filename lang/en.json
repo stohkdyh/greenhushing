@@ -539,6 +539,19 @@
 
     "Please Answer First" : "Please Answer First",
 
+    ":product presents a confusing message (using certain words and images) about its environmental behavior." : ":product presents a confusing message (using certain words and images) about its environmental behavior.",
+    ":product provides vague or seemingly unprovable environmental claims about its environmental performance." : ":product provides vague or seemingly unprovable environmental claims about its environmental performance.",
+    ":product overstates or exaggerates its environmental behavior." : ":product overstates or exaggerates its environmental behavior.",
+    "ZenoPhone omits or hides important information about its real environmental behavior." : "ZenoPhone omits or hides important information about its real environmental behavior.",
+    "The product deceives me by means of words in its environmental features" : "The product deceives me by means of words in its environmental features",
+    "The product deceives me by means of visuals or graphics in its environmental features" : "The product deceives me by means of visuals or graphics in its environmental features",
+    "The product deceives me by means of green claims that are unclear" : "The product deceives me by means of green claims that are unclear",
+    "The product exaggerates or overstates its green functionality " : "The product exaggerates or overstates its green functionality",
+    "The product hides important information, making the green claim sound better than it is" : "The product hides important information, making the green claim sound better than it is",
+
+    ":product does not disclose the negative environmental impact of its production or operational activities or related data." : ":product does not disclose the negative environmental impact of its production or operational activities or related data.",
+    ":product does not disclose environmental data, monitoring results, or carbon emission information" : ":product does not disclose environmental data, monitoring results, or carbon emission information",
+    ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction." : ":product does not disclose the achievements in environmental protection, energy conservation or emission reduction.",
     "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment",
     ":product’s website has content on environmental aspects of the company": ":product’s website has content on environmental aspects of the company",
     ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.": ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.",
@@ -547,5 +560,11 @@
     "Yes" : "Yes",
     "No" : "No",
     "Next" : "Next",
-    "Finish" : "Finish"
+    "Finish" : "Finish",
+    "Permission" : "This website is designed as both an instrument and an experimental medium to support the research process. By participating in this research, you agree to provide your personal data voluntarily. Your information will only be used for research purposes and kept confidential. Click continue to proceed.",
+    "You have rated all products. Now please select one final product you would like to purchase." : "You have rated all products. Now please select one final product you would like to purchase",
+    "Your final product choice has been recorded. Redirecting to post-test in" : "Your final product choice has been recorded. Redirecting to post-test in",
+    "View Product Details" : "View Product Details",
+    "This choice will complete your product selection process." : "This choice will complete your product selection process.",
+    "Continue Now" : "Continue Now"
 }

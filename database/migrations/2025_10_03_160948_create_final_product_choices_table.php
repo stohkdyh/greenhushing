@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_ratings', function (Blueprint $table) {
+        Schema::create('final_product_choices', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('respondent_id');
             $table->string('product_name'); // onephone, xarelphone, neuphone, zenophone
-            $table->integer('rating')->unsigned()->between(1, 10);
-            $table->json('manipulation');
             $table->timestamps();
-
-            $table->foreign('respondent_id')->references('id')->on('respondents')->onDelete('cascade');
-            $table->unique(['respondent_id', 'product_name']); // Prevent duplicate ratings for same product
+            
+            $table->foreign('respondent_id')->references('id')->on('respondents');
+            $table->unique('respondent_id'); // Only one final choice per respondent
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_ratings');
+        Schema::dropIfExists('final_product_choices');
     }
 };

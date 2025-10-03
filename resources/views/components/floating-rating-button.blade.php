@@ -35,10 +35,10 @@
 
             <!-- Action Buttons -->
             <div class="flex justify-end gap-3">
-                <button type="button" onclick="closeManipulationModal()"
+                <!-- <button type="button" onclick="closeManipulationModal()"
                     class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
                     Cancel
-                </button>
+                </button> -->
                 <button type="button" id="manipulation-next-btn" onclick="nextManipulationStep()"
                     class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                     {{ __('Next') }}
@@ -87,10 +87,10 @@
 
             <!-- Action Buttons -->
             <div class="flex gap-3">
-                <button type="button" onclick="closeRatingModal()"
+                <!-- <button type="button" onclick="closeRatingModal()"
                     class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
                     {{ __('Cancel') }}
-                </button>
+                </button> -->
                 <button type="button" id="submit-rating" onclick="submitRating()"
                     class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                     disabled>
@@ -117,7 +117,9 @@
     let selectedRating = null;
     let manipulationCurrentStep = 0;
     let manipulationProduct = null;
-    let manipulationAnswers = []; // <-- simpan jawaban manipulation
+    let manipulationAnswers = [];
+    // Add referrer tracking
+    let previousPage = document.referrer || "{{ route('market') }}";
 
     // Ambil nama file dari URL (contoh: "neuphone.html")
     let path = window.location.pathname;
@@ -134,7 +136,30 @@
     }
 
     // Daftar pertanyaan manipulasi dengan nama produk dinamis
-    const manipulationQuestions = [
+    const manipulationQuestions = (product == "Zenophone") ? [
+        "{{ __(':product presents a confusing message (using certain words and images) about its environmental behavior.')}}" .replace(':product', product),
+        "{{ __(':product provides vague or seemingly unprovable environmental claims about its environmental performance.')}}".replace(':product', product),
+        "{{ __(':product overstates or exaggerates its environmental behavior.') }}" .replace(':product', product),
+        "{{ __('ZenoPhone omits or hides important information about its real environmental behavior.') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of words in its environmental features') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of visuals or graphics in its environmental features') }}" .replace(':product', product),
+        "{{ __('The product deceives me by means of green claims that are unclear') }}" .replace(':product', product),
+        "{{ __('The product exaggerates or overstates its green functionality') }}" .replace(':product', product),
+        "{{ __('The product hides important information, making the green claim sound better than it is') }}" .replace(':product', product),
+        
+        
+        "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
+        "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
+        "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
+        "{{ __(':product has good environmental performance') }}".replace(':product', product)
+    ] 
+    : 
+    [
+        "{{ __(':product does not disclose the negative environmental impact of its production or operational activities or related data.')}}" .replace(':product', product),
+        "{{ __(':product does not disclose environmental data, monitoring results, or carbon emission information')}}" .replace(':product', product),
+        "{{ __(':product does not disclose the achievements in environmental protection, energy conservation or emission reduction.')}}".replace(':product', product),
+        
+
         "{{ __('The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment') }}".replace(':product', product),
         "{{ __(':product’s website has content on environmental aspects of the company') }}".replace(':product', product),
         "{{ __(':product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.') }}".replace(':product', product),
@@ -145,11 +170,53 @@
 
     // ================= BUTTON HANDLER =================
     function handleRatingButtonClick(product) {
-        if (['neuphone', 'zenophone'].includes(product)) {
-            openManipulationModal(product);
-        } else {
-            openRatingModal();
-        }
+        // First check if this product has already been rated
+        fetch(`{{ route('product.has.rated') }}?product=${product}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.has_rated) {
+                    // If already rated, just show a message
+                    showSuccessMessage('{{ __('You have already rated this product') }}');
+
+                    // Update button appearance if needed
+                    const button = document.getElementById('rating-button');
+                    if (button) {
+                        button.classList.remove('animate-pulse', 'bg-blue-600');
+                        button.classList.add('bg-green-600');
+                    }
+                    // Update tooltip to show the rating
+                    const tooltip = document.getElementById('rating-tooltip');
+                    if (tooltip) {
+                        tooltip.innerHTML = `
+                        {{ __('Your rating:') }} ${data.rating}/10
+                        <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                        `;
+                    }
+                    button.addEventListener('click', function() {
+                        // Redirect to previous page or market
+                        window.location.href = "{{ route('market') }}";
+                    });
+                } else {
+                    // Not rated yet, proceed with rating flow
+                    manipulationProduct = product;
+
+                    // Check if this product needs manipulation check
+                    if (['neuphone', 'zenophone'].includes(product)) {
+                        openManipulationModal(product);
+                    } else {
+                        openRatingModal();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error checking if product is rated:', error);
+                // Fallback to normal flow if check fails
+                if (['neuphone', 'zenophone'].includes(product)) {
+                    openManipulationModal(product);
+                } else {
+                    openRatingModal();
+                }
+            });
     }
 
     // ================= MANIPULATION MODAL =================
@@ -300,7 +367,9 @@
                 body: JSON.stringify({
                     product_name: "{{ $product }}",
                     rating: selectedRating,
-                    manipulation: manipulationAnswers // ikut kirim jawaban manipulation
+                    manipulation: manipulationAnswers,
+                    referrer: window.location
+                        .pathname // Send current path to track where rating was submitted from
                 })
             })
             .then(response => response.json())
@@ -318,8 +387,18 @@
                         <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
                     `;
 
+                    // Improved redirection logic
                     setTimeout(() => {
-                        window.location.href = data.redirect_url;
+                        // If this is a product detail or news page, go back to market
+                        if (window.location.pathname.includes('/news/') || ['onephone', 'neuphone',
+                                'xarelphone', 'zenophone'
+                            ].some(p =>
+                                window.location.pathname.includes(p))) {
+                            window.location.href = "{{ route('market') }}";
+                        } else if (data.redirect_url) {
+                            // Otherwise use the server-provided URL
+                            window.location.href = data.redirect_url;
+                        }
                     }, 1500);
                 } else {
                     alert(data.message || '{{ __('Error submitting rating') }}');
@@ -353,17 +432,54 @@
         }, 3000);
     }
 
-    // ================= CLOSE MODALS =================
-    document.getElementById('rating-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeRatingModal();
-        }
-    });
+        // ================= CLOSE MODALS =================
+        document.getElementById('manipulation-modal').addEventListener('click', function(e) {
+            // hanya berlaku saat step pertama
+            if (manipulationCurrentStep === 0 && e.target === this) {
+                closeManipulationModal();
+            }
+        });
+
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeRatingModal();
             closeManipulationModal();
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Store the page that brought us here (for returning later)
+        if (document.referrer && document.referrer !== "") {
+            previousPage = document.referrer;
+            // Don't save referrers from outside the app
+            if (!previousPage.includes(window.location.host)) {
+                previousPage = "{{ route('market') }}";
+            }
+        }
+
+        // Check if current product has already been rated
+        fetch(`{{ route('product.has.rated') }}?product={{ $product }}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.has_rated) {
+                    // Update button appearance
+                    const button = document.getElementById('rating-button');
+                    if (button) {
+                        button.classList.remove('animate-pulse', 'bg-blue-600');
+                        button.classList.add('bg-green-600');
+                    }
+
+                    // Update tooltip to show the rating
+                    const tooltip = document.getElementById('rating-tooltip');
+                    if (tooltip) {
+                        tooltip.innerHTML = `
+                            {{ __('Your rating:') }} ${data.rating}/10
+                            <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                        `;
+                    }
+                }
+            })
+            .catch(error => console.error('Error checking if product is rated:', error));
     });
 </script>

@@ -69,7 +69,7 @@
                                 </svg>
                                 <span class="font-semibold text-gray-900">{{ $product['rating'] }}</span>
                             </div>
-                            <span class="text-gray-400">|</span>
+                            <div class="h-8 w-px bg-gray-400"></div>
                             <span class="text-gray-600">{{ $product['sold'] }}
                                 {{ __('Millions of products sold') }}</span>
                         </div>
@@ -139,14 +139,14 @@
         @if (in_array($product['name'], ['Neuphone', 'Xarelphone']))
             <div class="px-3 pb-3 sm:px-4 sm:pb-4 pt-5">
                 <a href="/{{ strtolower($product['name']) }}"
-                    class="block w-full bg-red-500 hover:bg-red-600 text-white py-3 px-4 rounded-lg text-sm sm:text-base font-medium choose-product-btn text-center transition-colors duration-200">
+                    class="block w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm sm:text-base font-medium choose-product-btn text-center transition-colors duration-200">
                     {{ __('Choose Product') }}
                 </a>
             </div>
         @else
             <div class="px-3 pb-3 sm:px-4 sm:pb-4">
                 <a href="/{{ strtolower($product['name']) }}"
-                    class="block w-full bg-red-500 hover:bg-red-600 text-white py-3 px-4 rounded-lg text-sm sm:text-base font-medium choose-product-btn text-center transition-colors duration-200">
+                    class="block w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm sm:text-base font-medium choose-product-btn text-center transition-colors duration-200">
                     {{ __('Choose Product') }}
                 </a>
             </div>

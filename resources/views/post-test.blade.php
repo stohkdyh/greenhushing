@@ -50,7 +50,7 @@
     <div class="w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-[100px]">
         <div class="flex justify-between items-center mb-1 sm:mb-2">
             <span class="text-xs sm:text-sm text-gray-600">{{ __('Progress') }}</span>
-            <span id="progress-text" class="text-xs sm:text-sm text-gray-600">0/7 {{ __('answered') }}</span>
+            <span id="progress-text" class="text-xs sm:text-sm text-gray-600">0/31 {{ __('answered') }}</span>
         </div>
         <div class="w-full bg-green-100 border border-green-200 rounded-full h-2 sm:h-3">
             <div id="progress-bar" class="bg-green-400 h-2 sm:h-3 rounded-full transition-all duration-500 ease-out"
@@ -73,7 +73,6 @@
                         <hr>
                     </p>
                     <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
-                        {{-- {{ __('Question') }} {{ $loop->iteration }}: --}}
                         {{ $text }}
                     </p>
                     <div class="flex items-center justify-between gap-2 sm:gap-4">
@@ -122,7 +121,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const totalQuestions = 7;
+            // Use dynamic count from actual questions instead of hardcoded value
+            const totalQuestions = {{ count($questions) }};
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
             const submitBtn = document.getElementById('submit-btn');
@@ -130,6 +130,13 @@
             const form = document.getElementById('posttest-form');
 
             let answeredQuestions = new Set();
+
+            // Check for any pre-selected answers (like when returning to the page)
+            questionRadios.forEach(radio => {
+                if (radio.checked) {
+                    answeredQuestions.add(radio.getAttribute('data-question'));
+                }
+            });
 
             // Function to update progress
             function updateProgress() {
@@ -145,12 +152,12 @@
                 // Enable/disable submit button
                 if (answeredCount === totalQuestions) {
                     submitBtn.disabled = false;
-                    submitBtn.classList.remove('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.add('hover:bg-blue-600');
+                    submitBtn.classList.remove('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
+                    submitBtn.classList.add('bg-green-600', 'hover:bg-green-500');
                 } else {
                     submitBtn.disabled = true;
-                    submitBtn.classList.add('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.remove('hover:bg-blue-600');
+                    submitBtn.classList.add('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
+                    submitBtn.classList.remove('bg-green-600', 'hover:bg-green-500');
                 }
 
                 // Add visual feedback for completed questions
@@ -159,25 +166,26 @@
 
             // Function to update question card appearance
             function updateQuestionCards() {
-                for (let i = 1; i <= totalQuestions; i++) {
-                    const questionCard = document.querySelector(`[data-question="${i}"]`);
-                    if (answeredQuestions.has(i)) {
-                        questionCard.classList.add('ring-1', 'ring-blue-200', 'bg-blue-50');
-                        questionCard.classList.remove('bg-white');
+                document.querySelectorAll('.question-card').forEach(card => {
+                    const qKey = card.getAttribute('data-question');
+                    if (answeredQuestions.has(qKey)) {
+                        card.classList.add('ring-1', 'ring-green-200', 'bg-green-50');
+                        card.classList.remove('bg-white');
                     } else {
-                        questionCard.classList.remove('ring-1', 'ring-blue-200', 'bg-blue-50');
-                        questionCard.classList.add('bg-white');
+                        card.classList.remove('ring-1', 'ring-green-200', 'bg-green-50');
+                        card.classList.add('bg-white');
                     }
-                }
+                });
             }
 
             // Add event listeners to all radio buttons
             questionRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
-                    const questionNumber = parseInt(this.dataset.question);
+                    // Use the actual question key, not a parsed integer
+                    const questionKey = this.getAttribute('data-question');
 
                     if (this.checked) {
-                        answeredQuestions.add(questionNumber);
+                        answeredQuestions.add(questionKey);
                     }
 
                     updateProgress();
@@ -191,20 +199,33 @@
                 if (answeredQuestions.size === totalQuestions) {
                     // Show loading state
                     submitBtn.disabled = true;
-                    submitBtn.textContent = '{{ __('Submitting...') }}';
+                    submitBtn.innerHTML =
+                        '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
 
                     // Submit the form
                     form.submit();
                 } else {
                     alert('{{ __('Please answer all questions before submitting.') }}');
+
+                    // Highlight unanswered questions
+                    document.querySelectorAll('.question-card').forEach(card => {
+                        const qKey = card.getAttribute('data-question');
+                        if (!answeredQuestions.has(qKey)) {
+                            card.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                            card.classList.add('ring-2', 'ring-red-300', 'animate-pulse');
+                            setTimeout(() => {
+                                card.classList.remove('ring-2', 'ring-red-300',
+                                    'animate-pulse');
+                            }, 1500);
+                        }
+                    });
                 }
             });
-
-            // Initialize progress
-            updateProgress();
         });
     </script>
-
 </body>
 
 </html>
