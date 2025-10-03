@@ -6,7 +6,7 @@
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
     image="images/feature.png"
+    imageWidth="w-[320px] sm:w-[380px] md:w-[360px] lg:w-[400px]"
     imageBg="#EEF5E8"
-    imageRotate="10deg"
     icon="app-window"
 />

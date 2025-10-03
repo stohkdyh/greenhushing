@@ -4,21 +4,20 @@
     'highlight',
     'image',
     'bg' => '#ffffff',
+    'highlightColor' => '#000000',
     'titleColor' => '#111827',
-    'highlightColor' => '#4f46e5',
-    'imageBg' => '#fffff',
-    'imageWidth' => '400px', // default ukuran
-    'imageHeight' => 'auto',
-    'imagePositionX' => '50%', // posisi horizontal
-    'imagePositionY' => '-50px', // posisi vertikal
+    'imageBg' => '#ffffff',
+    'imageWidth' => "w-[280px] sm:w-[340px] md:w-[380px] lg:w-[500px]",
     'icon' => false,
+    'cardSize' => "max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] md:min-w-[360px] md:min-h-[420px] lg:min-w-[400px] lg:min-h-[460px]",
 ])
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+<!-- Google Font-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-    body {
+    * {
         font-family: 'Inter', sans-serif;
     }
 
@@ -49,30 +48,25 @@
     }
 </style>
 
-
 <div class="min-h-fit md:min-h-screen flex flex-col-reverse md:flex-row 
             items-center justify-between 
             px-6 md:px-20 py-12 sm:py-20 md:py-32 
             gap-12 md:gap-16"
      style="background: {{ $bg }}">
+
     <!-- Gambar dan card -->
     <div class="w-full md:w-1/2 flex justify-center md:justify-start relative fade-in-right">
-        <div class="relative w-full max-w-[380px] min-h-[380px] sm:min-w-[400px] sm:min-h-[460px] mx-auto">
-            <!-- Card latar -->
-            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative" style="background-color: #{{ ltrim($imageBg, '#') }}"></div>
+        <!-- Wrapper Card -->
+        <div class="relative w-full {{ $cardSize }} mx-auto">
+            <!-- Card Latar -->
+            <div class="rounded-3xl px-8 sm:px-12 py-8 sm:py-10 shadow-xl w-full h-full z-0 relative"
+                style="background-color: {{ $imageBg }};">
+            </div>
 
+            <!-- Gambar -->
             <img src="{{ asset($image) }}"
                 alt="{{ $highlight }}"
-                style="
-                    width: {{ $imageWidth }};
-                    height: {{ $imageHeight }};
-                    left: {{ $imagePositionX }};
-                    bottom: {{ $imagePositionY }};
-                    transform: translateX(-50%);
-                "
-                class="absolute
-                    h-auto object-contain z-10 drop-shadow-2xl 
-                    transition-transform duration-500 hover:scale-105" />
+                class="absolute left-1/2 -translate-x-1/2 bottom-[-40px] sm:bottom-[-80px] h-auto object-contain z-10 drop-shadow-2xl transition-transform duration-500 hover:scale-105 {{ $imageWidth }}" />
         </div>
     </div>
 
@@ -114,22 +108,26 @@
     </div>
 </div>
 
-<!-- Scroll-triggered animation -->
+<!-- Animasi saat scroll -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('fade-in-left')) {
-                        entry.target.classList.add('animate-left');
-                    } else if (entry.target.classList.contains('fade-in-right')) {
-                        entry.target.classList.add('animate-right');
+                    const el = entry.target;
+                    if (el.classList.contains('fade-in-left')) {
+                        el.classList.add('animate-left');
+                    } else if (el.classList.contains('fade-in-right')) {
+                        el.classList.add('animate-right');
                     }
-                    observer.unobserve(entry.target);
+                    observer.unobserve(el);
                 }
             });
-        }, { threshold: 0.2 });
+        }, {
+            threshold: 0.1
+        });
 
-        document.querySelectorAll('.fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+        const targets = document.querySelectorAll('.fade-in-left, .fade-in-right');
+        targets.forEach(el => observer.observe(el));
     });
 </script>
