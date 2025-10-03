@@ -9,7 +9,7 @@
     </h1>
     <div class="hidden md:flex items-center space-x-6 md:ml-8 lg:ml-16">
         @foreach ($navLinks as $link)
-            <a href="{{ $link['href'] }}" class="hover:underline">{{ $link['label'] }}</a>
+            <a href="{{ $link['href'] }}" class="hover:underline">{{ __($link['label']) }}</a>
         @endforeach
     </div>
   </div>
@@ -55,7 +55,7 @@
         class="md:hidden bg-white/95 backdrop-blur-md text-black absolute top-full w-full left-0 z-40 border-t">
         <div class="flex flex-col px-4 py-3 space-y-2">
             @foreach ($navLinks as $link)
-                <a href="{{ $link['href'] }}" class="hover:underline">{{ $link['label'] }}</a>
+                <a href="{{ $link['href'] }}" class="hover:underline">{{ __($link['label']) }}</a>
             @endforeach
         </div>
     </div>
