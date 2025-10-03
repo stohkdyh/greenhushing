@@ -535,5 +535,17 @@
     "GPI5": "I intend to purchase this product because of its environmental performance",
     "GPI6": "I am happy to purchase these products because of their eco-friendliness.",
     "GPI7": "I will collect and comprehend information about eco-friendly products.",
-    "GPI8": "I will purchase eco-friendly products when I need to buy a green product."
+    "GPI8": "I will purchase eco-friendly products when I need to buy a green product.",
+
+    "Please Answer First" : "Please Answer First",
+
+    "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment",
+    ":product’s website has content on environmental aspects of the company": ":product’s website has content on environmental aspects of the company",
+    ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.": ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact.",
+    ":product has good environmental performance": ":product has good environmental performance",
+
+    "Yes" : "Yes",
+    "No" : "No",
+    "Next" : "Next",
+    "Finish" : "Finish"
 }

@@ -550,5 +550,17 @@
     "GPI5": "Saya berniat untuk membeli produk ini karena performa lingkungannya.",
     "GPI6": "Saya senang membeli produk-produk ini karena sifatnya yang ramah lingkungan.",
     "GPI7": "Saya akan mengumpulkan dan memahami informasi tentang produk ramah lingkungan.",
-    "GPI8": "Saya akan membeli produk ramah lingkungan ketika saya membutuhkan produk hijau."
+    "GPI8": "Saya akan membeli produk ramah lingkungan ketika saya membutuhkan produk hijau.",
+
+    "Please Answer First" : "Harap Jawab Terlebih Dulu",
+
+    "The mission, vision and values of :product, visible on its website, clearly focus on transmitting its total commitment to the environment": "Misi, visi, dan nilai-nilai Perusahaan :productyang ditampilkan di situs web resminya secara jelas menekankan komitmen penuh perusahaan terhadap isu lingkungan",
+    ":product website has content on environmental aspects of the company": "Situs web Perusahaan :product memuat konten yang berkaitan dengan aspek-aspek lingkungan perusahaan",
+    ":product is a clear example for the rest of the companies in the sector on how the environmental aspects in a company should be treated to guarantee low environmental impact": "Perusahaan :product merupakan contoh nyata bagi perusahaan lain mengenai bagaimana aspek lingkungan seharusnya dikelola guna menjamin dampak lingkungan yang minimal.",
+    ":product has good environmental performance": "Perusahaan :product menunjukkan kinerja lingkungan yang baik.",
+
+    "Yes" : "Ya",
+    "No" : "Tidak",
+    "Next" : "Selanjutnya",
+    "Finish" : "Selesai"
 }
