@@ -18,8 +18,8 @@
     $newsletterButtonText  = $newsletterButtonText  ?? 'Subscribe';
 
     $newsletterBg        = $newsletterBg        ?? 'bg-white';
-    $newsletterBorder    = $newsletterBorder    ?? 'border-green-100';
-    $newsletterButton    = $newsletterButton    ?? 'bg-green-600 hover:bg-green-700';
+    $newsletterBorder    = $newsletterBorder    ?? 'border-gray-100';
+    $newsletterButton    = $newsletterButton    ?? 'bg-gray-400';
 @endphp
 
 
@@ -60,57 +60,34 @@
 <div class="mt-6 border-t border-gray-100 pt-6">
     <h3 class="text-sm font-medium mb-3 {{ $shareTitleColor }}">{{ __('Share this news') }}</h3>
     <div class="flex gap-3 flex-wrap">
+
         {{-- Facebook --}}
         <a
-           target="_blank"
-           class="p-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors"
+           class="p-2 rounded-full bg-gray-300 pointer-events-none cursor-default"
            aria-label="Share on Facebook">
-            <x-icon.facebook class="w-4 h-4 text-white" />
+            <x-icon.facebook class="w-4 h-4 text-white opacity-60" />
         </a>
 
         {{-- X (Twitter) --}}
         <a
-           target="_blank"
-           class="p-2 rounded-full bg-black hover:bg-gray-800 transition-colors"
+           class="p-2 rounded-full bg-gray-300 pointer-events-none cursor-default"
            aria-label="Share on X (Twitter)">
-            <x-icon.twitter class="w-4 h-4 text-white" />
+            <x-icon.twitter class="w-4 h-4 text-white opacity-60" />
         </a>
 
         {{-- WhatsApp --}}
         <a
-           target="_blank"
-           class="p-2 rounded-full bg-green-500 hover:bg-green-600 transition-colors"
+           class="p-2 rounded-full bg-gray-300 pointer-events-none cursor-default"
            aria-label="Share on WhatsApp">
-            <x-icon.whatsapp class="w-4 h-4 text-white" />
+            <x-icon.whatsapp class="w-4 h-4 text-white opacity-60" />
         </a>
 
-        {{-- Instagram (profil link) --}}
+        {{-- Instagram --}}
         <a
-           target="_blank"
-           class="p-2 rounded-full bg-pink-500 hover:bg-pink-600 transition-colors"
+           class="p-2 rounded-full bg-gray-300 pointer-events-none cursor-default"
            aria-label="Visit Instagram">
-            <x-icon.instagram class="w-4 h-4 text-white" />
+            <x-icon.instagram class="w-4 h-4 text-white opacity-60" />
         </a>
     </div>
 </div>
 
-
-
-<!-- Newsletter -->
-<div class="mt-12 border-t border-gray-200 pt-8 pb-20">
-    <h2 class="text-base font-semibold text-gray-800 mb-2">{{ $newsletterTitle ?? 'Newsletter' }}</h2>
-    <p class="text-sm text-gray-500 mb-4">{{ $newsletterSubtitle ?? 'Get the latest sustainability news weekly.' }}</p>
-    
-    <form class="flex flex-col sm:flex-row overflow-hidden rounded-xl shadow-sm border {{ $newsletterBorder }} {{ $newsletterBg }}">
-        <input 
-            type="email" 
-            placeholder="{{ $newsletterPlaceholder ?? 'Your email' }}"
-            class="flex-1 px-4 py-3 text-sm border-0 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white placeholder-gray-400"
-        >
-        <button 
-            class="px-5 py-3 text-sm font-medium w-full sm:w-auto text-white transition-colors {{ $newsletterButton }}"
-        >
-            {{ $newsletterButtonText ?? 'Subscribe' }}
-        </button>
-    </form>
-</div>
