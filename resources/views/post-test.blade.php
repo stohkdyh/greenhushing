@@ -22,14 +22,14 @@
         <!-- Kanan: Logo + Language Switch -->
         <div class="flex items-center gap-4">
             <x-languange-switch class="h-full px-0" />
-            <div class="flex items-center gap-3  px-3 py-1 rounded-full">
+            <div class="flex items-center gap-3 px-3 py-1 rounded-full">
                 <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-11 h-11">
                 <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-11 h-11">
             </div>
         </div>
     </header>
 
-    <!-- Add error/success messages -->
+    <!-- Error / Success Message -->
     @if (session('error'))
         <div class="w-11/12 md:w-1/2 mx-auto mt-[110px] mb-4">
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -46,39 +46,48 @@
         </div>
     @endif
 
-    <!-- Progress bar -->
+    <!-- Progress Bar -->
     <div class="w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-[100px]">
         <div class="flex justify-between items-center mb-1 sm:mb-2">
             <span class="text-xs sm:text-sm text-gray-600">{{ __('Progress') }}</span>
-            <span id="progress-text" class="text-xs sm:text-sm text-gray-600">0/31 {{ __('answered') }}</span>
+            <span id="progress-text" class="text-xs sm:text-sm text-gray-600">
+                0/{{ count($questions) }} {{ __('answered') }}
+            </span>
         </div>
         <div class="w-full bg-green-100 border border-green-200 rounded-full h-2 sm:h-3">
-            <div id="progress-bar" class="bg-green-400 h-2 sm:h-3 rounded-full transition-all duration-500 ease-out"
+            <div id="progress-bar"
+                class="bg-green-400 h-2 sm:h-3 rounded-full transition-all duration-500 ease-out"
                 style="width: 0%"></div>
         </div>
     </div>
 
-    <!-- Card Questions -->
+    <!-- Questions -->
     <main class="flex-1 w-11/12 sm:w-4/5 lg:w-1/2 mx-auto mt-4 sm:mt-6 space-y-4 sm:space-y-6">
         <form id="posttest-form" action="{{ route('posttest.store') }}" method="POST">
             @csrf
             @foreach ($questions as $key => $text)
-                <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
+                <div class="relative bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
                     data-question="{{ $key }}">
-                    <p class="-mt-3">
+                    
+                    <!-- Tanda * di kanan atas -->
+                    <span class="absolute top-3 right-4 text-red-500 text-lg font-bold">*</span>
+
+                    <div class="-mt-3 mb-2 flex items-center gap-1">
                         <span class="text-sm sm:text-base font-semibold text-gray-700">
                             {{ __('Question') }} {{ $loop->iteration }}
                         </span>
-                        <span class="text-xs sm:text-sm text-gray-500">({{ __('required') }})</span>
-                        <hr>
-                    </p>
+                    </div>
+                    <hr class="mb-2">
+
                     <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
                         {{ $text }}
                     </p>
+
                     <div class="flex items-center justify-between gap-2 sm:gap-4">
                         <span class="text-[10px] sm:text-xs text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Disagree') }}
                         </span>
+
                         <div class="flex space-x-4 sm:space-x-7">
                             @for ($value = 1; $value <= 7; $value++)
                                 @php
@@ -95,9 +104,10 @@
                                 <input type="radio" name="{{ $key }}" value="{{ $value }}"
                                     class="w-5 h-5 sm:w-6 sm:h-6 question-radio cursor-pointer hover:scale-110 transition-transform"
                                     style="color: {{ $colors[$value] }}; --tw-ring-color: {{ $colors[$value] }};"
-                                    data-question="{{ $key }}">
+                                    data-question="{{ $key }}" required>
                             @endfor
                         </div>
+
                         <span class="text-[10px] sm:text-xs text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Agree') }}
                         </span>
@@ -107,7 +117,7 @@
         </form>
     </main>
 
-    <!-- Submit button -->
+    <!-- Submit Button -->
     <div class="w-11/12 sm:w-4/5 lg:w-1/2 mx-auto my-4 sm:my-6 text-center sm:text-right">
         <button id="submit-btn"
             class="bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium 
@@ -121,53 +131,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Use dynamic count from actual questions instead of hardcoded value
             const totalQuestions = {{ count($questions) }};
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
             const submitBtn = document.getElementById('submit-btn');
             const questionRadios = document.querySelectorAll('.question-radio');
             const form = document.getElementById('posttest-form');
-
             let answeredQuestions = new Set();
 
-            // Check for any pre-selected answers (like when returning to the page)
             questionRadios.forEach(radio => {
-                if (radio.checked) {
-                    answeredQuestions.add(radio.getAttribute('data-question'));
-                }
+                if (radio.checked) answeredQuestions.add(radio.dataset.question);
             });
 
-            // Function to update progress
             function updateProgress() {
                 const answeredCount = answeredQuestions.size;
                 const progressPercentage = (answeredCount / totalQuestions) * 100;
-
-                // Update progress bar
                 progressBar.style.width = progressPercentage + '%';
-
-                // Update progress text
                 progressText.textContent = `${answeredCount}/${totalQuestions} {{ __('answered') }}`;
-
-                // Enable/disable submit button
-                if (answeredCount === totalQuestions) {
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
-                    submitBtn.classList.add('bg-green-600', 'hover:bg-green-500');
-                } else {
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
-                    submitBtn.classList.remove('bg-green-600', 'hover:bg-green-500');
-                }
-
-                // Add visual feedback for completed questions
+                submitBtn.disabled = answeredCount !== totalQuestions;
                 updateQuestionCards();
             }
 
-            // Function to update question card appearance
             function updateQuestionCards() {
                 document.querySelectorAll('.question-card').forEach(card => {
-                    const qKey = card.getAttribute('data-question');
+                    const qKey = card.dataset.question;
                     if (answeredQuestions.has(qKey)) {
                         card.classList.add('ring-1', 'ring-green-200', 'bg-green-50');
                         card.classList.remove('bg-white');
@@ -178,54 +165,36 @@
                 });
             }
 
-            // Add event listeners to all radio buttons
             questionRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
-                    // Use the actual question key, not a parsed integer
-                    const questionKey = this.getAttribute('data-question');
-
-                    if (this.checked) {
-                        answeredQuestions.add(questionKey);
-                    }
-
+                    answeredQuestions.add(this.dataset.question);
                     updateProgress();
                 });
             });
 
-            // Handle form submission
             submitBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 if (answeredQuestions.size === totalQuestions) {
-                    // Show loading state
                     submitBtn.disabled = true;
-                    submitBtn.innerHTML =
-                        '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
-
-                    // Submit the form
+                    submitBtn.innerHTML = '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
                     form.submit();
                 } else {
                     alert('{{ __('Please answer all questions before submitting.') }}');
-
-                    // Highlight unanswered questions
                     document.querySelectorAll('.question-card').forEach(card => {
-                        const qKey = card.getAttribute('data-question');
+                        const qKey = card.dataset.question;
                         if (!answeredQuestions.has(qKey)) {
-                            card.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             card.classList.add('ring-2', 'ring-red-300', 'animate-pulse');
                             setTimeout(() => {
-                                card.classList.remove('ring-2', 'ring-red-300',
-                                    'animate-pulse');
+                                card.classList.remove('ring-2', 'ring-red-300', 'animate-pulse');
                             }, 1500);
                         }
                     });
                 }
             });
+
+            updateProgress();
         });
     </script>
 </body>
-
 </html>
