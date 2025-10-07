@@ -440,6 +440,12 @@
             }
         });
 
+        // ================= CLOSE MODALS ================= // 
+        document.getElementById('rating-modal').addEventListener('click', function(e) { 
+            if (e.target === this) { 
+            closeRatingModal(); 
+            } 
+        });
 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
