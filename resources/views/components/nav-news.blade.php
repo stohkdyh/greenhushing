@@ -11,13 +11,13 @@
 
     <!-- Desktop Center Menu -->
     <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-6 text-sm">
-      <a href="/" class="hover:underline">{{ __('NEWS') }}</a>
-      <a href="/" class="hover:underline">{{ __('MARKETS') }}</a>
-      <a href="/" class="hover:underline">{{ __('ECONOMICS') }}</a>
-      <a href="/" class="hover:underline">{{ __('INDUSTRY') }}</a>
-      <a href="/" class="hover:underline">{{ __('TECH') }}</a>
-      <a href="/" class="hover:underline">{{ __('POLITICS') }}</a>
-      <a href="/" class="hover:underline">{{ __('MORE') }}</a>
+      <a href="#" class="hover:underline">{{ __('NEWS') }}</a>
+      <a href="#" class="hover:underline">{{ __('MARKETS') }}</a>
+      <a href="#" class="hover:underline">{{ __('ECONOMICS') }}</a>
+      <a href="#" class="hover:underline">{{ __('INDUSTRY') }}</a>
+      <a href="#" class="hover:underline">{{ __('TECH') }}</a>
+      <a href="#" class="hover:underline">{{ __('POLITICS') }}</a>
+      <a href="#" class="hover:underline">{{ __('MORE') }}</a>
 
     </div>
 
@@ -57,13 +57,13 @@
   <!-- Mobile Menu -->
   <div x-show="open" x-transition class="md:hidden bg-white/95 backdrop-blur-sm border-t z-40 w-full">
     <div class="flex flex-col px-4 py-4 space-y-3 text-sm">
-      <a href="/" class="hover:underline">{{ __('NEWS') }}</a>
-      <a href="/" class="hover:underline">{{ __('MARKETS') }}</a>
-      <a href="/" class="hover:underline">{{ __('ECONOMICS') }}</a>
-      <a href="/" class="hover:underline">{{ __('INDUSTRY') }}</a>
-      <a href="/" class="hover:underline">{{ __('TECH') }}</a>
-      <a href="/" class="hover:underline">{{ __('POLITICS') }}</a>
-      <a href="/" class="hover:underline">{{ __('MORE') }}</a>
+      <a href="#" class="hover:underline">{{ __('NEWS') }}</a>
+      <a href="#" class="hover:underline">{{ __('MARKETS') }}</a>
+      <a href="#" class="hover:underline">{{ __('ECONOMICS') }}</a>
+      <a href="#" class="hover:underline">{{ __('INDUSTRY') }}</a>
+      <a href="#" class="hover:underline">{{ __('TECH') }}</a>
+      <a href="#" class="hover:underline">{{ __('POLITICS') }}</a>
+      <a href="#" class="hover:underline">{{ __('MORE') }}</a>
     </div>
   </div>
 </div>
