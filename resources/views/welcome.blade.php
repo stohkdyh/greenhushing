@@ -30,30 +30,28 @@
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 pointer-events-none"">
         <div
             class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] text-center pointer-events-auto">
-            
+
             <!-- Icon Consent -->
             <div class="flex justify-center mb-4">
                 <!-- Contoh pakai Lucide icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    class="h-12 w-12 text-[#303F8E]" 
-                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#303F8E]" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
                 </svg>
             </div>
 
             <h2 class="text-2xl font-bold mb-4">{{ __('Welcome') }}</h2>
-            <p class="text-gray-700 text-base sm:text-lg mb-6">
+            <p class="text-gray-700 text-base sm:text-lg/ mb-6">
                 {{ __('Permission') }}
             </p>
             <div class="flex justify-center">
                 <button id="btnContinue"
                     class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-colors flex items-center gap-2">
                     <!-- Icon di button -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 5l7 7-7 7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                     {{ __('Next') }}
                 </button>
@@ -119,6 +117,26 @@
                         </select>
                         <x-input-error :messages="$errors->get('country')" class="mt-2" />
                     </div>
+                    <div>
+                        <x-input-label for="GPA" class="text-gray-600" :value="__('GPA')" />
+                        <x-text-input id="GPA" name="GPA" type="number" step="0.01" min="0"
+                            max="4" placeholder="{{ __('GPA') }}" class="w-full" autocomplete="off"
+                            required />
+                        <x-input-error :messages="$errors->get('GPA')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="work_experience" class="text-gray-600" :value="__('Work Experience')" />
+                        <select id="work_experience" name="work_experience" required
+                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
+                            <option selected disabled>{{ __('Work Experience') }}</option>
+                            <option value="none" class="text-black">{{ __('No Experience') }}</option>
+                            <option value="<1_year" class="text-black">{{ __('Less than 1 year') }}</option>
+                            <option value="1-2_years" class="text-black">{{ __('1-2 years') }}</option>
+                            <option value="2-3_years" class="text-black">{{ __('2-3 years') }}</option>
+                            <option value=">3_years" class="text-black">{{ __('More than 3 years') }}</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('work_experience')" class="mt-2" />
+                    </div>
                     <div class="col-span-1 sm:col-span-2">
                         <x-input-label for="last_education" class="text-gray-600" :value="__('Last Education')" />
                         <select id="last_education" name="last_education" required
@@ -126,13 +144,15 @@
                             <option selected disabled>{{ __('Last Education') }}</option>
                             <option value="senior_high" class="text-black">
                                 {{ __('Senior High School / Vocational School') }}</option>
-                            <option value="diploma" class="text-black">{{ __('Diploma (Associate Degree)') }}</option>
+                            <option value="diploma" class="text-black">{{ __('Diploma (Associate Degree)') }}
+                            </option>
                             <option value="bachelor" class="text-black">{{ __("Bachelor's Degree") }}</option>
                             <option value="master" class="text-black">{{ __("Master's Degree") }}</option>
                             <option value="doctoral" class="text-black">{{ __('Doctoral Degree (Ph.D.)') }}</option>
                         </select>
                         <x-input-error :messages="$errors->get('last_education')" class="mt-2" />
                     </div>
+
                 </div>
 
                 <button type="submit"

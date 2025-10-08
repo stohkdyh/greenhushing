@@ -229,7 +229,7 @@
                             }
 
                             // Only show final selection modal if all products are rated but final product isn't selected yet
-                            if (ratedProducts.length >= 4 && !finalProductSelected) {
+                            if (ratedProducts.length >= {{ count($products) }} && !finalProductSelected) {
                                 showFinalSelectionModal();
                             }
                         })
@@ -313,7 +313,8 @@
             const progressBarMobile = document.getElementById('progress-bar-mobile');
             const progressTextMobile = document.getElementById('progress-text-mobile');
 
-            const totalProducts = 4;
+            // Adjust for 2 products instead of 4
+            const totalProducts = {{ count($products) }};
             const ratedCount = ratedProducts.length;
             const progressPercentage = (ratedCount / totalProducts) * 100;
 
@@ -334,6 +335,7 @@
             }
         }
 
+        // Modified showFinalSelectionModal function to preserve selection state
         function showFinalSelectionModal() {
             // Create modal if it doesn't exist
             let finalSelectionModal = document.getElementById('final-selection-modal');
@@ -343,8 +345,10 @@
                 finalSelectionModal.id = 'final-selection-modal';
                 finalSelectionModal.className =
                     'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+            }
 
-                finalSelectionModal.innerHTML = `
+            // Update modal content
+            finalSelectionModal.innerHTML = `
                 <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 text-center">
                     <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -358,24 +362,114 @@
 
                     <div class="grid grid-cols-2 gap-6 mb-6">
                         ${ratedProducts.map(product => `
-                                        <div> 
-                                            <button onclick="selectFinalProduct('${product}')" class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200">
-                                                <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
-                                                <p class="font-medium capitalize">${product}</p>
-                                            </button>
-                                            <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
-                                        </div>
-                                    `).join('')}
+                                    <div> 
+                                        <button onclick="preSelectFinalProduct('${product}')" 
+                                            id="product-option-${product}"
+                                            class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200 ${selectedFinalProduct === product ? 'ring-2 ring-purple-500 bg-purple-50' : ''}">
+                                            <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
+                                            <p class="font-medium capitalize">${product}</p>
+                                        </button>
+                                        <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
+                                    </div>
+                                `).join('')}
                     </div>
 
-                    <p class="text-sm text-gray-500 mb-4">{{ __('This choice will complete your product selection process.') }}</p>
+                    <div class="mt-6">
+                        <button id="confirm-final-product" 
+                            class="${selectedFinalProduct ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} px-6 py-2 rounded-lg transition-colors w-full"
+                            ${selectedFinalProduct ? '' : 'disabled'}>
+                            {{ __('Confirm Selection') }}
+                        </button>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mt-4">{{ __('This choice will complete your product selection process.') }}</p>
                 </div>
             `;
 
+            // Append to body if needed
+            if (!finalSelectionModal.parentElement) {
                 document.body.appendChild(finalSelectionModal);
             } else {
                 finalSelectionModal.classList.remove('hidden');
             }
+
+            // Reattach click handler to confirm button if we have a selection
+            if (selectedFinalProduct) {
+                const confirmBtn = document.getElementById('confirm-final-product');
+                if (confirmBtn) {
+                    confirmBtn.onclick = function() {
+                        showFinalConfirmation(selectedFinalProduct);
+                    };
+                }
+            }
+        }
+
+        // Add this new function to handle pre-selection
+        let selectedFinalProduct = null;
+
+        function preSelectFinalProduct(productName) {
+            // Store selected product
+            selectedFinalProduct = productName;
+
+            // Update UI to show selected product
+            document.querySelectorAll('.final-product-option').forEach(btn => {
+                // Reset all buttons to default state
+                btn.classList.remove('ring-2', 'ring-purple-500', 'bg-purple-50');
+            });
+
+            // Highlight selected product
+            const selectedBtn = document.getElementById(`product-option-${productName}`);
+            if (selectedBtn) {
+                selectedBtn.classList.add('ring-2', 'ring-purple-500', 'bg-purple-50');
+            }
+
+            // Enable confirm button
+            const confirmBtn = document.getElementById('confirm-final-product');
+            if (confirmBtn) {
+                confirmBtn.classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+                confirmBtn.classList.add('bg-purple-600', 'hover:bg-purple-700', 'text-white');
+                confirmBtn.disabled = false;
+
+                // Add click handler for confirmation
+                confirmBtn.onclick = function() {
+                    if (selectedFinalProduct) {
+                        // Show confirmation dialog
+                        showFinalConfirmation(selectedFinalProduct);
+                    }
+                };
+            }
+        }
+
+        // Update the showFinalConfirmation function in market.blade.php
+        function showFinalConfirmation(productName) {
+            const finalSelectionModal = document.getElementById('final-selection-modal');
+
+            finalSelectionModal.innerHTML = `
+                <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Confirm Your Choice') }}</h3>
+                    <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                        <img src="${getProductImagePath(productName)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${productName}">
+                        <p class="font-medium capitalize">${productName}</p>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        {{ __('Are you sure you want to select this product as your final choice?') }}<br>
+                        <span class="text-sm text-yellow-600">{{ __('This action cannot be undone.') }}</span>
+                    </p>
+                    <div class="flex space-x-3">
+                        <button onclick="showFinalSelectionModal()" class="flex-1 bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            {{ __('Back') }}
+                        </button>
+                        <button onclick="selectFinalProduct('${productName}')" class="flex-1 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                            {{ __('Submit') }}
+                        </button>
+                    </div>
+                </div>
+            `;
         }
 
         function getProductImagePath(productName) {
@@ -394,11 +488,11 @@
             // Show loading state
             const finalSelectionModal = document.getElementById('final-selection-modal');
             finalSelectionModal.innerHTML = `
-            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
-                <div class="animate-spin w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-                <p class="text-gray-600">{{ __('Saving your selection...') }}</p>
-            </div>
-        `;
+                <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                    <div class="animate-spin w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+                    <p class="text-gray-600">{{ __('Saving your selection...') }}</p>
+                </div>
+            `;
 
             // Send selection to server
             fetch('{{ route('final.product.store') }}', {
@@ -411,7 +505,12 @@
                         product_name: productName
                     })
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         finalProductSelected = true;
@@ -419,23 +518,23 @@
 
                         // Update modal to show success and redirect
                         finalSelectionModal.innerHTML = `
-                    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Thank You!') }}</h3>
-                        <p class="text-gray-600 mb-6">
-                            {{ __('Your final product choice has been recorded. Redirecting to post-test in') }}
-                            <span id="final-countdown" class="font-bold text-blue-600">5</span>
-                            {{ __('seconds...') }}
-                        </p>
-                        <button onclick="redirectToPostTest()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            {{ __('Continue Now') }}
-                        </button>
-                    </div>
-                `;
+                            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Thank You!') }}</h3>
+                                <p class="text-gray-600 mb-6">
+                                    {{ __('Your final product choice has been recorded. Redirecting to post-test in') }}
+                                    <span id="final-countdown" class="font-bold text-blue-600">5</span>
+                                    {{ __('seconds...') }}
+                                </p>
+                                <button onclick="redirectToPostTest()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    {{ __('Continue Now') }}
+                                </button>
+                            </div>
+                        `;
 
                         // Start countdown
                         let countdown = 5;
@@ -451,14 +550,31 @@
                             }
                         }, 1000);
                     } else {
-                        alert(data.message || '{{ __('Error saving your selection') }}');
-                        showFinalSelectionModal(); // Show modal again with options
+                        // Show error from server
+                        throw new Error(data.message || 'Unknown error occurred');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('{{ __('Error saving your selection. Please try again.') }}');
-                    showFinalSelectionModal();
+
+                    // Show error in modal
+                    finalSelectionModal.innerHTML = `
+                        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 text-center">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ __('Error') }}</h3>
+                            <p class="text-gray-600 mb-6">
+                                {{ __('Could not save your selection. Please try again.') }}<br>
+                                <span class="text-sm text-red-500">${error.message}</span>
+                            </p>
+                            <button onclick="showFinalSelectionModal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                {{ __('Try Again') }}
+                            </button>
+                        </div>
+                    `;
                 });
         }
 
@@ -484,8 +600,9 @@
             updateProductCards();
             updateProgressBar();
 
-            // Check if all products are rated and final product not selected yet
-            if (ratedProducts.length >= 4 && !finalProductSelected) {
+            // Check if all products are rated (adjust for 2 products)
+            const totalProducts = {{ count($products) }};
+            if (ratedProducts.length >= totalProducts && !finalProductSelected) {
                 setTimeout(() => {
                     showFinalSelectionModal();
                 }, 1000);

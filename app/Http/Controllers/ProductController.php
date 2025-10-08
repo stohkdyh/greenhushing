@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductRating;
-use App\Models\FinalProductChoice;
+use App\Models\Respondent;
 
 class ProductController extends Controller
 {
@@ -23,24 +23,35 @@ class ProductController extends Controller
             ], 403);
         }
 
-        // Make sure all products are rated before allowing final selection
-        $ratedCount = ProductRating::where('respondent_id', $respondentId)->count();
-        if ($ratedCount < 4) {
+        // Get the products that should be shown for this user
+        $productsToShow = session('products_to_show', ['onephone', 'neuphone', 'xarelphone', 'zenophone']);
+        
+        // Count how many of the displayed products have been rated
+        $ratedCount = ProductRating::where('respondent_id', $respondentId)
+            ->whereIn('product_name', $productsToShow)
+            ->count();
+        
+        // Make sure all displayed products are rated before allowing final selection
+        if ($ratedCount < count($productsToShow)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Please rate all products first.'
+                'message' => 'Please rate all displayed products first.'
             ], 400);
         }
 
-        // Store final product choice
-        $finalChoice = FinalProductChoice::updateOrCreate(
-            [
-                'respondent_id' => $respondentId
-            ],
-            [
-                'product_name' => $validated['product_name'],
-            ]
-        );
+        // Find respondent and update final_product
+        $respondent = Respondent::find($respondentId);
+        
+        if (!$respondent) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Respondent not found.'
+            ], 404);
+        }
+        
+        // Update the final product choice
+        $respondent->final_product = $validated['product_name'];
+        $respondent->save();
 
         return response()->json([
             'success' => true,
@@ -60,11 +71,18 @@ class ProductController extends Controller
             ], 403);
         }
 
-        $finalChoice = FinalProductChoice::where('respondent_id', $respondentId)->first();
+        $respondent = Respondent::find($respondentId);
+        
+        if (!$respondent) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Respondent not found.'
+            ], 404);
+        }
 
         return response()->json([
             'success' => true,
-            'final_product' => $finalChoice ? $finalChoice->product_name : null
+            'final_product' => $respondent->final_product
         ]);
     }
 }

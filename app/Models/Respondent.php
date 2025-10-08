@@ -11,7 +11,12 @@ class Respondent extends Model
         'age',
         'gender',
         'country',
+        'GPA',
+        'work_experience',
         'last_education',
+        'product_type',
+        'time_completion',
+        'final_product',
     ];
 }
 

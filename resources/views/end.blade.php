@@ -10,10 +10,11 @@
 </head>
 
 <body class="min-h-screen flex flex-col items-center bg-center bg-repeat bg-contain text-[#1b1b18] px-4"
-      style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');">
+    style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');">
 
     <!-- Logo Header -->
-    <div class="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2
+    <div
+        class="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-2
                 bg-white bg-opacity-40 backdrop-blur-md rounded-full shadow-lg border border-white logo-header">
         <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-10 h-10 sm:w-14 sm:h-14">
         <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-10 h-10 sm:w-14 sm:h-14">
@@ -26,17 +27,18 @@
                bg-white bg-opacity-30 rounded-lg shadow-md backdrop-blur-md transition-all duration-300 z-50 no-print" />
 
     <!-- Main Content -->
-    <div class="container mx-auto max-w-4xl my-24 sm:my-32 md:my-36
+    <div
+        class="container mx-auto max-w-4xl my-24 sm:my-32 md:my-36
                 bg-white bg-opacity-70 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-2xl
                 px-6 sm:px-10 md:px-14 py-10 sm:py-14">
         <div class="flex flex-col items-center text-center">
 
             <!-- Success Icon -->
             <div class="mb-8 sm:mb-10">
-                <div class="w-20 h-20 md:w-24 md:h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         class="h-10 w-10 md:h-12 md:w-12 text-white"
-                         fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <div
+                    class="w-20 h-20 md:w-24 md:h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 md:h-12 md:w-12 text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
@@ -65,10 +67,14 @@
             <div class="w-full max-w-md sm:max-w-[500px] bg-white bg-opacity-60 rounded-xl p-6 mb-8 text-left">
                 <h3 class="text-lg font-semibold text-gray-800 mb-4">{{ __('Completion Summary') }}</h3>
                 <div class="space-y-2 text-sm text-gray-700">
-                    <div class="flex justify-between"><span>{{ __('Profile Setup:') }}</span><span class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
-                    <div class="flex justify-between"><span>{{ __('Pre-test:') }}</span><span class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
-                    <div class="flex justify-between"><span>{{ __('Market Exploration:') }}</span><span class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
-                    <div class="flex justify-between"><span>{{ __('Post-test:') }}</span><span class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
+                    <div class="flex justify-between"><span>{{ __('Profile Setup:') }}</span><span
+                            class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
+                    <div class="flex justify-between"><span>{{ __('Pre-test:') }}</span><span
+                            class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
+                    <div class="flex justify-between"><span>{{ __('Market Exploration:') }}</span><span
+                            class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
+                    <div class="flex justify-between"><span>{{ __('Post-test:') }}</span><span
+                            class="text-green-600 font-semibold">✓ {{ __('Complete') }}</span></div>
                 </div>
             </div>
 
@@ -87,12 +93,8 @@
 
             <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 w-full max-w-md no-print">
-                <button onclick="window.print()"
-                    class="px-6 py-3 bg-blue-800 text-white rounded-full hover:bg-blue-600 transition-colors shadow-lg text-base">
-                    {{ __('Print Certificate') }}
-                </button>
-                <a href="{{ route('welcome') }}"
-                    class="px-6 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition-colors shadow-lg text-center text-base">
+                <a href="{{ route('session.reset') }}"
+                    class="px-6 py-3 bg-blue-800 text-white rounded-full hover:bg-gray-700 transition-colors shadow-lg text-center text-base">
                     {{ __('Start New Survey') }}
                 </a>
             </div>
@@ -101,7 +103,7 @@
             @if (session('respondent_id'))
                 <div class="mt-6 p-3 bg-gray-100 bg-opacity-80 rounded-lg">
                     <p class="text-xs text-gray-600">
-                        {{ __('Participant ID:') }} 
+                        {{ __('Participant ID:') }}
                         <span class="font-mono font-semibold">{{ session('respondent_id') }}</span>
                     </p>
                 </div>
@@ -112,81 +114,21 @@
 
     <!-- Animations & Print Styles -->
     <style>
-        @keyframes float { 
-            0%, 100% { transform: translateY(0); } 
-            50% { transform: translateY(-10px); } 
-        }
-        .animate-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
 
-        @media print {
-            @page {
-                size: A4 portrait;
-                margin: 15mm; /* lebih kecil dari 20mm biar muat */
+            0%,
+            100% {
+                transform: translateY(0);
             }
 
-            body {
-                background: white !important;
-            }
-
-            .no-print { 
-                display: none !important; 
-            }
-
-            /* Atur container supaya pas 1 halaman */
-            .container {
-                box-shadow: none !important;
-                background: white !important;
-                margin: 0 auto !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 10mm !important;
-                display: block !important;
-                min-height: auto !important;
-                page-break-after: avoid !important;
-                page-break-before: avoid !important;
-            }
-
-            /* Perkecil font biar muat */
-            .container, .container * {
-                font-size: 100% !important;
-                line-height: 1.3 !important;
-            }
-
-            /* Perkecil success icon */
-            .bg-green-500 {
-                width: 60px !important;
-                height: 60px !important;
-            }
-            .bg-green-500 svg {
-                width: 30px !important;
-                height: 30px !important;
-            }
-
-            /* Perkecil logo di header */
-            .logo-header img {
-                width: 40px !important;
-                height: 40px !important;
-            }
-
-            /* Hilangkan animasi di print */
-            .animate-float, .animate-pulse {
-                animation: none !important;
-            }
-
-            /* Biar gak kepotong halaman */
-            .completion-summary,
-            .contact-info {
-                page-break-inside: avoid !important;
-            }
-
-            /* Border sertifikat opsional */
-            .certificate-border {
-                border: 4px solid #1b1b18;
-                padding: 20px;
-                border-radius: 6px;
+            50% {
+                transform: translateY(-10px);
             }
         }
 
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
     </style>
 
     <script>
@@ -202,10 +144,17 @@
             }, 10000);
 
             if (typeof confetti !== 'undefined') {
-                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: {
+                        y: 0.6
+                    }
+                });
             }
         });
     </script>
 
 </body>
+
 </html>

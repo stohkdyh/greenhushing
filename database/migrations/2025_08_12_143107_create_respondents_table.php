@@ -17,6 +17,14 @@ return new class extends Migration
             $table->integer('age');
             $table->enum('gender', ['Male', 'Female']);
             $table->enum('country', ['IDN', 'JPN']);
+            $table->float('GPA');
+            $table->enum('work_experience', [
+                'none',
+                '<1_year',
+                '1-2_years',
+                '2-3_years',
+                '>3_years'
+            ]);
             $table->enum('last_education', [
                 'senior_high',
                 'diploma',
@@ -24,6 +32,9 @@ return new class extends Migration
                 'master',
                 'doctoral'
             ]);
+            $table->enum('product_type', ['Greenwashing', 'Greenhushing'])->nullable();
+            $table->string('final_product')->nullable();
+            $table->time('time_completion')->nullable();
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\PreTestController;
 use App\Http\Controllers\PostTestController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductTypeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +32,7 @@ Route::post('/post-test', [PostTestController::class, 'store'])->name('posttest.
 // Route::get('/market', fn() => view('market'))->name('market');
 Route::get('/market', function () {
     $allProducts = [
-        [
+        'onephone' => [
             'name' => 'Onephone',
             'image' => 'market_one_edited.png',
             'price' => 252,
@@ -39,7 +40,7 @@ Route::get('/market', function () {
             'features' => 2,
             'sold' => '2,5',
         ],
-        [
+        'neuphone' => [
             'name' => 'Neuphone',
             'image' => 'market_neu.png',
             'price' => 252,
@@ -47,7 +48,7 @@ Route::get('/market', function () {
             'features' => 2,
             'sold' => '2,5',
         ],
-        [
+        'xarelphone' => [
             'name' => 'Xarelphone',
             'image' => 'market_xarel.png',
             'price' => 252,
@@ -55,7 +56,7 @@ Route::get('/market', function () {
             'features' => 2,
             'sold' => '2,5',
         ],
-        [
+        'zenophone' => [
             'name' => 'Zenophone',
             'image' => 'market_zeno.png',
             'price' => 252,
@@ -65,10 +66,28 @@ Route::get('/market', function () {
         ],
     ];
 
-    // Shuffle the products array to randomize order
-    $products = collect($allProducts)->shuffle()->toArray();
+    // Get products to show from session, or use default if not set
+    $productsToShow = session('products_to_show', null);
     
-    return view('market', compact('products'));
+    // If productsToShow is set, filter the products
+    if ($productsToShow) {
+        $filteredProducts = [];
+        foreach ($productsToShow as $productKey) {
+            if (isset($allProducts[$productKey])) {
+                $filteredProducts[$productKey] = $allProducts[$productKey];
+            }
+        }
+        $products = collect($filteredProducts)->values()->shuffle()->toArray();
+    } else {
+        // Fallback to showing all products or redirecting if no products are set
+        return redirect()->route('product.type.show')
+            ->with('error', 'Please select your access code first.');
+    }
+    
+    // Add product_type to view data
+    $productType = session('product_type', 'Unknown');
+    
+    return view('market', compact('products', 'productType'));
 })->name('market');
 
 Route::get('/end', fn() => view('end'))->name('end');
@@ -116,5 +135,8 @@ Route::get('/reset', function () {
 // Add this route
 Route::get('/product/has-rated', [ProductRatingController::class, 'hasRated'])
     ->name('product.has.rated');
+
+Route::get('/product-type', [ProductTypeController::class, 'show'])->name('product.type.show');
+Route::post('/product-type', [ProductTypeController::class, 'store'])->name('product.type.store');
 
 require __DIR__.'/auth.php';

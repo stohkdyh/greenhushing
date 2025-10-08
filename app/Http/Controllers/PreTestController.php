@@ -119,7 +119,7 @@ class PreTestController extends Controller
         // Store completion in session
         session(['pretest_completed' => true]);
 
-        return redirect()->route('market')->with('success', __('Pre-test completed successfully!'));
+        return redirect()->route('product.type.show', ['id' => $respondentId]);
     }
 
     public function show()
