@@ -2,7 +2,7 @@
     <!-- Background -->
     <div class="absolute inset-0 z-0">
         <div class="w-full h-[700px] md:h-full bg-cover bg-center bg-no-repeat"
-             style="background-image: url('{{ asset('images/bg_zenqophone.png') }}')"></div>
+             style="background-image: url('{{ asset('images/bg_zenqophone.webp') }}')"></div>
     </div>
 
     <!-- Wrapper -->
@@ -10,7 +10,7 @@
         <div class="relative w-[90%] sm:w-[85%] md:w-[800px] lg:w-[1000px] min-h-[700px] mx-auto">
             
             <!-- Gambar Phone -->
-            <img src="{{ asset('images/zenqo_mockup.png') }}"
+            <img src="{{ asset('images/zenqo_mockup.webp') }}"
                 alt="Zenqophone Mockup"
                 class="absolute 
                        top-[320px] sm:top-[380px] md:top-[320px] lg:top-[220px]

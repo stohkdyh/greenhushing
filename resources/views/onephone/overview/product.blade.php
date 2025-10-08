@@ -1,5 +1,5 @@
 <x-product-card
-    image="images/onephone.png"
+    image="images/onephone.webp"
     title="Onephone One"
     rating="4.73"
     headline-top="{{ __('Circular by Design') }}"

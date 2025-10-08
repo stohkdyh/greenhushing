@@ -8,7 +8,7 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         @foreach ([
-            ['images/onephone_card.png', __('Carbon Neutral Expansion'), __('We`ve expanded our lineup of carbon-neutral products to include Onephone one series.'), true],
+            ['images/onephone_card.webp', __('Carbon Neutral Expansion'), __('We`ve expanded our lineup of carbon-neutral products to include Onephone one series.'), true],
             ['images/onephone_card1.png', __('60% Emissions Reduction'), __('Over 60% reduction in CO₂e emissions across our carbon footprint since 2015.'), true],
             ['images/onephone_card2.png', __('21.8M Tons of CO₂e Avoided'), __('21.8 million metric tons of CO₂e emissions avoided through our Supplier Clean Energy Program in 2024.'), true],
             ['images/onephone_card3.png', __('Sustainable Materials'), __('24% of materials shipped in our products came from recycled or renewable sources in 2024.'), 'scale-110', true],

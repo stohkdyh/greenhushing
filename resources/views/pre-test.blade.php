@@ -11,14 +11,13 @@
 
 <body class="bg-white min-h-screen flex flex-col">
 
+    <!-- Header -->
     <header
         class="bg-white/50 flex fixed top-0 left-0 right-0 justify-between items-center px-4 sm:px-8 lg:px-14 py-2 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
-        <!-- Kiri: Hamburger + Title -->
         <div class="flex items-center gap-4 sm:gap-8">
             <h1 class="font-bold text-lg sm:text-xl">Pre-Test</h1>
         </div>
 
-        <!-- Kanan -->
         <div class="flex items-center gap-3 sm:gap-4">
             <x-languange-switch class="h-full px-0" />
             <div class="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-1 rounded-full">
@@ -30,7 +29,7 @@
 
     <!-- Alerts -->
     @if (session('error') || session('success'))
-        <div class="w-11/12 md:w-4/5  mx-auto mt-[100px] mb-4">
+        <div class="w-11/12 md:w-4/5 mx-auto mt-[100px] mb-4">
             <div
                 class="px-3 sm:px-4 py-2 sm:py-3 rounded border text-sm sm:text-base
                 {{ session('error') ? 'bg-red-50 border-red-200 text-red-700' : 'bg-green-50 border-green-200 text-green-700' }}">
@@ -56,20 +55,23 @@
         <form id="pretest-form" action="{{ route('pretest.store') }}" method="POST">
             @csrf
             @foreach ($questions as $key => $text)
-                <div class="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
+                <div class="relative bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
                     data-question="{{ $key }}">
-                    <p class="-mt-3">
+
+                    <!-- Judul pertanyaan -->
+                    <div class="-mt-3 mb-2 flex items-center gap-1">
                         <span class="text-sm sm:text-base font-semibold text-gray-700">
                             {{ __('Question') }} {{ $loop->iteration }}
                         </span>
-                        <span class="text-xs sm:text-sm text-gray-500">({{ __('required') }})</span>
-                        <hr>
-                    </p>
+                    </div>
+                    <hr class="mb-2">
+
+                    <!-- Teks pertanyaan (bintang di akhir teks) -->
                     <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
-                        {{-- {{ __('Question') }} {{ $loop->iteration }}: --}}
-                        {{ $text }}
+                        {{ $text }} <span class="text-red-500">*</span>
                     </p>
 
+                    <!-- Skala jawaban -->
                     <div class="flex items-center justify-between gap-2 sm:gap-4">
                         <span class="text-xxs md:text-sm text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Disagree') }}
@@ -99,7 +101,6 @@
                     </div>
                 </div>
             @endforeach
-
         </form>
     </main>
 
@@ -115,8 +116,7 @@
         </button>
     </div>
 
-
-
+    <!-- Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const totalQuestions = document.querySelectorAll('.question-card').length;
@@ -125,36 +125,19 @@
             const submitBtn = document.getElementById('submit-btn');
             const questionRadios = document.querySelectorAll('.question-radio');
             const form = document.getElementById('pretest-form');
-
             let answeredQuestions = new Set();
 
-            // Function to update progress
             function updateProgress() {
                 const answeredCount = answeredQuestions.size;
                 const progressPercentage = (answeredCount / totalQuestions) * 100;
 
-                // Update progress bar
                 progressBar.style.width = progressPercentage + '%';
-
-                // Update progress text
                 progressText.textContent = `${answeredCount}/${totalQuestions} {{ __('answered') }}`;
 
-                // Enable/disable submit button
-                if (answeredCount === totalQuestions) {
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.add('hover:bg-green-600');
-                } else {
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('disabled:bg-gray-400', 'disabled:cursor-not-allowed');
-                    submitBtn.classList.remove('hover:bg-green-600');
-                }
-
-                // Add visual feedback for completed questions
+                submitBtn.disabled = answeredCount !== totalQuestions;
                 updateQuestionCards();
             }
 
-            // Function to update question card appearance
             function updateQuestionCards() {
                 document.querySelectorAll('.question-card').forEach(card => {
                     const qKey = card.dataset.question;
@@ -168,39 +151,27 @@
                 });
             }
 
-            // Add event listeners to all radio buttons
             questionRadios.forEach(radio => {
                 radio.addEventListener('change', function() {
-                    const qKey = this.dataset.question; // gunakan string key
-                    if (this.checked) {
-                        answeredQuestions.add(qKey);
-                    }
+                    const qKey = this.dataset.question;
+                    if (this.checked) answeredQuestions.add(qKey);
                     updateProgress();
                 });
             });
 
-            // Handle form submission
             submitBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-
                 if (answeredQuestions.size === totalQuestions) {
-                    // Show loading state
                     submitBtn.disabled = true;
                     submitBtn.textContent = '{{ __('Submitting...') }}';
-
-                    // Submit the form
                     form.submit();
                 } else {
                     alert('{{ __('Please answer all questions before submitting.') }}');
                 }
             });
 
-            // Initialize progress
             updateProgress();
         });
     </script>
-
-
 </body>
-
 </html>

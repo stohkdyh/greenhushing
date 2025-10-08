@@ -5,7 +5,7 @@
     bg="#ffffff"
     titleColor="#1C4F2B"
     highlightColor="#AACC8D"
-    image="images/feature3.png"
+    image="images/feature3.webp"
     imageWidth="w-[320px] sm:w-[380px] md:w-[300px] lg:w-[400px]"
     imageBg="#EEF5E8"
     icon="recycle"
