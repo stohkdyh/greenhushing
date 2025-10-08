@@ -578,12 +578,33 @@
     "No" : "Tidak",
     "Next" : "Selanjutnya",
     "Finish" : "Selesai",
-    "Permission": "Website ini dirancang sebagai instrumen sekaligus media eksperimen untuk mendukung proses penelitian. Dengan berpartisipasi dalam penelitian ini, Anda menyetujui untuk memberikan data pribadi Anda secara sukarela. Informasi Anda hanya akan digunakan untuk tujuan penelitian dan dijaga kerahasiaannya. Klik lanjut untuk melanjutkan.",
-    
-    "Respondent Consent" : "Persetujuan Responden",
+    "Permission": "\nKami dari Tim Riset Kolaborasi Universitas Negeri Yogyakarta, Indonesia, dan UNBC Business School, Jepang, sedang melaksanakan penelitian yang bertujuan untuk menganalisis faktor-faktor yang memengaruhi keputusan pembelian produk. Penelitian ini dilakukan melalui eksperimen berbasis website.\n\nSeluruh informasi yang Anda berikan akan dijaga kerahasiaannya. Data pribadi Anda tidak akan dibagikan kepada pihak mana pun, dan tidak ada informasi yang dapat mengidentifikasi Anda secara langsung yang akan dipublikasikan.\n\nPartisipasi Anda bersifat sukarela. Anda berhak untuk menghentikan partisipasi kapan pun tanpa konsekuensi apa pun.\n\nDengan menekan tombol “Saya Setuju” di bawah ini, Anda menyatakan bahwa Anda telah membaca dan memahami informasi di atas serta bersedia berpartisipasi dalam penelitian ini.\n\nTerima kasih atas kesediaan dan partisipasi Anda.\n\nHormat kami,\nTim Riset UNY – UNBC Business School",
+    "I Agree" : "Saya Setuju",
+
+    "Participant Consent Form" : "Lembar Persetujuan Partisipasi",
     "You have rated all products. Now please select one final product you would like to purchase." : "Anda telah menilai semua produk. Sekarang silakan pilih satu produk terakhir yang ingin Anda beli.",
     "Your final product choice has been recorded. Redirecting to post-test in" : "Pilihan produk akhir Anda telah tercatat. Mengarahkan ke post-test.",
     "View Product Details" : "Lihat Detail Product",
     "This choice will complete your product selection process." : "Dengan pilihan ini, proses pemilihan produk Anda selesai.",
-    "Continue Now" : "Lanjutkan sekarang"
+    "Continue Now" : "Lanjutkan sekarang",
+
+    "GPA" : "IPK",
+    "Work Experience" : "Pengalaman Kerja",
+
+    "Enter Access Code" : "Masukkan Kode Akses",
+    "Please enter the access code provided to you by the researcher." : "Silakan masukkan kode akses yang diberikan kepada Anda oleh peneliti.",
+    "Enter Code" : "Masukkan Kode",
+    "Invalid access code. Please try again or contact the researcher." : "Kode akses tidak valid. Silakan coba lagi atau hubungi peneliti.",
+
+    "All Products Rated" : "Semua Produk Telah Dinilai",
+    "You have rated all products. Now please select one final product you would like to purchase" : "Anda telah menilai semua produk. Sekarang silakan pilih satu produk terakhir yang ingin Anda beli",
+    "view product details" : "lihat detail produk",
+    "Confirm Selection" : "Konfirmasi Pilihan",
+    "This choice will complete your product selection process." : "Dengan pilihan ini, proses pemilihan produk Anda selesai.",
+    "Confirm Your Choice" : "Konfirmasi Pilihan Anda",
+    "Are you sure you want to select this product as your final choice?" : "Apakah Anda yakin ingin memilih produk ini sebagai pilihan akhir Anda?",
+    "This action cannot be undone." : "Tindakan ini tidak dapat dibatalkan.",
+    "Back" : "Kembali"
+    
+
 }

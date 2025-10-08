@@ -41,19 +41,20 @@
                 </svg>
             </div>
 
-            <h2 class="text-2xl font-bold mb-4">{{ __('Welcome') }}</h2>
-            <p class="text-gray-700 text-base sm:text-lg/ mb-6">
-                {{ __('Permission') }}
+            <h2 class="text-2xl font-bold mb-4">{{ __('Participant Consent Form') }} </h2>
+            <p class="text-gray-700 text-lg/5 mb-6 px-5 text-justify">
+                {!! nl2br(e(__('Permission'))) !!}
             </p>
             <div class="flex justify-center">
                 <button id="btnContinue"
                     class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-colors flex items-center gap-2">
                     <!-- Icon di button -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    {{ __('Next') }}
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5l7 7-7 7" />
+                    </svg> -->
+                    {{ __('I Agree') }}
                 </button>
             </div>
         </div>

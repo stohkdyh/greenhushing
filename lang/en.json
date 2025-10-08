@@ -561,10 +561,32 @@
     "No" : "No",
     "Next" : "Next",
     "Finish" : "Finish",
-    "Permission" : "This website is designed as both an instrument and an experimental medium to support the research process. By participating in this research, you agree to provide your personal data voluntarily. Your information will only be used for research purposes and kept confidential. Click continue to proceed.",
+    
+    "Participant Consent Form (Informed Consent)" : "Participant Consent Form",
+    "Permission" : "\nWe are the Collaborative Research Team from Universitas Negeri Yogyakarta, Indonesia, and the UNBC Business School, Japan, conducting a study aimed at analyzing the factors influencing product purchase decisions. This research is conducted through a website-based experiment.\n\nAll information you provide will be kept strictly confidential. Your personal data will not be shared with any third party, and no information that could directly identify you will be published.\n\nYour participation is voluntary. You have the right to withdraw at any time without any consequences.\n\nBy clicking the “I Agree” button below, you indicate that you have read and understood the information above and agree to participate in this study.\n\nThank you for your willingness and participation.\n\nSincerely,\nUNY – UNBC Business School Research Team",
     "You have rated all products. Now please select one final product you would like to purchase." : "You have rated all products. Now please select one final product you would like to purchase",
     "Your final product choice has been recorded. Redirecting to post-test in" : "Your final product choice has been recorded. Redirecting to post-test in",
     "View Product Details" : "View Product Details",
     "This choice will complete your product selection process." : "This choice will complete your product selection process.",
-    "Continue Now" : "Continue Now"
+    "Continue Now" : "Continue Now",
+
+    "GPA" : "GPA",
+    "Work Experience" : "Work Experience",
+    "No Experience" : "No Experience",
+
+    "Enter Access Code" : "Enter Access Code",
+    "Please enter the access code provided by the researcher." : "Please enter the access code provided by the researcher.",
+    "Enter Code" : "Enter Code",
+    "Invalid access code. Please try again or contact the researcher." : "Invalid access code. Please try again or contact the researcher.",
+
+    "All Products Rated!" : "All Products Rated!",
+    "You have rated all products. Now please select one final product you would like to purchase" : "You have rated all products. Now please select one final product you would like to purchase",
+    "View Product Details" : "View Product Details",
+    "Confirm Selection" : "Confirm Selection",
+    "This choice will complete your product selection process." : "This choice will complete your product selection process.",
+    "Confirm Your Choice" : "Confirm Your Choice",
+    "Are you sure you want to select this product as your final choice?" : "Are you sure you want to select this product as your final choice?",
+    "This action cannot be undone." : "This action cannot be undone.",
+    "Back" : "Back"
+
 }
