@@ -68,9 +68,6 @@
             @foreach ($questions as $key => $text)
                 <div class="relative bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
                     data-question="{{ $key }}">
-                    
-                    <!-- Tanda * di kanan atas -->
-                    <span class="absolute top-3 right-4 text-red-500 text-lg font-bold">*</span>
 
                     <div class="-mt-3 mb-2 flex items-center gap-1">
                         <span class="text-sm sm:text-base font-semibold text-gray-700">
@@ -79,10 +76,12 @@
                     </div>
                     <hr class="mb-2">
 
+                    <!-- Teks pertanyaan dengan bintang di akhir -->
                     <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
-                        {{ $text }}
+                        {{ $text }} <span class="text-red-500">*</span>
                     </p>
 
+                    <!-- Skala jawaban -->
                     <div class="flex items-center justify-between gap-2 sm:gap-4">
                         <span class="text-[10px] sm:text-xs text-gray-500 text-center w-12 sm:w-16 leading-tight">
                             {{ __('Strongly') }}<br>{{ __('Disagree') }}
@@ -129,6 +128,7 @@
         </button>
     </div>
 
+    <!-- Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const totalQuestions = {{ count($questions) }};
@@ -139,6 +139,7 @@
             const form = document.getElementById('posttest-form');
             let answeredQuestions = new Set();
 
+            // Cek jika ada radio yang sudah tercentang (misalnya reload halaman)
             questionRadios.forEach(radio => {
                 if (radio.checked) answeredQuestions.add(radio.dataset.question);
             });
@@ -176,7 +177,8 @@
                 e.preventDefault();
                 if (answeredQuestions.size === totalQuestions) {
                     submitBtn.disabled = true;
-                    submitBtn.innerHTML = '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
+                    submitBtn.innerHTML =
+                        '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
                     form.submit();
                 } else {
                     alert('{{ __('Please answer all questions before submitting.') }}');

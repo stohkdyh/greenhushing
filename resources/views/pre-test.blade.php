@@ -57,9 +57,6 @@
             @foreach ($questions as $key => $text)
                 <div class="relative bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-gray-200"
                     data-question="{{ $key }}">
-                    
-                    <!-- Bintang merah kanan atas -->
-                    <span class="absolute top-3 right-4 text-red-500 text-base">*</span>
 
                     <!-- Judul pertanyaan -->
                     <div class="-mt-3 mb-2 flex items-center gap-1">
@@ -69,9 +66,9 @@
                     </div>
                     <hr class="mb-2">
 
-                    <!-- Teks pertanyaan -->
+                    <!-- Teks pertanyaan (bintang di akhir teks) -->
                     <p class="mt-2 mb-3 sm:mb-4 text-justify text-sm md:text-base font-medium">
-                        {{ $text }}
+                        {{ $text }} <span class="text-red-500">*</span>
                     </p>
 
                     <!-- Skala jawaban -->
