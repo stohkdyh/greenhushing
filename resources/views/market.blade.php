@@ -44,28 +44,6 @@
             </div>
         </div>
         
-        <!-- Market Gate Modal -->
-        <div id="market-gate-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-12 text-center">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">{{ __('Logo Stimulus Information') }}</h2><br>
-                <p class="text-gray-600 mb-6 text-justify">
-                    {{ __('In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.')}}
-                </p>
-                <div class="flex justify-center items-center gap-10 mb-5">
-                    <div class="flex flex-col items-center">
-                        <img src="{{ asset('images/logo_palsu.png') }}" alt="Logo A" class="w-32 h-32 object-contain mb-2">
-                        <span class="font-semibold">{!! nl2br(e(__('Authentic logo Logo A'))) !!}</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="{{ asset('images/logoclaimzeno.png') }}" alt="Logo B" class="w-32 h-32 object-contain mb-2">
-                        <span class="font-semibold">{!! nl2br(e(__('Non-authentic logo Logo B'))) !!}</span>
-                    </div>
-                </div>
-                <button onclick="closeMarketGateModal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 mt-6 transition-colors">
-                    {{ __('I Understand')}}
-                </button>
-            </div>
-        </div>
 
         <main>
             <!-- Mobile/Tablet Layout -->

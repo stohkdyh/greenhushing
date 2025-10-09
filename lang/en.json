@@ -575,6 +575,10 @@
     "GPA" : "GPA",
     "Work Experience" : "Work Experience",
     "No Experience" : "No Experience",
+    "Less than 6 months" : "Less than 6 months",
+    "6-12 months" : "6-12 months",
+    "1-2 years" : "1-2 years",
+    "More than 2 years" : "More than 2 years",
 
     "Enter Access Code" : "Enter Access Code",
     "Please enter the access code provided by the researcher." : "Please enter the access code provided by the researcher.",
@@ -592,5 +596,8 @@
     "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.",
     "Authentic logo Logo A" : "Authentic logo\nLogo A",
     "Non-authentic logo Logo B" : "Non-authentic logo\nLogo B",
-    "I Understand" : "I Understand"
+    "I Understand" : "I Understand",
+
+    "I have read and understood the instructions" : "I have read and understood the instructions",
+    "Please check the box first." : "Please check the box first."
 }

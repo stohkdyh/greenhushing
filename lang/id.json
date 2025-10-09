@@ -594,6 +594,11 @@
 
     "GPA" : "IPK",
     "Work Experience" : "Pengalaman Kerja",
+    "No Experience" : "Tidak Ada Pengalaman",
+    "Less than 6 months" : "Kurang dari 6 bulan",
+    "6-12 months" : "6-12 bulan",
+    "1-2 years" : "1-2 tahun",
+    "More than 2 years" : "Lebih dari 2 tahun",
 
     "Enter Access Code" : "Masukkan Kode Akses",
     "Please enter the access code provided to you by the researcher." : "Silakan masukkan kode akses yang diberikan kepada Anda oleh peneliti.",
@@ -613,6 +618,9 @@
     "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "Dalam studi ini, Anda akan disajikan dua logo yang berbeda. Satu diklasifikasikan sebagai logo Otentik, sedangkan yang lainnya diidentifikasi sebagai logo Non-otentik. Untuk kejelasan, logo-logo tersebut akan diberi label sebagai Logo A dan Logo B. Mohon periksa kedua logo tersebut dengan cermat sebelum melanjutkan.",
     "Authentic logo Logo A" : "Logo Otentik\nLogo A",
     "Non-authentic logo Logo B" : "Logo Non-otentik\nLogo B",
-    "I Understand" : "Saya Mengerti"
+    "I Understand" : "Saya Mengerti",
+
+    "I have read and understood the instructions" : "Saya telah membaca dan memahami instruksi",
+    "Please check the box first" : "Harap centang kotak terlebih dahulu"
 
 }
