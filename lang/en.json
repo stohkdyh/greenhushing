@@ -581,14 +581,16 @@
     "Enter Code" : "Enter Code",
     "Invalid access code. Please try again or contact the researcher." : "Invalid access code. Please try again or contact the researcher.",
 
-    "All Products Rated!" : "All Products Rated!",
     "You have rated all products. Now please select one final product you would like to purchase" : "You have rated all products. Now please select one final product you would like to purchase",
-    "View Product Details" : "View Product Details",
     "Confirm Selection" : "Confirm Selection",
-    "This choice will complete your product selection process." : "This choice will complete your product selection process.",
     "Confirm Your Choice" : "Confirm Your Choice",
     "Are you sure you want to select this product as your final choice?" : "Are you sure you want to select this product as your final choice?",
     "This action cannot be undone." : "This action cannot be undone.",
-    "Back" : "Back"
+    "Back" : "Back",
 
+    "Logo Stimulus Information" : "Logo Stimulus Information",
+    "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.",
+    "Authentic logo Logo A" : "Authentic logo\nLogo A",
+    "Non-authentic logo Logo B" : "Non-authentic logo\nLogo B",
+    "I Understand" : "I Understand"
 }
