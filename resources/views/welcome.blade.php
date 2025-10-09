@@ -87,7 +87,7 @@
                 </button>
                 <button id="btnNext"
                     class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-all flex items-center gap-2">
-                    {{ __('Next') }}
+                    {{ __('I Agree') }}
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -240,7 +240,7 @@ function showPage(index) {
             }
         });
     } else {
-        btnNext.textContent = '{{ __("Next") }}';
+        btnNext.textContent = '{{ __("I Agree") }}';
         btnNext.onclick = nextPage;
     }
 }

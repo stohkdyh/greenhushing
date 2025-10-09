@@ -564,6 +564,7 @@
     
     "Participant Consent Form (Informed Consent)" : "Participant Consent Form",
     "Permission" : "\nWe are the Collaborative Research Team from Universitas Negeri Yogyakarta, Indonesia, and the UNBC Business School, Japan, conducting a study aimed at analyzing the factors influencing product purchase decisions. This research is conducted through a website-based experiment.\n\nAll information you provide will be kept strictly confidential. Your personal data will not be shared with any third party, and no information that could directly identify you will be published.\n\nYour participation is voluntary. You have the right to withdraw at any time without any consequences.\n\nBy clicking the “I Agree” button below, you indicate that you have read and understood the information above and agree to participate in this study.\n\nThank you for your willingness and participation.\n\nSincerely,\nUNY – UNBC Business School Research Team",
+    "I Agree": "I Agree",
     "InstructionText": "1. Fill in your personal data completely in the provided form.\n2. Complete the Pre-Test by rating each statement on a 1–7 scale (Strongly Disagree – Strongly Agree).\n3. Please enter the product code provided by the research team.\n4. Select one of the available products.\n5. Read and observe the contents of the website for the selected product, paying attention to the description, features, images, and other information.\n6. Once finished, click the News icon at the bottom-right corner to view product-related news.\n7. Read the news about the selected product to gain additional information.\n8. After reading, click the Post-Test icon at the bottom-right corner to complete the Post-Test.\n9. Complete the Post-Test as instructed, evaluating the given questions.\n10. Submit your Post-Test answers, then select another product and repeat steps 4–9 until all products have been analyzed.\n11. After analyzing all products, choose one product from the available options that you are most likely to purchase.",
     "InstructionDesc": "Please follow the steps below carefully before starting. Make sure you understand each instruction to achieve accurate results.",
     "You have rated all products. Now please select one final product you would like to purchase." : "You have rated all products. Now please select one final product you would like to purchase",
@@ -571,6 +572,7 @@
     "View Product Details" : "View Product Details",
     "This choice will complete your product selection process." : "This choice will complete your product selection process.",
     "Continue Now" : "Continue Now",
+    
 
     "GPA" : "GPA",
     "Work Experience" : "Work Experience",
