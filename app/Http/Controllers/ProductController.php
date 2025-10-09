@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostTest;
 use Illuminate\Http\Request;
 use App\Models\ProductRating;
 use App\Models\Respondent;
@@ -27,7 +28,7 @@ class ProductController extends Controller
         $productsToShow = session('products_to_show', ['onephone', 'neuphone', 'xarelphone', 'zenophone']);
         
         // Count how many of the displayed products have been rated
-        $ratedCount = ProductRating::where('respondent_id', $respondentId)
+        $ratedCount = PostTest::where('respondent_id', $respondentId)
             ->whereIn('product_name', $productsToShow)
             ->count();
         

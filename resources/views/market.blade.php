@@ -209,6 +209,26 @@
                     });
                 }
             });
+
+            // Load completed post-tests
+            // fetch('{{ route('posttest.completed') }}')
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         const completedTests = data.completed_post_tests || [];
+
+            //         // Update UI to show which products have completed post-tests
+            //         completedTests.forEach(productName => {
+            //             const productCard = document.querySelector(`[data-product="${productName}"]`);
+            //             if (productCard) {
+            //                 const completedBadge = document.createElement('div');
+            //                 completedBadge.className =
+            //                     'absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full';
+            //                 completedBadge.textContent = '{{ __('Post-Test Complete') }}';
+            //                 productCard.appendChild(completedBadge);
+            //             }
+            //         });
+            //     })
+            //     .catch(error => console.error('Error loading completed post-tests:', error));
         });
 
         function loadRatedProducts() {
@@ -362,16 +382,16 @@
 
                     <div class="grid grid-cols-2 gap-6 mb-6">
                         ${ratedProducts.map(product => `
-                                    <div> 
-                                        <button onclick="preSelectFinalProduct('${product}')" 
-                                            id="product-option-${product}"
-                                            class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200 ${selectedFinalProduct === product ? 'ring-2 ring-purple-500 bg-purple-50' : ''}">
-                                            <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
-                                            <p class="font-medium capitalize">${product}</p>
-                                        </button>
-                                        <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
-                                    </div>
-                                `).join('')}
+                                            <div> 
+                                                <button onclick="preSelectFinalProduct('${product}')" 
+                                                    id="product-option-${product}"
+                                                    class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200 ${selectedFinalProduct === product ? 'ring-2 ring-purple-500 bg-purple-50' : ''}">
+                                                    <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
+                                                    <p class="font-medium capitalize">${product}</p>
+                                                </button>
+                                                <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
+                                            </div>
+                                        `).join('')}
                     </div>
 
                     <div class="mt-6">
@@ -579,7 +599,8 @@
         }
 
         function redirectToPostTest() {
-            window.location.href = '{{ route('posttest.show') }}';
+            // Redirect to end page instead of post-test
+            window.location.href = '{{ route('end') }}';
         }
 
         // Global function to be called when rating is submitted
@@ -608,6 +629,25 @@
                 }, 1000);
             }
         };
+        // Tambahkan kode ini di bagian bawah script pada market.blade.php
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pastikan kita merekam waktu di halaman market
+            if (window.location.pathname === '/market') {
+                const currentTime = new Date().getTime();
+
+                // Log untuk debugging
+                console.log('Market page loaded, setting entry time:', {
+                    current: currentTime,
+                    existing: sessionStorage.getItem('market_entry_time')
+                });
+
+                // Simpan waktu mulai jika belum ada
+                if (!sessionStorage.getItem('market_entry_time')) {
+                    sessionStorage.setItem('market_entry_time', currentTime);
+                    console.log('Market entry time set:', currentTime);
+                }
+            }
+        });
     </script>
 
     </div>

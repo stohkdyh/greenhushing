@@ -9,6 +9,7 @@ use App\Http\Controllers\PostTestController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
+use App\Http\Controllers\TimeTrackingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,8 +26,8 @@ Route::get('/pretest/create', [PreTestController::class, 'create'])->name('prete
 Route::post('/pretest', [PreTestController::class, 'store'])->name('pretest.store');
 
 // Post-test Routes
-Route::get('/post-test', [PostTestController::class, 'show'])->name('posttest.show');
-Route::post('/post-test', [PostTestController::class, 'store'])->name('posttest.store');
+Route::get('/post-test/{productName}', [PostTestController::class, 'show'])->name('posttest.show');
+Route::post('/post-test/{productName}', [PostTestController::class, 'store'])->name('posttest.store');
 
 // Market & End
 // Route::get('/market', fn() => view('market'))->name('market');
@@ -105,6 +106,7 @@ Route::view('/xarelphone-news', 'xarelphone.news');
 Route::view('/neuphone', 'companies.neuphone');
 Route::view('/neuphone-news', 'neuphone.news');
 
+
 // Language switcher
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'id'])) {
@@ -138,5 +140,11 @@ Route::get('/product/has-rated', [ProductRatingController::class, 'hasRated'])
 
 Route::get('/product-type', [ProductTypeController::class, 'show'])->name('product.type.show');
 Route::post('/product-type', [ProductTypeController::class, 'store'])->name('product.type.store');
+
+// Add this to your routes file
+Route::get('/post-test/completed', [PostTestController::class, 'getCompletedPostTests'])->name('posttest.completed');
+Route::post('/track-time', [TimeTrackingController::class, 'storeTime'])
+    ->name('track.time')
+    ->middleware('web');
 
 require __DIR__.'/auth.php';
