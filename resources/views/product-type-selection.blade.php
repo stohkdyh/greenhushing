@@ -17,8 +17,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-50 min-h-screen flex flex-col items-center">
+<body class="bg-gray-300 min-h-screen flex flex-col items-center">
     <main class="container mx-auto px-4 flex-grow flex flex-col items-center justify-center max-w-md">
+        <div
+            class="bg-white rounded-lg px-2 py-1 shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-2 sm:right-10 top-6 sm:top-12">
+            <x-languange-switch />
+        </div>
         <!-- Card -->
         <div class="bg-white rounded-lg shadow-md p-6 w-full">
             <h2 class="text-2xl font-bold text-center mb-1">Enter Access Code</h2>

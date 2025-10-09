@@ -131,10 +131,10 @@
                             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm bg-gray-50 border block w-full p-2 text-gray-500">
                             <option selected disabled>{{ __('Work Experience') }}</option>
                             <option value="none" class="text-black">{{ __('No Experience') }}</option>
-                            <option value="<1_year" class="text-black">{{ __('Less than 1 year') }}</option>
+                            <option value="<6_months" class="text-black">{{ __('Less than 6 months') }}</option>
+                            <option value="6-12_months" class="text-black">{{ __('6-12 months') }}</option>
                             <option value="1-2_years" class="text-black">{{ __('1-2 years') }}</option>
-                            <option value="2-3_years" class="text-black">{{ __('2-3 years') }}</option>
-                            <option value=">3_years" class="text-black">{{ __('More than 3 years') }}</option>
+                            <option value=">2_years" class="text-black">{{ __('More than 2 years') }}</option>
                         </select>
                         <x-input-error :messages="$errors->get('work_experience')" class="mt-2" />
                     </div>

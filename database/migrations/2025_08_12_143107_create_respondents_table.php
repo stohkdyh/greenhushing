@@ -20,10 +20,10 @@ return new class extends Migration
             $table->float('GPA');
             $table->enum('work_experience', [
                 'none',
-                '<1_year',
+                '<6_months',
+                '6-12_months',
                 '1-2_years',
-                '2-3_years',
-                '>3_years'
+                '>2_years'
             ]);
             $table->enum('last_education', [
                 'senior_high',

@@ -22,7 +22,7 @@ class RespondentController extends Controller
             'gender' => 'required|in:Male,Female',
             'country' => 'required|in:IDN,JPN',
             'GPA' => 'required|numeric|between:0,4.0',
-            'work_experience' => 'required|in:none,<1_year,1-2_years,2-3_years,>3_years',
+            'work_experience' => 'required|in:none,<6_months,6-12_months,1-2_years,>2_years',
             'last_education' => 'required|in:senior_high,diploma,bachelor,master,doctoral',
             'product_type' => 'in:Greenwashing,Greenhushing',
             'time_completion' => 'integer|min:1',
