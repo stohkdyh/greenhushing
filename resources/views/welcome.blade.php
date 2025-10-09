@@ -21,46 +21,81 @@
 
     <!-- Language Switch -->
     <div
-        class="bg-white bg-opacity-30 rounded-lg px-2 py-1 shadow-md backdrop-blur-md transition-all duration-300 absolute z-50 right-2 sm:right-10 top-6 sm:top-12">
+        class="fixed right-2 sm:right-10 top-6 sm:top-12 bg-white bg-opacity-30 rounded-lg px-2 py-1 shadow-md z-50">
         <x-languange-switch />
     </div>
 
-    <!-- Modal Consent -->
-    <div id="consentModal"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 pointer-events-none"">
+    <!-- Modal Multi-Page Consent -->
+    <div id="consentModal" class="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
+        <!-- Overlay Gelap + Blur -->
+        <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+        <!-- Konten Modal -->
         <div
-            class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-[90%] sm:w-[70%] md:w-[50%] text-center pointer-events-auto">
+            class="relative bg-white rounded-3xl shadow-2xl w-[90%] sm:w-[70%] md:w-[50%] max-h-[80vh] overflow-hidden pointer-events-auto flex flex-col z-50">
+            <!-- Pages Container -->
+            <div id="modalPages" class="flex-1 overflow-y-auto scroll-smooth px-6 py-4">
 
-            <!-- Icon Consent -->
-            <div class="flex justify-center mb-4">
-                <!-- Contoh pakai Lucide icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-[#303F8E]" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
-                </svg>
+                <!-- Page 1: Welcome -->
+                <div class="modal-page flex flex-col items-center">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-[#303F8E]" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 text-center text-[#303F8E]">{{ __('Welcome') }}</h2>
+                    <p class="text-gray-700 text-center text-base sm:text-lg">{{ __('Permission') }}</p>
+                </div>
+
+                <!-- Page 2: Instruction -->
+                <div class="modal-page hidden flex flex-col">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-[#303F8E]" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M12 6v.01M4 12v.01M20 12v.01M12 20v.01M4 4l16 16" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4 text-center text-[#303F8E]">{{ __('Instruction') }}</h2>
+                    <!-- Deskripsi Singkat -->
+                    <p class="text-gray-700 text-center whitespace-pre-line text-base sm:text-lg">
+                        {{ __('InstructionDesc') }}
+                    </p>
+                    <!-- Instruksi Lengkap -->
+                    <p class="text-gray-700 whitespace-pre-line text-base sm:text-lg mt-4">
+                        {{ __('InstructionText') }}
+                    </p>
+                    <!-- Checkbox Finish -->
+                    <div class="mt-6 flex flex-col" id="checkboxContainer">
+                        <label class="flex items-center gap-3 text-gray-700">
+                            <input type="checkbox" id="instructionCheck" class="w-5 h-5 accent-[#303F8E] rounded">
+                            {{ __('I have read and understood the instructions') }}
+                        </label>
+                        <p id="checkboxWarning" class="text-red-600 text-sm mt-2 hidden">
+                            {{ __("Please check the box to enable Finish.") }}
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <h2 class="text-2xl font-bold mb-4">{{ __('Participant Consent Form') }} </h2>
-            <p class="text-gray-700 text-lg/5 mb-6 px-5 text-justify">
-                {!! nl2br(e(__('Permission'))) !!}
-            </p>
-            <div class="flex justify-center">
-                <button id="btnContinue"
-                    class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-colors flex items-center gap-2">
-                    <!-- Icon di button -->
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 5l7 7-7 7" />
-                    </svg> -->
-                    {{ __('I Agree') }}
+            <!-- Navigation Buttons -->
+            <div class="flex justify-end mt-4 gap-3 px-6 py-4 border-t border-gray-200">
+                <button id="btnPrev"
+                    class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all hidden">
+                    {{ __('Prev') }}
+                </button>
+                <button id="btnNext"
+                    class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-all flex items-center gap-2">
+                    {{ __('Next') }}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                 </button>
             </div>
         </div>
     </div>
-
-
 
     <!-- Form Container -->
     <div
@@ -165,17 +200,67 @@
     </div>
 
     <script>
-        const modal = document.getElementById('consentModal');
-        const formContainer = document.getElementById('formContainer');
-        const btnContinue = document.getElementById('btnContinue');
+    const modal = document.getElementById('consentModal');
+const formContainer = document.getElementById('formContainer');
 
-        // Klik lanjut → tampilkan form
-        btnContinue.addEventListener('click', () => {
+const pages = document.querySelectorAll('.modal-page');
+const btnNext = document.getElementById('btnNext');
+const btnPrev = document.getElementById('btnPrev');
+let currentPage = 0;
+
+function showPage(index) {
+    pages.forEach((page, i) => page.classList.toggle('hidden', i !== index));
+    pages[index].scrollTop = 0;
+    btnPrev.classList.toggle('hidden', index === 0);
+
+    if (index === pages.length - 1) {
+        const checkbox = document.getElementById('instructionCheck');
+        const warning = document.getElementById('checkboxWarning');
+
+        btnNext.textContent = '{{ __("Finish") }}';
+
+        // tombol Finish
+        btnNext.onclick = () => {
+            if (!checkbox.checked) {
+                warning.classList.remove('hidden');
+                warning.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => {
+                    warning.classList.remove('opacity-0');
+                }, 10);
+                return;
+            }
             modal.classList.add('hidden');
             formContainer.classList.remove('hidden');
+        };
+
+        // sembunyikan warning saat dicentang
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                warning.classList.add('hidden');
+            }
         });
+    } else {
+        btnNext.textContent = '{{ __("Next") }}';
+        btnNext.onclick = nextPage;
+    }
+}
+
+function nextPage() {
+    if (currentPage < pages.length - 1) currentPage++;
+    showPage(currentPage);
+}
+
+function prevPage() {
+    if (currentPage > 0) currentPage--;
+    showPage(currentPage);
+}
+
+btnPrev.onclick = prevPage;
+
+// tampilkan halaman pertama saat modal muncul
+showPage(currentPage);
+
     </script>
+
 </body>
-
-
 </html>
