@@ -48,45 +48,19 @@
                     <p class="text-gray-700 text-center text-base sm:text-lg">{{ __('Permission') }}</p>
                 </div>
 
-                <!-- Page 2: Instruction -->
-                <div class="modal-page hidden flex flex-col">
-                    <div class="flex justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-[#303F8E]" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 16h-1v-4h-1m1-4h.01M12 6v.01M4 12v.01M20 12v.01M12 20v.01M4 4l16 16" />
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-4 text-center text-[#303F8E]">{{ __('Instruction') }}</h2>
-                    <!-- Deskripsi Singkat -->
-                    <p class="text-gray-700 text-center whitespace-pre-line text-base sm:text-lg">
-                        {{ __('InstructionDesc') }}
-                    </p>
-                    <!-- Instruksi Lengkap -->
-                    <p class="text-gray-700 whitespace-pre-line text-base sm:text-lg mt-4">
-                        {{ __('InstructionText') }}
-                    </p>
-                    <!-- Checkbox Finish -->
-                    <div class="mt-6 flex flex-col" id="checkboxContainer">
-                        <label class="flex items-center gap-3 text-gray-700">
-                            <input type="checkbox" id="instructionCheck" class="w-5 h-5 accent-[#303F8E] rounded">
-                            {{ __('I have read and understood the instructions') }}
-                        </label>
-                        <p id="checkboxWarning" class="text-red-600 text-sm mt-2 hidden">
-                            {{ __("Please check the box to enable Finish.") }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div class="flex justify-end mt-4 gap-3 px-6 py-4 border-t border-gray-200">
-                <button id="btnPrev"
-                    class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all hidden">
-                    {{ __('Prev') }}
-                </button>
-                <button id="btnNext"
-                    class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-all flex items-center gap-2">
+            <h2 class="text-2xl font-bold mb-4">{{ __('Participant Consent Form') }} </h2>
+            <p class="text-gray-700 text-lg/5 mb-6 px-5 text-justify">
+                {!! nl2br(e(__('Permission'))) !!}
+            </p>
+            <div class="flex justify-center">
+                <button id="btnContinue"
+                    class="px-6 py-2 bg-[#303F8E] text-white rounded-lg hover:bg-[#263272] transition-colors flex items-center gap-2">
+                    <!-- Icon di button -->
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" 
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5l7 7-7 7" />
+                    </svg> -->
                     {{ __('I Agree') }}
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">

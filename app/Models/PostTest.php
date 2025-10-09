@@ -11,9 +11,20 @@ class PostTest extends Model
 
     protected $fillable = [
         'respondent_id',
-        'q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12',
-        'q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q23','q24',
-        'q25','q26','q27','q28','q29','q30','q31'
+        'product_name',
+        'intention_to_buy',
+        'manipulation_answers',
+        'pt_q1', 'pt_q2', 'pt_q3', 'pt_q4', 'pt_q5',
+        'pt_q6', 'pt_q7', 'pt_q8', 'pt_q9', 'pt_q10',
+        'pt_q11', 'pt_q12', 'pt_q13', 'pt_q14', 'pt_q15',
+        'pt_q16', 'pt_q17', 'pt_q18', 'pt_q19', 'pt_q20',
+        'pt_q21', 'pt_q22', 'pt_q23', 'pt_q24', 'pt_q25',
+        'pt_q26', 'pt_q27', 'pt_q28', 'pt_q29', 'pt_q30',
+        'pt_q31'
+    ];
+    
+    protected $casts = [
+        'manipulation_answers' => 'array',
     ];
 
     public function respondent()

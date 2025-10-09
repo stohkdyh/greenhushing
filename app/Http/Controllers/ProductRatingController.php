@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostTest;
 use App\Models\ProductRating;
 use Illuminate\Http\Request;
 
@@ -51,10 +52,10 @@ class ProductRatingController extends Controller
         
         // Check if final product already selected
         $finalProductSelected = false;
-        if (class_exists('App\Models\FinalProductChoice')) {
-            $finalChoice = \App\Models\FinalProductChoice::where('respondent_id', $respondentId)->first();
-            $finalProductSelected = !is_null($finalChoice);
-        }
+        // if (class_exists('App\Models\FinalProductChoice')) {
+        // $finalChoice = FinalProductChoice::where('respondent_id', $respondentId)->first();
+        //     $finalProductSelected = !is_null($finalChoice);
+        // }
 
         // Determine where to redirect
         $redirectUrl = route('market');
@@ -110,7 +111,7 @@ class ProductRatingController extends Controller
             return response()->json(['rated_products' => []]);
         }
 
-        $ratedProducts = ProductRating::where('respondent_id', $respondentId)
+        $ratedProducts = PostTest::where('respondent_id', $respondentId)
                                     ->pluck('product_name')
                                     ->toArray();
 
