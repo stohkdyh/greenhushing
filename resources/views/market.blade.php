@@ -43,7 +43,32 @@
                 </button>
             </div>
         </div>
-        
+
+        <!-- Market Gate Modal -->
+        <div id="market-gate-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-12 text-center">
+                <h2 class="text-xl font-bold text-gray-900 mb-2">{{ __('Logo Stimulus Information') }}</h2><br>
+                <p class="text-gray-600 mb-6 text-justify">
+                    {{ __('In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.') }}
+                </p>
+                <div class="flex justify-center items-center gap-10 mb-5">
+                    <div class="flex flex-col items-center">
+                        <img src="{{ asset('images/logo_palsu.png') }}" alt="Logo A"
+                            class="w-32 h-32 object-contain mb-2">
+                        <span class="font-semibold">{!! nl2br(e(__('Authentic logo Logo A'))) !!}</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="{{ asset('images/logoclaimzeno.png') }}" alt="Logo B"
+                            class="w-32 h-32 object-contain mb-2">
+                        <span class="font-semibold">{!! nl2br(e(__('Non-authentic logo Logo B'))) !!}</span>
+                    </div>
+                </div>
+                <button onclick="closeMarketGateModal()"
+                    class="bg-[#303F8E] text-white px-6 py-2 rounded-lg hover:bg-[#263272] mt-6 transition-colors">
+                    {{ __('I Understand') }}
+                </button>
+            </div>
+        </div>
 
         <main>
             <!-- Mobile/Tablet Layout -->
@@ -383,16 +408,16 @@
 
                     <div class="grid grid-cols-2 gap-6 mb-6">
                         ${ratedProducts.map(product => `
-                                            <div> 
-                                                <button onclick="preSelectFinalProduct('${product}')" 
-                                                    id="product-option-${product}"
-                                                    class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200 ${selectedFinalProduct === product ? 'ring-2 ring-purple-500 bg-purple-50' : ''}">
-                                                    <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
-                                                    <p class="font-medium capitalize">${product}</p>
-                                                </button>
-                                                <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
-                                            </div>
-                                        `).join('')}
+                                                <div> 
+                                                    <button onclick="preSelectFinalProduct('${product}')" 
+                                                        id="product-option-${product}"
+                                                        class="final-product-option w-full p-4 border rounded-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-200 ${selectedFinalProduct === product ? 'ring-2 ring-purple-500 bg-purple-50' : ''}">
+                                                        <img src="${getProductImagePath(product)}" class="w-20 h-20 object-contain mx-auto mb-2" alt="${product}">
+                                                        <p class="font-medium capitalize">${product}</p>
+                                                    </button>
+                                                    <a href="/${product}" class="text-sm text-blue-600 hover:underline block mt-1">{{ __('View Product Details') }}</a>
+                                                </div>
+                                            `).join('')}
                     </div>
 
                     <div class="mt-6">
@@ -631,10 +656,21 @@
             }
         };
 
-        // Tampilkan modal saat halaman dimuat
         document.addEventListener('DOMContentLoaded', function() {
-            document.body.style.overflow = 'hidden'; // Cegah scroll saat modal tampil
-            document.getElementById('market-gate-modal').classList.remove('hidden');
+            // Cek apakah user sudah pernah mengunjungi halaman ini sebelumnya
+            const hasVisitedMarket = localStorage.getItem('has_visited_market');
+
+            if (!hasVisitedMarket) {
+                // Ini adalah kunjungan pertama, tampilkan modal
+                document.body.style.overflow = 'hidden'; // Cegah scroll saat modal tampil
+                document.getElementById('market-gate-modal').classList.remove('hidden');
+
+                // Tandai bahwa user sudah mengunjungi halaman ini
+                localStorage.setItem('has_visited_market', 'true');
+            } else {
+                // User sudah pernah mengunjungi, sembunyikan modal
+                document.getElementById('market-gate-modal').classList.add('hidden');
+            }
         });
 
         function closeMarketGateModal() {

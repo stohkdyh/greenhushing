@@ -43,8 +43,10 @@
                                 d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h2 class="text-3xl font-bold mb-4 text-center text-[#303F8E]">{{ __('Welcome') }}</h2>
-                    <p class="text-gray-700 text-center text-base sm:text-lg">{{ __('Permission') }}</p>
+                    <h2 class="text-2xl font-bold mb-4 text-[#303F8E]">{{ __('Participant Consent Form') }} </h2>
+                    <p class="text-gray-700 text-lg/5 mb-6 px-5 text-justify">
+                        {!! nl2br(e(__('Permission'))) !!}
+                    </p>
                 </div>
 
                 <!-- Page 2: Instruction -->

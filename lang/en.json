@@ -593,9 +593,9 @@
     "Back" : "Back",
 
     "Logo Stimulus Information" : "Logo Stimulus Information",
-    "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.",
+    "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "In this study, you will be presented with two different logos. One is classified as the Authentic logo by an independent assessor, whereas the other is identified as the Fake logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding.",
     "Authentic logo Logo A" : "Authentic logo\nLogo A",
-    "Non-authentic logo Logo B" : "Non-authentic logo\nLogo B",
+    "Non-authentic logo Logo B" : "Fake logo\nLogo B",
     "I Understand" : "I Understand",
 
     "I have read and understood the instructions" : "I have read and understood the instructions",

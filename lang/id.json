@@ -615,9 +615,9 @@
     "Back" : "Kembali",
     
     "Logo Stimulus Information" : "Informasi Stimulus Logo",
-    "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "Dalam studi ini, Anda akan disajikan dua logo yang berbeda. Satu diklasifikasikan sebagai logo Otentik, sedangkan yang lainnya diidentifikasi sebagai logo Non-otentik. Untuk kejelasan, logo-logo tersebut akan diberi label sebagai Logo A dan Logo B. Mohon periksa kedua logo tersebut dengan cermat sebelum melanjutkan.",
-    "Authentic logo Logo A" : "Logo Otentik\nLogo A",
-    "Non-authentic logo Logo B" : "Logo Non-otentik\nLogo B",
+    "In this study, you will be presented with two different logos. One is classified as the Authentic logo, whereas the other is identified as the Non-authentic logo. For clarity, the logos will be labeled as Logo A and Logo B. Kindly examine both logos carefully before proceeding." : "Dalam studi ini, Anda akan disajikan dua logo yang berbeda. Satu diklasifikasikan sebagai logo Otentik oleh penilai independen, sedangkan yang lainnya diidentifikasi sebagai logo Palsu. Untuk kejelasan, logo-logo tersebut akan diberi label sebagai Logo A dan Logo B. Mohon periksa kedua logo tersebut dengan cermat sebelum melanjutkan.",
+    "Authentic logo Logo A" : "Logo Asli\nLogo A",
+    "Non-authentic logo Logo B" : "Logo Palsu\nLogo B",
     "I Understand" : "Saya Mengerti",
 
     "I have read and understood the instructions" : "Saya telah membaca dan memahami instruksi",
