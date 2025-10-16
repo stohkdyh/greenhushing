@@ -45,7 +45,7 @@
         </div>
 
         <!-- Market Gate Modal -->
-        <div id="market-gate-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        {{-- <div id="market-gate-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
             <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-12 text-center">
                 <h2 class="text-xl font-bold text-gray-900 mb-2">{{ __('Logo Stimulus Information') }}</h2><br>
                 <p class="text-gray-600 mb-6 text-justify">
@@ -68,7 +68,7 @@
                     {{ __('I Understand') }}
                 </button>
             </div>
-        </div>
+        </div> --}}
 
         <main>
             <!-- Mobile/Tablet Layout -->
@@ -656,27 +656,27 @@
             }
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cek apakah user sudah pernah mengunjungi halaman ini sebelumnya
-            const hasVisitedMarket = localStorage.getItem('has_visited_market');
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Cek apakah user sudah pernah mengunjungi halaman ini sebelumnya
+        //     const hasVisitedMarket = localStorage.getItem('has_visited_market');
 
-            if (!hasVisitedMarket) {
-                // Ini adalah kunjungan pertama, tampilkan modal
-                document.body.style.overflow = 'hidden'; // Cegah scroll saat modal tampil
-                document.getElementById('market-gate-modal').classList.remove('hidden');
+        //     if (!hasVisitedMarket) {
+        //         // Ini adalah kunjungan pertama, tampilkan modal
+        //         document.body.style.overflow = 'hidden'; // Cegah scroll saat modal tampil
+        //         document.getElementById('market-gate-modal').classList.remove('hidden');
 
-                // Tandai bahwa user sudah mengunjungi halaman ini
-                localStorage.setItem('has_visited_market', 'true');
-            } else {
-                // User sudah pernah mengunjungi, sembunyikan modal
-                document.getElementById('market-gate-modal').classList.add('hidden');
-            }
-        });
+        //         // Tandai bahwa user sudah mengunjungi halaman ini
+        //         localStorage.setItem('has_visited_market', 'true');
+        //     } else {
+        //         // User sudah pernah mengunjungi, sembunyikan modal
+        //         document.getElementById('market-gate-modal').classList.add('hidden');
+        //     }
+        // });
 
-        function closeMarketGateModal() {
-            document.getElementById('market-gate-modal').classList.add('hidden');
-            document.body.style.overflow = ''; // Aktifkan scroll kembali
-        }
+        // function closeMarketGateModal() {
+        //     document.getElementById('market-gate-modal').classList.add('hidden');
+        //     document.body.style.overflow = ''; // Aktifkan scroll kembali
+        // }
 
         const startTime = Date.now();
 

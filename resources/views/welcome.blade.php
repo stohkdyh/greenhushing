@@ -67,6 +67,18 @@
                     <p class="text-gray-700 whitespace-pre-line text-base sm:text-lg mt-4">
                         {{ __('InstructionText') }}
                     </p>
+                    <div class="flex justify-center items-center text-center gap-10 mb-5 font">
+                        <div class="flex flex-col items-center">
+                            <img src="{{ asset('images/logo_palsu.png') }}" alt="Logo A"
+                                class="w-24 h-24 object-contain mb-2">
+                            <span>{!! nl2br(e(__('Authentic logo Logo A'))) !!}</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="{{ asset('images/logoclaimzeno.png') }}" alt="Logo B"
+                                class="w-24 h-24 object-contain mb-2">
+                            <span>{!! nl2br(e(__('Non-authentic logo Logo B'))) !!}</span>
+                        </div>
+                    </div>
                     <!-- Checkbox Finish -->
                     <div class="mt-6 flex flex-col" id="checkboxContainer">
                         <label class="flex items-center gap-3 text-gray-700">
@@ -214,7 +226,7 @@
         function showPage(index) {
             pages.forEach((page, i) => page.classList.toggle('hidden', i !== index));
             pages[index].scrollTop = 0;
-            btnPrev.classList.toggle('hidden', index === 0);
+            // btnPrev.classList.toggle('hidden', index === 0);
 
             if (index === pages.length - 1) {
                 const checkbox = document.getElementById('instructionCheck');
