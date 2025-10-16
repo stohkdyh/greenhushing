@@ -143,8 +143,6 @@ Route::post('/product-type', [ProductTypeController::class, 'store'])->name('pro
 
 // Add this to your routes file
 Route::get('/post-test/completed', [PostTestController::class, 'getCompletedPostTests'])->name('posttest.completed');
-Route::post('/track-time', [TimeTrackingController::class, 'storeTime'])
-    ->name('track.time')
-    ->middleware('web');
+Route::post('/track-time', [TimeTrackingController::class, 'storeTime'])->name('track.time');
 
 require __DIR__.'/auth.php';

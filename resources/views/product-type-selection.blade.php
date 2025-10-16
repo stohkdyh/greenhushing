@@ -74,6 +74,19 @@
                 this.value = this.value.toUpperCase();
             });
         });
+
+        const startTime = Date.now();
+
+        window.addEventListener('unload', function() {
+            const totalSeconds = Math.floor((Date.now() - startTime) / 1000);
+
+            // Gunakan FormData agar kompatibel penuh dengan sendBeacon
+            const data = new FormData();
+            data.append('total_time_seconds', totalSeconds);
+            data.append('_token', '{{ csrf_token() }}');
+
+            navigator.sendBeacon("{{ route('track.time') }}", data);
+        });
     </script>
 </body>
 

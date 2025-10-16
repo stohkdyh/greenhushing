@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 class RespondentController extends Controller
 {
-
     public function index()
     {
         return view('respondents.index');
     }
-
 
     public function store(Request $request)
     {
@@ -24,18 +22,13 @@ class RespondentController extends Controller
             'GPA' => 'required|numeric|between:0,4.0',
             'work_experience' => 'required|in:none,<6_months,6-12_months,1-2_years,>2_years',
             'last_education' => 'required|in:senior_high,diploma,bachelor,master,doctoral',
-            'product_type' => 'in:Greenwashing,Greenhushing',
-            'time_completion' => 'integer|min:1',
         ]);
 
-        // Create the respondent
         $respondent = Respondent::create($validated);
 
-        // Store respondent ID in session
+        // Simpan ID ke session
         session(['respondent_id' => $respondent->id]);
 
-        // Redirect to your main application (e.g., pre-test)
         return redirect()->route('pretest.create');
     }
 }
-

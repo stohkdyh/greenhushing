@@ -64,8 +64,11 @@ class ProductTypeController extends Controller
         $respondent->save();
 
         // Store product type and products to show in session for easy access throughout the app
-        session(['product_type' => $productType]);
-        session(['products_to_show' => $productsToShow]);
+        session([
+            'product_type' => $productType,
+            'products_to_show' => $productsToShow,
+            'timer_start' => now(), // <--- Mulai timer di sini
+        ]);
 
         // Redirect to the pre-test or next step
         return redirect()->route('pretest.show');

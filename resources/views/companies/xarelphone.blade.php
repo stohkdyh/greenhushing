@@ -30,3 +30,19 @@ $navLinks = [
     @include('xarelphone.overview.footer')
     <x-floating-news-button product="xarelphone" />
 @endsection
+
+@push('scripts')
+<script>
+    const startTime = Date.now();
+
+    window.addEventListener('unload', function() {
+        const totalSeconds = Math.floor((Date.now() - startTime) / 1000);
+
+        const data = new FormData();
+        data.append('total_time_seconds', totalSeconds);
+        data.append('_token', '{{ csrf_token() }}');
+
+        navigator.sendBeacon("{{ route('track.time') }}", data);
+    });
+</script>
+@endpush

@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>@yield('title', config('app.name', 'TERRANEWS'))</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
@@ -27,6 +26,7 @@
             </div>
         </div>
 
+        {{-- Post-test section --}}
         <div class="my-6 px-4 py-4 bg-blue-50 rounded-lg border border-blue-200">
             <div class="flex items-center mb-3">
                 <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
@@ -41,15 +41,16 @@
             <p class="text-blue-700 mb-3">
                 {{ __('Now that you have read about this product, please complete the product evaluation by clicking the button below.') }}
             </p>
-            <a href="{{ route('posttest.show', ['productName' => $product]) }}"
+            <a href="{{ route('posttest.show', ['productName' => $product ?? 'unknown']) }}"
                 class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors">
-                {{ __('Complete Post-Test for') }} {{ ucfirst($product) }}
+                {{ __('Complete Post-Test for') }} {{ ucfirst($product ?? '') }}
             </a>
         </div>
     </main>
 
-    @stack('scripts')
-    <x-floating-rating-button :product="$product" />
-</body>
+    {{-- Floating Rating Button --}}
+    <x-floating-rating-button :product="$product ?? ''" />
 
+    @stack('scripts')
+</body>
 </html>

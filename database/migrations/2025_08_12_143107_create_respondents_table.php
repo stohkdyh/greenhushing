@@ -34,7 +34,7 @@ return new class extends Migration
             ]);
             $table->enum('product_type', ['Greenwashing', 'Greenhushing'])->nullable();
             $table->string('final_product')->nullable();
-            $table->time('time_completion')->nullable();
+            $table->integer('time_completion')->nullable();
             $table->timestamps();
         });
     }
