@@ -26,24 +26,27 @@
                 <p class="text-white/70 mb-4 text-sm">{{ $newsletterDesc }}</p>
 
                 <!-- Form -->
-                <form action="#" class="flex items-center gap-3">
-                    <input 
-                        type="email" 
-                        placeholder="{{ __('Enter your email') }}"
-                        class="flex-1 px-3 py-2 bg-transparent 
-                            !border-0 !border-b !border-b-white/60 
-                            text-white placeholder-white/50 placeholder:text-sm 
-                            focus:outline-none focus:!border-b-[#112F1A] transition" />
+                <fieldset disabled>
+                    <form action="#" class="flex items-center gap-3">
+                        <input 
+                            type="email" 
+                            placeholder="{{ __('Enter your email') }}"
+                            class="flex-1 px-3 py-2 bg-transparent 
+                                !border-0 !border-b !border-b-white/60 
+                                text-white placeholder-white/50 placeholder:text-sm 
+                                focus:outline-none focus:!border-b-[#112F1A] transition" />
 
-                    <button 
-                        type="submit"
-                        class="px-5 py-2 rounded-3xl text-sm font-medium text-white 
-                            border border-white/60 bg-white/10 
-                            hover:bg-[#112F1A] hover:border-[#112F1A] 
-                            hover:text-white transition">
-                        {{ __('Sign Up') }}
-                    </button>
-                </form>
+                        <button 
+                            type="button"
+                            disabled
+                            class="px-5 py-2 rounded-3xl text-sm font-medium text-white 
+                                border border-white/30 bg-white/20 
+                                opacity-50 cursor-not-allowed
+                                transition">
+                            {{ __('Sign Up') }}
+                        </button>
+                    </form>
+                </fieldset>
             </div>
         </div>
 
