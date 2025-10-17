@@ -26,25 +26,18 @@
 
     <!-- Modal Multi-Page Consent -->
     <div id="consentModal" class="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
-        <!-- Overlay Gelap + Blur -->
         <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
-        <!-- Konten Modal -->
         <div
             class="relative bg-white rounded-3xl shadow-2xl w-[90%] sm:w-[70%] md:w-[50%] max-h-[80vh] overflow-hidden pointer-events-auto flex flex-col z-50">
-            <!-- Pages Container -->
             <div id="modalPages" class="flex-1 overflow-y-auto scroll-smooth px-6 py-4">
 
                 <!-- Page 1: Welcome -->
                 <div class="modal-page flex flex-col items-center">
                     <div class="flex justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-[#303F8E]" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2l4-4m5 2a9 9 0 11-18 0a9 9 0 0118 0z" />
-                        </svg>
+                        @include('components.icon.check-circle')
                     </div>
                     <h2 class="text-2xl font-bold mb-4 text-[#303F8E]">{{ __('Participant Consent Form') }} </h2>
-                    <p class="text-gray-700 text-lg/5 mb-6 px-5 text-justify">
+                    <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6 px-5 text-justify">
                         {!! nl2br(e(__('Permission'))) !!}
                     </p>
                 </div>
