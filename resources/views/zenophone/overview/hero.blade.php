@@ -13,7 +13,7 @@
             <img src="{{ asset('images/zenqo_mockup.webp') }}"
                 alt="Zenqophone Mockup"
                 class="absolute 
-                       top-[320px] sm:top-[380px] md:top-[320px] lg:top-[220px]
+                       top-[320px] sm:top-[250px] md:top-[180px] lg:top-[150px]
                        left-1/2 -translate-x-1/2 
                        w-[115%] sm:w-[110%] md:w-[100%] lg:w-[95%]
                        scale-100 sm:scale-[1.1] md:scale-[1.2] lg:scale-[1.25]
@@ -21,7 +21,7 @@
 
             <!-- Teks -->
             <div class="absolute inset-0 flex flex-col items-center justify-end 
-                        gap-4 sm:gap-6 md:gap-8 lg:gap-10 pb-[16%] lg:pb-[3%] text-center text-white z-10">
+                        gap-4 sm:gap-6 md:gap-8 lg:gap-10 pb-[16%] md:pb-[1%] lg:pb-[0%] text-center text-white z-10">
                 
                 <h1 class="text-2xl sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[80px] font-bold drop-shadow font-barlow">
                     The Future of Smart

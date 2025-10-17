@@ -75,6 +75,7 @@
         "5.9 million devices and accessories were sent to new owners for reuse in 2024." : "5,9 juta perangkat dan aksesori dikirim ke pemilik baru untuk digunakan kembali di tahun 2024.",
         "Lower-Carbon Shipping" : "Pengiriman Rendah Karbon",
         "50% or more of carbon-neutral Onephone products will be shipped using lower-carbon methods like ocean freight." : "50% atau lebih produk Onephone netral karbon akan dikirim menggunakan metode rendah karbon seperti angkutan laut.",
+        "Assurance by Independent Third Parties" : "Jaminan dari Pihak Ketiga yang Independen",
         "Onephone Newsletter" : "Buletin Onephone",
         "Xarelphone Newsletter" : "Buletin Xarelphone",
         "Zenophone Newsletter" : "Buletin Zenophone",
@@ -314,7 +315,7 @@
     "water and dust resistance": "ketahanan terhadap air dan debu",
     "with demonstrations showing the phone surviving exposure to both rain and sandy environments.": "dengan demonstrasi yang menunjukkan ponsel bertahan dari paparan hujan dan lingkungan berpasir.",
     "By Martha Stewart": "Oleh Martha Stewart",
-       "According to a review by": "Menurut ulasan oleh",
+    "According to a review by": "Menurut ulasan oleh",
     "an independent watchdog group, XarelTech has": "sebuah kelompok pengawas independen, XarelTech tidak memiliki",
     "no third-party eco-label certifications": "sertifikasi label ramah lingkungan pihak ketiga",
     "listed, either nationally or internationally. Furthermore, the company received a": "yang terdaftar, baik secara nasional maupun internasional. Selain itu, perusahaan menerima",
@@ -621,6 +622,6 @@
     "I Understand" : "Saya Mengerti",
 
     "I have read and understood the instructions" : "Saya telah membaca dan memahami instruksi",
-    "Please check the box first" : "Harap centang kotak terlebih dahulu"
+    "Please check the box to enable Finish." : "Harap centang kotak terlebih dahulu"
 
 }
