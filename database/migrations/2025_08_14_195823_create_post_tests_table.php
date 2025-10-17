@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('intention_to_buy')->nullable();
             
             // For post-test questions (pt_q1 to pt_q31)
-            for ($i = 1; $i <= 31; $i++) {
+            for ($i = 1; $i <= 40; $i++) {
                 $table->integer("pt_q$i")->nullable();
             }
             

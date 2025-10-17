@@ -20,7 +20,8 @@ class PostTest extends Model
         'pt_q16', 'pt_q17', 'pt_q18', 'pt_q19', 'pt_q20',
         'pt_q21', 'pt_q22', 'pt_q23', 'pt_q24', 'pt_q25',
         'pt_q26', 'pt_q27', 'pt_q28', 'pt_q29', 'pt_q30',
-        'pt_q31'
+        'pt_q31', 'pt_q30', 'pt_q32', 'pt_q33', 'pt_q34', 'pt_q35',
+        'pt_q36', 'pt_q37', 'pt_q38', 'pt_q39', 'pt_q40'
     ];
     
     protected $casts = [

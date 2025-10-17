@@ -66,7 +66,7 @@
 
             @if(isset($questions['manipulation']))
             <div class="mb-8">
-                <h2 class="text-lg font-bold text-purple-800 mb-4 border-b pb-2">{{ __('Product Perception Questions') }}</h2>
+                <h2 class="text-lg font-bold text-purple-800 mb-4 border-b pb-2">{{ __('Yes/No Questions') }}</h2>
 
                 @foreach($questions['manipulation'] as $key => $text)
                 <div class="relative bg-purple-50 rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6 question-card border border-purple-200"
