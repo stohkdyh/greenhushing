@@ -13,17 +13,25 @@
 <body class="bg-white min-h-screen flex flex-col">
     <!-- Navbar -->
     <header
-        class="flex fixed top-0 left-0 right-0 justify-between items-center px-14 py-2 bg-white bg-opacity-40 backdrop-blur-md shadow-md z-50">
-        <div class="flex items-center gap-8">
-            <h1 class="font-bold text-xl">{{ __('Post-Test') }}: {{ $displayName }}</h1>
+        class="flex fixed top-0 left-0 right-0 justify-between items-center 
+            px-6 sm:px-14 py-2 bg-white bg-opacity-40 backdrop-blur-md 
+            shadow-md z-50">
+        <div class="flex items-center gap-6 sm:gap-8">
+            <h1 class="font-bold text-base sm:text-xl">
+                {{ __('Post-Test') }}: {{ $displayName }}
+            </h1>
         </div>
 
         <!-- Kanan: Logo + Language Switch -->
         <div class="flex items-center gap-4">
             <x-languange-switch class="h-full px-0" />
-            <div class="flex items-center gap-3 px-3 py-1 rounded-full">
-                <img src="{{ asset('images/logo_uny.png') }}" alt="Logo UNY" class="w-11 h-11">
-                <img src="{{ asset('images/logo_nucb.png') }}" alt="Logo NUCB" class="w-11 h-11">
+            <div class="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-1 rounded-full">
+                <img src="{{ asset('images/logo_uny.png') }}" 
+                    alt="Logo UNY" 
+                    class="w-8 h-8 sm:w-11 sm:h-11 transition-all duration-200">
+                <img src="{{ asset('images/logo_nucb.png') }}" 
+                    alt="Logo NUCB" 
+                    class="w-8 h-8 sm:w-11 sm:h-11 transition-all duration-200">
             </div>
         </div>
     </header>
