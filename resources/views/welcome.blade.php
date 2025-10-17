@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-no-repeat bg-center bg-cover text-[#1b1b18] flex flex-col items-center min-h-screen"
+<body class="bg-no-repeat bg-center bg-cover text-[#1b1b18] flex flex-col items-center min-h-screen pt-20"
     style="background-image: url('{{ asset('images/welcome_bg.jpg') }}');">
 
     <!-- Logo Top -->
