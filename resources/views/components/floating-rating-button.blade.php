@@ -30,7 +30,7 @@
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
         </svg>
-        <span id="success-text">{{ __('Redirecting to post-test...') }}</span>
+        <span id="success-text">{{ __('Redirecting to next page...') }}</span>
     </div>
 </div>
 
@@ -51,7 +51,7 @@
                     }, 1500);
                 } else {
                     // Not rated yet, go to post-test
-                    showSuccessMessage('{{ __('Redirecting to post-test...') }}');
+                    showSuccessMessage('{{ __('Redirecting to next page...') }}');
                     
                     setTimeout(() => {
                         window.location.href = `/post-test/${product}`;
