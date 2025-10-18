@@ -680,7 +680,7 @@
 
         const startTime = Date.now();
 
-        window.addEventListener('unload', function() {
+        window.addEventListener('visibilitychange', function() {
             const totalSeconds = Math.floor((Date.now() - startTime) / 1000);
 
             // Gunakan FormData agar kompatibel penuh dengan sendBeacon

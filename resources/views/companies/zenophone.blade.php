@@ -42,7 +42,7 @@ $navLinks = [
 <script>
     const startTime = Date.now();
 
-    window.addEventListener('unload', function() {
+    window.addEventListener('visibilitychange', function() {
         const totalSeconds = Math.floor((Date.now() - startTime) / 1000);
 
         const data = new FormData();
