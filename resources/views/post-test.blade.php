@@ -202,7 +202,7 @@
                     hover:bg-green-500 focus:ring-2 focus:ring-green-400 focus:outline-none 
                     disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed
                     transition-all duration-300 ease-in-out"
-                disabled>
+                >
                 {{ __('Submit') }}
             </button>
         </div>
@@ -246,7 +246,7 @@
                     questionsRemaining.className = 'text-sm font-medium text-gray-700';
                 }
 
-                submitBtn.disabled = answeredCount !== totalQuestions;
+                // submitBtn.disabled = answeredCount !== totalQuestions;
                 updateQuestionCards();
             }
 
@@ -287,7 +287,7 @@
             submitBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 if (answeredQuestions.size === totalQuestions) {
-                    submitBtn.disabled = true;
+                    // submitBtn.disabled = true;
                     submitBtn.innerHTML =
                         '{{ __('Submitting...') }} <span class="ml-1 inline-block animate-spin">⟳</span>';
                     form.submit();
@@ -300,7 +300,7 @@
                             card.classList.add('ring-2', 'ring-red-300', 'animate-pulse');
                             setTimeout(() => {
                                 card.classList.remove('ring-2', 'ring-red-300', 'animate-pulse');
-                            }, 1500);
+                            }, 5000);
                         }
                     });
                 }

@@ -85,7 +85,6 @@ Route::get('/market', function () {
             ->with('error', 'Please select your access code first.');
     }
     
-    // Add product_type to view data
     $productType = session('product_type', 'Unknown');
     
     return view('market', compact('products', 'productType'));
@@ -134,14 +133,12 @@ Route::get('/reset', function () {
     return redirect()->route('welcome')->with('success', __('Session reset. Please complete your profile.'));
 })->name('session.reset');
 
-// Add this route
 Route::get('/product/has-rated', [ProductRatingController::class, 'hasRated'])
     ->name('product.has.rated');
 
 Route::get('/product-type', [ProductTypeController::class, 'show'])->name('product.type.show');
 Route::post('/product-type', [ProductTypeController::class, 'store'])->name('product.type.store');
 
-// Add this to your routes file
 Route::get('/post-test/completed', [PostTestController::class, 'getCompletedPostTests'])->name('posttest.completed');
 Route::post('/track-time', [TimeTrackingController::class, 'storeTime'])->name('track.time');
 

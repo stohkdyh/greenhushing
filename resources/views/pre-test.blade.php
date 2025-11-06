@@ -110,8 +110,7 @@
             class="bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium 
                 hover:bg-green-500 focus:ring-2 focus:ring-green-400 focus:outline-none 
                 disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed
-                transition-all duration-300 ease-in-out"
-            disabled>
+                transition-all duration-300 ease-in-out">
             {{ __('Submit') }}
         </button>
     </div>
@@ -134,7 +133,7 @@
                 progressBar.style.width = progressPercentage + '%';
                 progressText.textContent = `${answeredCount}/${totalQuestions} {{ __('answered') }}`;
 
-                submitBtn.disabled = answeredCount !== totalQuestions;
+                // submitBtn.disabled = answeredCount !== totalQuestions;
                 updateQuestionCards();
             }
 
@@ -160,19 +159,85 @@
             });
 
             submitBtn.addEventListener('click', function(e) {
+                const target = findFirstUnanswered(form);
                 e.preventDefault();
                 if (answeredQuestions.size === totalQuestions) {
-                    submitBtn.disabled = true;
+                    // submitBtn.disabled = true;
                     submitBtn.textContent = '{{ __('Submitting...') }}';
                     form.submit();
                 } else {
+                    highlightAndScroll(target);
                     alert('{{ __('Please answer all questions before submitting.') }}');
                 }
             });
 
             updateProgress();
+            // });
+
+            // form.addEventListener('submit', function(e) {
+            //     const target = findFirstUnanswered(form);
+            //     if (target) {
+            //         e.preventDefault();
+            //         highlightAndScroll(target);
+            //     }
+            // });
+
+            function findFirstUnanswered(formEl) {
+                // 1) Tangani input required non-radio/checkbox
+                const requiredFields = formEl.querySelectorAll(
+                    'input[required]:not([type="radio"]):not([type="checkbox"]), select[required], textarea[required]'
+                );
+                for (const el of requiredFields) {
+                    const val = (el.value || '').toString().trim();
+                    if (!val) return closestCard(el);
+                }
+
+                // 2) Tangani grup radio/checkbox (pre-test biasanya q1..qN)
+                const radios = Array.from(formEl.querySelectorAll('input[type="radio"], input[type="checkbox"]'));
+                const groups = new Map();
+                radios.forEach(r => {
+                    if (!r.name) return;
+                    const isTracked = r.required || /^q\d+/i.test(r.name);
+                    if (!isTracked) return;
+                    if (!groups.has(r.name)) groups.set(r.name, []);
+                    groups.get(r.name).push(r);
+                });
+
+                for (const [name, group] of groups.entries()) {
+                    if (!group.some(r => r.checked)) {
+                        return closestCard(group[0]);
+                    }
+                }
+
+                return null;
+            }
+
+            function closestCard(el) {
+                return el.closest('[data-question]') || el.closest('.question-card') || el;
+            }
+
+            function highlightAndScroll(target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // Tambah highlight (Tailwind-friendly). Fallback inline kalau Tailwind tidak ada.
+                target.classList.add('ring-', 'ring-red-500', 'animate-pulse');
+                target.style.outline = '2px solid #ef4444';
+                target.style.borderRadius = 'calc(infinity * 1px)';
+
+                const firstInput = target.querySelector('input, select, textarea');
+                if (firstInput) firstInput.focus();
+
+                setTimeout(() => {
+                    target.classList.remove('ring-4', 'ring-red-500', 'animate-pulse');
+                    target.style.outline = '';
+                }, 6000);
+            }
         });
     </script>
 
 </body>
+
 </html>
