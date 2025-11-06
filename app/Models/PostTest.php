@@ -25,7 +25,7 @@ class PostTest extends Model
     ];
     
     protected $casts = [
-        'manipulation_answers' => 'array',
+        'manipulation_answers' => 'string',
     ];
 
     public function respondent()

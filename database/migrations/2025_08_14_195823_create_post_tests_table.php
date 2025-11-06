@@ -25,7 +25,7 @@ return new class extends Migration
             }
             
             // Store manipulation check responses
-            $table->json('manipulation_answers')->nullable();
+            $table->text('manipulation_answers')->nullable();
             
             $table->timestamps();
             

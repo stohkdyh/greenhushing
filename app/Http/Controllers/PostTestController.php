@@ -120,10 +120,10 @@ class PostTestController extends Controller
             $manipulationCount = 4;
             
             for ($i = 1; $i <= $manipulationCount; $i++) {
-                $manipulationAnswers["q$i"] = $validated["mc_q$i"];
+                $manipulationAnswers[] = $validated["mc_q$i"];
             }
-            
-            $postTestData['manipulation_answers'] = json_encode($manipulationAnswers);
+
+            $postTestData['manipulation_answers'] = implode(', ', $manipulationAnswers);
         }
 
         // Create post-test record
