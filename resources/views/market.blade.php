@@ -521,7 +521,7 @@
         function getProductImagePath(productName) {
             // Map product names to their image paths
             const imageMap = {
-                'onephone': '{{ asset('images/market_one.png') }}',
+                'onephone': '{{ asset('images/market_one_edited.webp') }}',
                 'neuphone': '{{ asset('images/market_neu.png') }}',
                 'xarelphone': '{{ asset('images/market_xarel.png') }}',
                 'zenophone': '{{ asset('images/market_zeno.png') }}'
