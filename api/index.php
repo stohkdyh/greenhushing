@@ -14,9 +14,21 @@ if (!is_dir($storagePath)) {
 $_ENV['VIEW_COMPILED_PATH'] = "$storagePath/framework/views";
 $_SERVER['VIEW_COMPILED_PATH'] = "$storagePath/framework/views";
 
-require __DIR__ . '/../public/index.php';
+define('LARAVEL_START', microtime(true));
 
-// Tell the application to use the custom storage path
-$app = app();
+// Determine if the application is in maintenance mode...
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+// Register the Composer autoloader...
+require __DIR__.'/../vendor/autoload.php';
+
+// Bootstrap Laravel
+$app = require_once __DIR__.'/../bootstrap/app.php';
+
+// Tell the application to use the custom storage path for Vercel
 $app->useStoragePath($storagePath);
 
+// Handle the request...
+$app->handleRequest(Illuminate\Http\Request::capture());
