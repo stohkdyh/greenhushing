@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class floating-rating-button extends Component
+class FloatingRatingButton extends Component
 {
     /**
      * Create a new component instance.
