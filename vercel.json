@@ -20,6 +20,14 @@
             "dest": "/public/assets/$1"
         },
         {
+            "src": "/images/(.*)",
+            "dest": "/public/images/$1"
+        },
+        {
+            "src": "/videos/(.*)",
+            "dest": "/public/videos/$1"
+        },
+        {
             "src": "/css/(.*)",
             "dest": "/public/css/$1"
         },
